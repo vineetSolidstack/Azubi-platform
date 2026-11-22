@@ -1,0 +1,14 @@
+[
+  { "id": "ms-01", "value": 20.0, "difficulty": 1, "status": "draft" },
+  { "id": "ms-02", "value": 35.0, "difficulty": 1, "status": "draft" },
+  { "id": "ms-03", "value": 8.5, "difficulty": 1, "status": "draft" },
+  { "id": "ms-04", "value": 14.5, "difficulty": 2, "status": "draft" },
+  { "id": "ms-05", "value": 23.1, "difficulty": 2, "status": "draft" },
+  { "id": "ms-06", "value": 41.3, "difficulty": 2, "status": "draft" },
+  { "id": "ms-07", "value": 7.25, "difficulty": 3, "status": "draft" },
+  { "id": "ms-08", "value": 18.75, "difficulty": 3, "status": "draft" },
+  { "id": "ms-09", "value": 52.05, "difficulty": 3, "status": "draft" },
+  { "id": "ms-10", "value": 36.95, "difficulty": 4, "status": "draft" },
+  { "id": "ms-11", "value": 64.35, "difficulty": 4, "status": "draft" },
+  { "id": "ms-12", "value": 99.65, "difficulty": 4, "status": "draft" }
+]

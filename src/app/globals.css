@@ -62,7 +62,7 @@ pre { background: var(--code-bg); padding: .75rem; border-radius: 8px; overflow-
 .top { display: flex; align-items: center; gap: 1rem; padding: .6rem 1rem; background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; flex-wrap: wrap; }
 .brand { font-weight: 700; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .4rem; }
 .brand-mark { background: var(--brand); color: var(--brand-ink); border-radius: 8px; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; }
-.top nav { display: flex; gap: .25rem; flex: 1; }
+.top nav { display: flex; gap: .25rem; flex: 1 1 auto; flex-wrap: wrap; min-width: 0; }
 .top nav a { padding: .45rem .8rem; border-radius: 8px; text-decoration: none; color: var(--ink); font-weight: 500; }
 .top nav a.active { background: var(--brand-soft); color: var(--brand); }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -274,3 +274,18 @@ input.short { width: 7rem; }
 .worked p { margin: .5rem 0 0; font-size: .92rem; }
 .takeaway { border-left: 4px solid var(--brand); background: var(--brand-soft); padding: .6rem .9rem; border-radius: 0 8px 8px 0; margin-top: 1rem; }
 .mod-head { margin: 1.5rem 0 0; scroll-margin-top: 5rem; }
+
+/* caliper */
+.caliper-scroll { overflow-x: auto; margin: .5rem 0 1rem; }
+.caliper { min-width: 660px; width: 100%; display: block; }
+.c-beam { fill: var(--code-bg); stroke: var(--wire); stroke-width: 1.5; }
+.c-slider { fill: var(--brand-soft); stroke: var(--wire); stroke-width: 1.5; }
+.c-tick { stroke: var(--ink); stroke-width: 1.4; }
+.c-num { font-size: 12px; fill: var(--ink); font-weight: 600; }
+.c-label { font-size: 10px; fill: var(--muted); }
+.c-hit .c-tick { stroke: var(--live); stroke-width: 3; }
+.c-hit .c-num { fill: var(--live); }
+.c-zero .c-tick { stroke: var(--brand); stroke-width: 3; }
+.c-zero-label { font-size: 11px; fill: var(--brand); font-weight: 700; }
+
+.task-title { min-width: 0; overflow-wrap: anywhere; }
