@@ -323,5 +323,97 @@
       "de": "Kernloch ≈ Nenndurchmesser − Steigung. Die genauen Werte stehen im Tabellenbuch.",
       "en": "Core hole ≈ nominal diameter − pitch. The exact values are in the table book."
     }
+  },
+  {
+    "id": "m15-u06-drehen-mehrere-schnitte",
+    "module": "M15",
+    "lernfeld": {
+      "MECH": [
+        2
+      ],
+      "IM": [
+        1,
+        2,
+        5,
+        8
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Schnittwerte sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Drehen in mehreren Schnitten",
+      "en": "Turning in several cuts"
+    },
+    "situation": {
+      "de": "Eine Welle mit d = 80 mm wird auf L = 250 mm Länge in 3 gleichen Schnitten überdreht. Vorgegeben: vc = 180 m/min, f = 0,25 mm. Die Drehzahl wird für alle Schnitte gleich gelassen. Rechne mit π = 3,1416.",
+      "en": "A shaft with d = 80 mm is turned over a length of L = 250 mm in 3 identical cuts. Given: vc = 180 m/min, f = 0.25 mm. The speed is kept the same for all cuts. Use π = 3.1416."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Drehzahl n ergibt sich?",
+          "en": "Which spindle speed n results?"
+        },
+        "unit": "min⁻¹",
+        "answer": 716,
+        "tolerance": 3,
+        "formula": "n = vc · 1000 / (π · d)",
+        "calc": "n = 180 m/min · 1000 / (3.1416 · 80 mm) = 716 min⁻¹",
+        "why": {
+          "de": "Gerechnet wird mit dem Ausgangsdurchmesser.",
+          "en": "The starting diameter is used."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Vorschubgeschwindigkeit vf?",
+          "en": "How large is the feed rate vf?"
+        },
+        "unit": "mm/min",
+        "answer": 179,
+        "tolerance": 1,
+        "formula": "vf = n · f",
+        "calc": "vf = 716 min⁻¹ · 0.25 mm = 179 mm/min",
+        "why": {
+          "de": "Vorschub pro Umdrehung mal Drehzahl.",
+          "en": "Feed per revolution times speed."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lange dauert ein Schnitt?",
+          "en": "How long does one cut take?"
+        },
+        "unit": "min",
+        "answer": 1.4,
+        "tolerance": 0.01,
+        "formula": "th = L / vf",
+        "calc": "th = 250 mm / 179 mm/min = 1.4 min",
+        "why": {
+          "de": "Weg durch Vorschubgeschwindigkeit.",
+          "en": "Travel divided by feed rate."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lange dauern alle drei Schnitte zusammen?",
+          "en": "How long do all three cuts take together?"
+        },
+        "unit": "min",
+        "answer": 4.19,
+        "tolerance": 0.03,
+        "formula": "tges = th · i",
+        "calc": "tges = 1.397 min · 3 = 4.19 min",
+        "why": {
+          "de": "Die Zahl der Schnitte i wird multipliziert. Rechne mit dem ungerundeten Wert weiter, sonst wächst der Rundungsfehler.",
+          "en": "The number of cuts i is multiplied. Continue with the unrounded value, otherwise the rounding error grows."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "th = L · i / (n · f). Runde erst am Ende.",
+      "en": "th = L · i / (n · f). Round only at the end."
+    }
   }
 ]

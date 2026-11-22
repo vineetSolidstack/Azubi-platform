@@ -323,5 +323,94 @@
       "de": "Der Frequenzumrichter ändert die Drehzahl über die Frequenz und führt die Spannung mit (U/f = konstant).",
       "en": "The frequency converter changes the speed via the frequency and adjusts the voltage with it (V/f = constant)."
     }
+  },
+  {
+    "id": "m10-u06-stern-dreieck-anlauf",
+    "module": "M10",
+    "lernfeld": {
+      "EAT": [
+        8
+      ],
+      "MECH": [
+        8
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Motordaten sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Bemessungsstrom und Stern-Dreieck-Anlauf",
+      "en": "Rated current and star-delta start"
+    },
+    "situation": {
+      "de": "Ein Drehstrommotor (400 V, Dreieck) gibt Pab = 15 kW ab. Wirkungsgrad η = 0,9, cos φ = 0,86. Beim direkten Einschalten zieht er das 6-Fache des Bemessungsstroms. Rechne mit √3 = 1,732.",
+      "en": "A three-phase motor (400 V, delta) delivers Pab = 15 kW. Efficiency η = 0.9, cos φ = 0.86. When switched on directly it draws 6 times the rated current. Use √3 = 1.732."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Wirkleistung nimmt der Motor auf?",
+          "en": "Which active power does the motor take in?"
+        },
+        "unit": "W",
+        "answer": 16667,
+        "tolerance": 50,
+        "formula": "Pzu = Pab / η",
+        "calc": "Pzu = 15000 W / 0.9 = 16667 W",
+        "why": {
+          "de": "Die elektrische Leistung muss die Verluste mit abdecken.",
+          "en": "The electrical power has to cover the losses as well."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Bemessungsstrom I?",
+          "en": "How large is the rated current I?"
+        },
+        "unit": "A",
+        "answer": 28,
+        "tolerance": 0.2,
+        "formula": "I = Pzu / (√3 · U · cos φ)",
+        "calc": "I = 16667 W / (1.732 · 400 V · 0.86) = 28 A",
+        "why": {
+          "de": "Die Leistungsformel für Drehstrom wird nach dem Strom umgestellt.",
+          "en": "The power formula for three-phase is rearranged for the current."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Anlaufstrom beim direkten Einschalten?",
+          "en": "How large is the starting current with direct starting?"
+        },
+        "unit": "A",
+        "answer": 168,
+        "tolerance": 1.5,
+        "formula": "IA = 6 · I",
+        "calc": "IA = 6 · 28 A = 168 A",
+        "why": {
+          "de": "Im Stillstand wirkt der Motor fast wie ein Kurzschluss. Der hohe Strom belastet Netz und Schutzorgane.",
+          "en": "At standstill the motor acts almost like a short circuit. The high current stresses the mains and the protective devices."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Anlaufstrom im Netz beim Stern-Dreieck-Anlauf (in der Sternstufe)?",
+          "en": "How large is the starting current in the mains with a star-delta start (in the star stage)?"
+        },
+        "unit": "A",
+        "answer": 56,
+        "tolerance": 0.6,
+        "formula": "IY = IA / 3",
+        "calc": "IY = 168 A / 3 = 56 A",
+        "why": {
+          "de": "In der Sternstufe liegt an jeder Wicklung nur 230 V statt 400 V. Der Strom im Netz und das Drehmoment sinken auf ein Drittel.",
+          "en": "In the star stage each winding only has 230 V instead of 400 V. The mains current and the torque drop to one third."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Stern-Dreieck-Anlauf: ein Drittel Anlaufstrom, aber auch nur ein Drittel Anlaufmoment. Er passt deshalb nur für Antriebe, die leicht anlaufen.",
+      "en": "Star-delta start: one third of the starting current, but also only one third of the starting torque. So it only suits drives that start easily."
+    }
   }
 ]

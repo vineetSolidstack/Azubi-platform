@@ -1,0 +1,135 @@
+[
+  {
+    "id": "m02-u01-messabweichung",
+    "module": "M02",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Messabweichung eines Zeigermessgeräts",
+      "en": "Measurement error of an analog meter"
+    },
+    "situation": {
+      "de": "Ein Spannungsmesser der Genauigkeitsklasse 1,5 wird im Messbereich 300 V benutzt. Die Klasse gibt die größte Abweichung in Prozent vom Messbereichsendwert an.",
+      "en": "A voltmeter of accuracy class 1.5 is used in the 300 V range. The class gives the largest error in percent of the full-scale value."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß kann die Abweichung in Volt höchstens sein?",
+          "en": "How large can the error in volts be at most?"
+        },
+        "unit": "V",
+        "answer": 4.5,
+        "tolerance": 0.01,
+        "formula": "ΔU = Klasse / 100 · Endwert",
+        "calc": "ΔU = 1.5 / 100 · 300 V = 4.5 V",
+        "why": {
+          "de": "Die Abweichung bezieht sich auf den Endwert des Bereichs und ist überall im Bereich gleich groß.",
+          "en": "The error refers to the full-scale value of the range and is the same everywhere in the range."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel Prozent sind das bei einem Messwert von 230 V?",
+          "en": "What percentage is that for a reading of 230 V?"
+        },
+        "unit": "%",
+        "answer": 1.96,
+        "tolerance": 0.02,
+        "formula": "f = ΔU / Messwert · 100 %",
+        "calc": "f = 4.5 V / 230 V · 100 = 1.96",
+        "why": {
+          "de": "Bezogen auf den Messwert ist die Abweichung etwas größer als die Klasse.",
+          "en": "Referred to the reading the error is slightly larger than the class."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel Prozent sind es bei einem Messwert von 30 V im gleichen Bereich?",
+          "en": "What percentage is it for a reading of 30 V in the same range?"
+        },
+        "unit": "%",
+        "answer": 15,
+        "tolerance": 0.1,
+        "formula": "f = ΔU / Messwert · 100 %",
+        "calc": "f = 4.5 V / 30 V · 100 = 15",
+        "why": {
+          "de": "Bei kleinem Ausschlag wird der relative Fehler sehr groß.",
+          "en": "With a small deflection the relative error becomes very large."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Wähle den Messbereich so, dass der Messwert im oberen Drittel liegt. Dann ist der relative Fehler klein.",
+      "en": "Choose the range so that the reading is in the upper third. Then the relative error is small."
+    }
+  },
+  {
+    "id": "m02-u02-strommessung-shunt",
+    "module": "M02",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Strom über einen Messwiderstand bestimmen",
+      "en": "Determining current via a shunt resistor"
+    },
+    "situation": {
+      "de": "In einem Stromkreis liegt ein Messwiderstand (Shunt) Rs = 0,1 Ω. An ihm wird die Spannung Us = 75 mV gemessen.",
+      "en": "A shunt resistor Rs = 0.1 Ω is in a circuit. The voltage Us = 75 mV is measured across it."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I?",
+          "en": "How large is the current I?"
+        },
+        "unit": "A",
+        "answer": 0.75,
+        "tolerance": 0.005,
+        "formula": "I = Us / Rs",
+        "calc": "I = 0.075 V / 0.1 Ω = 0.75 A",
+        "why": {
+          "de": "Das ist eine indirekte Messung: Gemessen wird eine Spannung, berechnet wird der Strom. Erst mV in V umrechnen.",
+          "en": "This is an indirect measurement: a voltage is measured, the current is calculated. Convert mV to V first."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung wird im Shunt zu Wärme (in mW)?",
+          "en": "Which power becomes heat in the shunt (in mW)?"
+        },
+        "unit": "mW",
+        "answer": 56.25,
+        "tolerance": 0.3,
+        "formula": "P = Us · I",
+        "calc": "P = 0.075 V · 0.75 A = 0.05625 W = 56.25 mW",
+        "why": {
+          "de": "Der Shunt soll den Stromkreis kaum beeinflussen. Deshalb ist sein Widerstand sehr klein.",
+          "en": "The shunt should hardly affect the circuit. That is why its resistance is very small."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Strom kann man indirekt messen: Spannung an einem bekannten kleinen Widerstand messen und durch den Widerstand teilen.",
+      "en": "Current can be measured indirectly: measure the voltage across a known small resistance and divide by the resistance."
+    }
+  }
+]

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { solids } from '../../../content/drawing';
-import { checkView, hKey, Solid, validateSolid, VIEW_IDS, viewGrid, visibleEdges, vKey } from './views';
+import { checkView, hiddenEdges, hKey, Solid, validateSolid, VIEW_IDS, viewGrid, visibleEdges, vKey } from './views';
 
 const solid = (heights: number[][]): Solid => ({ id: 't', difficulty: 1, status: 'draft', title: { de: 't', en: 't' }, heights });
 // step: front row 1 high, back row 2 high, 3 wide
@@ -49,6 +49,38 @@ describe('views of a solid', () => {
     expect(checkView(step, 'front', want.slice(2))).toEqual({ ok: false, missing: 2, extra: 0 });
     expect(checkView(step, 'front', [...want, vKey(1, 0)])).toEqual({ ok: false, missing: 0, extra: 1 });
     expect(checkView(step, 'front', [])).toMatchObject({ ok: false, extra: 0 });
+  });
+});
+
+describe('hidden edges', () => {
+  // L-shaped footprint: the front row is complete, behind it there is material only on the right
+  const corner = solid([[1, 1], [0, 1]]);
+  it('front view: the inner corner behind the front row is a hidden edge', () => {
+    expect(visibleEdges(viewGrid(corner, 'front')).size).toBe(6); // outline of a 2 x 1 rectangle
+    expect([...hiddenEdges(corner, 'front')]).toEqual([vKey(1, 0)]);
+  });
+  it('top view of a height map never has hidden edges', () => {
+    for (const s of solids) expect(hiddenEdges(s, 'top').size).toBe(0);
+  });
+  it('a slot at the back shows as three dashed lines in the front view', () => {
+    const slot = solid([[2, 2, 2], [2, 1, 2]]);
+    expect([...hiddenEdges(slot, 'front')].sort()).toEqual([hKey(1, 1), vKey(1, 0), vKey(2, 0)].sort());
+    // from the left the pocket lies behind the left column: its floor and its front wall are hidden
+    expect([...hiddenEdges(slot, 'left')].sort()).toEqual([hKey(0, 1), vKey(1, 0)].sort());
+  });
+  it('hidden and visible edges never share a segment', () => {
+    for (const s of solids) for (const v of VIEW_IDS) for (const k of hiddenEdges(s, v)) expect(visibleEdges(viewGrid(s, v)).has(k)).toBe(false);
+  });
+  it('grading needs the right line type when hidden edges are switched on', () => {
+    const s = { ...corner, hidden: true };
+    const outline = [...visibleEdges(viewGrid(s, 'front'))];
+    expect(checkView(s, 'front', outline)).toEqual({ ok: false, missing: 1, extra: 0 });
+    expect(checkView(s, 'front', [...outline, vKey(1, 0)])).toEqual({ ok: false, missing: 1, extra: 0 }); // wide line instead of dashed
+    expect(checkView(s, 'front', outline, [vKey(1, 0)])).toEqual({ ok: true, missing: 0, extra: 0 });
+    expect(checkView(corner, 'front', outline)).toMatchObject({ ok: true }); // without the flag hidden edges are not asked for
+  });
+  it('every solid marked with hidden edges really has some', () => {
+    for (const s of solids.filter((x) => x.hidden)) expect(VIEW_IDS.reduce((n, v) => n + hiddenEdges(s, v).size, 0)).toBeGreaterThan(0);
   });
 });
 

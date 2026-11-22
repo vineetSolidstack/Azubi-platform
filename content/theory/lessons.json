@@ -84,83 +84,814 @@
     ]
   },
   {
-    "module": "M16",
+    "module": "M02",
     "status": "draft",
     "source": "Eigener Text.",
     "intro": {
-      "de": "Technische Mathematik ist das Werkzeug für alle anderen Module: Formeln umstellen, Einheiten umrechnen und mit Verhältnissen rechnen.",
-      "en": "Technical mathematics is the tool for all other modules: rearranging formulas, converting units and working with ratios."
+      "de": "Messen heißt vergleichen. Hier lernst du, wie du Spannung, Strom und Widerstand richtig misst und wie genau ein Messwert ist.",
+      "en": "Measuring means comparing. Here you learn how to measure voltage, current and resistance correctly and how accurate a reading is."
     },
     "sections": [
       {
         "heading": {
-          "de": "Formeln umstellen",
-          "en": "Rearranging formulas"
+          "de": "Spannung, Strom und Widerstand messen",
+          "en": "Measuring voltage, current and resistance"
         },
         "body": {
-          "de": "Eine Formel ist eine Gleichung. Du darfst auf beiden Seiten das Gleiche tun: addieren, subtrahieren, multiplizieren oder dividieren. Ziel ist, dass die gesuchte Größe allein auf einer Seite steht.\n\nBeispiel: Aus U = R · I wird I = U / R, wenn du beide Seiten durch R teilst.",
-          "en": "A formula is an equation. You may do the same thing on both sides: add, subtract, multiply or divide. The goal is that the wanted quantity stands alone on one side.\n\nExample: U = R · I becomes I = U / R when you divide both sides by R."
+          "de": "Spannung wird parallel zum Bauteil gemessen: Die Messleitungen kommen an beide Seiten des Bauteils. Strom wird in Reihe gemessen: Der Stromkreis wird aufgetrennt und das Messgerät eingefügt. Der Widerstand wird nur an spannungsfreien Bauteilen gemessen, die vom Rest der Schaltung getrennt sind.",
+          "en": "Voltage is measured in parallel with the component: the test leads go to both sides of the component. Current is measured in series: the circuit is opened and the meter is inserted. Resistance is only measured on components that are free of voltage and separated from the rest of the circuit."
         },
         "formulas": [],
         "remember": {
-          "de": "Was auf einer Seite multipliziert, teilt auf der anderen Seite.",
-          "en": "What multiplies on one side divides on the other side."
+          "de": "Spannung parallel, Strom in Reihe, Widerstand spannungsfrei.",
+          "en": "Voltage in parallel, current in series, resistance without voltage."
         }
       },
       {
         "heading": {
-          "de": "Einheiten und Vorsätze",
-          "en": "Units and prefixes"
+          "de": "Messbereich und Messabweichung",
+          "en": "Range and measurement error"
         },
         "body": {
-          "de": "Vorsätze machen große und kleine Zahlen handlich: Mega (M) = 1 000 000, Kilo (k) = 1000, Milli (m) = 0,001, Mikro (µ) = 0,000 001. Vor dem Rechnen werden alle Werte in passende Einheiten umgerechnet.\n\nLängen: 1 m = 10 dm = 100 cm = 1000 mm. Bei Flächen und Volumen ändert sich der Faktor: 1 dm³ = 1000 cm³ = 1 Liter.",
-          "en": "Prefixes make large and small numbers handy: mega (M) = 1 000 000, kilo (k) = 1000, milli (m) = 0.001, micro (µ) = 0.000 001. Before calculating, all values are converted to matching units.\n\nLengths: 1 m = 10 dm = 100 cm = 1000 mm. For areas and volumes the factor changes: 1 dm³ = 1000 cm³ = 1 litre."
+          "de": "Kein Messgerät zeigt den wahren Wert exakt an. Bei Zeigergeräten gibt die Genauigkeitsklasse die größte Abweichung in Prozent vom Messbereichsendwert an. Die Abweichung in Volt oder Ampere ist im ganzen Bereich gleich, deshalb ist sie bei kleinen Messwerten im Verhältnis groß.\n\nBeginne bei unbekannten Größen mit dem größten Messbereich und schalte dann herunter.",
+          "en": "No meter shows the true value exactly. For analog meters the accuracy class gives the largest error in percent of the full-scale value. The error in volts or amperes is the same over the whole range, which is why it is relatively large for small readings.\n\nWith unknown quantities start with the largest range and then switch down."
         },
         "formulas": [
-          "1 kΩ = 1000 Ω",
-          "1 mA = 0.001 A",
-          "1 m³ = 1000 l"
+          "Δ = Klasse / 100 · Messbereichsendwert"
         ],
         "remember": {
-          "de": "Schreibe die Einheit bei jedem Rechenschritt mit. So fallen Fehler sofort auf.",
-          "en": "Write the unit in every calculation step. This way mistakes show up at once."
+          "de": "Der Messwert sollte im oberen Drittel des Bereichs liegen.",
+          "en": "The reading should be in the upper third of the range."
         }
       },
       {
         "heading": {
-          "de": "Dreisatz und Prozent",
-          "en": "Rule of three and percentages"
+          "de": "Indirekt messen",
+          "en": "Indirect measurement"
         },
         "body": {
-          "de": "Beim Dreisatz rechnest du von einem bekannten Wert zuerst auf eine Einheit und dann auf den gesuchten Wert. Prüfe vorher: Wird das Ergebnis größer oder kleiner?\n\nProzent heißt: Teile von hundert. Der Grundwert ist das Ganze (100 %), der Prozentwert ist der Anteil.",
-          "en": "With the rule of three you go from a known value first to one unit and then to the wanted value. Check beforehand: will the result be larger or smaller?\n\nPercent means: parts of a hundred. The base value is the whole (100 %), the percentage value is the share."
+          "de": "Manche Größen misst man nicht direkt, sondern berechnet sie aus anderen Messwerten. Den Widerstand erhält man aus Spannung und Strom. Den Strom erhält man aus der Spannung an einem kleinen bekannten Widerstand (Shunt). Eine Stromzange misst den Strom über das Magnetfeld um den Leiter, ohne den Stromkreis aufzutrennen.",
+          "en": "Some quantities are not measured directly but calculated from other readings. The resistance is obtained from voltage and current. The current is obtained from the voltage across a small known resistor (shunt). A clamp meter measures the current via the magnetic field around the conductor, without opening the circuit."
         },
         "formulas": [
-          "Prozentwert = Grundwert · Prozentsatz / 100"
+          "R = U / I",
+          "I = Us / Rs"
         ],
         "remember": {
-          "de": "Frage dich immer: Was sind hier 100 %?",
-          "en": "Always ask yourself: what is 100 % here?"
+          "de": "Eine Stromzange umfasst immer nur einen einzelnen Leiter.",
+          "en": "A clamp meter always encloses only one single conductor."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M03",
+    "status": "draft",
+    "source": "Eigener Text. Grenzwerte am 22.11.2026 abgeglichen mit DGUV Information 203-001 (2015), DGUV Information 203-072 (2021) und den DKE-Erläuterungen zu DIN VDE 0100-410:2018-10. Vor Veröffentlichung durch eine Elektrofachkraft prüfen lassen.",
+    "intro": {
+      "de": "Elektrischer Strom ist gefährlich, weil man ihn nicht sieht. Hier lernst du die Regeln und Schutzmaßnahmen, die dich und andere schützen. Dieser Text ersetzt keine Unterweisung im Betrieb.",
+      "en": "Electric current is dangerous because you cannot see it. Here you learn the rules and protective measures that protect you and others. This text does not replace safety instruction in your company."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Gefahren und die fünf Sicherheitsregeln",
+          "en": "Dangers and the five safety rules"
+        },
+        "body": {
+          "de": "Schon sehr kleine Ströme durch den Körper sind spürbar (etwa 0,5 mA). Bei größeren Strömen verkrampfen die Muskeln, man kann nicht mehr loslassen. Je nach Quelle wird diese Loslassschwelle mit etwa 5 bis 10 mA angegeben. Bei noch größeren Strömen und längerer Einwirkung droht Herzkammerflimmern.\n\nVor Arbeiten an elektrischen Anlagen gelten die fünf Sicherheitsregeln, immer in dieser Reihenfolge: 1. Freischalten. 2. Gegen Wiedereinschalten sichern. 3. Spannungsfreiheit feststellen. 4. Erden und kurzschließen. 5. Benachbarte, unter Spannung stehende Teile abdecken oder abschranken.",
+          "en": "Even very small currents through the body can be felt (about 0.5 mA). With larger currents the muscles cramp and you can no longer let go. Depending on the source this let-go threshold is given as about 5 to 10 mA. With even larger currents and longer exposure there is a danger of ventricular fibrillation.\n\nBefore working on electrical installations the five safety rules apply, always in this order: 1. Disconnect (Freischalten). 2. Secure against reconnection. 3. Verify the absence of voltage. 4. Earth and short-circuit. 5. Cover or fence off neighbouring live parts."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Die fünf Sicherheitsregeln gelten in genau dieser Reihenfolge. Aufgehoben werden sie in umgekehrter Reihenfolge.",
+          "en": "The five safety rules apply in exactly this order. They are lifted in the reverse order."
         }
       },
       {
         "heading": {
-          "de": "Kraft, Arbeit, Leistung",
-          "en": "Force, work, power"
+          "de": "Netzsysteme",
+          "en": "Network systems"
         },
         "body": {
-          "de": "Eine Masse wird von der Erde angezogen. Daraus entsteht die Gewichtskraft in Newton (N). Arbeit wird verrichtet, wenn eine Kraft etwas über einen Weg bewegt. Leistung ist Arbeit pro Zeit.\n\nIm rechtwinkligen Dreieck hilft der Satz des Pythagoras, eine fehlende Seite zu berechnen.",
-          "en": "A mass is attracted by the earth. This results in the weight force in newtons (N). Work is done when a force moves something over a distance. Power is work per time.\n\nIn a right-angled triangle the Pythagorean theorem helps to calculate a missing side."
+          "de": "Die Buchstaben beschreiben die Erdung. Der erste Buchstabe steht für die Stromquelle (T = geerdet, I = isoliert), der zweite für die Körper der Geräte (N = mit dem geerdeten Punkt der Quelle verbunden, T = selbst geerdet).\n\nTN-S: Neutralleiter (N) und Schutzleiter (PE) sind im ganzen Netz getrennt. TN-C: Beide sind in einem Leiter (PEN) zusammengefasst. TN-C-S: zuerst zusammen, ab einem Punkt getrennt. TT: Die Körper sind über einen eigenen Erder geerdet. IT: Die Stromquelle ist gegen Erde isoliert oder nur über eine hohe Impedanz geerdet.",
+          "en": "The letters describe the earthing. The first letter stands for the source (T = earthed, I = isolated), the second for the exposed conductive parts of the equipment (N = connected to the earthed point of the source, T = earthed on their own).\n\nTN-S: neutral conductor (N) and protective conductor (PE) are separate throughout the network. TN-C: both are combined in one conductor (PEN). TN-C-S: first combined, separate from one point on. TT: the exposed parts are earthed via their own earth electrode. IT: the source is isolated from earth or only earthed via a high impedance."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "S = getrennt (separat), C = kombiniert.",
+          "en": "S = separate, C = combined."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schutz gegen elektrischen Schlag",
+          "en": "Protection against electric shock"
+        },
+        "body": {
+          "de": "Der Schutz hat drei Stufen. Basisschutz: Aktive Teile sind isoliert oder abgedeckt, man kann sie nicht berühren. Fehlerschutz: Bei einem Fehler, zum Beispiel einem Körperschluss, schaltet die Schutzeinrichtung schnell ab. Zusätzlicher Schutz: Eine Fehlerstrom-Schutzeinrichtung (RCD) mit höchstens 30 mA Bemessungsfehlerstrom schaltet ab, wenn Strom über einen falschen Weg abfließt. Sie ist unter anderem für Steckdosen bis 32 A vorgeschrieben, die Laien allgemein benutzen (DIN VDE 0100-410).\n\nAls dauernd zulässige Berührungsspannung gelten 50 V Wechselspannung und 120 V Gleichspannung.\n\nSchutzklassen von Geräten: Schutzklasse I hat einen Schutzleiteranschluss. Schutzklasse II hat eine doppelte oder verstärkte Isolierung. Schutzklasse III arbeitet mit Schutzkleinspannung.",
+          "en": "The protection has three levels. Basic protection: live parts are insulated or covered and cannot be touched. Fault protection: in case of a fault, for example a short to an exposed part, the protective device disconnects quickly. Additional protection: a residual current device (RCD) with a rated residual current of at most 30 mA disconnects when current flows off along a wrong path. Among other cases it is required for socket outlets up to 32 A in general use by laypersons (DIN VDE 0100-410).\n\nThe permanently permitted touch voltage is 50 V AC and 120 V DC.\n\nProtection classes of equipment: class I has a protective conductor connection. Class II has double or reinforced insulation. Class III works with safety extra-low voltage."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Ein RCD schützt Menschen vor Fehlerströmen. Er schützt nicht vor Überlast.",
+          "en": "An RCD protects people against residual currents. It does not protect against overload."
+        }
+      },
+      {
+        "heading": {
+          "de": "Überstromschutz",
+          "en": "Overcurrent protection"
+        },
+        "body": {
+          "de": "Leitungen dürfen nicht zu warm werden. Sicherungen und Leitungsschutzschalter schalten bei Überlast und bei Kurzschluss ab. Beim Leitungsschutzschalter gibt die Auslösecharakteristik an, bei welchem Vielfachen des Bemessungsstroms der magnetische Schnellauslöser anspricht: B bei 3 bis 5 mal In, C bei 5 bis 10 mal In, D bei 10 bis 20 mal In.\n\nB wird für Steckdosen und Licht verwendet. C und D lassen kurze Einschaltströme durch, zum Beispiel von Motoren und Transformatoren.",
+          "en": "Cables must not get too warm. Fuses and miniature circuit breakers disconnect on overload and on short circuit. For the miniature circuit breaker the tripping characteristic states at which multiple of the rated current the magnetic instantaneous trip responds: B at 3 to 5 times In, C at 5 to 10 times In, D at 10 to 20 times In.\n\nB is used for socket outlets and lighting. C and D let short inrush currents pass, for example from motors and transformers."
         },
         "formulas": [
-          "F = m · g",
-          "W = F · s",
-          "P = W / t",
-          "c² = a² + b²"
+          "B: 3 … 5 · In",
+          "C: 5 … 10 · In",
+          "D: 10 … 20 · In"
         ],
         "remember": {
-          "de": "1 kg drückt auf der Erde mit etwa 10 N.",
-          "en": "On earth 1 kg presses with about 10 N."
+          "de": "Der Leitungsschutzschalter schützt die Leitung, nicht den Menschen.",
+          "en": "The circuit breaker protects the cable, not the person."
+        }
+      },
+      {
+        "heading": {
+          "de": "Leitungen bemessen: Spannungsfall",
+          "en": "Dimensioning cables: voltage drop"
+        },
+        "body": {
+          "de": "Jede Leitung hat einen Widerstand. An ihm geht Spannung verloren, der Spannungsfall. Er wächst mit der Länge und dem Strom und sinkt mit dem Querschnitt. Zwischen Zähler und Verbrauchsmittel soll der Spannungsfall nach DIN 18015-1 höchstens 3 % betragen.\n\nFür den Querschnitt zählt außerdem die Strombelastbarkeit. Sie hängt von der Verlegeart, der Umgebungstemperatur und der Häufung von Leitungen ab und wird aus Tabellen bestimmt.",
+          "en": "Every cable has a resistance. Voltage is lost across it: the voltage drop. It grows with length and current and falls with the cross-section. Between the meter and the consuming equipment the voltage drop should be at most 3 % according to DIN 18015-1.\n\nThe current-carrying capacity also counts for the cross-section. It depends on the installation method, the ambient temperature and the grouping of cables and is determined from tables."
+        },
+        "formulas": [
+          "ΔU = 2 · l · I / (κ · A)   (Wechselstrom, cos φ = 1)",
+          "Δu = ΔU / U · 100 %"
+        ],
+        "remember": {
+          "de": "Lange Leitung oder großer Strom: größeren Querschnitt wählen.",
+          "en": "Long cable or large current: choose a larger cross-section."
+        }
+      },
+      {
+        "heading": {
+          "de": "IP-Schutzarten",
+          "en": "IP ratings"
+        },
+        "body": {
+          "de": "Der IP-Code beschreibt, wie gut ein Gehäuse schützt. Die erste Ziffer steht für den Schutz gegen Berühren und gegen feste Fremdkörper, die zweite für den Schutz gegen Wasser.\n\nBeispiele: IP44 schützt gegen Fremdkörper ab 1 mm und gegen Spritzwasser. IP54 ist staubgeschützt und gegen Spritzwasser geschützt. IP65 ist staubdicht und gegen Strahlwasser geschützt. IP67 ist staubdicht und gegen zeitweiliges Untertauchen geschützt.",
+          "en": "The IP code describes how well an enclosure protects. The first digit stands for protection against touching and against solid foreign objects, the second for protection against water.\n\nExamples: IP44 protects against foreign objects from 1 mm and against splashing water. IP54 is dust-protected and protected against splashing water. IP65 is dust-tight and protected against water jets. IP67 is dust-tight and protected against temporary immersion."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erste Ziffer: Fremdkörper. Zweite Ziffer: Wasser.",
+          "en": "First digit: foreign objects. Second digit: water."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M04",
+    "status": "draft",
+    "source": "Eigener Text. Grenzwerte am 22.11.2026 abgeglichen mit DGUV Information 203-001 (2015), DGUV Information 203-072 (2021) und den DKE-Erläuterungen zu DIN VDE 0100-410:2018-10. Vor Veröffentlichung durch eine Elektrofachkraft prüfen lassen.",
+    "intro": {
+      "de": "Eine elektrische Anlage muss geprüft werden, bevor sie in Betrieb geht, und danach regelmäßig. Hier lernst du den Ablauf der Prüfung und die wichtigsten Messungen. Prüfen dürfen nur Elektrofachkräfte.",
+      "en": "An electrical installation has to be verified before it goes into operation, and regularly afterwards. Here you learn the sequence of the verification and the most important measurements. Only qualified electricians may carry out the verification."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Besichtigen, Erproben, Messen",
+          "en": "Inspecting, testing, measuring"
+        },
+        "body": {
+          "de": "Die Erstprüfung nach DIN VDE 0100-600 besteht aus Besichtigen, Erproben und Messen. Das Besichtigen kommt zuerst und geschieht in der Regel an der spannungsfreien Anlage: Sind die Betriebsmittel richtig ausgewählt und unbeschädigt, stimmen Leiterquerschnitte, Schutzeinrichtungen und Beschriftung?\n\nBeim Erproben wird geprüft, ob Schutz- und Meldeeinrichtungen funktionieren, zum Beispiel die Prüftaste des RCD. Beim Messen werden Werte ermittelt, die man nicht sehen kann.",
+          "en": "The initial verification according to DIN VDE 0100-600 consists of inspecting, testing and measuring. Inspection comes first and is generally done on the dead installation: is the equipment selected correctly and undamaged, are conductor cross-sections, protective devices and labelling right?\n\nTesting checks whether protective and signalling devices work, for example the test button of the RCD. Measuring determines values that cannot be seen."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst schauen, dann messen. Viele Fehler findet man schon beim Besichtigen.",
+          "en": "Look first, then measure. Many faults are already found during inspection."
+        }
+      },
+      {
+        "heading": {
+          "de": "Die wichtigsten Messungen",
+          "en": "The most important measurements"
+        },
+        "body": {
+          "de": "Durchgängigkeit des Schutzleiters: Der Schutzleiter muss vom Verteiler bis zum letzten Gerät niederohmig durchverbunden sein.\n\nIsolationswiderstand: Zwischen den aktiven Leitern und dem Schutzleiter wird mit Gleichspannung gemessen. Für Stromkreise bis einschließlich 500 V gilt bei der Erstprüfung: Messspannung 500 V, Mindestwert 1 MΩ. Für SELV und PELV: Messspannung 250 V, Mindestwert 0,5 MΩ.\n\nSchleifenimpedanz: Sie zeigt, ob im Fehlerfall genug Strom fließt, damit die Schutzeinrichtung rechtzeitig abschaltet. Bei 230 V gegen Erde gelten als längste Abschaltzeiten 0,4 s im TN-System und 0,2 s im TT-System. Das gilt für Endstromkreise mit Steckdosen bis 63 A und für fest angeschlossene Verbrauchsmittel bis 32 A.\n\nRCD-Prüfung: Gemessen wird, ob der RCD beim Bemessungsfehlerstrom auslöst. Ein unverzögerter RCD darf dabei höchstens 0,3 s brauchen, beim fünffachen Fehlerstrom höchstens 0,04 s.",
+          "en": "Continuity of the protective conductor: the protective conductor must be connected through with low resistance from the distribution board to the last device.\n\nInsulation resistance: the measurement is made with DC voltage between the live conductors and the protective conductor. For circuits up to and including 500 V the initial verification requires: test voltage 500 V, minimum value 1 MΩ. For SELV and PELV: test voltage 250 V, minimum value 0.5 MΩ.\n\nLoop impedance: it shows whether enough current flows in case of a fault so that the protective device disconnects in time. At 230 V to earth the longest disconnection times are 0.4 s in the TN system and 0.2 s in the TT system. This applies to final circuits with socket outlets up to 63 A and to fixed-connected equipment up to 32 A.\n\nRCD test: the measurement checks whether the RCD trips at the rated residual current. A non-delayed RCD may take at most 0.3 s, at five times the residual current at most 0.04 s."
+        },
+        "formulas": [
+          "Ik = U0 / Zs",
+          "Abschaltbedingung: Ik ≥ Ia"
+        ],
+        "remember": {
+          "de": "Kleine Schleifenimpedanz bedeutet großen Kurzschlussstrom und schnelles Abschalten.",
+          "en": "A small loop impedance means a large short-circuit current and fast disconnection."
+        }
+      },
+      {
+        "heading": {
+          "de": "Bewerten und dokumentieren",
+          "en": "Evaluating and documenting"
+        },
+        "body": {
+          "de": "Jeder Messwert wird mit dem Grenzwert verglichen. Dabei muss die Messabweichung des Prüfgeräts berücksichtigt werden: Ein Wert knapp am Grenzwert ist kein sicheres Bestanden. Alle Ergebnisse kommen in ein Prüfprotokoll mit Datum, Prüfgerät und Unterschrift.\n\nWird ein Mangel gefunden, darf die Anlage erst in Betrieb gehen, wenn er behoben und die Prüfung wiederholt ist.",
+          "en": "Every reading is compared with the limit value. The measurement error of the test instrument has to be taken into account: a value just at the limit is not a safe pass. All results go into a test report with date, test instrument and signature.\n\nIf a defect is found, the installation may only go into operation when it has been remedied and the verification has been repeated."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Ohne Protokoll gilt eine Prüfung als nicht gemacht.",
+          "en": "Without a report a verification counts as not done."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M05",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Bevor es SPS gab, wurden Maschinen mit Schützen und Tastern gesteuert. Diese Grundschaltungen brauchst du noch heute, im Schaltschrank und in jedem SPS-Programm.",
+      "en": "Before PLCs existed, machines were controlled with contactors and push-buttons. You still need these basic circuits today, in the control cabinet and in every PLC program."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Steuern und Regeln, das EVA-Prinzip",
+          "en": "Open-loop and closed-loop control, the EVA principle"
+        },
+        "body": {
+          "de": "Beim Steuern wird ein Ausgang nach einem festen Plan geschaltet. Ob das Ergebnis stimmt, wird nicht geprüft. Beim Regeln wird das Ergebnis gemessen und ständig nachgestellt.\n\nJede Steuerung arbeitet nach dem EVA-Prinzip: Eingabe (Taster, Sensoren), Verarbeitung (Schützschaltung oder SPS), Ausgabe (Schütze, Ventile, Lampen).",
+          "en": "In open-loop control (Steuern) an output is switched according to a fixed plan. Whether the result is right is not checked. In closed-loop control (Regeln) the result is measured and constantly readjusted.\n\nEvery control system works according to the EVA principle: input (push-buttons, sensors), processing (contactor circuit or PLC), output (contactors, valves, lamps)."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Regeln hat eine Rückführung, Steuern nicht.",
+          "en": "Closed-loop control has feedback, open-loop control has not."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schütz, Schließer und Öffner",
+          "en": "Contactor, normally open and normally closed contacts"
+        },
+        "body": {
+          "de": "Ein Schütz ist ein Schalter, der von einer Spule betätigt wird. Fließt Strom durch die Spule, zieht das Schütz an und seine Kontakte schalten um. Hauptkontakte schalten den Motor, Hilfskontakte arbeiten im Steuerstromkreis.\n\nEin Schließer ist in Ruhe offen und schließt beim Betätigen. Ein Öffner ist in Ruhe geschlossen und öffnet beim Betätigen.",
+          "en": "A contactor is a switch that is actuated by a coil. When current flows through the coil, the contactor pulls in and its contacts change over. Main contacts switch the motor, auxiliary contacts work in the control circuit.\n\nA normally open contact (Schließer) is open at rest and closes when actuated. A normally closed contact (Öffner) is closed at rest and opens when actuated."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Der Hauptstromkreis führt die Energie, der Steuerstromkreis die Signale.",
+          "en": "The main circuit carries the energy, the control circuit the signals."
+        }
+      },
+      {
+        "heading": {
+          "de": "Selbsthaltung, Verriegelung, Folgeschaltung",
+          "en": "Latching, interlock, sequence circuit"
+        },
+        "body": {
+          "de": "Selbsthaltung: Ein Schließer des Schützes liegt parallel zum Start-Taster. Das Schütz hält sich selbst, bis der Stopp-Taster den Stromkreis öffnet.\n\nVerriegelung: Ein Öffner des einen Schützes liegt im Stromkreis des anderen. So können nie beide gleichzeitig anziehen, zum Beispiel bei der Wendeschützschaltung.\n\nFolgeschaltung: Ein Schütz kann erst anziehen, wenn ein anderes schon angezogen hat.",
+          "en": "Latching (Selbsthaltung): a normally open contact of the contactor is parallel to the start button. The contactor holds itself until the stop button opens the circuit.\n\nInterlock (Verriegelung): a normally closed contact of one contactor is in the circuit of the other. This way both can never pull in at the same time, for example in the reversing contactor circuit.\n\nSequence circuit (Folgeschaltung): a contactor can only pull in when another one has already pulled in."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Stopp-Taster sind Öffner: Ein Drahtbruch wirkt wie Stopp.",
+          "en": "Stop buttons are normally closed: a wire break acts like stop."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M06",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Digitale Technik kennt nur zwei Zustände: 0 und 1. Hier lernst du die Zahlensysteme und die logischen Grundfunktionen.",
+      "en": "Digital technology only knows two states: 0 and 1. Here you learn the number systems and the basic logic functions."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Zahlensysteme",
+          "en": "Number systems"
+        },
+        "body": {
+          "de": "Im Dualsystem gibt es nur die Ziffern 0 und 1. Jede Stelle ist doppelt so viel wert wie die Stelle rechts daneben: 1, 2, 4, 8, 16 und so weiter. Im Hexadezimalsystem gibt es 16 Ziffern: 0 bis 9 und A bis F. Eine Hexadezimalziffer fasst genau vier Bit zusammen.\n\nEin Bit ist eine Stelle mit 0 oder 1. Acht Bit sind ein Byte, 16 Bit ein Wort.",
+          "en": "In the binary system there are only the digits 0 and 1. Each digit is worth twice as much as the digit to its right: 1, 2, 4, 8, 16 and so on. In the hexadecimal system there are 16 digits: 0 to 9 and A to F. One hexadecimal digit combines exactly four bits.\n\nA bit is one digit with 0 or 1. Eight bits are a byte, 16 bits a word."
+        },
+        "formulas": [
+          "1011 (dual) = 8 + 2 + 1 = 11",
+          "2F (hex) = 2 · 16 + 15 = 47"
+        ],
+        "remember": {
+          "de": "Mit n Bit lassen sich 2 hoch n verschiedene Werte darstellen.",
+          "en": "With n bits 2 to the power of n different values can be represented."
+        }
+      },
+      {
+        "heading": {
+          "de": "Logische Grundfunktionen",
+          "en": "Basic logic functions"
+        },
+        "body": {
+          "de": "UND (AND): Der Ausgang ist 1, wenn alle Eingänge 1 sind. ODER (OR): Der Ausgang ist 1, wenn mindestens ein Eingang 1 ist. NICHT (NOT): Der Ausgang ist das Gegenteil des Eingangs.\n\nNAND und NOR sind UND und ODER mit negiertem Ausgang. XOR ist 1, wenn die beiden Eingänge verschieden sind. Eine Wahrheitstabelle zeigt den Ausgang für jede Kombination der Eingänge.",
+          "en": "AND: the output is 1 when all inputs are 1. OR: the output is 1 when at least one input is 1. NOT: the output is the opposite of the input.\n\nNAND and NOR are AND and OR with a negated output. XOR is 1 when the two inputs are different. A truth table shows the output for every combination of the inputs."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "UND = Reihenschaltung von Kontakten, ODER = Parallelschaltung.",
+          "en": "AND = contacts in series, OR = contacts in parallel."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schaltalgebra und Speicher",
+          "en": "Boolean algebra and memory"
+        },
+        "body": {
+          "de": "Mit der Schaltalgebra lassen sich Schaltungen vereinfachen. Wichtig ist das Gesetz von De Morgan: Eine Negation über einem ganzen Ausdruck wird auf die einzelnen Variablen verteilt, und aus UND wird ODER (und umgekehrt).\n\nEin Speicherglied (Flipflop) merkt sich einen Zustand. Ein Signal am Setzeingang schaltet es auf 1, ein Signal am Rücksetzeingang auf 0. Liegen beide an, entscheidet die Bauart: setzdominant oder rücksetzdominant.",
+          "en": "Boolean algebra is used to simplify circuits. De Morgan’s law is important: a negation over a whole expression is distributed to the single variables, and AND becomes OR (and vice versa).\n\nA memory element (flip-flop) remembers a state. A signal at the set input switches it to 1, a signal at the reset input to 0. If both are present, the design decides: set dominant or reset dominant."
+        },
+        "formulas": [
+          "NOT (A AND B) = NOT A OR NOT B",
+          "NOT (A OR B) = NOT A AND NOT B"
+        ],
+        "remember": {
+          "de": "Für Aus und Stopp nimmt man rücksetzdominante Speicher.",
+          "en": "Reset-dominant memories are used for off and stop."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M07",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Eine SPS (speicherprogrammierbare Steuerung) liest Signale, verarbeitet sie mit einem Programm und schaltet Ausgänge. Hier lernst du die Ideen, die du im SPS-Trainer brauchst.",
+      "en": "A PLC (SPS, programmable logic controller) reads signals, processes them with a program and switches outputs. Here you learn the ideas you need in the PLC trainer."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Zyklus und Prozessabbild",
+          "en": "Cycle and process image"
+        },
+        "body": {
+          "de": "Die SPS arbeitet in einem Kreislauf, dem Zyklus. Zuerst liest sie alle Eingänge und speichert sie im Prozessabbild. Dann bearbeitet sie das Programm von oben nach unten. Am Ende schreibt sie die Ergebnisse an die Ausgänge. Danach beginnt der nächste Zyklus.\n\nEin Zyklus dauert nur wenige Millisekunden. Wird ein Ausgang im Programm zweimal zugewiesen, zählt die letzte Zuweisung.",
+          "en": "The PLC works in a loop, the cycle. First it reads all inputs and stores them in the process image. Then it processes the program from top to bottom. At the end it writes the results to the outputs. After that the next cycle begins.\n\nA cycle only takes a few milliseconds. If an output is assigned twice in the program, the last assignment counts."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Einlesen, verarbeiten, ausgeben: das EVA-Prinzip.",
+          "en": "Read in, process, output: the EVA principle."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schließer, Öffner und Drahtbruchsicherheit",
+          "en": "Normally open, normally closed and wire-break safety"
+        },
+        "body": {
+          "de": "Ein Schließer liefert das Signal 1, wenn er betätigt wird. Ein Öffner liefert das Signal 1, solange er nicht betätigt ist. Stopp-Taster sind Öffner: Reißt die Leitung, kommt das Signal 0 an und die Anlage stoppt.\n\nIm Programm fragst du das Signal ab, nicht den Taster. Ein Stopp-Öffner wird deshalb im Programm auf 1 abgefragt.",
+          "en": "A normally open contact (Schließer) delivers the signal 1 when it is actuated. A normally closed contact (Öffner) delivers the signal 1 as long as it is not actuated. Stop buttons are normally closed: if the wire breaks, the signal 0 arrives and the plant stops.\n\nIn the program you query the signal, not the button. So a normally closed stop button is queried for 1 in the program."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Frage dich: Welches Signal kommt im Ruhezustand am Eingang an?",
+          "en": "Ask yourself: which signal arrives at the input at rest?"
+        }
+      },
+      {
+        "heading": {
+          "de": "Selbsthaltung und Verriegelung",
+          "en": "Latching and interlock"
+        },
+        "body": {
+          "de": "Bei der Selbsthaltung hält sich ein Ausgang selbst: Ein Kontakt des Ausgangs liegt parallel zum Start-Taster. Der Stopp liegt in Reihe und hat damit Vorrang.\n\nBei der Verriegelung sperrt ein Ausgang einen anderen, damit nie beide gleichzeitig ein sind, zum Beispiel Rechtslauf und Linkslauf eines Motors.",
+          "en": "With latching (Selbsthaltung) an output holds itself: a contact of the output is parallel to the start button. The stop is in series and therefore has priority.\n\nWith an interlock (Verriegelung) one output blocks another so that both are never on at the same time, for example clockwise and anticlockwise rotation of a motor."
+        },
+        "formulas": [
+          "Q1 := (S1 OR Q1) AND S0;"
+        ],
+        "remember": {
+          "de": "Parallel = ODER, in Reihe = UND.",
+          "en": "Parallel = OR, in series = AND."
+        }
+      },
+      {
+        "heading": {
+          "de": "Zeiten und Zähler",
+          "en": "Timers and counters"
+        },
+        "body": {
+          "de": "TON verzögert das Einschalten: Der Ausgang kommt erst, wenn der Eingang die eingestellte Zeit lang 1 war. TOF verzögert das Ausschalten: Der Ausgang bleibt nach dem Abschalten noch für die Zeit 1. TP gibt einen Impuls mit fester Länge.\n\nDer Zähler CTU zählt bei jeder steigenden Flanke um 1 hoch, also beim Wechsel von 0 auf 1. Bausteine und ihre Anschlüsse sind in der Norm IEC 61131-3 festgelegt.",
+          "en": "TON delays switching on: the output only comes when the input has been 1 for the set time. TOF delays switching off: the output stays 1 for the time after switching off. TP gives a pulse of fixed length.\n\nThe counter CTU counts up by 1 on every rising edge, that is on the change from 0 to 1. The blocks and their connections are defined in the standard IEC 61131-3."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "TON: Einschaltverzögerung. TOF: Ausschaltverzögerung. TP: Impuls.",
+          "en": "TON: on-delay. TOF: off-delay. TP: pulse."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M08",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Sensoren sind die Sinnesorgane einer Anlage, Aktoren ihre Muskeln. Hier lernst du, welcher Sensor was erkennt und wie seine Signale aussehen.",
+      "en": "Sensors are the sense organs of a plant, actuators its muscles. Here you learn which sensor detects what and what its signals look like."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Näherungsschalter",
+          "en": "Proximity switches"
+        },
+        "body": {
+          "de": "Ein induktiver Sensor erkennt nur Metalle. Ein kapazitiver Sensor erkennt fast alle Stoffe, auch Kunststoff und Flüssigkeiten, sogar durch dünne nichtmetallische Wände. Optische Sensoren arbeiten mit Licht: als Einweg-Lichtschranke (Sender und Empfänger getrennt), als Reflex-Lichtschranke (mit Reflektor) oder als Lichttaster (das Objekt selbst wirft das Licht zurück). Ein Reedkontakt reagiert auf einen Magneten, zum Beispiel im Kolben eines Zylinders.",
+          "en": "An inductive sensor only detects metals. A capacitive sensor detects almost all materials, including plastic and liquids, even through thin non-metallic walls. Optical sensors work with light: as a through-beam sensor (transmitter and receiver separate), as a retro-reflective sensor (with a reflector) or as a diffuse sensor (the object itself reflects the light). A reed contact reacts to a magnet, for example in the piston of a cylinder."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Metall: induktiv. Alles andere: kapazitiv oder optisch.",
+          "en": "Metal: inductive. Everything else: capacitive or optical."
+        }
+      },
+      {
+        "heading": {
+          "de": "PNP und NPN, Schließer und Öffner",
+          "en": "PNP and NPN, normally open and normally closed"
+        },
+        "body": {
+          "de": "Ein PNP-Sensor schaltet die positive Spannung auf seinen Ausgang (plusschaltend). Ein NPN-Sensor schaltet den Ausgang nach 0 V (minusschaltend). Der Sensor muss zum Eingang der Steuerung passen.\n\nAls Schließer gibt der Sensor ein Signal, wenn er etwas erkennt. Als Öffner gibt er ein Signal, solange er nichts erkennt. Dreileiter-Sensoren haben zwei Leitungen für die Versorgung und eine für das Signal.",
+          "en": "A PNP sensor switches the positive voltage to its output (positive switching). An NPN sensor switches the output to 0 V (negative switching). The sensor must match the input of the controller.\n\nAs normally open, the sensor gives a signal when it detects something. As normally closed, it gives a signal as long as it detects nothing. Three-wire sensors have two wires for the supply and one for the signal."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "PNP schaltet Plus, NPN schaltet Minus.",
+          "en": "PNP switches plus, NPN switches minus."
+        }
+      },
+      {
+        "heading": {
+          "de": "Analoge Signale",
+          "en": "Analog signals"
+        },
+        "body": {
+          "de": "Ein analoger Sensor liefert nicht nur 0 oder 1, sondern einen Wert, zum Beispiel einen Druck oder eine Temperatur. Übliche Einheitssignale sind 0 bis 10 V und 4 bis 20 mA. Bei 4 bis 20 mA bedeutet 4 mA den kleinsten Messwert. Fließen weniger als 4 mA, liegt ein Fehler vor, zum Beispiel ein Drahtbruch.\n\nIn der Steuerung wird das Signal in eine Zahl gewandelt und auf die physikalische Größe umgerechnet (skaliert).",
+          "en": "An analog sensor does not just deliver 0 or 1 but a value, for example a pressure or a temperature. Common standard signals are 0 to 10 V and 4 to 20 mA. With 4 to 20 mA, 4 mA means the smallest measured value. If less than 4 mA flow, there is a fault, for example a wire break.\n\nIn the controller the signal is converted into a number and converted to the physical quantity (scaled)."
+        },
+        "formulas": [
+          "Messwert = (I − 4 mA) / 16 mA · Messbereich"
+        ],
+        "remember": {
+          "de": "4 bis 20 mA macht einen Drahtbruch erkennbar.",
+          "en": "4 to 20 mA makes a wire break detectable."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M09",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Pneumatik arbeitet mit Druckluft. Hier lernst du, was Druck ist, wie viel Kraft ein Zylinder hat und wie Ventile bezeichnet werden.",
+      "en": "Pneumatics works with compressed air. Here you learn what pressure is, how much force a cylinder has and how valves are named."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Druck",
+          "en": "Pressure"
+        },
+        "body": {
+          "de": "Druck ist Kraft pro Fläche. In der Pneumatik wird er in bar angegeben. Das Manometer zeigt den Überdruck pe, also den Druck über dem Luftdruck der Umgebung. Der absolute Druck ist Überdruck plus Umgebungsdruck (etwa 1 bar).",
+          "en": "Pressure is force per area. In pneumatics it is given in bar. The pressure gauge shows the gauge pressure pe, that is the pressure above the ambient air pressure. The absolute pressure is gauge pressure plus ambient pressure (about 1 bar)."
+        },
+        "formulas": [
+          "p = F / A",
+          "1 bar = 10 N/cm² = 100 000 Pa",
+          "pabs = pe + pamb"
+        ],
+        "remember": {
+          "de": "Für Kräfte rechnest du mit dem Überdruck, für Gasgesetze mit dem absoluten Druck.",
+          "en": "For forces you use gauge pressure, for gas laws absolute pressure."
+        }
+      },
+      {
+        "heading": {
+          "de": "Kolbenkraft",
+          "en": "Piston force"
+        },
+        "body": {
+          "de": "Die Druckluft drückt auf die Kolbenfläche und erzeugt die Kraft. Beim Ausfahren wirkt die ganze Kolbenfläche. Beim Einfahren fehlt die Fläche der Kolbenstange, es bleibt eine Kreisringfläche. Deshalb ist die Kraft beim Einfahren kleiner. In der Praxis geht durch Reibung noch ein Teil der Kraft verloren.",
+          "en": "The compressed air presses on the piston area and creates the force. When extending, the whole piston area acts. When retracting, the area of the piston rod is missing and an annular area remains. That is why the force when retracting is smaller. In practice a part of the force is also lost through friction."
+        },
+        "formulas": [
+          "F = pe · A",
+          "A = π · D² / 4",
+          "AR = π · (D² − d²) / 4"
+        ],
+        "remember": {
+          "de": "Doppelter Durchmesser bedeutet vierfache Fläche und vierfache Kraft.",
+          "en": "Twice the diameter means four times the area and four times the force."
+        }
+      },
+      {
+        "heading": {
+          "de": "Wegeventile benennen",
+          "en": "Naming directional valves"
+        },
+        "body": {
+          "de": "Ein Wegeventil wird mit zwei Zahlen benannt: Anzahl der Anschlüsse / Anzahl der Schaltstellungen. Ein 5/2-Wegeventil hat 5 Anschlüsse und 2 Schaltstellungen. Im Schaltzeichen steht jedes Quadrat für eine Schaltstellung.\n\nEin monostabiles Ventil geht durch eine Feder von selbst in die Grundstellung zurück. Ein bistabiles Ventil (Impulsventil) bleibt in der letzten Stellung, bis das Gegensignal kommt.",
+          "en": "A directional valve is named with two numbers: number of ports / number of switching positions. A 5/2 directional valve has 5 ports and 2 switching positions. In the symbol each square stands for one switching position.\n\nA monostable valve returns to its normal position by itself through a spring. A bistable valve (impulse valve) stays in the last position until the opposite signal arrives."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst die Anschlüsse, dann die Schaltstellungen: 3/2 heißt 3 Anschlüsse, 2 Stellungen.",
+          "en": "Ports first, then switching positions: 3/2 means 3 ports, 2 positions."
+        }
+      },
+      {
+        "heading": {
+          "de": "Luft verdichten",
+          "en": "Compressing air"
+        },
+        "body": {
+          "de": "Luft lässt sich zusammendrücken. Bleibt die Temperatur gleich, ist das Produkt aus absolutem Druck und Volumen konstant. Wird Luft auf den siebenfachen absoluten Druck verdichtet, braucht sie nur noch ein Siebtel des Raums.",
+          "en": "Air can be compressed. If the temperature stays the same, the product of absolute pressure and volume is constant. If air is compressed to seven times the absolute pressure, it only needs one seventh of the space."
+        },
+        "formulas": [
+          "p1 · V1 = p2 · V2"
+        ],
+        "remember": {
+          "de": "Im Gasgesetz immer absolute Drücke einsetzen.",
+          "en": "Always use absolute pressures in the gas law."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M10",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Der Drehstrom-Asynchronmotor ist der wichtigste Antrieb in der Industrie. Hier lernst du, wie seine Drehzahl entsteht und was auf dem Leistungsschild steht.",
+      "en": "The three-phase asynchronous motor is the most important drive in industry. Here you learn where its speed comes from and what is on the rating plate."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Drehfeld und Synchrondrehzahl",
+          "en": "Rotating field and synchronous speed"
+        },
+        "body": {
+          "de": "Die drei Wicklungen im Ständer erzeugen mit Drehstrom ein Magnetfeld, das sich dreht: das Drehfeld. Seine Drehzahl heißt Synchrondrehzahl. Sie hängt nur von der Frequenz und der Polpaarzahl p ab. Am 50-Hz-Netz sind das 3000, 1500, 1000 oder 750 Umdrehungen pro Minute.",
+          "en": "With three-phase current the three windings in the stator create a magnetic field that rotates: the rotating field. Its speed is called synchronous speed. It depends only on the frequency and the number of pole pairs p. On the 50 Hz mains that is 3000, 1500, 1000 or 750 revolutions per minute."
+        },
+        "formulas": [
+          "ns = f · 60 / p"
+        ],
+        "remember": {
+          "de": "Mehr Polpaare, kleinere Drehzahl.",
+          "en": "More pole pairs, lower speed."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schlupf",
+          "en": "Slip"
+        },
+        "body": {
+          "de": "Der Läufer dreht etwas langsamer als das Drehfeld. Dieser Unterschied heißt Schlupf. Er ist nötig, damit im Läufer eine Spannung induziert wird und ein Drehmoment entsteht. Unter Last wird der Schlupf größer.",
+          "en": "The rotor turns slightly more slowly than the rotating field. This difference is called slip. It is necessary so that a voltage is induced in the rotor and a torque is produced. Under load the slip becomes larger."
+        },
+        "formulas": [
+          "s = (ns − n) / ns · 100 %"
+        ],
+        "remember": {
+          "de": "Steht auf dem Leistungsschild 1440 min⁻¹, gehört dazu die Synchrondrehzahl 1500 min⁻¹.",
+          "en": "If the rating plate says 1440 min⁻¹, the matching synchronous speed is 1500 min⁻¹."
+        }
+      },
+      {
+        "heading": {
+          "de": "Leistungsschild lesen",
+          "en": "Reading the rating plate"
+        },
+        "body": {
+          "de": "Das Leistungsschild nennt Bemessungsspannung, Bemessungsstrom, Leistung, Drehzahl, Leistungsfaktor cos φ und Frequenz. Die angegebene Leistung ist die mechanische Leistung an der Welle. Die elektrisch aufgenommene Leistung ist größer, der Unterschied sind die Verluste.",
+          "en": "The rating plate gives rated voltage, rated current, power, speed, power factor cos φ and frequency. The stated power is the mechanical power at the shaft. The electrical input power is larger; the difference is the losses."
+        },
+        "formulas": [
+          "Pzu = √3 · U · I · cos φ",
+          "η = Pab / Pzu",
+          "M = 9550 · P / n   (P in kW, n in min⁻¹)"
+        ],
+        "remember": {
+          "de": "Leistung auf dem Schild = abgegebene Leistung.",
+          "en": "Power on the plate = output power."
+        }
+      },
+      {
+        "heading": {
+          "de": "Frequenzumrichter",
+          "en": "Frequency converter"
+        },
+        "body": {
+          "de": "Ein Frequenzumrichter ändert die Frequenz der Motorspannung und damit die Drehzahl des Drehfelds. So lässt sich die Drehzahl stufenlos einstellen. Damit der Motor magnetisch richtig arbeitet, wird die Spannung zusammen mit der Frequenz verändert (U/f-Kennlinie).",
+          "en": "A frequency converter changes the frequency of the motor voltage and thus the speed of the rotating field. This way the speed can be set continuously. So that the motor works correctly magnetically, the voltage is changed together with the frequency (V/f characteristic)."
+        },
+        "formulas": [
+          "U / f = konstant"
+        ],
+        "remember": {
+          "de": "Halbe Frequenz: halbe Drehzahl und halbe Spannung.",
+          "en": "Half the frequency: half the speed and half the voltage."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M11",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Steuerungen, Bediengeräte und Antriebe sind heute über Netzwerke verbunden. Hier lernst du die Grundlagen der Adressierung und der Fehlersuche.",
+      "en": "Controllers, operator panels and drives are connected via networks today. Here you learn the basics of addressing and troubleshooting."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Netzwerk-Grundlagen",
+          "en": "Network basics"
+        },
+        "body": {
+          "de": "In einem Ethernet-Netz sind die Geräte meist sternförmig an einen Switch angeschlossen. Der Switch leitet Daten nur an das Gerät weiter, für das sie bestimmt sind. Ein Router verbindet verschiedene Netze miteinander.\n\nJedes Gerät hat eine weltweit eindeutige MAC-Adresse ab Werk und bekommt zusätzlich eine IP-Adresse, die zum Netz passen muss.",
+          "en": "In an Ethernet network the devices are usually connected in a star to a switch. The switch only forwards data to the device it is intended for. A router connects different networks with each other.\n\nEvery device has a worldwide unique MAC address from the factory and additionally gets an IP address that must match the network."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Switch verbindet Geräte in einem Netz, Router verbindet Netze.",
+          "en": "A switch connects devices in one network, a router connects networks."
+        }
+      },
+      {
+        "heading": {
+          "de": "IPv4-Adresse und Subnetzmaske",
+          "en": "IPv4 address and subnet mask"
+        },
+        "body": {
+          "de": "Eine IPv4-Adresse besteht aus vier Zahlen von 0 bis 255, zum Beispiel 192.168.10.37. Die Subnetzmaske trennt den Netzanteil vom Geräteanteil. Bei 255.255.255.0 (kurz /24) gehören die ersten drei Zahlen zum Netz, die letzte zum Gerät.\n\nZwei Geräte können nur direkt miteinander sprechen, wenn ihr Netzanteil gleich ist. Die erste Adresse eines Netzes ist die Netzadresse, die letzte die Broadcast-Adresse. Beide werden nicht an Geräte vergeben.",
+          "en": "An IPv4 address consists of four numbers from 0 to 255, for example 192.168.10.37. The subnet mask separates the network part from the device part. With 255.255.255.0 (short /24) the first three numbers belong to the network, the last one to the device.\n\nTwo devices can only talk to each other directly if their network part is the same. The first address of a network is the network address, the last one the broadcast address. Neither is assigned to devices."
+        },
+        "formulas": [
+          "Geräte pro Netz = 2^Hostbits − 2"
+        ],
+        "remember": {
+          "de": "Gleicher Netzanteil, verschiedener Geräteanteil: Dann klappt die Verbindung.",
+          "en": "Same network part, different device part: then the connection works."
+        }
+      },
+      {
+        "heading": {
+          "de": "Fehlersuche im Netz",
+          "en": "Troubleshooting in the network"
+        },
+        "body": {
+          "de": "Gehe von unten nach oben vor. Erstens: Steckt das Kabel, leuchtet die Link-Anzeige am Anschluss? Zweitens: Stimmen IP-Adresse und Subnetzmaske, ist keine Adresse doppelt vergeben? Drittens: Antwortet das Gerät auf einen Ping? Erst danach lohnt die Suche im Programm oder in der Projektierung.",
+          "en": "Proceed from the bottom up. First: is the cable plugged in, is the link indicator at the port lit? Second: are IP address and subnet mask correct, is no address assigned twice? Third: does the device answer a ping? Only after that is it worth searching in the program or in the configuration."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst Kabel und Link, dann Adressen, dann Ping.",
+          "en": "First cable and link, then addresses, then ping."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M12",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Eine Regelung hält eine Größe von selbst auf dem gewünschten Wert, zum Beispiel eine Temperatur oder einen Füllstand. Hier lernst du die Begriffe und die wichtigsten Reglertypen.",
+      "en": "A closed-loop control keeps a quantity at the desired value by itself, for example a temperature or a level. Here you learn the terms and the most important controller types."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Der Regelkreis",
+          "en": "The control loop"
+        },
+        "body": {
+          "de": "Die Führungsgröße w ist der Sollwert. Die Regelgröße x ist der gemessene Istwert. Die Regelabweichung e ist der Unterschied zwischen beiden. Der Regler berechnet daraus die Stellgröße y, die auf die Strecke wirkt, zum Beispiel die Heizleistung. Störgrößen z verändern die Regelgröße von außen, zum Beispiel eine offene Tür.",
+          "en": "The reference variable w is the setpoint. The controlled variable x is the measured actual value. The control deviation e is the difference between the two. From it the controller calculates the manipulated variable y, which acts on the process, for example the heating power. Disturbances z change the controlled variable from outside, for example an open door."
+        },
+        "formulas": [
+          "e = w − x"
+        ],
+        "remember": {
+          "de": "Soll minus Ist ergibt die Regelabweichung.",
+          "en": "Setpoint minus actual value gives the control deviation."
+        }
+      },
+      {
+        "heading": {
+          "de": "Regelstrecken",
+          "en": "Controlled processes"
+        },
+        "body": {
+          "de": "Die Strecke ist der Teil der Anlage, der geregelt wird. Viele Strecken reagieren verzögert: Nach einem Sprung der Stellgröße nähert sich der Istwert langsam dem neuen Endwert. Das nennt man PT1-Verhalten. Die Zeitkonstante T ist die Zeit, nach der 63 % der Änderung erreicht sind.\n\nEine Totzeit bedeutet: Zuerst passiert eine Zeit lang gar nichts, zum Beispiel weil das Material erst über ein Band zum Sensor laufen muss. Strecken mit großer Totzeit sind schwer zu regeln.",
+          "en": "The process is the part of the plant that is controlled. Many processes react with a delay: after a step of the manipulated variable the actual value slowly approaches the new final value. This is called PT1 behaviour. The time constant T is the time after which 63 % of the change has been reached.\n\nA dead time means: at first nothing happens for a while, for example because the material first has to travel along a belt to the sensor. Processes with a large dead time are difficult to control."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Nach etwa fünf Zeitkonstanten ist der Endwert praktisch erreicht.",
+          "en": "After about five time constants the final value is practically reached."
+        }
+      },
+      {
+        "heading": {
+          "de": "Reglertypen",
+          "en": "Controller types"
+        },
+        "body": {
+          "de": "Der Zweipunktregler kennt nur Ein und Aus, wie ein Thermostat. Der Istwert pendelt ständig um den Sollwert.\n\nDer P-Regler stellt umso stärker, je größer die Abweichung ist. Er ist schnell, lässt aber eine bleibende Abweichung zurück. Der I-Anteil summiert die Abweichung über die Zeit und beseitigt sie ganz, macht den Regelkreis aber langsamer und schwingfreudiger. Der D-Anteil reagiert auf die Änderungsgeschwindigkeit und wirkt schnellen Änderungen entgegen. Der PID-Regler verbindet alle drei.",
+          "en": "The two-point controller only knows on and off, like a thermostat. The actual value constantly swings around the setpoint.\n\nThe P controller acts more strongly the larger the deviation is. It is fast but leaves a permanent deviation. The I part sums the deviation over time and removes it completely, but makes the control loop slower and more prone to oscillation. The D part reacts to the rate of change and counteracts fast changes. The PID controller combines all three."
+        },
+        "formulas": [
+          "P-Regler: y = Kp · e"
+        ],
+        "remember": {
+          "de": "P ist schnell, I ist genau, D dämpft.",
+          "en": "P is fast, I is accurate, D damps."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M13",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Eine Anlage muss in Betrieb genommen, gepflegt und im Fehlerfall schnell repariert werden. Hier lernst du die Begriffe der Instandhaltung und ein festes Vorgehen für die Fehlersuche.",
+      "en": "A plant has to be commissioned, looked after and repaired quickly in case of a fault. Here you learn the terms of maintenance and a fixed procedure for fault-finding."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Die vier Maßnahmen der Instandhaltung",
+          "en": "The four measures of maintenance"
+        },
+        "body": {
+          "de": "Instandhaltung ist der Oberbegriff. Sie besteht aus vier Maßnahmen. Wartung: die Abnutzung verzögern, zum Beispiel reinigen, schmieren, nachstellen. Inspektion: den Zustand feststellen und beurteilen, zum Beispiel messen und prüfen. Instandsetzung: einen Fehler beheben und die Funktion wiederherstellen. Verbesserung: die Anlage zuverlässiger machen, ohne ihre Funktion zu ändern.",
+          "en": "Maintenance (Instandhaltung) is the generic term. It consists of four measures. Servicing (Wartung): slowing down wear, for example cleaning, lubricating, readjusting. Inspection (Inspektion): determining and assessing the condition, for example measuring and testing. Repair (Instandsetzung): removing a fault and restoring the function. Improvement (Verbesserung): making the plant more reliable without changing its function."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Wartung pflegt, Inspektion prüft, Instandsetzung repariert, Verbesserung macht besser.",
+          "en": "Servicing looks after, inspection checks, repair fixes, improvement makes better."
+        }
+      },
+      {
+        "heading": {
+          "de": "Inbetriebnahme Schritt für Schritt",
+          "en": "Commissioning step by step"
+        },
+        "body": {
+          "de": "Eine Anlage wird nie einfach eingeschaltet. Die Reihenfolge ist: Sichtprüfung und Vergleich mit den Plänen, Prüfung der Schutzmaßnahmen, Test der Eingänge und Ausgänge einzeln, Handbetrieb der einzelnen Funktionen, erst dann Automatikbetrieb. Am Ende stehen die Dokumentation und die Übergabe mit Einweisung.",
+          "en": "A plant is never simply switched on. The order is: visual check and comparison with the plans, testing of the protective measures, testing of the inputs and outputs one by one, manual operation of the single functions, only then automatic operation. At the end there are the documentation and the handover with instruction."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst einzeln, dann zusammen. Erst Hand, dann Automatik.",
+          "en": "First singly, then together. First manual, then automatic."
+        }
+      },
+      {
+        "heading": {
+          "de": "Systematische Fehlersuche",
+          "en": "Systematic fault-finding"
+        },
+        "body": {
+          "de": "Wer ohne Plan Teile tauscht, verliert Zeit. Besser ist ein fester Ablauf: das Fehlerbild genau beschreiben, eine Vermutung aufstellen, die Vermutung durch Messen oder Prüfen bestätigen, die Ursache beheben, die Funktion prüfen und den Fehler dokumentieren.\n\nHilfreich ist es, die Anlage in Abschnitte zu teilen und in der Mitte zu prüfen. So halbiert jede Messung den Bereich, in dem der Fehler liegen kann.",
+          "en": "Swapping parts without a plan wastes time. A fixed procedure is better: describe the symptom exactly, form a hypothesis, confirm the hypothesis by measuring or testing, remove the cause, check the function and document the fault.\n\nIt helps to divide the plant into sections and test in the middle. This way each measurement halves the area in which the fault can be."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst denken, dann messen, dann tauschen.",
+          "en": "Think first, then measure, then replace."
         }
       }
     ]
@@ -334,236 +1065,83 @@
     ]
   },
   {
-    "module": "M09",
+    "module": "M16",
     "status": "draft",
     "source": "Eigener Text.",
     "intro": {
-      "de": "Pneumatik arbeitet mit Druckluft. Hier lernst du, was Druck ist, wie viel Kraft ein Zylinder hat und wie Ventile bezeichnet werden.",
-      "en": "Pneumatics works with compressed air. Here you learn what pressure is, how much force a cylinder has and how valves are named."
+      "de": "Technische Mathematik ist das Werkzeug für alle anderen Module: Formeln umstellen, Einheiten umrechnen und mit Verhältnissen rechnen.",
+      "en": "Technical mathematics is the tool for all other modules: rearranging formulas, converting units and working with ratios."
     },
     "sections": [
       {
         "heading": {
-          "de": "Druck",
-          "en": "Pressure"
+          "de": "Formeln umstellen",
+          "en": "Rearranging formulas"
         },
         "body": {
-          "de": "Druck ist Kraft pro Fläche. In der Pneumatik wird er in bar angegeben. Das Manometer zeigt den Überdruck pe, also den Druck über dem Luftdruck der Umgebung. Der absolute Druck ist Überdruck plus Umgebungsdruck (etwa 1 bar).",
-          "en": "Pressure is force per area. In pneumatics it is given in bar. The pressure gauge shows the gauge pressure pe, that is the pressure above the ambient air pressure. The absolute pressure is gauge pressure plus ambient pressure (about 1 bar)."
-        },
-        "formulas": [
-          "p = F / A",
-          "1 bar = 10 N/cm² = 100 000 Pa",
-          "pabs = pe + pamb"
-        ],
-        "remember": {
-          "de": "Für Kräfte rechnest du mit dem Überdruck, für Gasgesetze mit dem absoluten Druck.",
-          "en": "For forces you use gauge pressure, for gas laws absolute pressure."
-        }
-      },
-      {
-        "heading": {
-          "de": "Kolbenkraft",
-          "en": "Piston force"
-        },
-        "body": {
-          "de": "Die Druckluft drückt auf die Kolbenfläche und erzeugt die Kraft. Beim Ausfahren wirkt die ganze Kolbenfläche. Beim Einfahren fehlt die Fläche der Kolbenstange, es bleibt eine Kreisringfläche. Deshalb ist die Kraft beim Einfahren kleiner. In der Praxis geht durch Reibung noch ein Teil der Kraft verloren.",
-          "en": "The compressed air presses on the piston area and creates the force. When extending, the whole piston area acts. When retracting, the area of the piston rod is missing and an annular area remains. That is why the force when retracting is smaller. In practice a part of the force is also lost through friction."
-        },
-        "formulas": [
-          "F = pe · A",
-          "A = π · D² / 4",
-          "AR = π · (D² − d²) / 4"
-        ],
-        "remember": {
-          "de": "Doppelter Durchmesser bedeutet vierfache Fläche und vierfache Kraft.",
-          "en": "Twice the diameter means four times the area and four times the force."
-        }
-      },
-      {
-        "heading": {
-          "de": "Wegeventile benennen",
-          "en": "Naming directional valves"
-        },
-        "body": {
-          "de": "Ein Wegeventil wird mit zwei Zahlen benannt: Anzahl der Anschlüsse / Anzahl der Schaltstellungen. Ein 5/2-Wegeventil hat 5 Anschlüsse und 2 Schaltstellungen. Im Schaltzeichen steht jedes Quadrat für eine Schaltstellung.\n\nEin monostabiles Ventil geht durch eine Feder von selbst in die Grundstellung zurück. Ein bistabiles Ventil (Impulsventil) bleibt in der letzten Stellung, bis das Gegensignal kommt.",
-          "en": "A directional valve is named with two numbers: number of ports / number of switching positions. A 5/2 directional valve has 5 ports and 2 switching positions. In the symbol each square stands for one switching position.\n\nA monostable valve returns to its normal position by itself through a spring. A bistable valve (impulse valve) stays in the last position until the opposite signal arrives."
+          "de": "Eine Formel ist eine Gleichung. Du darfst auf beiden Seiten das Gleiche tun: addieren, subtrahieren, multiplizieren oder dividieren. Ziel ist, dass die gesuchte Größe allein auf einer Seite steht.\n\nBeispiel: Aus U = R · I wird I = U / R, wenn du beide Seiten durch R teilst.",
+          "en": "A formula is an equation. You may do the same thing on both sides: add, subtract, multiply or divide. The goal is that the wanted quantity stands alone on one side.\n\nExample: U = R · I becomes I = U / R when you divide both sides by R."
         },
         "formulas": [],
         "remember": {
-          "de": "Erst die Anschlüsse, dann die Schaltstellungen: 3/2 heißt 3 Anschlüsse, 2 Stellungen.",
-          "en": "Ports first, then switching positions: 3/2 means 3 ports, 2 positions."
+          "de": "Was auf einer Seite multipliziert, teilt auf der anderen Seite.",
+          "en": "What multiplies on one side divides on the other side."
         }
       },
       {
         "heading": {
-          "de": "Luft verdichten",
-          "en": "Compressing air"
+          "de": "Einheiten und Vorsätze",
+          "en": "Units and prefixes"
         },
         "body": {
-          "de": "Luft lässt sich zusammendrücken. Bleibt die Temperatur gleich, ist das Produkt aus absolutem Druck und Volumen konstant. Wird Luft auf den siebenfachen absoluten Druck verdichtet, braucht sie nur noch ein Siebtel des Raums.",
-          "en": "Air can be compressed. If the temperature stays the same, the product of absolute pressure and volume is constant. If air is compressed to seven times the absolute pressure, it only needs one seventh of the space."
+          "de": "Vorsätze machen große und kleine Zahlen handlich: Mega (M) = 1 000 000, Kilo (k) = 1000, Milli (m) = 0,001, Mikro (µ) = 0,000 001. Vor dem Rechnen werden alle Werte in passende Einheiten umgerechnet.\n\nLängen: 1 m = 10 dm = 100 cm = 1000 mm. Bei Flächen und Volumen ändert sich der Faktor: 1 dm³ = 1000 cm³ = 1 Liter.",
+          "en": "Prefixes make large and small numbers handy: mega (M) = 1 000 000, kilo (k) = 1000, milli (m) = 0.001, micro (µ) = 0.000 001. Before calculating, all values are converted to matching units.\n\nLengths: 1 m = 10 dm = 100 cm = 1000 mm. For areas and volumes the factor changes: 1 dm³ = 1000 cm³ = 1 litre."
         },
         "formulas": [
-          "p1 · V1 = p2 · V2"
+          "1 kΩ = 1000 Ω",
+          "1 mA = 0.001 A",
+          "1 m³ = 1000 l"
         ],
         "remember": {
-          "de": "Im Gasgesetz immer absolute Drücke einsetzen.",
-          "en": "Always use absolute pressures in the gas law."
+          "de": "Schreibe die Einheit bei jedem Rechenschritt mit. So fallen Fehler sofort auf.",
+          "en": "Write the unit in every calculation step. This way mistakes show up at once."
         }
-      }
-    ]
-  },
-  {
-    "module": "M10",
-    "status": "draft",
-    "source": "Eigener Text.",
-    "intro": {
-      "de": "Der Drehstrom-Asynchronmotor ist der wichtigste Antrieb in der Industrie. Hier lernst du, wie seine Drehzahl entsteht und was auf dem Leistungsschild steht.",
-      "en": "The three-phase asynchronous motor is the most important drive in industry. Here you learn where its speed comes from and what is on the rating plate."
-    },
-    "sections": [
+      },
       {
         "heading": {
-          "de": "Drehfeld und Synchrondrehzahl",
-          "en": "Rotating field and synchronous speed"
+          "de": "Dreisatz und Prozent",
+          "en": "Rule of three and percentages"
         },
         "body": {
-          "de": "Die drei Wicklungen im Ständer erzeugen mit Drehstrom ein Magnetfeld, das sich dreht: das Drehfeld. Seine Drehzahl heißt Synchrondrehzahl. Sie hängt nur von der Frequenz und der Polpaarzahl p ab. Am 50-Hz-Netz sind das 3000, 1500, 1000 oder 750 Umdrehungen pro Minute.",
-          "en": "With three-phase current the three windings in the stator create a magnetic field that rotates: the rotating field. Its speed is called synchronous speed. It depends only on the frequency and the number of pole pairs p. On the 50 Hz mains that is 3000, 1500, 1000 or 750 revolutions per minute."
+          "de": "Beim Dreisatz rechnest du von einem bekannten Wert zuerst auf eine Einheit und dann auf den gesuchten Wert. Prüfe vorher: Wird das Ergebnis größer oder kleiner?\n\nProzent heißt: Teile von hundert. Der Grundwert ist das Ganze (100 %), der Prozentwert ist der Anteil.",
+          "en": "With the rule of three you go from a known value first to one unit and then to the wanted value. Check beforehand: will the result be larger or smaller?\n\nPercent means: parts of a hundred. The base value is the whole (100 %), the percentage value is the share."
         },
         "formulas": [
-          "ns = f · 60 / p"
+          "Prozentwert = Grundwert · Prozentsatz / 100"
         ],
         "remember": {
-          "de": "Mehr Polpaare, kleinere Drehzahl.",
-          "en": "More pole pairs, lower speed."
+          "de": "Frage dich immer: Was sind hier 100 %?",
+          "en": "Always ask yourself: what is 100 % here?"
         }
       },
       {
         "heading": {
-          "de": "Schlupf",
-          "en": "Slip"
+          "de": "Kraft, Arbeit, Leistung",
+          "en": "Force, work, power"
         },
         "body": {
-          "de": "Der Läufer dreht etwas langsamer als das Drehfeld. Dieser Unterschied heißt Schlupf. Er ist nötig, damit im Läufer eine Spannung induziert wird und ein Drehmoment entsteht. Unter Last wird der Schlupf größer.",
-          "en": "The rotor turns slightly more slowly than the rotating field. This difference is called slip. It is necessary so that a voltage is induced in the rotor and a torque is produced. Under load the slip becomes larger."
+          "de": "Eine Masse wird von der Erde angezogen. Daraus entsteht die Gewichtskraft in Newton (N). Arbeit wird verrichtet, wenn eine Kraft etwas über einen Weg bewegt. Leistung ist Arbeit pro Zeit.\n\nIm rechtwinkligen Dreieck hilft der Satz des Pythagoras, eine fehlende Seite zu berechnen.",
+          "en": "A mass is attracted by the earth. This results in the weight force in newtons (N). Work is done when a force moves something over a distance. Power is work per time.\n\nIn a right-angled triangle the Pythagorean theorem helps to calculate a missing side."
         },
         "formulas": [
-          "s = (ns − n) / ns · 100 %"
+          "F = m · g",
+          "W = F · s",
+          "P = W / t",
+          "c² = a² + b²"
         ],
         "remember": {
-          "de": "Steht auf dem Leistungsschild 1440 min⁻¹, gehört dazu die Synchrondrehzahl 1500 min⁻¹.",
-          "en": "If the rating plate says 1440 min⁻¹, the matching synchronous speed is 1500 min⁻¹."
-        }
-      },
-      {
-        "heading": {
-          "de": "Leistungsschild lesen",
-          "en": "Reading the rating plate"
-        },
-        "body": {
-          "de": "Das Leistungsschild nennt Bemessungsspannung, Bemessungsstrom, Leistung, Drehzahl, Leistungsfaktor cos φ und Frequenz. Die angegebene Leistung ist die mechanische Leistung an der Welle. Die elektrisch aufgenommene Leistung ist größer, der Unterschied sind die Verluste.",
-          "en": "The rating plate gives rated voltage, rated current, power, speed, power factor cos φ and frequency. The stated power is the mechanical power at the shaft. The electrical input power is larger; the difference is the losses."
-        },
-        "formulas": [
-          "Pzu = √3 · U · I · cos φ",
-          "η = Pab / Pzu",
-          "M = 9550 · P / n   (P in kW, n in min⁻¹)"
-        ],
-        "remember": {
-          "de": "Leistung auf dem Schild = abgegebene Leistung.",
-          "en": "Power on the plate = output power."
-        }
-      },
-      {
-        "heading": {
-          "de": "Frequenzumrichter",
-          "en": "Frequency converter"
-        },
-        "body": {
-          "de": "Ein Frequenzumrichter ändert die Frequenz der Motorspannung und damit die Drehzahl des Drehfelds. So lässt sich die Drehzahl stufenlos einstellen. Damit der Motor magnetisch richtig arbeitet, wird die Spannung zusammen mit der Frequenz verändert (U/f-Kennlinie).",
-          "en": "A frequency converter changes the frequency of the motor voltage and thus the speed of the rotating field. This way the speed can be set continuously. So that the motor works correctly magnetically, the voltage is changed together with the frequency (V/f characteristic)."
-        },
-        "formulas": [
-          "U / f = konstant"
-        ],
-        "remember": {
-          "de": "Halbe Frequenz: halbe Drehzahl und halbe Spannung.",
-          "en": "Half the frequency: half the speed and half the voltage."
-        }
-      }
-    ]
-  },
-  {
-    "module": "M07",
-    "status": "draft",
-    "source": "Eigener Text.",
-    "intro": {
-      "de": "Eine SPS (speicherprogrammierbare Steuerung) liest Signale, verarbeitet sie mit einem Programm und schaltet Ausgänge. Hier lernst du die Ideen, die du im SPS-Trainer brauchst.",
-      "en": "A PLC (SPS, programmable logic controller) reads signals, processes them with a program and switches outputs. Here you learn the ideas you need in the PLC trainer."
-    },
-    "sections": [
-      {
-        "heading": {
-          "de": "Zyklus und Prozessabbild",
-          "en": "Cycle and process image"
-        },
-        "body": {
-          "de": "Die SPS arbeitet in einem Kreislauf, dem Zyklus. Zuerst liest sie alle Eingänge und speichert sie im Prozessabbild. Dann bearbeitet sie das Programm von oben nach unten. Am Ende schreibt sie die Ergebnisse an die Ausgänge. Danach beginnt der nächste Zyklus.\n\nEin Zyklus dauert nur wenige Millisekunden. Wird ein Ausgang im Programm zweimal zugewiesen, zählt die letzte Zuweisung.",
-          "en": "The PLC works in a loop, the cycle. First it reads all inputs and stores them in the process image. Then it processes the program from top to bottom. At the end it writes the results to the outputs. After that the next cycle begins.\n\nA cycle only takes a few milliseconds. If an output is assigned twice in the program, the last assignment counts."
-        },
-        "formulas": [],
-        "remember": {
-          "de": "Einlesen, verarbeiten, ausgeben: das EVA-Prinzip.",
-          "en": "Read in, process, output: the EVA principle."
-        }
-      },
-      {
-        "heading": {
-          "de": "Schließer, Öffner und Drahtbruchsicherheit",
-          "en": "Normally open, normally closed and wire-break safety"
-        },
-        "body": {
-          "de": "Ein Schließer liefert das Signal 1, wenn er betätigt wird. Ein Öffner liefert das Signal 1, solange er nicht betätigt ist. Stopp-Taster sind Öffner: Reißt die Leitung, kommt das Signal 0 an und die Anlage stoppt.\n\nIm Programm fragst du das Signal ab, nicht den Taster. Ein Stopp-Öffner wird deshalb im Programm auf 1 abgefragt.",
-          "en": "A normally open contact (Schließer) delivers the signal 1 when it is actuated. A normally closed contact (Öffner) delivers the signal 1 as long as it is not actuated. Stop buttons are normally closed: if the wire breaks, the signal 0 arrives and the plant stops.\n\nIn the program you query the signal, not the button. So a normally closed stop button is queried for 1 in the program."
-        },
-        "formulas": [],
-        "remember": {
-          "de": "Frage dich: Welches Signal kommt im Ruhezustand am Eingang an?",
-          "en": "Ask yourself: which signal arrives at the input at rest?"
-        }
-      },
-      {
-        "heading": {
-          "de": "Selbsthaltung und Verriegelung",
-          "en": "Latching and interlock"
-        },
-        "body": {
-          "de": "Bei der Selbsthaltung hält sich ein Ausgang selbst: Ein Kontakt des Ausgangs liegt parallel zum Start-Taster. Der Stopp liegt in Reihe und hat damit Vorrang.\n\nBei der Verriegelung sperrt ein Ausgang einen anderen, damit nie beide gleichzeitig ein sind, zum Beispiel Rechtslauf und Linkslauf eines Motors.",
-          "en": "With latching (Selbsthaltung) an output holds itself: a contact of the output is parallel to the start button. The stop is in series and therefore has priority.\n\nWith an interlock (Verriegelung) one output blocks another so that both are never on at the same time, for example clockwise and anticlockwise rotation of a motor."
-        },
-        "formulas": [
-          "Q1 := (S1 OR Q1) AND S0;"
-        ],
-        "remember": {
-          "de": "Parallel = ODER, in Reihe = UND.",
-          "en": "Parallel = OR, in series = AND."
-        }
-      },
-      {
-        "heading": {
-          "de": "Zeiten und Zähler",
-          "en": "Timers and counters"
-        },
-        "body": {
-          "de": "TON verzögert das Einschalten: Der Ausgang kommt erst, wenn der Eingang die eingestellte Zeit lang 1 war. TOF verzögert das Ausschalten: Der Ausgang bleibt nach dem Abschalten noch für die Zeit 1. TP gibt einen Impuls mit fester Länge.\n\nDer Zähler CTU zählt bei jeder steigenden Flanke um 1 hoch, also beim Wechsel von 0 auf 1. Bausteine und ihre Anschlüsse sind in der Norm IEC 61131-3 festgelegt.",
-          "en": "TON delays switching on: the output only comes when the input has been 1 for the set time. TOF delays switching off: the output stays 1 for the time after switching off. TP gives a pulse of fixed length.\n\nThe counter CTU counts up by 1 on every rising edge, that is on the change from 0 to 1. The blocks and their connections are defined in the standard IEC 61131-3."
-        },
-        "formulas": [],
-        "remember": {
-          "de": "TON: Einschaltverzögerung. TOF: Ausschaltverzögerung. TP: Impuls.",
-          "en": "TON: on-delay. TOF: off-delay. TP: pulse."
+          "de": "1 kg drückt auf der Erde mit etwa 10 N.",
+          "en": "On earth 1 kg presses with about 10 N."
         }
       }
     ]

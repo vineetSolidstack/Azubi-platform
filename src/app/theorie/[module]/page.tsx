@@ -77,6 +77,10 @@ export default function TheoryPage() {
           </p>
         </section>
       ))}
+      <p className="muted small">
+        {t({ de: 'Quelle: ', en: 'Source (German): ' })}
+        {lesson.source}
+      </p>
       <div className="card">
         <h2>{t({ de: 'Jetzt üben', en: 'Practise now' })}</h2>
         {practice.length ? (

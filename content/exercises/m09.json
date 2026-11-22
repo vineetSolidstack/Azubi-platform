@@ -310,5 +310,83 @@
       "de": "1 bar = 100 000 Pa = 0,1 MPa = 10 N/cm².",
       "en": "1 bar = 100 000 Pa = 0.1 MPa = 10 N/cm²."
     }
+  },
+  {
+    "id": "m09-u05-zylinder-auswaehlen",
+    "module": "M09",
+    "lernfeld": {
+      "MECH": [
+        4,
+        7,
+        8
+      ],
+      "IM": [
+        6,
+        10,
+        13
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Zylinder für eine Spannkraft auswählen",
+      "en": "Selecting a cylinder for a clamping force"
+    },
+    "situation": {
+      "de": "Ein Zylinder soll beim Ausfahren mindestens F = 1500 N aufbringen. Der Arbeitsdruck ist pe = 6 bar (60 N/cm²), der Wirkungsgrad des Zylinders η = 0,85. Zur Wahl stehen die Kolbendurchmesser 32, 40, 50, 63 und 80 mm. Rechne mit π = 3,1416.",
+      "en": "A cylinder must deliver at least F = 1500 N when extending. The working pressure is pe = 6 bar (60 N/cm²), the efficiency of the cylinder η = 0.85. The piston diameters 32, 40, 50, 63 and 80 mm are available. Use π = 3.1416."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Kolbenfläche A ist mindestens nötig?",
+          "en": "Which piston area A is needed at least?"
+        },
+        "unit": "cm²",
+        "answer": 29.41,
+        "tolerance": 0.1,
+        "formula": "A = F / (pe · η)",
+        "calc": "A = 1500 N / (60 N/cm² · 0.85) = 29.41 cm²",
+        "why": {
+          "de": "Durch Reibung kommt nur ein Teil der theoretischen Kraft an. Deshalb muss die Fläche größer sein.",
+          "en": "Because of friction only a part of the theoretical force arrives. So the area has to be larger."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welchem Durchmesser D entspricht das in mm?",
+          "en": "Which diameter D in mm does that correspond to?"
+        },
+        "unit": "mm",
+        "answer": 61.2,
+        "tolerance": 0.3,
+        "formula": "D = √(4 · A / π)",
+        "calc": "D = √(4 · 29.41 cm² / 3.1416) = 6.12 cm = 61.2 mm",
+        "why": {
+          "de": "Die Flächenformel wird nach dem Durchmesser umgestellt.",
+          "en": "The area formula is rearranged for the diameter."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Gewählt wird der nächstgrößere Durchmesser 63 mm. Welche Kraft bringt dieser Zylinder wirklich?",
+          "en": "The next larger diameter 63 mm is chosen. Which force does this cylinder really deliver?"
+        },
+        "unit": "N",
+        "answer": 1590,
+        "tolerance": 8,
+        "formula": "F = pe · A · η",
+        "calc": "F = 60 N/cm² · 31.17 cm² · 0.85 = 1590 N",
+        "why": {
+          "de": "Man wählt immer die nächstgrößere Baugröße und prüft dann die wirkliche Kraft.",
+          "en": "You always choose the next larger size and then check the real force."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Auswahl in drei Schritten: nötige Fläche, nötiger Durchmesser, nächstgrößere Baugröße prüfen.",
+      "en": "Selection in three steps: required area, required diameter, check the next larger size."
+    }
   }
 ]

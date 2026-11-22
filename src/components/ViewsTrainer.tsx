@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { solids } from '@content/drawing';
-import { checkView, hKey, Solid, solidSize, ViewCheck, ViewId, VIEW_IDS, viewGrid, visibleEdges, vKey } from '@/engine/drawing/views';
+import { checkView, hiddenEdges, hKey, Solid, solidSize, ViewCheck, ViewId, VIEW_IDS, viewGrid, visibleEdges, vKey } from '@/engine/drawing/views';
 import { updateProgress, useProgress, useT } from '@/lib/progress';
 import { Dots, StatusBadge } from './Shell';
 
@@ -34,10 +34,11 @@ function IsoSolid({ solid }: { solid: Solid }) {
   );
 }
 
-function ViewSheet({ solid, view, drawn, toggle, reveal }: { solid: Solid; view: ViewId; drawn: string[]; toggle: (k: string) => void; reveal: boolean }) {
+function ViewSheet({ solid, view, drawn, dashed, toggle, reveal }: { solid: Solid; view: ViewId; drawn: string[]; dashed: string[]; toggle: (k: string) => void; reveal: boolean }) {
   const { t } = useT();
   const g = viewGrid(solid, view);
   const want = reveal ? visibleEdges(g) : new Set<string>();
+  const wantHidden = reveal && solid.hidden ? hiddenEdges(solid, view) : new Set<string>();
   const segs: { k: string; x1: number; y1: number; x2: number; y2: number }[] = [];
   for (let r = 0; r <= g.rows; r++) for (let c = 0; c < g.cols; c++) segs.push({ k: hKey(c, r), x1: c * C, y1: r * C, x2: (c + 1) * C, y2: r * C });
   for (let r = 0; r < g.rows; r++) for (let c = 0; c <= g.cols; c++) segs.push({ k: vKey(c, r), x1: c * C, y1: r * C, x2: c * C, y2: (r + 1) * C });
@@ -49,8 +50,14 @@ function ViewSheet({ solid, view, drawn, toggle, reveal }: { solid: Solid; view:
       {segs.filter((s) => want.has(s.k)).map((s) => (
         <line key={'w' + s.k} {...s} className="sheet-want" />
       ))}
+      {segs.filter((s) => wantHidden.has(s.k)).map((s) => (
+        <line key={'wh' + s.k} {...s} className="sheet-want hidden-edge" />
+      ))}
       {segs.filter((s) => drawn.includes(s.k)).map((s) => (
         <line key={'d' + s.k} {...s} className="sheet-line" />
+      ))}
+      {segs.filter((s) => dashed.includes(s.k)).map((s) => (
+        <line key={'x' + s.k} {...s} className="sheet-line sheet-dashed" />
       ))}
       {segs.map((s) => (
         <line
@@ -59,7 +66,7 @@ function ViewSheet({ solid, view, drawn, toggle, reveal }: { solid: Solid; view:
           className="sheet-hit"
           role="button"
           tabIndex={0}
-          aria-pressed={drawn.includes(s.k)}
+          aria-pressed={drawn.includes(s.k) || dashed.includes(s.k)}
           aria-label={t({ de: 'Linie', en: 'Line' }) + ' ' + s.k}
           onClick={() => toggle(s.k)}
           onKeyDown={(e) => {
@@ -78,6 +85,7 @@ export function ViewsTrainer({ solid }: { solid: Solid }) {
   const { t } = useT();
   const solved = !!useProgress().drawing[solid.id];
   const [drawn, setDrawn] = useState<Record<ViewId, string[]>>({ front: [], left: [], top: [] });
+  const [dashed, setDashed] = useState<Record<ViewId, string[]>>({ front: [], left: [], top: [] });
   const [result, setResult] = useState<Record<ViewId, ViewCheck> | null>(null);
   const [reveal, setReveal] = useState(false);
   const idx = solids.findIndex((s) => s.id === solid.id);
@@ -100,12 +108,16 @@ export function ViewsTrainer({ solid }: { solid: Solid }) {
     },
   };
 
+  // one click: wide line. With hidden edges switched on a second click makes it dashed, the next click removes it.
   const toggle = (view: ViewId) => (k: string) => {
-    setDrawn({ ...drawn, [view]: drawn[view].includes(k) ? drawn[view].filter((x) => x !== k) : [...drawn[view], k] });
+    const isSolid = drawn[view].includes(k);
+    const isDashed = dashed[view].includes(k);
+    setDrawn({ ...drawn, [view]: isSolid ? drawn[view].filter((x) => x !== k) : isDashed ? drawn[view] : [...drawn[view], k] });
+    setDashed({ ...dashed, [view]: isDashed ? dashed[view].filter((x) => x !== k) : isSolid && solid.hidden ? [...dashed[view], k] : dashed[view] });
     setResult(null);
   };
   const check = () => {
-    const r = Object.fromEntries(VIEW_IDS.map((v) => [v, checkView(solid, v, drawn[v])])) as Record<ViewId, ViewCheck>;
+    const r = Object.fromEntries(VIEW_IDS.map((v) => [v, checkView(solid, v, drawn[v], dashed[v])])) as Record<ViewId, ViewCheck>;
     setResult(r);
     if (VIEW_IDS.every((v) => r[v].ok)) updateProgress((p) => ({ ...p, drawing: { ...p.drawing, [solid.id]: true } }));
   };
@@ -116,19 +128,19 @@ export function ViewsTrainer({ solid }: { solid: Solid }) {
       <h3>
         <i className="swatch" /> {t(NAMES[v])}
       </h3>
-      <ViewSheet solid={solid} view={v} drawn={drawn[v]} toggle={toggle(v)} reveal={reveal} />
+      <ViewSheet solid={solid} view={v} drawn={drawn[v]} dashed={dashed[v]} toggle={toggle(v)} reveal={reveal} />
       {result && (
         <p className={result[v].ok ? 'msg success' : 'msg warn'}>
           {result[v].ok
             ? t({ de: 'Richtig!', en: 'Correct!' })
             : t({
-                de: `${result[v].missing} ${result[v].missing === 1 ? 'Linie fehlt' : 'Linien fehlen'}, ${result[v].extra} ${result[v].extra === 1 ? 'Linie ist' : 'Linien sind'} zu viel.`,
-                en: `${result[v].missing} ${result[v].missing === 1 ? 'line is' : 'lines are'} missing, ${result[v].extra} ${result[v].extra === 1 ? 'line is' : 'lines are'} too many.`,
+                de: `${result[v].missing} ${result[v].missing === 1 ? 'Linie fehlt' : 'Linien fehlen'}${solid.hidden ? ' oder haben die falsche Linienart' : ''}, ${result[v].extra} ${result[v].extra === 1 ? 'Linie ist' : 'Linien sind'} zu viel.`,
+                en: `${result[v].missing} ${result[v].missing === 1 ? 'line is' : 'lines are'} missing${solid.hidden ? ' or of the wrong line type' : ''}, ${result[v].extra} ${result[v].extra === 1 ? 'line is' : 'lines are'} too many.`,
               })}
         </p>
       )}
       {reveal && <p className="small">{t(WHY[v])}</p>}
-      <button className="link" onClick={() => { setDrawn({ ...drawn, [v]: [] }); setResult(null); }}>
+      <button className="link" onClick={() => { setDrawn({ ...drawn, [v]: [] }); setDashed({ ...dashed, [v]: [] }); setResult(null); }}>
         {t({ de: 'Diese Ansicht löschen', en: 'Clear this view' })}
       </button>
     </div>
@@ -164,6 +176,14 @@ export function ViewsTrainer({ solid }: { solid: Solid }) {
               en: 'Draw all visible edges: click the dashed guide lines. A second click removes the line again. One square corresponds to one cube.',
             })}
           </p>
+          <p className={solid.hidden ? 'note small' : 'muted small'}>
+            {solid.hidden
+              ? t({
+                  de: 'Bei diesem Werkstück gehören auch die verdeckten Kanten dazu. Erster Klick: breite Volllinie (sichtbare Kante). Zweiter Klick: Strichlinie (verdeckte Kante). Dritter Klick: Linie weg.',
+                  en: 'For this workpiece the hidden edges are required as well. First click: wide continuous line (visible edge). Second click: dashed line (hidden edge). Third click: line removed.',
+                })
+              : t({ de: 'Verdeckte Kanten werden bei diesem Werkstück nicht gezeichnet.', en: 'Hidden edges are not drawn for this workpiece.' })}
+          </p>
         </div>
         <div className="card">
           <div className="card-head">
@@ -186,6 +206,9 @@ export function ViewsTrainer({ solid }: { solid: Solid }) {
             <ol className="why">
               <li>{t({ de: 'Die grünen Linien sind die Lösung. Eine breite Volllinie gehört überall hin, wo eine Kante sichtbar ist: am Umriss und an jeder Stufe.', en: 'The green lines are the solution. A wide continuous line belongs wherever an edge is visible: at the outline and at every step.' })}</li>
               <li>{t({ de: 'Liegen zwei Flächen in Blickrichtung gleich weit entfernt, ist zwischen ihnen keine Kante und damit keine Linie.', en: 'If two faces are at the same distance in the viewing direction, there is no edge between them and so no line.' })}</li>
+              {solid.hidden && (
+                <li>{t({ de: 'Eine Strichlinie zeichnest du dort, wo eine Kante hinter Material liegt: Du siehst sie aus dieser Richtung nicht, aber sie ist da. Liegt vor ihr schon eine sichtbare Kante an der gleichen Stelle, wird nur die Volllinie gezeichnet.', en: 'You draw a dashed line where an edge lies behind material: you cannot see it from this direction, but it is there. If a visible edge is already in front of it at the same place, only the continuous line is drawn.' })}</li>
+              )}
               <li>{t({ de: 'Die Ansichten gehören zusammen: Vorderansicht und Draufsicht sind gleich breit, Vorderansicht und Seitenansicht sind gleich hoch.', en: 'The views belong together: front view and top view have the same width, front view and side view have the same height.' })}</li>
             </ol>
           )}

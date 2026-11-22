@@ -430,5 +430,97 @@
       "de": "F = m · g, W = F · s, P = W / t, η = Pab / Pzu. Diese Kette brauchst du in fast jedem Beruf.",
       "en": "F = m · g, W = F · s, P = W / t, η = Pab / Pzu. You need this chain in almost every trade."
     }
+  },
+  {
+    "id": "m16-u07-foerderanlage",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Verkettete Wirkungsgrade einer Förderanlage",
+      "en": "Chained efficiencies of a conveyor system"
+    },
+    "situation": {
+      "de": "Eine Förderanlage hebt in t = 40 s eine Masse von m = 500 kg um h = 12 m. Der Motor hat den Wirkungsgrad 0,9, das Getriebe 0,75. Rechne mit g = 9,81 m/s².",
+      "en": "A conveyor system lifts a mass of m = 500 kg by h = 12 m in t = 40 s. The motor has the efficiency 0.9, the gearbox 0.75. Use g = 9.81 m/s²."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Hubarbeit W?",
+          "en": "How large is the lifting work W?"
+        },
+        "unit": "J",
+        "answer": 58860,
+        "tolerance": 150,
+        "formula": "W = m · g · h",
+        "calc": "W = 500 kg · 9.81 m/s² · 12 m = 58860 J",
+        "why": {
+          "de": "Gewichtskraft mal Höhe ergibt die Arbeit.",
+          "en": "Weight force times height gives the work."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung wird an der Last gebraucht?",
+          "en": "Which power is needed at the load?"
+        },
+        "unit": "W",
+        "answer": 1471.5,
+        "tolerance": 5,
+        "formula": "Pab = W / t",
+        "calc": "Pab = 58860 J / 40 s = 1471.5 W",
+        "why": {
+          "de": "Leistung ist Arbeit pro Zeit.",
+          "en": "Power is work per time."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Gesamtwirkungsgrad?",
+          "en": "How large is the total efficiency?"
+        },
+        "unit": "",
+        "answer": 0.675,
+        "tolerance": 0.002,
+        "formula": "ηges = η1 · η2",
+        "calc": "ηges = 0.9 · 0.75 = 0.675",
+        "why": {
+          "de": "Hintereinander geschaltete Wirkungsgrade werden multipliziert, nicht addiert.",
+          "en": "Efficiencies in a chain are multiplied, not added."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche elektrische Leistung nimmt der Motor auf?",
+          "en": "Which electrical power does the motor take in?"
+        },
+        "unit": "W",
+        "answer": 2180,
+        "tolerance": 8,
+        "formula": "Pzu = Pab / ηges",
+        "calc": "Pzu = 1471.5 W / 0.675 = 2180 W",
+        "why": {
+          "de": "Die aufgenommene Leistung muss alle Verluste mit abdecken.",
+          "en": "The input power has to cover all losses as well."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Der Gesamtwirkungsgrad einer Kette ist das Produkt der Einzelwirkungsgrade und immer kleiner als der kleinste davon.",
+      "en": "The total efficiency of a chain is the product of the single efficiencies and always smaller than the smallest of them."
+    }
   }
 ]

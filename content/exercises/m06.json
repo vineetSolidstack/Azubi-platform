@@ -1,0 +1,209 @@
+[
+  {
+    "id": "m06-u01-dual-dezimal",
+    "module": "M06",
+    "lernfeld": {
+      "EAT": [
+        3
+      ],
+      "MECH": [
+        7
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Dualzahlen und Dezimalzahlen umrechnen",
+      "en": "Converting binary and decimal numbers"
+    },
+    "situation": {
+      "de": "Rechne zwischen dem Dualsystem und dem Dezimalsystem um.",
+      "en": "Convert between the binary system and the decimal system."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Dezimalzahl ist die Dualzahl 10110?",
+          "en": "Which decimal number is the binary number 10110?"
+        },
+        "unit": "",
+        "answer": 22,
+        "tolerance": 0,
+        "formula": "Stellenwerte von rechts: 1, 2, 4, 8, 16",
+        "calc": "10110 = 16 + 4 + 2 = 22",
+        "why": {
+          "de": "Jede Stelle ist doppelt so viel wert wie die Stelle rechts daneben. Addiert werden nur die Stellen mit einer 1.",
+          "en": "Each digit is worth twice as much as the digit to its right. Only the digits with a 1 are added."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Schreibe die Dezimalzahl 45 als Dualzahl.",
+          "en": "Write the decimal number 45 as a binary number."
+        },
+        "unit": "",
+        "answer": 101101,
+        "tolerance": 0,
+        "formula": "45 = 32 + 8 + 4 + 1",
+        "calc": "45 = 32 + 8 + 4 + 1 → 101101",
+        "why": {
+          "de": "Ziehe immer den größten passenden Stellenwert ab: 32 passt, 16 nicht, 8 passt, 4 passt, 2 nicht, 1 passt.",
+          "en": "Always subtract the largest fitting place value: 32 fits, 16 does not, 8 fits, 4 fits, 2 does not, 1 fits."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Stellenwerte im Dualsystem: 1, 2, 4, 8, 16, 32, 64, 128.",
+      "en": "Place values in the binary system: 1, 2, 4, 8, 16, 32, 64, 128."
+    }
+  },
+  {
+    "id": "m06-u02-hex-bit-byte",
+    "module": "M06",
+    "lernfeld": {
+      "EAT": [
+        3
+      ],
+      "MECH": [
+        7
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Hexadezimalzahlen, Byte und Wort",
+      "en": "Hexadecimal numbers, byte and word"
+    },
+    "situation": {
+      "de": "In der Steuerungstechnik werden Werte oft hexadezimal geschrieben. Die Ziffern A bis F stehen für 10 bis 15.",
+      "en": "In control technology values are often written in hexadecimal. The digits A to F stand for 10 to 15."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Dezimalzahl ist die Hexadezimalzahl 3E8?",
+          "en": "Which decimal number is the hexadecimal number 3E8?"
+        },
+        "unit": "",
+        "answer": 1000,
+        "tolerance": 0,
+        "formula": "Stellenwerte von rechts: 1, 16, 256",
+        "calc": "3E8 = 3 · 256 + 14 · 16 + 8 = 1000",
+        "why": {
+          "de": "Im Hexadezimalsystem ist jede Stelle 16-mal so viel wert wie die Stelle rechts daneben. E bedeutet 14.",
+          "en": "In the hexadecimal system each digit is worth 16 times as much as the digit to its right. E means 14."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche größte Dezimalzahl passt in ein Byte (8 Bit, ohne Vorzeichen)?",
+          "en": "Which largest decimal number fits into one byte (8 bits, unsigned)?"
+        },
+        "unit": "",
+        "answer": 255,
+        "tolerance": 0,
+        "formula": "max = 2^8 − 1",
+        "calc": "max = 256 − 1 = 255",
+        "why": {
+          "de": "Mit 8 Bit gibt es 256 Kombinationen. Weil die Null mitzählt, ist der größte Wert 255 (hexadezimal FF).",
+          "en": "With 8 bits there are 256 combinations. Because zero counts too, the largest value is 255 (hexadecimal FF)."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche größte Dezimalzahl passt in ein Wort (16 Bit, ohne Vorzeichen)?",
+          "en": "Which largest decimal number fits into one word (16 bits, unsigned)?"
+        },
+        "unit": "",
+        "answer": 65535,
+        "tolerance": 0,
+        "formula": "max = 2^16 − 1",
+        "calc": "max = 65536 − 1 = 65535",
+        "why": {
+          "de": "Ein Wort besteht aus zwei Byte.",
+          "en": "A word consists of two bytes."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Eine Hexadezimalziffer steht für genau 4 Bit. Ein Byte sind zwei Hexadezimalziffern.",
+      "en": "One hexadecimal digit stands for exactly 4 bits. One byte is two hexadecimal digits."
+    }
+  },
+  {
+    "id": "m06-u03-wahrheitstabelle",
+    "module": "M06",
+    "lernfeld": {
+      "EAT": [
+        3
+      ],
+      "MECH": [
+        7
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Funktionsgleichung auswerten",
+      "en": "Evaluating a logic equation"
+    },
+    "situation": {
+      "de": "Gegeben ist die Funktionsgleichung Y = (A AND B) OR NOT C. Gib die Ergebnisse als 0 oder 1 ein.",
+      "en": "Given is the logic equation Y = (A AND B) OR NOT C. Enter the results as 0 or 1."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist Y bei A = 1, B = 0, C = 1?",
+          "en": "What is Y for A = 1, B = 0, C = 1?"
+        },
+        "unit": "",
+        "answer": 0,
+        "tolerance": 0,
+        "formula": "Y = (A AND B) OR NOT C",
+        "calc": "Y = (1 AND 0) OR NOT 1 = 0 OR 0 = 0",
+        "why": {
+          "de": "Erst die Klammer, dann die Negation, dann das ODER.",
+          "en": "First the brackets, then the negation, then the OR."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist Y bei A = 0, B = 0, C = 0?",
+          "en": "What is Y for A = 0, B = 0, C = 0?"
+        },
+        "unit": "",
+        "answer": 1,
+        "tolerance": 0,
+        "formula": "Y = (A AND B) OR NOT C",
+        "calc": "Y = (0 AND 0) OR NOT 0 = 0 OR 1 = 1",
+        "why": {
+          "de": "NOT C ist 1, sobald C = 0 ist. Dann ist das ODER schon erfüllt.",
+          "en": "NOT C is 1 as soon as C = 0. Then the OR is already fulfilled."
+        }
+      },
+      {
+        "prompt": {
+          "de": "In wie vielen der 8 Zeilen der Wahrheitstabelle ist Y = 1?",
+          "en": "In how many of the 8 rows of the truth table is Y = 1?"
+        },
+        "unit": "",
+        "answer": 5,
+        "tolerance": 0,
+        "formula": "Zeilen mit C = 0 plus Zeilen mit A = B = 1 und C = 1",
+        "calc": "Anzahl = 4 + 1 = 5",
+        "why": {
+          "de": "Bei C = 0 ist Y immer 1: das sind 4 Zeilen. Bei C = 1 muss A AND B erfüllt sein: das ist 1 Zeile.",
+          "en": "For C = 0, Y is always 1: that is 4 rows. For C = 1, A AND B must be fulfilled: that is 1 row."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Drei Eingänge ergeben 2 · 2 · 2 = 8 Zeilen in der Wahrheitstabelle.",
+      "en": "Three inputs give 2 · 2 · 2 = 8 rows in the truth table."
+    }
+  }
+]
