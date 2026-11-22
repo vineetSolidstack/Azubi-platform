@@ -289,3 +289,26 @@ input.short { width: 7rem; }
 .c-zero-label { font-size: 11px; fill: var(--brand); font-weight: 700; }
 
 .task-title { min-width: 0; overflow-wrap: anywhere; }
+
+/* technical drawing: views */
+.dots { align-items: center; }
+.dots-label { font-size: .75rem; color: var(--muted); margin-left: .35rem; white-space: nowrap; }
+.views-grid { display: grid; gap: 1rem; grid-template-columns: minmax(260px, 380px) minmax(0, 1fr); align-items: start; }
+@media (max-width: 900px) { .views-grid { grid-template-columns: minmax(0, 1fr); } }
+.iso { display: block; width: 100%; margin: .5rem auto 1rem; }
+.iso polygon { stroke: var(--ink); stroke-width: 1; stroke-linejoin: round; }
+.iso-front { fill: #4f9de8; } .iso-left { fill: #f0a04b; } .iso-top { fill: #e9eef3; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--ink); vertical-align: -1px; }
+.view-front .swatch { background: #4f9de8; } .view-left .swatch { background: #f0a04b; } .view-top .swatch { background: #e9eef3; }
+.sheet-layout { display: grid; grid-template-columns: auto auto; gap: 1.25rem 2rem; justify-content: start; overflow-x: auto; }
+.view-top { grid-column: 1; }
+.view-panel h3 { font-size: .85rem; margin: 0 0 .25rem; }
+.view-panel .msg { margin: .4rem 0; padding: .4rem .6rem; font-size: .85rem; max-width: 260px; }
+.view-panel p.small { max-width: 260px; }
+.sheet { display: block; touch-action: manipulation; }
+.sheet-guide { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 4; opacity: .7; }
+.sheet-line { stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+.sheet-want { stroke: var(--live); stroke-width: 9; stroke-linecap: round; opacity: .55; }
+.sheet-hit { stroke: transparent; stroke-width: 16; cursor: pointer; stroke-linecap: butt; }
+.sheet-hit:hover { stroke: color-mix(in srgb, var(--brand) 35%, transparent); }
+.sheet-hit:focus-visible { stroke: color-mix(in srgb, var(--brand) 60%, transparent); outline: none; }

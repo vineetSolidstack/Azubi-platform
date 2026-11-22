@@ -22,6 +22,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
     { href: '/', label: t({ de: 'Start', en: 'Home' }), active: path === '/' },
     { href: '/sps', label: t({ de: 'SPS-Trainer', en: 'PLC trainer' }), active: path.startsWith('/sps') },
     { href: '/uebungen', label: t({ de: 'Übungen', en: 'Exercises' }), active: path.startsWith('/uebungen') },
+    { href: '/zeichnen', label: t({ de: 'Zeichnen', en: 'Drawing' }), active: path.startsWith('/zeichnen') },
     { href: '/messen', label: t({ de: 'Messen', en: 'Measuring' }), active: path.startsWith('/messen') },
     { href: '/quiz', label: 'Quiz', active: path.startsWith('/quiz') },
   ];
@@ -80,6 +81,14 @@ export function StatusBadge({ status }: { status: string }) {
   return <span className={`badge status-${status}`}>{label}</span>;
 }
 
+const LEVELS = [
+  { de: 'leicht', en: 'easy' },
+  { de: 'mittel', en: 'medium' },
+  { de: 'anspruchsvoll', en: 'demanding' },
+  { de: 'schwer', en: 'hard' },
+  { de: 'sehr schwer', en: 'very hard' },
+];
+
 export function Dots({ n, max = 5 }: { n: number; max?: number }) {
   const { t } = useT();
   return (
@@ -88,6 +97,7 @@ export function Dots({ n, max = 5 }: { n: number; max?: number }) {
         <i key={i} className={i < n ? 'on' : ''} />
       ))}
       <span className="sr">{t({ de: `Schwierigkeit ${n} von ${max}`, en: `Difficulty ${n} of ${max}` })}</span>
+      <span className="dots-label">{t(LEVELS[Math.min(Math.max(n, 1), 5) - 1])}</span>
     </span>
   );
 }

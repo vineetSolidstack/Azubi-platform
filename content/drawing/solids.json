@@ -1,0 +1,12 @@
+[
+  { "id": "k01-stufe", "difficulty": 1, "status": "draft", "title": { "de": "Stufe", "en": "Step" }, "heights": [[1, 1, 1], [2, 2, 2]] },
+  { "id": "k02-winkel", "difficulty": 1, "status": "draft", "title": { "de": "Winkel", "en": "Angle bracket" }, "heights": [[3, 1, 1], [3, 1, 1]] },
+  { "id": "k03-treppe", "difficulty": 2, "status": "draft", "title": { "de": "Treppe mit drei Stufen", "en": "Staircase with three steps" }, "heights": [[1, 2, 3], [1, 2, 3]] },
+  { "id": "k04-nut", "difficulty": 2, "status": "draft", "title": { "de": "Klotz mit Nut", "en": "Block with a slot" }, "heights": [[2, 1, 2], [2, 1, 2]] },
+  { "id": "k05-t-stueck", "difficulty": 3, "status": "draft", "title": { "de": "T-Stück", "en": "T-piece" }, "heights": [[0, 2, 0], [2, 2, 2]] },
+  { "id": "k06-eckturm", "difficulty": 3, "status": "draft", "title": { "de": "Platte mit Eckturm", "en": "Plate with a corner tower" }, "heights": [[1, 1, 1], [1, 1, 1], [3, 1, 1]] },
+  { "id": "k07-absatz", "difficulty": 4, "status": "draft", "title": { "de": "Abgesetzter Winkel", "en": "Stepped bracket" }, "heights": [[1, 1, 0], [2, 2, 1], [3, 2, 1]] },
+  { "id": "k08-fuehrung", "difficulty": 4, "status": "draft", "title": { "de": "Führungsstück", "en": "Guide piece" }, "heights": [[2, 1, 1, 2], [2, 1, 1, 2], [3, 3, 3, 3]] },
+  { "id": "k09-lagerbock", "difficulty": 5, "status": "draft", "title": { "de": "Lagerbock", "en": "Bearing block" }, "heights": [[1, 0, 0, 1], [1, 2, 2, 1], [1, 4, 4, 1], [1, 2, 2, 1]] },
+  { "id": "k10-schieber", "difficulty": 5, "status": "draft", "title": { "de": "Schieber mit Absätzen", "en": "Slide with shoulders" }, "heights": [[2, 0, 0, 1], [2, 1, 1, 1], [3, 3, 1, 1], [4, 3, 2, 0]] }
+]

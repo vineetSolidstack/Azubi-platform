@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { lernfelder, modules, TradeId, trades } from '@content/curriculum';
 import { exercisesOf } from '@content/exercises';
+import { solids } from '@content/drawing';
 import { caliperTasks } from '@content/measure';
 import { questionsOf } from '@content/quiz';
 import { tasks } from '@content/tasks';
@@ -44,7 +45,8 @@ export default function Home() {
     const qs = questionsOf(m);
     const es = exercisesOf(m);
     const ms = m === 'M14' ? caliperTasks : [];
-    return { ts, qs, es, ms, mDone: ms.filter((x) => p.measure[x.id]).length, eDone: es.filter((e) => p.exercises[e.id]).length, tDone: ts.filter((x) => solved(x.id)).length, qDone: qs.filter((q) => p.quiz[q.id]).length };
+    const ds = m === 'M14' ? solids : [];
+    return { ts, qs, es, ms, ds, dDone: ds.filter((x) => p.drawing[x.id]).length, mDone: ms.filter((x) => p.measure[x.id]).length, eDone: es.filter((e) => p.exercises[e.id]).length, tDone: ts.filter((x) => solved(x.id)).length, qDone: qs.filter((q) => p.quiz[q.id]).length };
   };
   const years = [...new Set(lernfelder[trade.id].map((l) => l.year))];
 
@@ -88,7 +90,7 @@ export default function Home() {
                   <ul className="mods">
                     {l.modules.map((m) => {
                       const s = stats(m);
-                      const live = s.ts.length + s.qs.length + s.es.length + s.ms.length > 0;
+                      const live = s.ts.length + s.qs.length + s.es.length + s.ms.length + s.ds.length > 0;
                       return (
                         <li key={m} className={live ? 'mod' : 'mod soon'}>
                           <span className="mod-name">{t(modules[m])}</span>
@@ -98,6 +100,12 @@ export default function Home() {
                                 <Link href="/sps" className="chip">
                                   {t({ de: 'Simulator', en: 'Simulator' })} {s.tDone}/{s.ts.length}
                                   <Bar done={s.tDone} total={s.ts.length} />
+                                </Link>
+                              )}
+                              {s.ds.length > 0 && (
+                                <Link href="/zeichnen" className="chip">
+                                  {t({ de: 'Ansichten', en: 'Views' })} {s.dDone}/{s.ds.length}
+                                  <Bar done={s.dDone} total={s.ds.length} />
                                 </Link>
                               )}
                               {s.ms.length > 0 && (
