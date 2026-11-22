@@ -1,0 +1,93 @@
+[
+  {
+    "id": "m11-u01-subnetz",
+    "module": "M11",
+    "lernfeld": {
+      "EAT": [
+        4,
+        9
+      ],
+      "MECH": [
+        5,
+        9
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "IPv4: Adressen in einem Subnetz",
+      "en": "IPv4: addresses in a subnet"
+    },
+    "situation": {
+      "de": "Ein Anlagennetz hat die Adresse 192.168.10.0 mit der Subnetzmaske 255.255.255.0 (/24). Es soll in gleich große Teilnetze mit der Maske /26 aufgeteilt werden.",
+      "en": "A plant network has the address 192.168.10.0 with the subnet mask 255.255.255.0 (/24). It is to be divided into subnets of equal size with the mask /26."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie viele Geräte können im /24-Netz eine Adresse bekommen?",
+          "en": "How many devices can get an address in the /24 network?"
+        },
+        "unit": "",
+        "answer": 254,
+        "tolerance": 0,
+        "formula": "Hosts = 2^Hostbits − 2",
+        "calc": "Hosts = 2^8 − 2 = 256 − 2 = 254",
+        "why": {
+          "de": "Bei /24 bleiben 8 Bit für Geräte. Zwei Adressen sind reserviert: die Netzadresse und die Broadcast-Adresse.",
+          "en": "With /24, 8 bits remain for devices. Two addresses are reserved: the network address and the broadcast address."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viele /26-Teilnetze entstehen?",
+          "en": "How many /26 subnets are created?"
+        },
+        "unit": "",
+        "answer": 4,
+        "tolerance": 0,
+        "formula": "Anzahl = 2^(26 − 24)",
+        "calc": "Anzahl = 2^2 = 4",
+        "why": {
+          "de": "Zwei zusätzliche Netzbits ergeben vier Teilnetze.",
+          "en": "Two additional network bits give four subnets."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viele Geräte passen in ein /26-Teilnetz?",
+          "en": "How many devices fit into one /26 subnet?"
+        },
+        "unit": "",
+        "answer": 62,
+        "tolerance": 0,
+        "formula": "Hosts = 2^6 − 2",
+        "calc": "Hosts = 64 − 2 = 62",
+        "why": {
+          "de": "Es bleiben 6 Bit für Geräte.",
+          "en": "6 bits remain for devices."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Mit welcher Zahl im letzten Block beginnt das zweite Teilnetz (Netzadresse 192.168.10.?)?",
+          "en": "With which number in the last block does the second subnet start (network address 192.168.10.?)?"
+        },
+        "unit": "",
+        "answer": 64,
+        "tolerance": 0,
+        "formula": "Schrittweite = 256 / Anzahl",
+        "calc": "Schrittweite = 256 / 4 = 64",
+        "why": {
+          "de": "Die Teilnetze beginnen bei 0, 64, 128 und 192.",
+          "en": "The subnets start at 0, 64, 128 and 192."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Jedes zusätzliche Netzbit verdoppelt die Zahl der Teilnetze und halbiert ihre Größe.",
+      "en": "Each additional network bit doubles the number of subnets and halves their size."
+    }
+  }
+]

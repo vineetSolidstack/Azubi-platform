@@ -15,6 +15,8 @@ export interface Solid {
   title: L10n;
   /** rows from front to back, each row from left to right */
   heights: number[][];
+  /** true: hidden edges (dashed lines) must be drawn as well */
+  hidden?: boolean;
 }
 
 export interface ViewGrid {
@@ -62,18 +64,56 @@ export function visibleEdges(g: ViewGrid): Set<string> {
   return out;
 }
 
+/**
+ * For every cell of a view: which positions along the viewing direction are filled with material.
+ * profile[r][c][i] is true when the i-th cube behind the drawing cell exists.
+ */
+export function viewProfiles(s: Solid, view: ViewId): boolean[][][] {
+  const { nx, ny, nz } = solidSize(s);
+  const h = (x: number, y: number) => s.heights[y][x];
+  const line = (n: number, hit: (i: number) => boolean) => Array.from({ length: n }, (_, i) => hit(i));
+  if (view === 'front') return Array.from({ length: nz }, (_, r) => Array.from({ length: nx }, (_, c) => line(ny, (y) => h(c, y) > nz - 1 - r)));
+  if (view === 'left') return Array.from({ length: nz }, (_, r) => Array.from({ length: ny }, (_, c) => line(nx, (x) => h(x, ny - 1 - c) > nz - 1 - r)));
+  return Array.from({ length: ny }, (_, r) => Array.from({ length: nx }, (_, c) => line(nz, (i) => h(c, ny - 1 - r) > nz - 1 - i)));
+}
+
+/**
+ * Hidden edges of a view (drawn as dashed lines): between two neighbouring cells the visible
+ * surface is at the same depth, but further back the material differs. Where the depth differs
+ * there is a visible edge, which covers any hidden edge behind it.
+ */
+export function hiddenEdges(s: Solid, view: ViewId): Set<string> {
+  const p = viewProfiles(s, view);
+  const rows = p.length;
+  const cols = p[0].length;
+  const key = (c: number, r: number) => (c < 0 || r < 0 || c >= cols || r >= rows ? '' : p[r][c].map((b) => (b ? 1 : 0)).join(''));
+  const depth = (k: string) => k.indexOf('1');
+  const hiddenBetween = (a: string, b: string) => a !== b && depth(a) === depth(b) && depth(a) >= 0;
+  const out = new Set<string>();
+  for (let r = 1; r < rows; r++) for (let c = 0; c < cols; c++) if (hiddenBetween(key(c, r - 1), key(c, r))) out.add(hKey(c, r));
+  for (let r = 0; r < rows; r++) for (let c = 1; c < cols; c++) if (hiddenBetween(key(c - 1, r), key(c, r))) out.add(vKey(c, r));
+  return out;
+}
+
 export interface ViewCheck {
   ok: boolean;
+  /** lines that are missing or drawn with the wrong line type */
   missing: number;
+  /** lines that do not belong there */
   extra: number;
 }
-export function checkView(s: Solid, view: ViewId, drawn: Iterable<string>): ViewCheck {
-  const want = visibleEdges(viewGrid(s, view));
-  const got = new Set(drawn);
+/** `drawn` = wide continuous lines, `dashed` = dashed lines. Dashed lines only count for solids with `hidden: true`. */
+export function checkView(s: Solid, view: ViewId, drawn: Iterable<string>, dashed: Iterable<string> = []): ViewCheck {
+  const want = new Map<string, string>();
+  for (const k of visibleEdges(viewGrid(s, view))) want.set(k, 'solid');
+  if (s.hidden) for (const k of hiddenEdges(s, view)) want.set(k, 'dashed');
+  const got = new Map<string, string>();
+  for (const k of dashed) got.set(k, 'dashed');
+  for (const k of drawn) got.set(k, 'solid');
   let missing = 0;
   let extra = 0;
-  for (const k of want) if (!got.has(k)) missing++;
-  for (const k of got) if (!want.has(k)) extra++;
+  for (const [k, type] of want) if (got.get(k) !== type) missing++;
+  for (const k of got.keys()) if (!want.has(k)) extra++;
   return { ok: missing === 0 && extra === 0, missing, extra };
 }
 

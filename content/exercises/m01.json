@@ -952,5 +952,296 @@
       "de": "Jede echte Spannungsquelle hat einen Innenwiderstand. Unter Last sinkt deshalb die Klemmenspannung.",
       "en": "Every real voltage source has an internal resistance. That is why the terminal voltage drops under load."
     }
+  },
+  {
+    "id": "m01-u13-brueckenschaltung",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Brückenschaltung",
+      "en": "Bridge circuit"
+    },
+    "situation": {
+      "de": "Eine Brückenschaltung liegt an U = 12 V. Im linken Zweig liegen R1 = 100 Ω (oben) und R2 = 200 Ω (unten) in Reihe, im rechten Zweig R3 = 300 Ω (oben) und R4 = 100 Ω (unten). Punkt A liegt zwischen R1 und R2, Punkt B zwischen R3 und R4. Die Spannungen werden gegen den Minuspol gemessen.",
+      "en": "A bridge circuit is connected to U = 12 V. In the left branch R1 = 100 Ω (top) and R2 = 200 Ω (bottom) are in series, in the right branch R3 = 300 Ω (top) and R4 = 100 Ω (bottom). Point A is between R1 and R2, point B between R3 and R4. The voltages are measured against the negative pole."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Spannung UA am Punkt A?",
+          "en": "How large is the voltage UA at point A?"
+        },
+        "unit": "V",
+        "answer": 8,
+        "tolerance": 0.05,
+        "formula": "UA = U · R2 / (R1 + R2)",
+        "calc": "UA = 12 V · 200 Ω / 300 Ω = 8 V",
+        "why": {
+          "de": "Jeder Zweig ist ein eigener Spannungsteiler. UA ist die Spannung am unteren Widerstand des linken Zweigs.",
+          "en": "Each branch is a voltage divider of its own. UA is the voltage across the lower resistor of the left branch."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Spannung UB am Punkt B?",
+          "en": "How large is the voltage UB at point B?"
+        },
+        "unit": "V",
+        "answer": 3,
+        "tolerance": 0.05,
+        "formula": "UB = U · R4 / (R3 + R4)",
+        "calc": "UB = 12 V · 100 Ω / 400 Ω = 3 V",
+        "why": {
+          "de": "Der rechte Zweig wird genauso berechnet. Die beiden Zweige beeinflussen sich nicht, solange zwischen A und B kein Strom fließt.",
+          "en": "The right branch is calculated in the same way. The two branches do not influence each other as long as no current flows between A and B."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Brückenspannung UAB?",
+          "en": "How large is the bridge voltage UAB?"
+        },
+        "unit": "V",
+        "answer": 5,
+        "tolerance": 0.05,
+        "formula": "UAB = UA − UB",
+        "calc": "UAB = 8 V − 3 V = 5 V",
+        "why": {
+          "de": "Die Brückenspannung ist der Unterschied der beiden Teilspannungen.",
+          "en": "The bridge voltage is the difference between the two partial voltages."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welchen Wert müsste R4 haben, damit die Brücke abgeglichen ist (UAB = 0 V)?",
+          "en": "Which value would R4 need so that the bridge is balanced (UAB = 0 V)?"
+        },
+        "unit": "Ω",
+        "answer": 600,
+        "tolerance": 3,
+        "formula": "R1 / R2 = R3 / R4",
+        "calc": "R4 = R3 · R2 / R1 = 300 Ω · 200 Ω / 100 Ω = 600 Ω",
+        "why": {
+          "de": "Abgeglichen ist die Brücke, wenn beide Zweige die Spannung im gleichen Verhältnis teilen.",
+          "en": "The bridge is balanced when both branches divide the voltage in the same ratio."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Eine Brücke besteht aus zwei Spannungsteilern. Sie ist abgeglichen, wenn R1 / R2 = R3 / R4 gilt. So arbeiten viele Messschaltungen für Sensoren.",
+      "en": "A bridge consists of two voltage dividers. It is balanced when R1 / R2 = R3 / R4. Many measuring circuits for sensors work like this."
+    }
+  },
+  {
+    "id": "m01-u14-drehstrom-stern-dreieck",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Drehstrom: Heizleistung in Stern und Dreieck",
+      "en": "Three-phase: heating power in star and delta"
+    },
+    "situation": {
+      "de": "Drei gleiche Heizwiderstände mit je R = 50 Ω werden am Drehstromnetz mit der Außenleiterspannung U = 400 V betrieben. Rechne mit √3 = 1,732.",
+      "en": "Three identical heating resistors with R = 50 Ω each are operated on the three-phase mains with the line voltage U = 400 V. Use √3 = 1.732."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Sternschaltung: Welche Spannung liegt an einem Widerstand (Strangspannung)?",
+          "en": "Star connection: which voltage is across one resistor (phase voltage)?"
+        },
+        "unit": "V",
+        "answer": 230.9,
+        "tolerance": 0.5,
+        "formula": "UStr = U / √3",
+        "calc": "UStr = 400 V / 1.732 = 230.9 V",
+        "why": {
+          "de": "Im Stern liegt jeder Widerstand zwischen einem Außenleiter und dem Sternpunkt.",
+          "en": "In star each resistor is between one line conductor and the star point."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Sternschaltung: Welcher Strom fließt durch einen Widerstand?",
+          "en": "Star connection: which current flows through one resistor?"
+        },
+        "unit": "A",
+        "answer": 4.62,
+        "tolerance": 0.02,
+        "formula": "I = UStr / R",
+        "calc": "I = 230.9 V / 50 Ω = 4.62 A",
+        "why": {
+          "de": "Im Stern ist der Strangstrom gleich dem Außenleiterstrom.",
+          "en": "In star the phase current equals the line current."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Sternschaltung: Wie groß ist die Gesamtleistung?",
+          "en": "Star connection: how large is the total power?"
+        },
+        "unit": "W",
+        "answer": 3200,
+        "tolerance": 20,
+        "formula": "P = 3 · UStr · I",
+        "calc": "P = 3 · 230.9 V · 4.62 A = 3200 W",
+        "why": {
+          "de": "Drei gleiche Stränge setzen dreimal die Leistung eines Strangs um.",
+          "en": "Three identical phases convert three times the power of one phase."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Dreieckschaltung: Wie groß ist die Gesamtleistung?",
+          "en": "Delta connection: how large is the total power?"
+        },
+        "unit": "W",
+        "answer": 9600,
+        "tolerance": 50,
+        "formula": "P = 3 · U² / R",
+        "calc": "P = 3 · 160000 V² / 50 Ω = 9600 W",
+        "why": {
+          "de": "Im Dreieck liegt jeder Widerstand an der vollen Außenleiterspannung von 400 V.",
+          "en": "In delta each resistor is across the full line voltage of 400 V."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Die gleichen Widerstände nehmen im Dreieck die dreifache Leistung auf wie im Stern. Darauf beruht der Stern-Dreieck-Anlauf von Motoren.",
+      "en": "The same resistors take three times the power in delta as in star. The star-delta start of motors is based on this."
+    }
+  },
+  {
+    "id": "m01-u15-wechselstrom-rl",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 5,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Wechselstrom: Reihenschaltung aus R und L",
+      "en": "Alternating current: series circuit of R and L"
+    },
+    "situation": {
+      "de": "Eine Spule hat den Wirkwiderstand R = 30 Ω und den induktiven Blindwiderstand XL = 40 Ω. Sie liegt an U = 230 V Wechselspannung.",
+      "en": "A coil has the resistance R = 30 Ω and the inductive reactance XL = 40 Ω. It is connected to U = 230 V AC."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Scheinwiderstand Z?",
+          "en": "How large is the impedance Z?"
+        },
+        "unit": "Ω",
+        "answer": 50,
+        "tolerance": 0.2,
+        "formula": "Z = √(R² + XL²)",
+        "calc": "Z = √(900 Ω² + 1600 Ω²) = 50 Ω",
+        "why": {
+          "de": "Wirk- und Blindwiderstand dürfen nicht einfach addiert werden. Sie stehen im Zeigerbild im rechten Winkel zueinander.",
+          "en": "Resistance and reactance must not simply be added. In the phasor diagram they are at right angles to each other."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I?",
+          "en": "How large is the current I?"
+        },
+        "unit": "A",
+        "answer": 4.6,
+        "tolerance": 0.02,
+        "formula": "I = U / Z",
+        "calc": "I = 230 V / 50 Ω = 4.6 A",
+        "why": {
+          "de": "Das ohmsche Gesetz gilt bei Wechselstrom mit dem Scheinwiderstand.",
+          "en": "With alternating current Ohm's law applies with the impedance."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Leistungsfaktor cos φ?",
+          "en": "How large is the power factor cos φ?"
+        },
+        "unit": "",
+        "answer": 0.6,
+        "tolerance": 0.005,
+        "formula": "cos φ = R / Z",
+        "calc": "cos φ = 30 Ω / 50 Ω = 0.6",
+        "why": {
+          "de": "Der Leistungsfaktor sagt, welcher Anteil der Scheinleistung Wirkleistung ist.",
+          "en": "The power factor says which share of the apparent power is active power."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Wirkleistung P?",
+          "en": "How large is the active power P?"
+        },
+        "unit": "W",
+        "answer": 634.8,
+        "tolerance": 3,
+        "formula": "P = U · I · cos φ",
+        "calc": "P = 230 V · 4.6 A · 0.6 = 634.8 W",
+        "why": {
+          "de": "Nur die Wirkleistung wird in Wärme oder Arbeit umgesetzt.",
+          "en": "Only the active power is converted into heat or work."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Scheinleistung S?",
+          "en": "How large is the apparent power S?"
+        },
+        "unit": "VA",
+        "answer": 1058,
+        "tolerance": 5,
+        "formula": "S = U · I",
+        "calc": "S = 230 V · 4.6 A = 1058 VA",
+        "why": {
+          "de": "Für die Scheinleistung müssen Leitungen und Transformatoren ausgelegt sein.",
+          "en": "Cables and transformers must be rated for the apparent power."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Bei Wechselstrom gibt es drei Leistungen: Wirkleistung P, Blindleistung Q und Scheinleistung S. Es gilt S² = P² + Q².",
+      "en": "With alternating current there are three powers: active power P, reactive power Q and apparent power S. S² = P² + Q²."
+    }
   }
 ]

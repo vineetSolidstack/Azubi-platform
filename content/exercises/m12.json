@@ -1,0 +1,143 @@
+[
+  {
+    "id": "m12-u01-regelabweichung-p-regler",
+    "module": "M12",
+    "lernfeld": {
+      "EAT": [
+        10,
+        11
+      ],
+      "MECH": [
+        11
+      ],
+      "IM": [
+        13
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Regelabweichung und P-Regler",
+      "en": "Control deviation and P controller"
+    },
+    "situation": {
+      "de": "Ein Ofen soll auf w = 60 °C geregelt werden. Gemessen werden x = 57,5 °C. Der P-Regler hat die Verstärkung Kp = 4 % Heizleistung pro Kelvin.",
+      "en": "An oven is to be controlled to w = 60 °C. The measured value is x = 57.5 °C. The P controller has the gain Kp = 4 % heating power per kelvin."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Regelabweichung e?",
+          "en": "How large is the control deviation e?"
+        },
+        "unit": "K",
+        "answer": 2.5,
+        "tolerance": 0.01,
+        "formula": "e = w − x",
+        "calc": "e = 60 − 57.5 = 2.5",
+        "why": {
+          "de": "Die Regelabweichung ist Sollwert minus Istwert. Temperaturunterschiede gibt man in Kelvin an.",
+          "en": "The control deviation is setpoint minus actual value. Temperature differences are given in kelvin."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Stellgröße y gibt der P-Regler aus?",
+          "en": "Which manipulated variable y does the P controller output?"
+        },
+        "unit": "%",
+        "answer": 10,
+        "tolerance": 0.05,
+        "formula": "y = Kp · e",
+        "calc": "y = 4 · 2.5 = 10",
+        "why": {
+          "de": "Der P-Regler verstärkt die Abweichung. Ohne Abweichung gibt er nichts aus, deshalb bleibt bei ihm immer eine kleine Abweichung bestehen.",
+          "en": "The P controller amplifies the deviation. Without a deviation it outputs nothing, which is why a small deviation always remains with it."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Regelabweichung e = Sollwert − Istwert. Ein reiner P-Regler hat eine bleibende Regelabweichung.",
+      "en": "Control deviation e = setpoint − actual value. A pure P controller has a permanent control deviation."
+    }
+  },
+  {
+    "id": "m12-u02-pt1-sprungantwort",
+    "module": "M12",
+    "lernfeld": {
+      "EAT": [
+        10,
+        11
+      ],
+      "MECH": [
+        11
+      ],
+      "IM": [
+        13
+      ]
+    },
+    "difficulty": 4,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Sprungantwort einer PT1-Strecke",
+      "en": "Step response of a PT1 process"
+    },
+    "situation": {
+      "de": "Ein Wasserbad hat 20 °C. Die Heizung wird eingeschaltet, der Endwert wäre 100 °C. Die Strecke verhält sich wie ein PT1-Glied mit der Zeitkonstante T = 50 s. Nach einer Zeitkonstante sind 63,2 % der Änderung erreicht.",
+      "en": "A water bath has 20 °C. The heating is switched on, the final value would be 100 °C. The process behaves like a PT1 element with the time constant T = 50 s. After one time constant 63.2 % of the change has been reached."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die gesamte Temperaturänderung?",
+          "en": "How large is the total temperature change?"
+        },
+        "unit": "K",
+        "answer": 80,
+        "tolerance": 0.1,
+        "formula": "Δϑ = Endwert − Anfangswert",
+        "calc": "Δϑ = 100 − 20 = 80",
+        "why": {
+          "de": "Die Prozentangabe bezieht sich auf die Änderung, nicht auf den Endwert.",
+          "en": "The percentage refers to the change, not to the final value."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Temperatur ist nach 50 s erreicht?",
+          "en": "Which temperature is reached after 50 s?"
+        },
+        "unit": "°C",
+        "answer": 70.56,
+        "tolerance": 0.2,
+        "formula": "ϑ = Anfangswert + 0.632 · Δϑ",
+        "calc": "ϑ = 20 + 0.632 · 80 = 70.56",
+        "why": {
+          "de": "Nach einer Zeitkonstante sind 63,2 % der Änderung geschafft. Der Anfangswert wird dazugezählt.",
+          "en": "After one time constant 63.2 % of the change is done. The start value is added."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Nach etwa 5 Zeitkonstanten gilt der Endwert als erreicht. Wie viele Sekunden sind das?",
+          "en": "After about 5 time constants the final value is considered reached. How many seconds is that?"
+        },
+        "unit": "s",
+        "answer": 250,
+        "tolerance": 1,
+        "formula": "t = 5 · T",
+        "calc": "t = 5 · 50 s = 250 s",
+        "why": {
+          "de": "Die Kurve nähert sich dem Endwert immer langsamer. Nach 5 T fehlt weniger als 1 %.",
+          "en": "The curve approaches the final value more and more slowly. After 5 T less than 1 % is missing."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Die Zeitkonstante T liest man aus der Sprungantwort ab: der Zeitpunkt, an dem 63 % der Änderung erreicht sind.",
+      "en": "The time constant T is read from the step response: the moment at which 63 % of the change has been reached."
+    }
+  }
+]

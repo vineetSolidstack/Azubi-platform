@@ -28,7 +28,10 @@ export default function DrawingList() {
           <li key={s.id}>
             <Link href={`/zeichnen/${s.id}`} className={p.drawing[s.id] ? 'task solved' : 'task'}>
               <span className="task-no">{p.drawing[s.id] ? '✓' : i + 1}</span>
-              <span className="task-title">{t(s.title)}</span>
+              <span className="task-title">
+                {t(s.title)}
+                {s.hidden && <small>{t({ de: 'mit verdeckten Kanten', en: 'with hidden edges' })}</small>}
+              </span>
               <Dots n={s.difficulty} />
             </Link>
           </li>

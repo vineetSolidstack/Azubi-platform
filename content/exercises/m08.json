@@ -1,0 +1,212 @@
+[
+  {
+    "id": "m08-u01-analogwert-skalieren",
+    "module": "M08",
+    "lernfeld": {
+      "EAT": [
+        6,
+        7
+      ],
+      "MECH": [
+        7
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe.",
+    "title": {
+      "de": "Analogsignal 4 bis 20 mA skalieren",
+      "en": "Scaling an analog signal 4 to 20 mA"
+    },
+    "situation": {
+      "de": "Ein Füllstandssensor liefert 4 mA bei 0 m und 20 mA bei 5 m. Die Kennlinie ist linear.",
+      "en": "A level sensor delivers 4 mA at 0 m and 20 mA at 5 m. The characteristic is linear."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welcher Füllstand gehört zu 16 mA?",
+          "en": "Which level belongs to 16 mA?"
+        },
+        "unit": "m",
+        "answer": 3.75,
+        "tolerance": 0.01,
+        "formula": "h = (I − 4 mA) / 16 mA · 5 m",
+        "calc": "h = 12 mA / 16 mA · 5 m = 3.75 m",
+        "why": {
+          "de": "Zuerst wird der Anfangswert 4 mA abgezogen. Die Spanne ist 16 mA.",
+          "en": "First the start value 4 mA is subtracted. The span is 16 mA."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welcher Strom gehört zu einem Füllstand von 2 m?",
+          "en": "Which current belongs to a level of 2 m?"
+        },
+        "unit": "mA",
+        "answer": 10.4,
+        "tolerance": 0.05,
+        "formula": "I = 4 mA + h / 5 m · 16 mA",
+        "calc": "I = 4 mA + 0.4 · 16 mA = 10.4 mA",
+        "why": {
+          "de": "Die Formel wird umgekehrt: Anteil des Messbereichs mal Spanne, plus Anfangswert.",
+          "en": "The formula is reversed: share of the measuring range times span, plus start value."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Ein Analogeingang wandelt 0 bis 10 V in Zahlen von 0 bis 4095 (12 Bit). Welche Spannung gehört zum Zahlenwert 1638?",
+          "en": "An analog input converts 0 to 10 V into numbers from 0 to 4095 (12 bits). Which voltage belongs to the value 1638?"
+        },
+        "unit": "V",
+        "answer": 4,
+        "tolerance": 0.01,
+        "formula": "U = Wert / 4095 · 10 V",
+        "calc": "U = 1638 / 4095 · 10 V = 4 V",
+        "why": {
+          "de": "Der Zahlenwert ist ein Anteil des größten Werts. Dieser Anteil wird mit dem Messbereich multipliziert.",
+          "en": "The numeric value is a share of the largest value. This share is multiplied by the measuring range."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Skalieren heißt: Anteil am Signalbereich gleich Anteil am Messbereich. Bei 4 bis 20 mA zuerst die 4 mA abziehen.",
+      "en": "Scaling means: share of the signal range equals share of the measuring range. With 4 to 20 mA subtract the 4 mA first."
+    }
+  },
+  {
+    "id": "m08-u02-pt100",
+    "module": "M08",
+    "lernfeld": {
+      "EAT": [
+        6,
+        7
+      ],
+      "MECH": [
+        7
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Der Temperaturbeiwert ist als Annahme der Aufgabe gegeben.",
+    "title": {
+      "de": "Widerstand eines Pt100 berechnen",
+      "en": "Calculating the resistance of a Pt100"
+    },
+    "situation": {
+      "de": "Ein Pt100 hat bei 0 °C den Widerstand R0 = 100 Ω. Rechne in dieser Aufgabe linear mit dem Temperaturbeiwert α = 0,00385 pro Kelvin.",
+      "en": "A Pt100 has the resistance R0 = 100 Ω at 0 °C. In this task calculate linearly with the temperature coefficient α = 0.00385 per kelvin."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welchen Widerstand hat der Sensor bei 80 °C?",
+          "en": "Which resistance does the sensor have at 80 °C?"
+        },
+        "unit": "Ω",
+        "answer": 130.8,
+        "tolerance": 0.1,
+        "formula": "R = R0 · (1 + α · ϑ)",
+        "calc": "R = 100 Ω · (1 + 0.00385 · 80) = 130.8 Ω",
+        "why": {
+          "de": "Der Widerstand von Platin steigt mit der Temperatur fast gleichmäßig an.",
+          "en": "The resistance of platinum rises almost evenly with temperature."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Gemessen werden 119,25 Ω. Welche Temperatur hat der Sensor?",
+          "en": "A value of 119.25 Ω is measured. Which temperature does the sensor have?"
+        },
+        "unit": "°C",
+        "answer": 50,
+        "tolerance": 0.2,
+        "formula": "ϑ = (R / R0 − 1) / α",
+        "calc": "ϑ = (1.1925 − 1) / 0.00385 = 50",
+        "why": {
+          "de": "Die Formel wird nach der Temperatur umgestellt.",
+          "en": "The formula is rearranged for the temperature."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Pt100: 100 Ω bei 0 °C, pro Grad etwa 0,385 Ω mehr.",
+      "en": "Pt100: 100 Ω at 0 °C, about 0.385 Ω more per degree."
+    }
+  },
+  {
+    "id": "m08-u03-schaltabstand",
+    "module": "M08",
+    "lernfeld": {
+      "EAT": [
+        6,
+        7
+      ],
+      "MECH": [
+        7
+      ]
+    },
+    "difficulty": 4,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Die Reduktionsfaktoren sind Annahmen der Aufgabe, echte Werte stehen im Datenblatt.",
+    "title": {
+      "de": "Schaltabstand eines induktiven Sensors",
+      "en": "Switching distance of an inductive sensor"
+    },
+    "situation": {
+      "de": "Ein induktiver Sensor hat den Bemessungsschaltabstand Sn = 8 mm (bezogen auf Stahl). Für diese Aufgabe gelten die Reduktionsfaktoren: Stahl 1,0, Messing 0,5, Aluminium 0,4.",
+      "en": "An inductive sensor has the rated switching distance Sn = 8 mm (referred to steel). For this task the reduction factors are: steel 1.0, brass 0.5, aluminium 0.4."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Bei welchem Abstand erkennt der Sensor ein Teil aus Aluminium?",
+          "en": "At which distance does the sensor detect a part made of aluminium?"
+        },
+        "unit": "mm",
+        "answer": 3.2,
+        "tolerance": 0.01,
+        "formula": "S = Sn · Faktor",
+        "calc": "S = 8 mm · 0.4 = 3.2 mm",
+        "why": {
+          "de": "Nicht jedes Metall dämpft das Feld gleich stark. Der Reduktionsfaktor verkleinert den Schaltabstand.",
+          "en": "Not every metal damps the field equally. The reduction factor reduces the switching distance."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Bei welchem Abstand erkennt er ein Teil aus Messing?",
+          "en": "At which distance does it detect a part made of brass?"
+        },
+        "unit": "mm",
+        "answer": 4,
+        "tolerance": 0.01,
+        "formula": "S = Sn · Faktor",
+        "calc": "S = 8 mm · 0.5 = 4 mm",
+        "why": {
+          "de": "Gleiche Rechnung mit dem Faktor für Messing.",
+          "en": "Same calculation with the factor for brass."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Der Sensor ist 5 mm vom Teil entfernt montiert. Bei wie vielen der drei Werkstoffe schaltet er?",
+          "en": "The sensor is mounted 5 mm from the part. For how many of the three materials does it switch?"
+        },
+        "unit": "",
+        "answer": 1,
+        "tolerance": 0,
+        "formula": "schaltet, wenn Abstand ≤ S",
+        "calc": "Stahl 8 mm, Messing 4 mm, Aluminium 3.2 mm → Anzahl = 1",
+        "why": {
+          "de": "Nur bei Stahl ist der Schaltabstand größer als 5 mm.",
+          "en": "Only for steel is the switching distance larger than 5 mm."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Prüfe bei induktiven Sensoren immer den Werkstoff des Teils. Der Schaltabstand im Datenblatt gilt für Stahl.",
+      "en": "With inductive sensors always check the material of the part. The switching distance in the data sheet applies to steel."
+    }
+  }
+]

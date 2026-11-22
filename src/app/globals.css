@@ -318,3 +318,7 @@ input.short { width: 7rem; }
 .lesson { scroll-margin-top: 5rem; }
 .lesson .takeaway { margin-bottom: 0; }
 .chip { min-width: 78px; }
+
+.sheet-dashed { stroke-width: 2.5; stroke-dasharray: 7 5; stroke-linecap: butt; }
+.sheet-want.hidden-edge { stroke-dasharray: 7 5; stroke-linecap: butt; stroke-width: 7; }
+.note.small { padding: .5rem .7rem; }
