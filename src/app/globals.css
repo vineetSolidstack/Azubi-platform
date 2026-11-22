@@ -312,3 +312,9 @@ input.short { width: 7rem; }
 .sheet-hit { stroke: transparent; stroke-width: 16; cursor: pointer; stroke-linecap: butt; }
 .sheet-hit:hover { stroke: color-mix(in srgb, var(--brand) 35%, transparent); }
 .sheet-hit:focus-visible { stroke: color-mix(in srgb, var(--brand) 60%, transparent); outline: none; }
+
+/* theory */
+.toc { display: grid; gap: .25rem; margin: 0 0 1rem; }
+.lesson { scroll-margin-top: 5rem; }
+.lesson .takeaway { margin-bottom: 0; }
+.chip { min-width: 78px; }

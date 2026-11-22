@@ -20,6 +20,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
   }, [lang]);
   const nav = [
     { href: '/', label: t({ de: 'Start', en: 'Home' }), active: path === '/' },
+    { href: '/theorie', label: t({ de: 'Theorie', en: 'Theory' }), active: path.startsWith('/theorie') },
     { href: '/sps', label: t({ de: 'SPS-Trainer', en: 'PLC trainer' }), active: path.startsWith('/sps') },
     { href: '/uebungen', label: t({ de: 'Übungen', en: 'Exercises' }), active: path.startsWith('/uebungen') },
     { href: '/zeichnen', label: t({ de: 'Zeichnen', en: 'Drawing' }), active: path.startsWith('/zeichnen') },
