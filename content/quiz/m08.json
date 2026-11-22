@@ -1,0 +1,81 @@
+[
+  {
+    "id": "m08-q01", "module": "M08", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Näherungsschalter.",
+    "question": { "de": "Welche Materialien erkennt ein induktiver Näherungsschalter?", "en": "Which materials does an inductive proximity switch detect?" },
+    "options": [
+      { "de": "Nur Metalle", "en": "Only metals" },
+      { "de": "Alle Materialien", "en": "All materials" },
+      { "de": "Nur Kunststoffe", "en": "Only plastics" },
+      { "de": "Nur Flüssigkeiten", "en": "Only liquids" }
+    ],
+    "correct": 0,
+    "explanation": { "de": "Der induktive Sensor erzeugt ein magnetisches Wechselfeld. Ein Metall in der Nähe entzieht dem Feld Energie (Wirbelströme), das wertet der Sensor aus. Kunststoff, Holz oder Glas erkennt er nicht.", "en": "The inductive sensor creates an alternating magnetic field. A metal nearby takes energy from the field (eddy currents), and the sensor evaluates this. It does not detect plastic, wood or glass." }
+  },
+  {
+    "id": "m08-q02", "module": "M08", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Näherungsschalter.",
+    "question": { "de": "Der Füllstand von Kunststoffgranulat soll durch die Wand eines Kunststoffbehälters erkannt werden. Welcher Sensor passt?", "en": "The level of plastic granulate must be detected through the wall of a plastic container. Which sensor fits?" },
+    "options": [
+      { "de": "Induktiver Sensor", "en": "Inductive sensor" },
+      { "de": "Kapazitiver Sensor", "en": "Capacitive sensor" },
+      { "de": "Reedkontakt", "en": "Reed contact" },
+      { "de": "Mechanischer Endschalter", "en": "Mechanical limit switch" }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Der kapazitive Sensor reagiert auf fast alle Stoffe, auch auf Kunststoff, Flüssigkeiten und Granulat. Er kann durch dünne nichtmetallische Wände messen. Der induktive Sensor erkennt nur Metall, der Reedkontakt nur Magnete.", "en": "The capacitive sensor reacts to almost all materials, including plastic, liquids and granulate. It can measure through thin non-metallic walls. The inductive sensor only detects metal, the reed contact only magnets." }
+  },
+  {
+    "id": "m08-q03", "module": "M08", "status": "draft", "type": "single",
+    "source": "Eigene Frage. PNP und NPN.",
+    "question": { "de": "Was schaltet ein PNP-Sensor (Schließer) auf seinen Ausgang, wenn er ein Objekt erkennt?", "en": "What does a PNP sensor (normally open) switch to its output when it detects an object?" },
+    "options": [
+      { "de": "Die positive Versorgungsspannung (zum Beispiel +24 V)", "en": "The positive supply voltage (for example +24 V)" },
+      { "de": "0 V (Masse)", "en": "0 V (ground)" },
+      { "de": "Eine Wechselspannung", "en": "An AC voltage" },
+      { "de": "Nichts, der Ausgang ist immer offen", "en": "Nothing, the output is always open" }
+    ],
+    "correct": 0,
+    "explanation": { "de": "PNP heißt plusschaltend: Der Sensor verbindet den Ausgang mit Plus. Die Last (der SPS-Eingang) liegt zwischen Ausgang und 0 V. NPN ist minusschaltend: Der Ausgang wird mit 0 V verbunden.", "en": "PNP means positive switching: the sensor connects the output to plus. The load (the PLC input) is between the output and 0 V. NPN is negative switching: the output is connected to 0 V." }
+  },
+  {
+    "id": "m08-q04", "module": "M08", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Analoge Signale.",
+    "question": { "de": "Welchen Vorteil hat das Stromsignal 4 bis 20 mA gegenüber 0 bis 20 mA?", "en": "What advantage does the current signal 4 to 20 mA have over 0 to 20 mA?" },
+    "options": [
+      { "de": "Ein Drahtbruch ist erkennbar, weil dann 0 mA fließen.", "en": "A wire break can be detected, because then 0 mA flow." },
+      { "de": "Es braucht keine Spannungsversorgung.", "en": "It needs no power supply." },
+      { "de": "Es ist genauer, weil der Bereich größer ist.", "en": "It is more accurate because the range is larger." },
+      { "de": "Es funktioniert auch ohne Leitung.", "en": "It also works without a cable." }
+    ],
+    "correct": 0,
+    "explanation": { "de": "Bei 4 bis 20 mA entspricht der kleinste Messwert 4 mA. Fließen weniger als 4 mA, zum Beispiel 0 mA, stimmt etwas nicht: Drahtbruch oder Sensor defekt. Bei 0 bis 20 mA kann man 0 mA nicht vom kleinsten Messwert unterscheiden.", "en": "With 4 to 20 mA the smallest measured value corresponds to 4 mA. If less than 4 mA flow, for example 0 mA, something is wrong: wire break or defective sensor. With 0 to 20 mA you cannot tell 0 mA from the smallest measured value." }
+  },
+  {
+    "id": "m08-q05", "module": "M08", "status": "draft", "type": "numeric",
+    "source": "Eigene Frage. Temperatursensor Pt100.",
+    "question": { "de": "Welchen Widerstand hat ein Pt100 bei 0 °C?", "en": "What is the resistance of a Pt100 at 0 °C?" },
+    "answer": 100, "tolerance": 0, "unit": "Ω",
+    "explanation": { "de": "Der Name sagt es: Pt steht für Platin, 100 für 100 Ω bei 0 °C. Mit steigender Temperatur steigt der Widerstand.", "en": "The name says it: Pt stands for platinum, 100 for 100 Ω at 0 °C. The resistance rises with rising temperature." }
+  },
+  {
+    "id": "m08-q06", "module": "M08", "status": "draft", "type": "numeric",
+    "source": "Eigene Rechenaufgabe. Skalierung eines Analogsignals 4 bis 20 mA.",
+    "question": { "de": "Ein Drucksensor liefert 4 bis 20 mA für 0 bis 10 bar. Die Kennlinie ist linear. Welcher Druck in bar gehört zu 12 mA?", "en": "A pressure sensor delivers 4 to 20 mA for 0 to 10 bar. The characteristic is linear. Which pressure in bar belongs to 12 mA?" },
+    "answer": 5, "tolerance": 0.05, "unit": "bar",
+    "explanation": { "de": "Schritt 1: Den Anfangswert abziehen: 12 mA − 4 mA = 8 mA. Schritt 2: Die Spanne ist 20 mA − 4 mA = 16 mA. Schritt 3: 8 mA von 16 mA ist die Hälfte. Die Hälfte von 10 bar ist 5 bar.", "en": "Step 1: subtract the start value: 12 mA − 4 mA = 8 mA. Step 2: the span is 20 mA − 4 mA = 16 mA. Step 3: 8 mA of 16 mA is one half. Half of 10 bar is 5 bar." }
+  },
+  {
+    "id": "m08-q07", "module": "M08", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Zylinderschalter.",
+    "question": { "de": "Worauf reagiert ein Reedkontakt, der die Endlage eines Pneumatikzylinders meldet?", "en": "What does a reed contact that reports the end position of a pneumatic cylinder react to?" },
+    "options": [
+      { "de": "Auf den Luftdruck im Zylinder", "en": "To the air pressure in the cylinder" },
+      { "de": "Auf einen Magneten im Kolben", "en": "To a magnet in the piston" },
+      { "de": "Auf das Licht im Zylinder", "en": "To the light in the cylinder" },
+      { "de": "Auf die Temperatur des Kolbens", "en": "To the temperature of the piston" }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Im Kolben sitzt ein Dauermagnet. Kommt er am Reedkontakt vorbei, schließen sich die Kontaktzungen im Glasröhrchen durch das Magnetfeld.", "en": "There is a permanent magnet in the piston. When it passes the reed contact, the contact blades in the glass tube close because of the magnetic field." }
+  }
+]

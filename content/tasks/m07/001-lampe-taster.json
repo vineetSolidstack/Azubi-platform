@@ -1,0 +1,49 @@
+{
+  "id": "m07-001-lampe-taster",
+  "module": "M07",
+  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "difficulty": 1,
+  "status": "draft",
+  "title": { "de": "Lampe folgt Taster", "en": "Lamp follows push-button" },
+  "description": {
+    "de": "Die Lampe P1 soll leuchten, solange der Taster S1 gedrückt ist. Lässt du S1 los, geht die Lampe aus.",
+    "en": "The lamp P1 must be on as long as the push-button (Taster) S1 is pressed. When you release S1, the lamp goes off."
+  },
+  "learn": {
+    "de": "Die SPS arbeitet im Zyklus: Sie liest alle Eingänge, rechnet dein Programm durch und schreibt danach die Ausgänge. Das passiert viele Male pro Sekunde. Ein Schließer-Kontakt lässt Strom durch, wenn das Signal 1 (TRUE) ist.",
+    "en": "The PLC (SPS) works in a cycle: it reads all inputs, runs your program and then writes the outputs. This happens many times per second. A normally open contact (Schließer) conducts when the signal is 1 (TRUE)."
+  },
+  "hints": [
+    { "de": "Du brauchst nur ein Netzwerk: einen Kontakt S1 und eine Spule P1.", "en": "You only need one network: a contact S1 and a coil P1." },
+    { "de": "In SCL ist es eine einzige Zeile: P1 := S1;", "en": "In SCL it is a single line: P1 := S1;" }
+  ],
+  "station": "panel",
+  "languages": ["kop", "scl"],
+  "variables": [
+    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "comment": { "de": "Taster (Schließer)", "en": "Push-button (normally open)" } },
+    { "name": "P1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "yellow", "comment": { "de": "Meldelampe", "en": "Signal lamp" } }
+  ],
+  "tests": [
+    {
+      "id": "folgt",
+      "name": { "de": "Lampe folgt dem Taster", "en": "Lamp follows the button" },
+      "steps": [
+        { "at": 50, "expect": { "P1": false }, "note": { "de": "Niemand drückt S1.", "en": "Nobody presses S1." } },
+        { "at": 100, "set": { "S1": true } },
+        { "at": 200, "expect": { "P1": true }, "note": { "de": "S1 ist gedrückt.", "en": "S1 is pressed." } },
+        { "at": 500, "set": { "S1": false } },
+        { "at": 600, "expect": { "P1": false }, "note": { "de": "S1 wurde losgelassen.", "en": "S1 was released." } }
+      ]
+    }
+  ],
+  "solutions": {
+    "reference": [
+      { "lang": "scl", "code": "P1 := S1;" },
+      { "lang": "kop", "rungs": [{ "groups": [[[{ "v": "S1" }]]], "out": { "kind": "coil", "v": "P1" } }] }
+    ],
+    "wrong": [
+      { "lang": "scl", "code": "P1 := TRUE;" },
+      { "lang": "scl", "code": "P1 := NOT S1;" }
+    ]
+  }
+}

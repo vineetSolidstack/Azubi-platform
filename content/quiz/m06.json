@@ -1,0 +1,75 @@
+[
+  {
+    "id": "m06-q01", "module": "M06", "status": "draft", "type": "numeric",
+    "source": "Eigene Frage. Zahlensysteme.",
+    "question": { "de": "Welche Dezimalzahl ist die Dualzahl 1011?", "en": "Which decimal number is the binary number 1011?" },
+    "answer": 11, "tolerance": 0,
+    "explanation": { "de": "Die Stellen haben von rechts die Werte 1, 2, 4, 8. Also: 1·8 + 0·4 + 1·2 + 1·1 = 11.", "en": "From the right the digits have the values 1, 2, 4, 8. So: 1·8 + 0·4 + 1·2 + 1·1 = 11." }
+  },
+  {
+    "id": "m06-q02", "module": "M06", "status": "draft", "type": "numeric",
+    "source": "Eigene Frage. Zahlensysteme.",
+    "question": { "de": "Welche Dezimalzahl ist die Hexadezimalzahl 2F?", "en": "Which decimal number is the hexadecimal number 2F?" },
+    "answer": 47, "tolerance": 0,
+    "explanation": { "de": "F hat den Wert 15. Die linke Stelle zählt 16-fach: 2·16 + 15 = 47.", "en": "F has the value 15. The left digit counts 16 times: 2·16 + 15 = 47." }
+  },
+  {
+    "id": "m06-q03", "module": "M06", "status": "draft", "type": "numeric",
+    "source": "Eigene Frage. Bit, Byte, Wort.",
+    "question": { "de": "Wie viele verschiedene Werte kann man mit einem Byte (8 Bit) darstellen?", "en": "How many different values can be represented with one byte (8 bits)?" },
+    "answer": 256, "tolerance": 0,
+    "explanation": { "de": "Jedes Bit verdoppelt die Anzahl: 2 hoch 8 = 256 Werte, zum Beispiel die Zahlen 0 bis 255.", "en": "Every bit doubles the number: 2 to the power of 8 = 256 values, for example the numbers 0 to 255." }
+  },
+  {
+    "id": "m06-q04", "module": "M06", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Logische Grundfunktionen.",
+    "question": { "de": "Ein NAND-Glied hat zwei Eingänge. Bei welcher Eingangskombination ist der Ausgang 0?", "en": "A NAND gate has two inputs. For which input combination is the output 0?" },
+    "options": [
+      { "de": "A = 0, B = 0", "en": "A = 0, B = 0" },
+      { "de": "A = 0, B = 1", "en": "A = 0, B = 1" },
+      { "de": "A = 1, B = 0", "en": "A = 1, B = 0" },
+      { "de": "A = 1, B = 1", "en": "A = 1, B = 1" }
+    ],
+    "correct": 3,
+    "explanation": { "de": "NAND ist ein UND mit negiertem Ausgang. Das UND liefert nur bei 1 und 1 eine 1. Negiert ergibt genau dieser Fall eine 0. In allen anderen Fällen ist der Ausgang 1.", "en": "NAND is an AND with a negated output. The AND only delivers 1 for 1 and 1. Negated, exactly this case gives 0. In all other cases the output is 1." }
+  },
+  {
+    "id": "m06-q05", "module": "M06", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Logische Grundfunktionen.",
+    "question": { "de": "Wann ist der Ausgang eines XOR-Glieds (Exklusiv-ODER) mit zwei Eingängen 1?", "en": "When is the output of an XOR gate (exclusive OR) with two inputs 1?" },
+    "options": [
+      { "de": "Wenn beide Eingänge 1 sind.", "en": "When both inputs are 1." },
+      { "de": "Wenn die Eingänge verschieden sind.", "en": "When the inputs are different." },
+      { "de": "Wenn beide Eingänge 0 sind.", "en": "When both inputs are 0." },
+      { "de": "Wenn mindestens ein Eingang 1 ist.", "en": "When at least one input is 1." }
+    ],
+    "correct": 1,
+    "explanation": { "de": "XOR heißt: entweder der eine oder der andere, aber nicht beide. Der Ausgang ist 1 bei 0/1 und bei 1/0. Die Wechselschaltung im Haus arbeitet so.", "en": "XOR means: either the one or the other, but not both. The output is 1 for 0/1 and for 1/0. The two-way light circuit (Wechselschaltung) at home works like this." }
+  },
+  {
+    "id": "m06-q06", "module": "M06", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Schaltalgebra, Gesetz von De Morgan.",
+    "question": { "de": "Welcher Ausdruck ist nach De Morgan gleich NOT (A AND B)?", "en": "Which expression is equal to NOT (A AND B) according to De Morgan?" },
+    "options": [
+      { "de": "NOT A AND NOT B", "en": "NOT A AND NOT B" },
+      { "de": "NOT A OR NOT B", "en": "NOT A OR NOT B" },
+      { "de": "A OR B", "en": "A OR B" },
+      { "de": "NOT A OR B", "en": "NOT A OR B" }
+    ],
+    "correct": 1,
+    "explanation": { "de": "De Morgan: Die Negation wird auf jede Variable verteilt und das Verknüpfungszeichen wird getauscht. Aus NOT (A AND B) wird NOT A OR NOT B. Prüfe es mit der Wahrheitstabelle: Nur bei A = 1 und B = 1 kommt 0 heraus.", "en": "De Morgan: the negation is distributed to each variable and the operator is swapped. NOT (A AND B) becomes NOT A OR NOT B. Check it with the truth table: only A = 1 and B = 1 gives 0." }
+  },
+  {
+    "id": "m06-q07", "module": "M06", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Speicherfunktionen.",
+    "question": { "de": "An einem Speicherglied mit vorrangigem Rücksetzen (rücksetzdominant) liegen Setzen und Rücksetzen gleichzeitig an. Was macht der Ausgang?", "en": "Set and reset are applied at the same time to a flip-flop with reset priority (reset dominant). What does the output do?" },
+    "options": [
+      { "de": "Er ist 1.", "en": "It is 1." },
+      { "de": "Er ist 0.", "en": "It is 0." },
+      { "de": "Er blinkt.", "en": "It flashes." },
+      { "de": "Er behält den alten Zustand.", "en": "It keeps the old state." }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Rücksetzdominant heißt: Rücksetzen gewinnt. Der Ausgang ist 0. Für Ausschalten und Stopp nimmt man meist diese Variante, damit Aus immer Vorrang hat.", "en": "Reset dominant means: reset wins. The output is 0. This variant is usually used for switching off and stop, so that off always has priority." }
+  }
+]

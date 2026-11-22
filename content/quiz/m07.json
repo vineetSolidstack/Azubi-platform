@@ -1,0 +1,98 @@
+[
+  {
+    "id": "m07-q01", "module": "M07", "status": "draft", "type": "order",
+    "source": "Eigene Frage. Zyklische Programmbearbeitung nach IEC 61131-3.",
+    "question": { "de": "Was macht die SPS in einem Zyklus? Bringe die Schritte in die richtige Reihenfolge.", "en": "What does the PLC do in one cycle? Put the steps in the correct order." },
+    "items": [
+      { "de": "Eingänge lesen und im Prozessabbild der Eingänge speichern", "en": "Read the inputs and store them in the process image of the inputs" },
+      { "de": "Programm von oben nach unten bearbeiten", "en": "Run the program from top to bottom" },
+      { "de": "Prozessabbild der Ausgänge an die Ausgänge schreiben", "en": "Write the process image of the outputs to the outputs" }
+    ],
+    "explanation": { "de": "Die SPS arbeitet mit einer Kopie der Signale, dem Prozessabbild. So ändert sich ein Eingang nicht mitten im Programm. Danach beginnt der Zyklus wieder von vorn.", "en": "The PLC works with a copy of the signals, the process image. This way an input does not change in the middle of the program. Then the cycle starts again." }
+  },
+  {
+    "id": "m07-q02", "module": "M07", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Prozessabbild.",
+    "question": { "de": "Im Programm steht zuerst Q1 := TRUE; und weiter unten Q1 := FALSE;. Was passiert am Ausgang Q1?", "en": "In the program there is first Q1 := TRUE; and further down Q1 := FALSE;. What happens at the output Q1?" },
+    "options": [
+      { "de": "Der Ausgang bleibt aus. Es zählt der letzte Wert im Zyklus.", "en": "The output stays off. The last value in the cycle counts." },
+      { "de": "Der Ausgang schaltet in jedem Zyklus kurz ein und wieder aus.", "en": "The output switches on briefly and off again in every cycle." },
+      { "de": "Der Ausgang bleibt ein. Es zählt der erste Wert.", "en": "The output stays on. The first value counts." },
+      { "de": "Die SPS geht in Stopp.", "en": "The PLC goes to stop." }
+    ],
+    "correct": 0,
+    "explanation": { "de": "Das Programm schreibt nur in das Prozessabbild. Erst am Ende des Zyklus geht der letzte Wert an den echten Ausgang. Deshalb ist eine doppelte Zuweisung ein typischer Fehler: Die erste Zuweisung wirkt nie.", "en": "The program only writes to the process image. Only at the end of the cycle does the last value go to the real output. That is why a double assignment is a typical mistake: the first assignment never has an effect." }
+  },
+  {
+    "id": "m07-q03", "module": "M07", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Datentypen nach IEC 61131-3.",
+    "question": { "de": "Welcher Datentyp passt für das Signal eines Tasters?", "en": "Which data type fits the signal of a push-button?" },
+    "options": [
+      { "de": "INT", "en": "INT" },
+      { "de": "REAL", "en": "REAL" },
+      { "de": "BOOL", "en": "BOOL" },
+      { "de": "TIME", "en": "TIME" }
+    ],
+    "correct": 2,
+    "explanation": { "de": "Ein Taster kennt nur zwei Zustände: 0 oder 1. Dafür ist BOOL da (1 Bit). INT ist für ganze Zahlen, REAL für Kommazahlen, TIME für Zeiten.", "en": "A push-button only has two states: 0 or 1. BOOL is made for this (1 bit). INT is for whole numbers, REAL for decimal numbers, TIME for times." }
+  },
+  {
+    "id": "m07-q04", "module": "M07", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Öffner an der SPS.",
+    "question": { "de": "Ein Stopp-Taster (Öffner) ist an einen SPS-Eingang angeschlossen. Der Motor soll laufen, solange Stopp nicht gedrückt ist. Wie fragst du den Eingang im Programm ab?", "en": "A stop button (normally closed) is connected to a PLC input. The motor must run as long as stop is not pressed. How do you query the input in the program?" },
+    "options": [
+      { "de": "Auf Signal 1, also mit einem Schließer-Kontakt.", "en": "For signal 1, that is with a normally open contact." },
+      { "de": "Auf Signal 0, also mit einem Öffner-Kontakt.", "en": "For signal 0, that is with a normally closed contact." },
+      { "de": "Das ist egal.", "en": "It does not matter." },
+      { "de": "Einen Öffner darf man nicht an eine SPS anschließen.", "en": "A normally closed contact must not be connected to a PLC." }
+    ],
+    "correct": 0,
+    "explanation": { "de": "Der Öffner liefert im Ruhezustand schon das Signal 1. Das Programm fragt deshalb auf 1 ab. Fragst du auf 0 ab, hast du doppelt negiert: Der Motor könnte nur laufen, während Stopp gedrückt ist.", "en": "The normally closed contact already delivers the signal 1 at rest. So the program queries for 1. If you query for 0, you have negated twice: the motor could only run while stop is pressed." }
+  },
+  {
+    "id": "m07-q05", "module": "M07", "status": "draft", "type": "numeric",
+    "source": "Eigene Frage. Zeitglied TON nach IEC 61131-3.",
+    "question": { "de": "Ein TON hat PT = 5 s. Der Eingang IN wird 2 s nach dem Start der Anlage 1 und bleibt 1. Wie viele Sekunden nach dem Start der Anlage wird der Ausgang Q = 1?", "en": "A TON has PT = 5 s. The input IN becomes 1 two seconds after the start of the plant and stays 1. How many seconds after the start of the plant does the output Q become 1?" },
+    "answer": 7, "tolerance": 0, "unit": "s",
+    "explanation": { "de": "TON ist die Einschaltverzögerung. Die Zeit läuft ab dem Moment, in dem IN = 1 wird: 2 s + 5 s = 7 s.", "en": "TON is the on-delay timer. The time runs from the moment IN becomes 1: 2 s + 5 s = 7 s." }
+  },
+  {
+    "id": "m07-q06", "module": "M07", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Zeitglieder nach IEC 61131-3.",
+    "question": { "de": "Ein Lüfter soll nach dem Ausschalten der Maschine noch 30 s nachlaufen. Welcher Baustein passt?", "en": "A fan must keep running for 30 s after the machine is switched off. Which block fits?" },
+    "options": [
+      { "de": "TON (Einschaltverzögerung)", "en": "TON (on-delay)" },
+      { "de": "TOF (Ausschaltverzögerung)", "en": "TOF (off-delay)" },
+      { "de": "CTU (Vorwärtszähler)", "en": "CTU (up counter)" },
+      { "de": "R_TRIG (Flankenerkennung)", "en": "R_TRIG (edge detection)" }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Bei TOF ist Q sofort 1, wenn IN = 1 ist. Geht IN auf 0, bleibt Q noch für die Zeit PT auf 1. Genau das ist ein Nachlauf.", "en": "With TOF, Q is 1 immediately when IN = 1. When IN goes to 0, Q stays 1 for the time PT. That is exactly a run-on." }
+  },
+  {
+    "id": "m07-q07", "module": "M07", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Zähler CTU nach IEC 61131-3.",
+    "question": { "de": "Wann zählt ein Vorwärtszähler CTU um 1 hoch?", "en": "When does an up counter CTU count up by 1?" },
+    "options": [
+      { "de": "In jedem Zyklus, solange CU = 1 ist.", "en": "In every cycle as long as CU = 1." },
+      { "de": "Bei jedem Wechsel von CU von 0 auf 1 (steigende Flanke).", "en": "On every change of CU from 0 to 1 (rising edge)." },
+      { "de": "Bei jedem Wechsel von CU von 1 auf 0 (fallende Flanke).", "en": "On every change of CU from 1 to 0 (falling edge)." },
+      { "de": "Einmal pro Sekunde.", "en": "Once per second." }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Der Zähler wertet die steigende Flanke aus. Ein Teil, das lange vor dem Sensor steht, zählt deshalb nur einmal. Würde er in jedem Zyklus zählen, wäre der Zählerstand nach einem Teil schon riesig.", "en": "The counter evaluates the rising edge. A part that stays in front of the sensor for a long time therefore only counts once. If it counted in every cycle, the count would already be huge after one part." }
+  },
+  {
+    "id": "m07-q08", "module": "M07", "status": "draft", "type": "multiple",
+    "source": "Eigene Frage. Programmiersprachen der IEC 61131-3.",
+    "question": { "de": "Welche dieser SPS-Sprachen sind grafisch? (mehrere Antworten)", "en": "Which of these PLC languages are graphical? (several answers)" },
+    "options": [
+      { "de": "KOP (Kontaktplan)", "en": "KOP (ladder diagram)" },
+      { "de": "FUP (Funktionsplan)", "en": "FUP (function block diagram)" },
+      { "de": "SCL / ST (Strukturierter Text)", "en": "SCL / ST (structured text)" },
+      { "de": "AWL (Anweisungsliste)", "en": "AWL (instruction list)" }
+    ],
+    "correct": [0, 1],
+    "explanation": { "de": "KOP sieht aus wie ein Stromlaufplan, FUP wie eine Schaltung aus Logikbausteinen. SCL (in der Norm: ST) und AWL sind Textsprachen.", "en": "KOP looks like a circuit diagram, FUP like a circuit of logic blocks. SCL (in the standard: ST) and AWL are text languages." }
+  }
+]

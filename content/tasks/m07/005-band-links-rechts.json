@@ -1,0 +1,85 @@
+{
+  "id": "m07-005-band-links-rechts",
+  "module": "M07",
+  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "difficulty": 3,
+  "status": "draft",
+  "title": { "de": "Förderband links und rechts mit Endschaltern", "en": "Conveyor left and right with limit switches" },
+  "description": {
+    "de": "Das Band fährt ein Werkstück zwischen zwei Endschaltern hin und her. S1 startet die Fahrt nach rechts (Q1), S2 die Fahrt nach links (Q2), jeweils mit Selbsthaltung. S0 (Öffner) stoppt das Band. Erreicht das Werkstück den Endschalter B2 (rechts), stoppt die Fahrt nach rechts. Erreicht es B1 (links), stoppt die Fahrt nach links. Q1 und Q2 dürfen nie gleichzeitig ein sein. Die Richtung darf nur über Stopp gewechselt werden.\n\nDie Endschalter liefern 1, wenn das Werkstück dort ist. Am Anfang liegt das Werkstück links.",
+    "en": "The belt moves a workpiece back and forth between two limit switches. S1 starts the travel to the right (Q1), S2 the travel to the left (Q2), each with latching. S0 (normally closed) stops the belt. When the workpiece reaches the limit switch B2 (right), the travel to the right stops. When it reaches B1 (left), the travel to the left stops. Q1 and Q2 must never be on at the same time. The direction may only be changed via stop.\n\nThe limit switches deliver 1 when the workpiece is there. At the beginning the workpiece is on the left."
+  },
+  "learn": {
+    "de": "Das ist die Wendeschaltung: zwei Selbsthaltungen, die sich gegenseitig verriegeln. Die Endschalter wirken wie zusätzliche Stopp-Bedingungen, aber nur für ihre Richtung.",
+    "en": "This is the reversing circuit (Wendeschaltung): two latching circuits that interlock each other. The limit switches act like extra stop conditions, but only for their direction."
+  },
+  "hints": [
+    { "de": "Nimm die Lösung der Verriegelung als Grundlage: Q1 und Q2 sperren sich gegenseitig.", "en": "Use the solution of the interlock task as a base: Q1 and Q2 block each other." },
+    { "de": "Setze in das Netzwerk von Q1 einen Öffner-Kontakt B2 in Reihe. In das Netzwerk von Q2 einen Öffner-Kontakt B1.", "en": "Place a normally closed contact B2 in series in the network of Q1. In the network of Q2 a normally closed contact B1." }
+  ],
+  "station": "conveyor",
+  "stationOptions": { "startPos": 0 },
+  "languages": ["kop", "scl"],
+  "variables": [
+    { "name": "S0", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "nc": true, "color": "red", "comment": { "de": "Stopp-Taster (Öffner)", "en": "Stop button (normally closed)" } },
+    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.1", "ui": "button", "color": "green", "comment": { "de": "Start nach rechts (Schließer)", "en": "Start to the right (normally open)" } },
+    { "name": "S2", "type": "BOOL", "dir": "in", "address": "%I0.2", "ui": "button", "color": "green", "comment": { "de": "Start nach links (Schließer)", "en": "Start to the left (normally open)" } },
+    { "name": "B1", "type": "BOOL", "dir": "in", "address": "%I0.3", "role": "limitLeft", "comment": { "de": "Endschalter links (1 = Werkstück da)", "en": "Limit switch left (1 = workpiece present)" } },
+    { "name": "B2", "type": "BOOL", "dir": "in", "address": "%I0.4", "role": "limitRight", "comment": { "de": "Endschalter rechts (1 = Werkstück da)", "en": "Limit switch right (1 = workpiece present)" } },
+    { "name": "Q1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "role": "motorRight", "comment": { "de": "Band nach rechts", "en": "Belt to the right" } },
+    { "name": "Q2", "type": "BOOL", "dir": "out", "address": "%Q0.1", "role": "motorLeft", "comment": { "de": "Band nach links", "en": "Belt to the left" } }
+  ],
+  "tests": [
+    {
+      "id": "hin-und-her",
+      "name": { "de": "Nach rechts bis B2, dann nach links bis B1", "en": "To the right until B2, then to the left until B1" },
+      "never": [{ "when": { "Q1": true, "Q2": true }, "note": { "de": "Beide Richtungen sind gleichzeitig ein. Im echten Betrieb gäbe das einen Kurzschluss.", "en": "Both directions are on at the same time. In real operation this would cause a short circuit." } }],
+      "steps": [
+        { "at": 100, "set": { "S1": true } },
+        { "at": 300, "set": { "S1": false } },
+        { "at": 1000, "expect": { "Q1": true, "Q2": false }, "note": { "de": "S1 wurde kurz gedrückt. Das Band fährt nach rechts.", "en": "S1 was pressed briefly. The belt moves to the right." } },
+        { "at": 3500, "expect": { "Q1": true }, "note": { "de": "Das Werkstück ist noch unterwegs nach rechts.", "en": "The workpiece is still on its way to the right." } },
+        { "at": 4600, "expect": { "Q1": false, "B2": true }, "note": { "de": "Das Werkstück ist am Endschalter B2 angekommen.", "en": "The workpiece has arrived at limit switch B2." } },
+        { "at": 4700, "set": { "S1": true } },
+        { "at": 4900, "expect": { "Q1": false }, "note": { "de": "S1 ist gedrückt, aber das Werkstück steht schon am rechten Ende.", "en": "S1 is pressed, but the workpiece is already at the right end." } },
+        { "at": 5000, "set": { "S1": false } },
+        { "at": 5100, "set": { "S2": true } },
+        { "at": 5300, "set": { "S2": false } },
+        { "at": 6000, "expect": { "Q1": false, "Q2": true }, "note": { "de": "S2 wurde kurz gedrückt. Das Band fährt nach links.", "en": "S2 was pressed briefly. The belt moves to the left." } },
+        { "at": 9600, "expect": { "Q2": false, "B1": true }, "note": { "de": "Das Werkstück ist am Endschalter B1 angekommen.", "en": "The workpiece has arrived at limit switch B1." } }
+      ]
+    },
+    {
+      "id": "stopp-und-wechsel",
+      "name": { "de": "Stopp unterwegs, Richtungswechsel nur über Stopp", "en": "Stop on the way, change of direction only via stop" },
+      "never": [{ "when": { "Q1": true, "Q2": true }, "note": { "de": "Beide Richtungen sind gleichzeitig ein. Im echten Betrieb gäbe das einen Kurzschluss.", "en": "Both directions are on at the same time. In real operation this would cause a short circuit." } }],
+      "steps": [
+        { "at": 100, "set": { "S1": true } },
+        { "at": 300, "set": { "S1": false } },
+        { "at": 1000, "set": { "S2": true } },
+        { "at": 1200, "set": { "S2": false } },
+        { "at": 1400, "expect": { "Q1": true, "Q2": false }, "note": { "de": "S2 wurde gedrückt, während das Band nach rechts fährt. Es muss weiter nach rechts fahren.", "en": "S2 was pressed while the belt moves to the right. It must keep moving to the right." } },
+        { "at": 1500, "set": { "S0": false } },
+        { "at": 1700, "set": { "S0": true } },
+        { "at": 1900, "expect": { "Q1": false, "Q2": false }, "note": { "de": "Stopp wurde gedrückt.", "en": "Stop was pressed." } },
+        { "at": 2000, "set": { "S2": true } },
+        { "at": 2200, "set": { "S2": false } },
+        { "at": 2500, "expect": { "Q1": false, "Q2": true }, "note": { "de": "Nach dem Stopp wurde S2 gedrückt. Das Band fährt nach links.", "en": "After the stop S2 was pressed. The belt moves to the left." } }
+      ]
+    }
+  ],
+  "solutions": {
+    "reference": [
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0 AND NOT B2 AND NOT Q2;\nQ2 := (S2 OR Q2) AND S0 AND NOT B1 AND NOT Q1;" },
+      { "lang": "kop", "rungs": [
+        { "groups": [[[{ "v": "S1" }], [{ "v": "Q1" }]], [[{ "v": "S0" }, { "v": "B2", "neg": true }, { "v": "Q2", "neg": true }]]], "out": { "kind": "coil", "v": "Q1" } },
+        { "groups": [[[{ "v": "S2" }], [{ "v": "Q2" }]], [[{ "v": "S0" }, { "v": "B1", "neg": true }, { "v": "Q1", "neg": true }]]], "out": { "kind": "coil", "v": "Q2" } }
+      ] }
+    ],
+    "wrong": [
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0 AND NOT Q2;\nQ2 := (S2 OR Q2) AND S0 AND NOT Q1;" },
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0 AND NOT B2;\nQ2 := (S2 OR Q2) AND S0 AND NOT B1;" },
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0 AND NOT B1 AND NOT Q2;\nQ2 := (S2 OR Q2) AND S0 AND NOT B2 AND NOT Q1;" }
+    ]
+  }
+}

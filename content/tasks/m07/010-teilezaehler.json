@@ -1,0 +1,89 @@
+{
+  "id": "m07-010-teilezaehler",
+  "module": "M07",
+  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "difficulty": 4,
+  "status": "draft",
+  "title": { "de": "Teilezähler mit Rücksetzen", "en": "Parts counter with reset" },
+  "description": {
+    "de": "Eine Lichtschranke B1 meldet jedes Teil, das in den Karton fällt (B1 = 1, solange das Teil vorbeiläuft). Nach 3 Teilen ist der Karton voll und die Lampe P1 leuchtet. Sie bleibt an, auch wenn weitere Teile kommen. Der Taster S2 setzt den Zähler zurück: P1 geht aus und das Zählen beginnt neu.\n\nWichtig: Jedes Teil zählt genau einmal, egal wie lange es vor der Lichtschranke steht.",
+    "en": "A light barrier B1 reports every part that falls into the box (B1 = 1 as long as the part passes). After 3 parts the box is full and the lamp P1 is on. It stays on even if more parts arrive. The push-button S2 resets the counter: P1 goes off and counting starts again.\n\nImportant: every part counts exactly once, no matter how long it stays in front of the light barrier."
+  },
+  "learn": {
+    "de": "Der Vorwärtszähler CTU (IEC 61131-3) zählt bei jeder steigenden Flanke an CU um 1 hoch, also beim Wechsel von 0 auf 1. R setzt den Zählerstand CV auf 0. Der Ausgang Q ist 1, wenn CV den Vorgabewert PV erreicht hat. Ohne Flanke würde die SPS in jedem Zyklus zählen, also viele Male pro Teil.",
+    "en": "The up counter CTU (IEC 61131-3) counts up by 1 on every rising edge at CU, that is on the change from 0 to 1. R sets the count value CV to 0. The output Q is 1 when CV has reached the preset value PV. Without the edge the PLC would count in every cycle, so many times per part."
+  },
+  "hints": [
+    { "de": "Lege oben einen Zähler an: VAR Z1 : CTU; END_VAR", "en": "Declare a counter at the top: VAR Z1 : CTU; END_VAR" },
+    { "de": "Aufruf: Z1(CU := B1, R := S2, PV := 3); danach P1 := Z1.Q;", "en": "Call: Z1(CU := B1, R := S2, PV := 3); then P1 := Z1.Q;" }
+  ],
+  "station": "panel",
+  "languages": ["scl"],
+  "variables": [
+    { "name": "B1", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "comment": { "de": "Lichtschranke (1 = Teil erkannt)", "en": "Light barrier (1 = part detected)" } },
+    { "name": "S2", "type": "BOOL", "dir": "in", "address": "%I0.1", "ui": "button", "comment": { "de": "Taster Zähler zurücksetzen (Schließer)", "en": "Reset counter button (normally open)" } },
+    { "name": "P1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "yellow", "comment": { "de": "Lampe Karton voll", "en": "Box full lamp" } }
+  ],
+  "tests": [
+    {
+      "id": "drei-teile",
+      "name": { "de": "Nach 3 Teilen ist der Karton voll", "en": "After 3 parts the box is full" },
+      "steps": [
+        { "at": 100, "set": { "B1": true } },
+        { "at": 200, "set": { "B1": false } },
+        { "at": 300, "set": { "B1": true } },
+        { "at": 400, "set": { "B1": false } },
+        { "at": 450, "expect": { "P1": false }, "note": { "de": "Es sind erst 2 Teile durchgelaufen.", "en": "Only 2 parts have passed so far." } },
+        { "at": 500, "set": { "B1": true } },
+        { "at": 600, "set": { "B1": false } },
+        { "at": 650, "expect": { "P1": true }, "note": { "de": "Das 3. Teil ist durchgelaufen.", "en": "The 3rd part has passed." } },
+        { "at": 700, "set": { "B1": true } },
+        { "at": 800, "set": { "B1": false } },
+        { "at": 850, "expect": { "P1": true }, "note": { "de": "Ein 4. Teil ist gekommen. Die Lampe bleibt an.", "en": "A 4th part has arrived. The lamp stays on." } }
+      ]
+    },
+    {
+      "id": "langes-teil",
+      "name": { "de": "Ein Teil zählt nur einmal", "en": "One part counts only once" },
+      "steps": [
+        { "at": 100, "set": { "B1": true } },
+        { "at": 2000, "expect": { "P1": false }, "note": { "de": "Ein einziges Teil steht seit fast 2 s vor der Lichtschranke. Das ist nur 1 Teil.", "en": "One single part has been in front of the light barrier for almost 2 s. That is only 1 part." } },
+        { "at": 2100, "set": { "B1": false } }
+      ]
+    },
+    {
+      "id": "ruecksetzen",
+      "name": { "de": "Zurücksetzen und neu zählen", "en": "Reset and count again" },
+      "steps": [
+        { "at": 100, "set": { "B1": true } },
+        { "at": 200, "set": { "B1": false } },
+        { "at": 300, "set": { "B1": true } },
+        { "at": 400, "set": { "B1": false } },
+        { "at": 500, "set": { "B1": true } },
+        { "at": 600, "set": { "B1": false } },
+        { "at": 700, "set": { "S2": true } },
+        { "at": 800, "expect": { "P1": false }, "note": { "de": "S2 ist gedrückt. Der Zähler ist zurückgesetzt.", "en": "S2 is pressed. The counter is reset." } },
+        { "at": 900, "set": { "S2": false } },
+        { "at": 1000, "set": { "B1": true } },
+        { "at": 1100, "set": { "B1": false } },
+        { "at": 1200, "set": { "B1": true } },
+        { "at": 1300, "set": { "B1": false } },
+        { "at": 1350, "expect": { "P1": false }, "note": { "de": "Nach dem Zurücksetzen sind erst 2 Teile gekommen.", "en": "Only 2 parts have arrived since the reset." } },
+        { "at": 1400, "set": { "B1": true } },
+        { "at": 1500, "set": { "B1": false } },
+        { "at": 1550, "expect": { "P1": true }, "note": { "de": "Nach dem Zurücksetzen sind 3 Teile gekommen.", "en": "3 parts have arrived since the reset." } }
+      ]
+    }
+  ],
+  "solutions": {
+    "reference": [
+      { "lang": "scl", "code": "VAR\n  Z1 : CTU;\nEND_VAR\n\nZ1(CU := B1, R := S2, PV := 3);\nP1 := Z1.Q;" },
+      { "lang": "scl", "code": "VAR\n  Anzahl : INT;\n  Flanke : R_TRIG;\nEND_VAR\n\nFlanke(CLK := B1);\nIF S2 THEN\n  Anzahl := 0;\nELSIF Flanke.Q THEN\n  Anzahl := Anzahl + 1;\nEND_IF;\nP1 := Anzahl >= 3;" }
+    ],
+    "wrong": [
+      { "lang": "scl", "code": "VAR\n  Anzahl : INT;\nEND_VAR\n\nIF S2 THEN\n  Anzahl := 0;\nELSIF B1 THEN\n  Anzahl := Anzahl + 1;\nEND_IF;\nP1 := Anzahl >= 3;" },
+      { "lang": "scl", "code": "VAR\n  Z1 : CTU;\nEND_VAR\n\nZ1(CU := B1, PV := 3);\nP1 := Z1.Q;" },
+      { "lang": "scl", "code": "VAR\n  Z1 : CTU;\nEND_VAR\n\nZ1(CU := B1, R := S2, PV := 4);\nP1 := Z1.Q;" }
+    ]
+  }
+}
