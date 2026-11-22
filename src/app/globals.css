@@ -259,3 +259,18 @@ input.short { width: 7rem; }
 .contact:disabled:hover { background: transparent; }
 .why { margin: .75rem 0 0; padding-left: 1.3rem; display: grid; gap: .5rem; }
 .why li { background: var(--brand-soft); padding: .55rem .75rem; border-radius: 8px; }
+
+/* exercises */
+.ex-step { border-top: 1px solid var(--line); padding: 1rem 0 .25rem; }
+.ex-step h3 { margin: 0 0 .5rem; font-weight: 600; }
+.ex-step .no { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--brand-soft); color: var(--brand); font-size: .85rem; margin-right: .4rem; }
+.ex-step.ok .no { background: var(--ok-soft); color: var(--ok); }
+.ex-step input { width: 9rem; min-height: 44px; }
+.ex-step input.ok { border-color: var(--ok); }
+.ex-step input.bad { border-color: var(--bad); }
+.worked { background: var(--code-bg); border-radius: 8px; padding: .7rem .9rem; margin: .6rem 0; }
+.worked code { display: block; font-size: .95rem; }
+.worked code + code { margin-top: .25rem; font-weight: 700; }
+.worked p { margin: .5rem 0 0; font-size: .92rem; }
+.takeaway { border-left: 4px solid var(--brand); background: var(--brand-soft); padding: .6rem .9rem; border-radius: 0 8px 8px 0; margin-top: 1rem; }
+.mod-head { margin: 1.5rem 0 0; scroll-margin-top: 5rem; }

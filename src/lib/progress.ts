@@ -19,13 +19,15 @@ export interface Progress {
   tasks: Record<string, TaskProgress>;
   /** question id -> answered correctly on the last try */
   quiz: Record<string, boolean>;
+  /** exercise id -> all steps solved */
+  exercises: Record<string, boolean>;
 }
 export interface ProgressStore {
   load(): Progress;
   save(p: Progress): void;
 }
 
-const EMPTY: Progress = { lang: 'de', trade: null, tasks: {}, quiz: {} };
+const EMPTY: Progress = { lang: 'de', trade: null, tasks: {}, quiz: {}, exercises: {} };
 const KEY = 'azubi-platform:v1';
 
 const localStore: ProgressStore = {
