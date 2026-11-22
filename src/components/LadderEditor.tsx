@@ -27,12 +27,15 @@ export function LadderEditor({
   rungs,
   onChange,
   read,
+  readOnly = false,
 }: {
   task: Task;
   rungs: LadderRung[];
   onChange: (r: LadderRung[]) => void;
   /** live value of a variable or block output, undefined when the simulation is stopped */
   read: (name: string) => Value | undefined;
+  /** only draw the diagram: used to show a solution */
+  readOnly?: boolean;
 }) {
   const { t } = useT();
   const [sel, setSel] = useState<Sel>(null);
@@ -75,15 +78,17 @@ export function LadderEditor({
               <b>
                 {t({ de: 'Netzwerk', en: 'Network' })} {ri + 1}
               </b>
-              <button
-                className="link danger"
-                onClick={() => {
-                  setSel(null);
-                  edit((d) => d.splice(ri, 1));
-                }}
-              >
-                {t({ de: 'Netzwerk löschen', en: 'Delete network' })}
-              </button>
+              {!readOnly && (
+                <button
+                  className="link danger"
+                  onClick={() => {
+                    setSel(null);
+                    edit((d) => d.splice(ri, 1));
+                  }}
+                >
+                  {t({ de: 'Netzwerk löschen', en: 'Delete network' })}
+                </button>
+              )}
             </div>
             <div className="rung-scroll">
               <div className="rung">
@@ -100,6 +105,7 @@ export function LadderEditor({
                             <button
                               key={ci}
                               className={`contact${conducts ? ' live' : ''}${isSel ? ' sel' : ''}`}
+                              disabled={readOnly}
                               onClick={() => setSel(isSel ? null : { ri, kind: 'c', gi, bi, ci })}
                               aria-label={`${c.neg ? t({ de: 'Öffner', en: 'NC contact' }) : t({ de: 'Schließer', en: 'NO contact' })} ${c.v}`}
                             >
@@ -118,6 +124,7 @@ export function LadderEditor({
                 <i className="w fill" />
                 <button
                   className={`contact out${outLive ? ' live' : ''}${cur?.kind === 'out' ? ' sel' : ''}`}
+                  disabled={readOnly}
                   onClick={() => setSel(cur?.kind === 'out' ? null : { ri, kind: 'out' })}
                 >
                   <span className="cname">{r.out.v}</span>
@@ -265,7 +272,7 @@ export function LadderEditor({
               </div>
             )}
 
-            {!cur && (
+            {!cur && !readOnly && (
               <div className="rung-tools">
                 <button
                   className="btn small"
@@ -284,9 +291,11 @@ export function LadderEditor({
           </div>
         );
       })}
-      <button className="btn" onClick={() => onChange([...rungs, newRung(task)])}>
-        {t({ de: '+ Netzwerk', en: '+ Network' })}
-      </button>
+      {!readOnly && (
+        <button className="btn" onClick={() => onChange([...rungs, newRung(task)])}>
+          {t({ de: '+ Netzwerk', en: '+ Network' })}
+        </button>
+      )}
     </div>
   );
 }

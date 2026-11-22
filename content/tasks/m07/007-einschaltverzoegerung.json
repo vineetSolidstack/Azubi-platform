@@ -1,10 +1,23 @@
 {
   "id": "m07-007-einschaltverzoegerung",
   "module": "M07",
-  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "lernfeld": {
+    "EAT": [
+      7
+    ],
+    "MECH": [
+      7
+    ],
+    "IM": [
+      13
+    ]
+  },
   "difficulty": 3,
   "status": "draft",
-  "title": { "de": "Einschaltverzögerung mit TON", "en": "On-delay with TON" },
+  "title": {
+    "de": "Einschaltverzögerung mit TON",
+    "en": "On-delay with TON"
+  },
   "description": {
     "de": "Wird der Schalter S1 eingeschaltet, soll der Lüfter Q1 erst 3 Sekunden später anlaufen. Wird S1 ausgeschaltet, geht Q1 sofort aus. War S1 kürzer als 3 Sekunden ein, läuft Q1 gar nicht an.",
     "en": "When the switch S1 is switched on, the fan Q1 must start only 3 seconds later. When S1 is switched off, Q1 goes off immediately. If S1 was on for less than 3 seconds, Q1 does not start at all."
@@ -14,53 +27,235 @@
     "en": "TON is the on-delay timer (IEC 61131-3). As long as the input IN = 1, the time ET counts up. When the preset time PT is reached, the output Q becomes 1. When IN goes to 0, Q and ET are 0 again immediately."
   },
   "hints": [
-    { "de": "KOP: Netzwerk 1 mit Kontakt S1 und Ausgang vom Typ TON (Name T1, Zeit 3 s). Netzwerk 2 mit Kontakt T1.Q und Spule Q1.", "en": "KOP: network 1 with contact S1 and an output of type TON (name T1, time 3 s). Network 2 with contact T1.Q and coil Q1." },
-    { "de": "SCL: Timer oben mit VAR T1 : TON; END_VAR anlegen. Dann T1(IN := S1, PT := T#3s); und Q1 := T1.Q;", "en": "SCL: declare the timer at the top with VAR T1 : TON; END_VAR. Then T1(IN := S1, PT := T#3s); and Q1 := T1.Q;" }
+    {
+      "de": "KOP: Netzwerk 1 mit Kontakt S1 und Ausgang vom Typ TON (Name T1, Zeit 3 s). Netzwerk 2 mit Kontakt T1.Q und Spule Q1.",
+      "en": "KOP: network 1 with contact S1 and an output of type TON (name T1, time 3 s). Network 2 with contact T1.Q and coil Q1."
+    },
+    {
+      "de": "SCL: Timer oben mit VAR T1 : TON; END_VAR anlegen. Dann T1(IN := S1, PT := T#3s); und Q1 := T1.Q;",
+      "en": "SCL: declare the timer at the top with VAR T1 : TON; END_VAR. Then T1(IN := S1, PT := T#3s); and Q1 := T1.Q;"
+    }
+  ],
+  "explanation": [
+    {
+      "de": "Netzwerk 1 startet das Zeitglied: S1 liegt am Eingang IN von T1. Solange S1 = 1 ist, läuft die Zeit.",
+      "en": "Network 1 starts the timer: S1 is connected to the input IN of T1. As long as S1 = 1, the time runs."
+    },
+    {
+      "de": "Netzwerk 2 fragt den Ausgang T1.Q ab. Er wird erst 1, wenn die 3 s abgelaufen sind. Dann schaltet Q1 ein.",
+      "en": "Network 2 queries the output T1.Q. It only becomes 1 when the 3 s have elapsed. Then Q1 switches on."
+    },
+    {
+      "de": "Geht S1 auf 0, setzt TON sofort Q und die abgelaufene Zeit zurück. Deshalb geht Q1 sofort aus, und beim nächsten Einschalten beginnen die 3 s wieder bei null.",
+      "en": "When S1 goes to 0, TON resets Q and the elapsed time at once. That is why Q1 goes off immediately, and the 3 s start at zero again the next time."
+    }
   ],
   "station": "panel",
-  "languages": ["kop", "scl"],
+  "languages": [
+    "kop",
+    "scl"
+  ],
   "variables": [
-    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "switch", "comment": { "de": "Schalter Ein/Aus", "en": "On/off switch" } },
-    { "name": "Q1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "green", "comment": { "de": "Lüfter", "en": "Fan" } }
+    {
+      "name": "S1",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.0",
+      "ui": "switch",
+      "comment": {
+        "de": "Schalter Ein/Aus",
+        "en": "On/off switch"
+      }
+    },
+    {
+      "name": "Q1",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.0",
+      "ui": "lamp",
+      "color": "green",
+      "comment": {
+        "de": "Lüfter",
+        "en": "Fan"
+      }
+    }
   ],
   "tests": [
     {
       "id": "verzoegert",
-      "name": { "de": "Lüfter läuft nach 3 Sekunden an", "en": "Fan starts after 3 seconds" },
+      "name": {
+        "de": "Lüfter läuft nach 3 Sekunden an",
+        "en": "Fan starts after 3 seconds"
+      },
       "steps": [
-        { "at": 100, "set": { "S1": true } },
-        { "at": 200, "expect": { "Q1": false }, "note": { "de": "S1 ist gerade erst eingeschaltet worden.", "en": "S1 has only just been switched on." } },
-        { "at": 2900, "expect": { "Q1": false }, "note": { "de": "S1 ist seit 2,8 s ein. Die 3 s sind noch nicht um.", "en": "S1 has been on for 2.8 s. The 3 s are not over yet." } },
-        { "at": 3300, "expect": { "Q1": true }, "note": { "de": "S1 ist seit 3,2 s ein.", "en": "S1 has been on for 3.2 s." } },
-        { "at": 4000, "set": { "S1": false } },
-        { "at": 4100, "expect": { "Q1": false }, "note": { "de": "S1 wurde ausgeschaltet. Q1 muss sofort aus sein.", "en": "S1 was switched off. Q1 must be off immediately." } }
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 200,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S1 ist gerade erst eingeschaltet worden.",
+            "en": "S1 has only just been switched on."
+          }
+        },
+        {
+          "at": 2900,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S1 ist seit 2,8 s ein. Die 3 s sind noch nicht um.",
+            "en": "S1 has been on for 2.8 s. The 3 s are not over yet."
+          }
+        },
+        {
+          "at": 3300,
+          "expect": {
+            "Q1": true
+          },
+          "note": {
+            "de": "S1 ist seit 3,2 s ein.",
+            "en": "S1 has been on for 3.2 s."
+          }
+        },
+        {
+          "at": 4000,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 4100,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S1 wurde ausgeschaltet. Q1 muss sofort aus sein.",
+            "en": "S1 was switched off. Q1 must be off immediately."
+          }
+        }
       ]
     },
     {
       "id": "neustart",
-      "name": { "de": "Kurzes Einschalten zählt nicht, die Zeit beginnt neu", "en": "A short switch-on does not count, the time starts again" },
+      "name": {
+        "de": "Kurzes Einschalten zählt nicht, die Zeit beginnt neu",
+        "en": "A short switch-on does not count, the time starts again"
+      },
       "steps": [
-        { "at": 100, "set": { "S1": true } },
-        { "at": 2100, "set": { "S1": false } },
-        { "at": 2200, "expect": { "Q1": false }, "note": { "de": "S1 war nur 2 s ein.", "en": "S1 was on for only 2 s." } },
-        { "at": 3000, "set": { "S1": true } },
-        { "at": 5800, "expect": { "Q1": false }, "note": { "de": "S1 ist seit 2,8 s wieder ein. Die Zeit muss neu bei 0 beginnen.", "en": "S1 has been on again for 2.8 s. The time must start again at 0." } },
-        { "at": 6200, "expect": { "Q1": true }, "note": { "de": "S1 ist seit 3,2 s wieder ein.", "en": "S1 has been on again for 3.2 s." } }
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 2100,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 2200,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S1 war nur 2 s ein.",
+            "en": "S1 was on for only 2 s."
+          }
+        },
+        {
+          "at": 3000,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 5800,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S1 ist seit 2,8 s wieder ein. Die Zeit muss neu bei 0 beginnen.",
+            "en": "S1 has been on again for 2.8 s. The time must start again at 0."
+          }
+        },
+        {
+          "at": 6200,
+          "expect": {
+            "Q1": true
+          },
+          "note": {
+            "de": "S1 ist seit 3,2 s wieder ein.",
+            "en": "S1 has been on again for 3.2 s."
+          }
+        }
       ]
     }
   ],
   "solutions": {
     "reference": [
-      { "lang": "scl", "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#3s);\nQ1 := T1.Q;" },
-      { "lang": "kop", "rungs": [
-        { "groups": [[[{ "v": "S1" }]]], "out": { "kind": "TON", "v": "T1", "ptMs": 3000 } },
-        { "groups": [[[{ "v": "T1.Q" }]]], "out": { "kind": "coil", "v": "Q1" } }
-      ] }
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#3s);\nQ1 := T1.Q;"
+      },
+      {
+        "lang": "kop",
+        "rungs": [
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "S1"
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "TON",
+              "v": "T1",
+              "ptMs": 3000
+            }
+          },
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "T1.Q"
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "coil",
+              "v": "Q1"
+            }
+          }
+        ]
+      }
     ],
     "wrong": [
-      { "lang": "scl", "code": "Q1 := S1;" },
-      { "lang": "scl", "code": "VAR\n  T1 : TP;\nEND_VAR\n\nT1(IN := S1, PT := T#3s);\nQ1 := S1 AND NOT T1.Q;" },
-      { "lang": "scl", "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nQ1 := T1.Q;" }
+      {
+        "lang": "scl",
+        "code": "Q1 := S1;"
+      },
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TP;\nEND_VAR\n\nT1(IN := S1, PT := T#3s);\nQ1 := S1 AND NOT T1.Q;"
+      },
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nQ1 := T1.Q;"
+      }
     ]
   }
 }

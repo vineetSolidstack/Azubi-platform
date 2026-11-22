@@ -24,6 +24,8 @@ export function Trainer({ task }: { task: Task }) {
   const [rungs, setRungs] = useState<LadderRung[]>(saved?.rungs ?? [newRung(task)]);
   const [hints, setHints] = useState(0);
   const [result, setResult] = useState<GradeResult | null>(null);
+  const [showSolution, setShowSolution] = useState(false);
+  const [showWhy, setShowWhy] = useState(false);
 
   const source = mode === 'kop' ? ladderToScl(rungs) : scl;
   // text is compiled a moment after the learner stops typing, ladder edits at once
@@ -95,6 +97,7 @@ export function Trainer({ task }: { task: Task }) {
   const errors = result && result.errors.length ? result.errors : compiled.ok ? [] : compiled.errors;
   const failed = result?.tests.filter((x) => !x.passed).length ?? 0;
   const refScl = task.solutions.reference.find((s) => s.lang === 'scl');
+  const refKop = task.solutions.reference.find((s) => s.lang === 'kop');
   const fmt = (v: Value) => (typeof v === 'boolean' ? (v ? '1' : '0') : String(v));
   const secs = (ms: number) => `${(ms / 1000).toLocaleString(lang === 'de' ? 'de-DE' : 'en-GB')} s`;
   const explain = (f: TestFailure) =>
@@ -151,15 +154,6 @@ export function Trainer({ task }: { task: Task }) {
               </button>
             ) : (
               <p className="muted small">{t({ de: 'Das waren alle Tipps.', en: 'These were all the hints.' })}</p>
-            )}
-            {refScl && (saved?.attempts ?? 0) >= 3 && !saved?.solved && (
-              <details className="solution">
-                <summary>{t({ de: 'Eine mögliche Lösung ansehen', en: 'Show one possible solution' })}</summary>
-                <p className="muted small">
-                  {t({ de: 'Versuche zuerst zu verstehen, warum sie funktioniert. Baue sie dann selbst nach.', en: 'First try to understand why it works. Then rebuild it yourself.' })}
-                </p>
-                <pre>{solutionToScl(refScl)}</pre>
-              </details>
             )}
           </div>
         </aside>
@@ -322,6 +316,83 @@ Q1 := T1.Q;                      // ${t({ de: 'Ausgang des Zeitglieds lesen', en
                   </p>
                 )}
               </>
+            )}
+          </div>
+          <div className="card">
+            <div className="card-head">
+              <h2>4. {t({ de: 'Lösung und Erklärung', en: 'Solution and explanation' })}</h2>
+              <span className="row">
+                <button className="btn small" aria-expanded={showSolution} onClick={() => setShowSolution(!showSolution)}>
+                  {showSolution ? t({ de: 'Lösung verbergen', en: 'Hide solution' }) : t({ de: 'Komplette Lösung zeigen', en: 'Show complete solution' })}
+                </button>
+                <button className="btn small" aria-expanded={showWhy} onClick={() => setShowWhy(!showWhy)}>
+                  {showWhy ? t({ de: 'Erklärung verbergen', en: 'Hide explanation' }) : t({ de: 'Warum ist das so aufgebaut?', en: 'Why is it built like this?' })}
+                </button>
+              </span>
+            </div>
+            {!showSolution && !showWhy && (
+              <p className="muted small">
+                {t({
+                  de: 'Probiere es zuerst selbst, auch mehrmals. Du lernst am meisten, wenn du die Lösung erst danach ansiehst.',
+                  en: 'Try it yourself first, several times if needed. You learn the most when you look at the solution only afterwards.',
+                })}
+              </p>
+            )}
+            {showSolution && (
+              <div className="solution">
+                <p className="muted small">
+                  {t({
+                    de: 'Das ist eine mögliche Lösung. Andere Programme können genauso richtig sein: Geprüft wird nur das Verhalten.',
+                    en: 'This is one possible solution. Other programs can be just as correct: only the behaviour is checked.',
+                  })}
+                </p>
+                {refKop?.lang === 'kop' && (
+                  <>
+                    <h3>KOP</h3>
+                    <LadderEditor task={task} rungs={refKop.rungs} onChange={() => {}} read={() => undefined} readOnly />
+                  </>
+                )}
+                {refScl && (
+                  <>
+                    <h3>SCL</h3>
+                    <pre>{solutionToScl(refScl)}</pre>
+                  </>
+                )}
+                <p className="row">
+                  {refKop?.lang === 'kop' && (
+                    <button
+                      className="btn small"
+                      onClick={() => {
+                        setRungs(JSON.parse(JSON.stringify(refKop.rungs)));
+                        setMode('kop');
+                      }}
+                    >
+                      {t({ de: 'KOP-Lösung in meinen Editor laden', en: 'Load KOP solution into my editor' })}
+                    </button>
+                  )}
+                  {refScl?.lang === 'scl' && (
+                    <button
+                      className="btn small"
+                      onClick={() => {
+                        setScl(refScl.code + '\n');
+                        setMode('scl');
+                      }}
+                    >
+                      {t({ de: 'SCL-Lösung in meinen Editor laden', en: 'Load SCL solution into my editor' })}
+                    </button>
+                  )}
+                  <span className="muted small">
+                    {t({ de: 'Dein jetziges Programm wird dabei ersetzt. Danach kannst du die Lösung verändern und ausprobieren.', en: 'This replaces your current program. Afterwards you can change the solution and try things out.' })}
+                  </span>
+                </p>
+              </div>
+            )}
+            {showWhy && (
+              <ol className="why">
+                {task.explanation.map((x, i) => (
+                  <li key={i}>{t(x)}</li>
+                ))}
+              </ol>
             )}
           </div>
           <p className="muted small">

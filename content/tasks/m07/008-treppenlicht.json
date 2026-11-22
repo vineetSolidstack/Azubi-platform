@@ -1,10 +1,23 @@
 {
   "id": "m07-008-treppenlicht",
   "module": "M07",
-  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "lernfeld": {
+    "EAT": [
+      7
+    ],
+    "MECH": [
+      7
+    ],
+    "IM": [
+      13
+    ]
+  },
   "difficulty": 3,
   "status": "draft",
-  "title": { "de": "Treppenlicht mit Ausschaltverzögerung", "en": "Staircase light with off-delay" },
+  "title": {
+    "de": "Treppenlicht mit Ausschaltverzögerung",
+    "en": "Staircase light with off-delay"
+  },
   "description": {
     "de": "Ein Druck auf den Taster S1 schaltet das Licht P1 sofort ein. Nach dem Loslassen bleibt das Licht noch 5 Sekunden an und geht dann aus. Wird S1 in dieser Zeit noch einmal gedrückt, beginnen die 5 Sekunden nach dem Loslassen neu.",
     "en": "A press on the push-button S1 switches the light P1 on immediately. After the release the light stays on for another 5 seconds and then goes off. If S1 is pressed again during this time, the 5 seconds start again after the release."
@@ -14,53 +27,231 @@
     "en": "TOF is the off-delay timer (IEC 61131-3). With IN = 1, Q is 1 immediately. When IN goes to 0, the time runs. Only when PT has elapsed does Q become 0. If IN comes back before that, Q stays 1."
   },
   "hints": [
-    { "de": "Hier passt der Baustein TOF, nicht TON.", "en": "The block TOF fits here, not TON." },
-    { "de": "SCL: VAR T1 : TOF; END_VAR, dann T1(IN := S1, PT := T#5s); und P1 := T1.Q;", "en": "SCL: VAR T1 : TOF; END_VAR, then T1(IN := S1, PT := T#5s); and P1 := T1.Q;" }
+    {
+      "de": "Hier passt der Baustein TOF, nicht TON.",
+      "en": "The block TOF fits here, not TON."
+    },
+    {
+      "de": "SCL: VAR T1 : TOF; END_VAR, dann T1(IN := S1, PT := T#5s); und P1 := T1.Q;",
+      "en": "SCL: VAR T1 : TOF; END_VAR, then T1(IN := S1, PT := T#5s); and P1 := T1.Q;"
+    }
+  ],
+  "explanation": [
+    {
+      "de": "S1 liegt am Eingang IN des TOF. Bei IN = 1 ist der Ausgang Q sofort 1, also geht das Licht sofort an.",
+      "en": "S1 is connected to the input IN of the TOF. With IN = 1 the output Q is 1 at once, so the light goes on immediately."
+    },
+    {
+      "de": "Die Zeit läuft erst ab dem Loslassen. Nach 5 s wird Q = 0. Drückst du vorher noch einmal, ist IN wieder 1 und die Zeit beginnt nach dem Loslassen neu.",
+      "en": "The time only runs from the release. After 5 s Q becomes 0. If you press again before that, IN is 1 again and the time starts anew after the release."
+    },
+    {
+      "de": "Ein TP (Impuls) passt hier nicht: Er zählt ab dem Drücken und lässt sich während der Laufzeit nicht verlängern.",
+      "en": "A TP (pulse) does not fit here: it counts from the press and cannot be extended while it is running."
+    }
   ],
   "station": "panel",
-  "languages": ["kop", "scl"],
+  "languages": [
+    "kop",
+    "scl"
+  ],
   "variables": [
-    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "comment": { "de": "Licht-Taster (Schließer)", "en": "Light button (normally open)" } },
-    { "name": "P1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "yellow", "comment": { "de": "Treppenlicht", "en": "Staircase light" } }
+    {
+      "name": "S1",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.0",
+      "ui": "button",
+      "comment": {
+        "de": "Licht-Taster (Schließer)",
+        "en": "Light button (normally open)"
+      }
+    },
+    {
+      "name": "P1",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.0",
+      "ui": "lamp",
+      "color": "yellow",
+      "comment": {
+        "de": "Treppenlicht",
+        "en": "Staircase light"
+      }
+    }
   ],
   "tests": [
     {
       "id": "nachlauf",
-      "name": { "de": "Licht bleibt 5 Sekunden nach dem Loslassen an", "en": "Light stays on for 5 seconds after the release" },
+      "name": {
+        "de": "Licht bleibt 5 Sekunden nach dem Loslassen an",
+        "en": "Light stays on for 5 seconds after the release"
+      },
       "steps": [
-        { "at": 50, "expect": { "P1": false }, "note": { "de": "Am Anfang ist das Licht aus.", "en": "At the beginning the light is off." } },
-        { "at": 100, "set": { "S1": true } },
-        { "at": 200, "expect": { "P1": true }, "note": { "de": "S1 ist gedrückt. Das Licht muss sofort an sein.", "en": "S1 is pressed. The light must be on immediately." } },
-        { "at": 1100, "set": { "S1": false } },
-        { "at": 5900, "expect": { "P1": true }, "note": { "de": "S1 ist seit 4,8 s losgelassen. Das Licht muss noch an sein.", "en": "S1 was released 4.8 s ago. The light must still be on." } },
-        { "at": 6300, "expect": { "P1": false }, "note": { "de": "S1 ist seit 5,2 s losgelassen.", "en": "S1 was released 5.2 s ago." } }
+        {
+          "at": 50,
+          "expect": {
+            "P1": false
+          },
+          "note": {
+            "de": "Am Anfang ist das Licht aus.",
+            "en": "At the beginning the light is off."
+          }
+        },
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 200,
+          "expect": {
+            "P1": true
+          },
+          "note": {
+            "de": "S1 ist gedrückt. Das Licht muss sofort an sein.",
+            "en": "S1 is pressed. The light must be on immediately."
+          }
+        },
+        {
+          "at": 1100,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 5900,
+          "expect": {
+            "P1": true
+          },
+          "note": {
+            "de": "S1 ist seit 4,8 s losgelassen. Das Licht muss noch an sein.",
+            "en": "S1 was released 4.8 s ago. The light must still be on."
+          }
+        },
+        {
+          "at": 6300,
+          "expect": {
+            "P1": false
+          },
+          "note": {
+            "de": "S1 ist seit 5,2 s losgelassen.",
+            "en": "S1 was released 5.2 s ago."
+          }
+        }
       ]
     },
     {
       "id": "nachdruecken",
-      "name": { "de": "Noch einmal drücken verlängert die Zeit", "en": "Pressing again extends the time" },
+      "name": {
+        "de": "Noch einmal drücken verlängert die Zeit",
+        "en": "Pressing again extends the time"
+      },
       "steps": [
-        { "at": 100, "set": { "S1": true } },
-        { "at": 300, "set": { "S1": false } },
-        { "at": 4000, "set": { "S1": true } },
-        { "at": 4200, "set": { "S1": false } },
-        { "at": 9000, "expect": { "P1": true }, "note": { "de": "S1 wurde ein zweites Mal gedrückt und ist seit 4,8 s losgelassen.", "en": "S1 was pressed a second time and was released 4.8 s ago." } },
-        { "at": 9400, "expect": { "P1": false }, "note": { "de": "Seit dem zweiten Loslassen sind 5,2 s vergangen.", "en": "5.2 s have passed since the second release." } }
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 300,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 4000,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 4200,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 9000,
+          "expect": {
+            "P1": true
+          },
+          "note": {
+            "de": "S1 wurde ein zweites Mal gedrückt und ist seit 4,8 s losgelassen.",
+            "en": "S1 was pressed a second time and was released 4.8 s ago."
+          }
+        },
+        {
+          "at": 9400,
+          "expect": {
+            "P1": false
+          },
+          "note": {
+            "de": "Seit dem zweiten Loslassen sind 5,2 s vergangen.",
+            "en": "5.2 s have passed since the second release."
+          }
+        }
       ]
     }
   ],
   "solutions": {
     "reference": [
-      { "lang": "scl", "code": "VAR\n  T1 : TOF;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nP1 := T1.Q;" },
-      { "lang": "kop", "rungs": [
-        { "groups": [[[{ "v": "S1" }]]], "out": { "kind": "TOF", "v": "T1", "ptMs": 5000 } },
-        { "groups": [[[{ "v": "T1.Q" }]]], "out": { "kind": "coil", "v": "P1" } }
-      ] }
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TOF;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nP1 := T1.Q;"
+      },
+      {
+        "lang": "kop",
+        "rungs": [
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "S1"
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "TOF",
+              "v": "T1",
+              "ptMs": 5000
+            }
+          },
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "T1.Q"
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "coil",
+              "v": "P1"
+            }
+          }
+        ]
+      }
     ],
     "wrong": [
-      { "lang": "scl", "code": "VAR\n  T1 : TP;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nP1 := T1.Q;" },
-      { "lang": "scl", "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nP1 := T1.Q;" },
-      { "lang": "scl", "code": "P1 := S1;" }
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TP;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nP1 := T1.Q;"
+      },
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#5s);\nP1 := T1.Q;"
+      },
+      {
+        "lang": "scl",
+        "code": "P1 := S1;"
+      }
     ]
   }
 }

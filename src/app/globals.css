@@ -252,3 +252,10 @@ input.short { width: 7rem; }
 .updown { display: flex; gap: .3rem; flex: none; }
 .updown button { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); font: inherit; cursor: pointer; }
 .updown button:disabled { opacity: .35; cursor: default; }
+
+/* solution and explanation */
+.solution h3 { margin: .9rem 0 .4rem; font-size: .85rem; color: var(--muted); }
+.contact:disabled { cursor: default; color: var(--ink); }
+.contact:disabled:hover { background: transparent; }
+.why { margin: .75rem 0 0; padding-left: 1.3rem; display: grid; gap: .5rem; }
+.why li { background: var(--brand-soft); padding: .55rem .75rem; border-radius: 8px; }

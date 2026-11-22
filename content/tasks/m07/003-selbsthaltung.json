@@ -1,10 +1,23 @@
 {
   "id": "m07-003-selbsthaltung",
   "module": "M07",
-  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "lernfeld": {
+    "EAT": [
+      7
+    ],
+    "MECH": [
+      7
+    ],
+    "IM": [
+      13
+    ]
+  },
   "difficulty": 2,
   "status": "draft",
-  "title": { "de": "Selbsthaltung am Förderband", "en": "Latching circuit (Selbsthaltung) on the conveyor" },
+  "title": {
+    "de": "Selbsthaltung am Förderband",
+    "en": "Latching circuit (Selbsthaltung) on the conveyor"
+  },
   "description": {
     "de": "Ein kurzer Druck auf den Taster S1 (Start) schaltet den Bandmotor Q1 ein. Der Motor läuft weiter, auch wenn du S1 loslässt. Ein Druck auf S0 (Stopp) schaltet den Motor aus. Wenn Start und Stopp gleichzeitig gedrückt sind, bleibt der Motor aus.\n\nAchtung: S0 ist ein Öffner. Sein Signal ist 1, solange niemand drückt, und 0, wenn gedrückt wird.",
     "en": "A short press on the push-button S1 (start) switches the conveyor motor Q1 on. The motor keeps running even when you release S1. A press on S0 (stop) switches the motor off. If start and stop are pressed at the same time, the motor stays off.\n\nNote: S0 is a normally closed contact (Öffner). Its signal is 1 as long as nobody presses it, and 0 when it is pressed."
@@ -14,67 +27,323 @@
     "en": "Selbsthaltung (latching) means: the output holds itself. A contact of the output Q1 is placed parallel to the start button. The stop button is normally closed so that the plant also switches off safely when a wire breaks (Drahtbruchsicherheit, wire-break safety): if the wire breaks, the signal 0 arrives, just like when the button is pressed."
   },
   "hints": [
-    { "de": "Setze einen Kontakt Q1 parallel zu S1. So überbrückt der Motor seinen eigenen Start-Taster.", "en": "Place a contact Q1 parallel to S1. This way the motor bridges its own start button." },
-    { "de": "S0 liefert im Ruhezustand schon eine 1. Im Programm brauchst du deshalb für S0 einen Schließer-Kontakt, keinen Öffner.", "en": "S0 already delivers a 1 at rest. So in the program you need a normally open contact for S0, not a normally closed one." },
-    { "de": "In SCL: Q1 := (S1 OR Q1) AND S0;", "en": "In SCL: Q1 := (S1 OR Q1) AND S0;" }
+    {
+      "de": "Setze einen Kontakt Q1 parallel zu S1. So überbrückt der Motor seinen eigenen Start-Taster.",
+      "en": "Place a contact Q1 parallel to S1. This way the motor bridges its own start button."
+    },
+    {
+      "de": "S0 liefert im Ruhezustand schon eine 1. Im Programm brauchst du deshalb für S0 einen Schließer-Kontakt, keinen Öffner.",
+      "en": "S0 already delivers a 1 at rest. So in the program you need a normally open contact for S0, not a normally closed one."
+    },
+    {
+      "de": "In SCL: Q1 := (S1 OR Q1) AND S0;",
+      "en": "In SCL: Q1 := (S1 OR Q1) AND S0;"
+    }
+  ],
+  "explanation": [
+    {
+      "de": "Der Kontakt Q1 liegt parallel zum Start-Taster S1. Sobald der Motor läuft, leitet dieser Kontakt. Lässt du S1 los, fließt der Strom über Q1 weiter. Der Ausgang hält sich selbst.",
+      "en": "The contact Q1 is parallel to the start button S1. As soon as the motor runs, this contact conducts. When you release S1, the current keeps flowing via Q1. The output holds itself."
+    },
+    {
+      "de": "S0 liegt in Reihe hinter der Parallelschaltung. Damit unterbricht Stopp beide Wege, den Start-Weg und den Halte-Weg. Deshalb hat Stopp Vorrang.",
+      "en": "S0 is in series after the parallel circuit. So stop interrupts both paths, the start path and the holding path. That is why stop has priority."
+    },
+    {
+      "de": "S0 wird als Schließer-Kontakt abgefragt, obwohl der Taster ein Öffner ist. Der Öffner liefert im Ruhezustand schon eine 1. Beim Drücken und bei einem Drahtbruch kommt eine 0 an, und der Kontakt im Programm öffnet.",
+      "en": "S0 is queried as a normally open contact although the button is normally closed. The normally closed button already delivers a 1 at rest. When it is pressed and when a wire breaks, a 0 arrives and the contact in the program opens."
+    },
+    {
+      "de": "Nach dem Loslassen von Stopp läuft der Motor nicht von selbst wieder an: Q1 ist jetzt 0, also leitet der Halte-Weg nicht mehr. Erst ein neuer Druck auf S1 startet wieder.",
+      "en": "After stop is released the motor does not restart by itself: Q1 is now 0, so the holding path no longer conducts. Only a new press on S1 starts it again."
+    }
   ],
   "station": "conveyor",
-  "stationOptions": { "wrap": true, "startPos": 0.1 },
-  "languages": ["kop", "scl"],
+  "stationOptions": {
+    "wrap": true,
+    "startPos": 0.1
+  },
+  "languages": [
+    "kop",
+    "scl"
+  ],
   "variables": [
-    { "name": "S0", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "nc": true, "color": "red", "comment": { "de": "Stopp-Taster (Öffner)", "en": "Stop button (normally closed)" } },
-    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.1", "ui": "button", "color": "green", "comment": { "de": "Start-Taster (Schließer)", "en": "Start button (normally open)" } },
-    { "name": "Q1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "role": "motorRight", "comment": { "de": "Bandmotor", "en": "Conveyor motor" } }
+    {
+      "name": "S0",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.0",
+      "ui": "button",
+      "nc": true,
+      "color": "red",
+      "comment": {
+        "de": "Stopp-Taster (Öffner)",
+        "en": "Stop button (normally closed)"
+      }
+    },
+    {
+      "name": "S1",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.1",
+      "ui": "button",
+      "color": "green",
+      "comment": {
+        "de": "Start-Taster (Schließer)",
+        "en": "Start button (normally open)"
+      }
+    },
+    {
+      "name": "Q1",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.0",
+      "role": "motorRight",
+      "comment": {
+        "de": "Bandmotor",
+        "en": "Conveyor motor"
+      }
+    }
   ],
   "tests": [
     {
       "id": "halten",
-      "name": { "de": "Start drücken und loslassen: Motor läuft weiter", "en": "Press and release start: motor keeps running" },
+      "name": {
+        "de": "Start drücken und loslassen: Motor läuft weiter",
+        "en": "Press and release start: motor keeps running"
+      },
       "steps": [
-        { "at": 50, "expect": { "Q1": false }, "note": { "de": "Am Anfang ist der Motor aus.", "en": "At the beginning the motor is off." } },
-        { "at": 100, "set": { "S1": true } },
-        { "at": 200, "expect": { "Q1": true }, "note": { "de": "S1 ist gedrückt.", "en": "S1 is pressed." } },
-        { "at": 300, "set": { "S1": false } },
-        { "at": 500, "expect": { "Q1": true }, "note": { "de": "S1 wurde losgelassen. Der Motor muss sich selbst halten.", "en": "S1 was released. The motor must hold itself." } },
-        { "at": 2000, "expect": { "Q1": true }, "note": { "de": "Der Motor läuft immer noch.", "en": "The motor is still running." } }
+        {
+          "at": 50,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "Am Anfang ist der Motor aus.",
+            "en": "At the beginning the motor is off."
+          }
+        },
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 200,
+          "expect": {
+            "Q1": true
+          },
+          "note": {
+            "de": "S1 ist gedrückt.",
+            "en": "S1 is pressed."
+          }
+        },
+        {
+          "at": 300,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 500,
+          "expect": {
+            "Q1": true
+          },
+          "note": {
+            "de": "S1 wurde losgelassen. Der Motor muss sich selbst halten.",
+            "en": "S1 was released. The motor must hold itself."
+          }
+        },
+        {
+          "at": 2000,
+          "expect": {
+            "Q1": true
+          },
+          "note": {
+            "de": "Der Motor läuft immer noch.",
+            "en": "The motor is still running."
+          }
+        }
       ]
     },
     {
       "id": "stopp",
-      "name": { "de": "Stopp schaltet den Motor aus", "en": "Stop switches the motor off" },
+      "name": {
+        "de": "Stopp schaltet den Motor aus",
+        "en": "Stop switches the motor off"
+      },
       "steps": [
-        { "at": 100, "set": { "S1": true } },
-        { "at": 300, "set": { "S1": false } },
-        { "at": 1000, "set": { "S0": false } },
-        { "at": 1100, "expect": { "Q1": false }, "note": { "de": "S0 ist gedrückt (Signal 0).", "en": "S0 is pressed (signal 0)." } },
-        { "at": 1200, "set": { "S0": true } },
-        { "at": 1500, "expect": { "Q1": false }, "note": { "de": "S0 wurde losgelassen. Der Motor darf nicht von selbst wieder anlaufen.", "en": "S0 was released. The motor must not restart by itself." } }
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 300,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 1000,
+          "set": {
+            "S0": false
+          }
+        },
+        {
+          "at": 1100,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S0 ist gedrückt (Signal 0).",
+            "en": "S0 is pressed (signal 0)."
+          }
+        },
+        {
+          "at": 1200,
+          "set": {
+            "S0": true
+          }
+        },
+        {
+          "at": 1500,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "S0 wurde losgelassen. Der Motor darf nicht von selbst wieder anlaufen.",
+            "en": "S0 was released. The motor must not restart by itself."
+          }
+        }
       ]
     },
     {
       "id": "dominant",
-      "name": { "de": "Stopp hat Vorrang", "en": "Stop has priority" },
+      "name": {
+        "de": "Stopp hat Vorrang",
+        "en": "Stop has priority"
+      },
       "steps": [
-        { "at": 0, "set": { "S0": false } },
-        { "at": 100, "set": { "S1": true } },
-        { "at": 300, "expect": { "Q1": false }, "note": { "de": "Start und Stopp sind gleichzeitig gedrückt.", "en": "Start and stop are pressed at the same time." } }
+        {
+          "at": 0,
+          "set": {
+            "S0": false
+          }
+        },
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 300,
+          "expect": {
+            "Q1": false
+          },
+          "note": {
+            "de": "Start und Stopp sind gleichzeitig gedrückt.",
+            "en": "Start and stop are pressed at the same time."
+          }
+        }
       ]
     }
   ],
   "solutions": {
     "reference": [
-      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0;" },
-      { "lang": "scl", "code": "IF S1 THEN\n  Q1 := TRUE;\nEND_IF;\nIF NOT S0 THEN\n  Q1 := FALSE;\nEND_IF;" },
-      { "lang": "kop", "rungs": [{ "groups": [[[{ "v": "S1" }], [{ "v": "Q1" }]], [[{ "v": "S0" }]]], "out": { "kind": "coil", "v": "Q1" } }] },
-      { "lang": "kop", "rungs": [
-        { "groups": [[[{ "v": "S1" }]]], "out": { "kind": "set", "v": "Q1" } },
-        { "groups": [[[{ "v": "S0", "neg": true }]]], "out": { "kind": "reset", "v": "Q1" } }
-      ] }
+      {
+        "lang": "scl",
+        "code": "Q1 := (S1 OR Q1) AND S0;"
+      },
+      {
+        "lang": "scl",
+        "code": "IF S1 THEN\n  Q1 := TRUE;\nEND_IF;\nIF NOT S0 THEN\n  Q1 := FALSE;\nEND_IF;"
+      },
+      {
+        "lang": "kop",
+        "rungs": [
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "S1"
+                  }
+                ],
+                [
+                  {
+                    "v": "Q1"
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "v": "S0"
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "coil",
+              "v": "Q1"
+            }
+          }
+        ]
+      },
+      {
+        "lang": "kop",
+        "rungs": [
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "S1"
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "set",
+              "v": "Q1"
+            }
+          },
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "S0",
+                    "neg": true
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "reset",
+              "v": "Q1"
+            }
+          }
+        ]
+      }
     ],
     "wrong": [
-      { "lang": "scl", "code": "Q1 := S1 AND S0;" },
-      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND NOT S0;" },
-      { "lang": "scl", "code": "Q1 := S1 OR (Q1 AND S0);" }
+      {
+        "lang": "scl",
+        "code": "Q1 := S1 AND S0;"
+      },
+      {
+        "lang": "scl",
+        "code": "Q1 := (S1 OR Q1) AND NOT S0;"
+      },
+      {
+        "lang": "scl",
+        "code": "Q1 := S1 OR (Q1 AND S0);"
+      }
     ]
   }
 }

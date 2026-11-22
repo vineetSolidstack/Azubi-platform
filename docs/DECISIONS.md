@@ -14,3 +14,4 @@ Date, decision, reason. Newest at the bottom.
 | 2026-11-22 | `F_TRIG` gives no pulse in the first scan. | Deviates from the letter of IEC 61131-3 to avoid a confusing start-up pulse. |
 | 2026-11-22 | Ladder editor model: a rung is a series of groups, a group is a set of parallel branches. Counters and comparisons are SCL only for now. | Covers the first tasks with a small editor; FUP view and GRAFCET display are still open. |
 | 2026-11-22 | All content is `draft`. The footer and each item say so. | Content rules: nothing is reviewed by a qualified person yet. |
+| 2026-11-22 | Every task has an `explanation` (why the reference solution is built that way). The complete solution and the explanation can be opened at any time, not only after failed attempts; the solution can be loaded into the editor. | Owner's request: try several times, then reveal the full answer and the reasoning, and experiment from there. |

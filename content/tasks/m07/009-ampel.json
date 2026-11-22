@@ -1,10 +1,23 @@
 {
   "id": "m07-009-ampel",
   "module": "M07",
-  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "lernfeld": {
+    "EAT": [
+      7
+    ],
+    "MECH": [
+      7
+    ],
+    "IM": [
+      13
+    ]
+  },
   "difficulty": 4,
   "status": "draft",
-  "title": { "de": "Ampel mit Zeiten", "en": "Traffic light with timers" },
+  "title": {
+    "de": "Ampel mit Zeiten",
+    "en": "Traffic light with timers"
+  },
   "description": {
     "de": "Solange der Schalter S1 ein ist, läuft die Ampel in dieser Reihenfolge und beginnt danach wieder von vorn:\n\n1. Rot: 3 s\n2. Rot und Gelb zusammen: 1 s\n3. Grün: 3 s\n4. Gelb: 1 s\n\nIst S1 aus, sind alle Lampen aus. Nach dem Einschalten beginnt die Ampel immer mit Rot.",
     "en": "As long as the switch S1 is on, the traffic light runs in this order and then starts again from the beginning:\n\n1. Red: 3 s\n2. Red and yellow together: 1 s\n3. Green: 3 s\n4. Yellow: 1 s\n\nWhen S1 is off, all lamps are off. After switching on, the traffic light always starts with red."
@@ -14,66 +27,347 @@
     "en": "One complete run takes 8 s. A simple idea: a TON timer runs again and again from 0 to 8 s (it resets itself with its own output Q). You then switch the lamps by comparing the elapsed time ET, for example T1.ET < T#4s. A step chain with several timers is just as correct."
   },
   "hints": [
-    { "de": "Selbst zurücksetzender Timer: T1(IN := S1 AND NOT T1.Q, PT := T#8s);", "en": "Self-resetting timer: T1(IN := S1 AND NOT T1.Q, PT := T#8s);" },
-    { "de": "Rot leuchtet in den ersten 4 s: P_Rot := S1 AND T1.ET < T#4s;", "en": "Red is on during the first 4 s: P_Rot := S1 AND T1.ET < T#4s;" },
-    { "de": "Gelb leuchtet zweimal: von 3 s bis 4 s und von 7 s bis 8 s. Verbinde die beiden Bereiche mit OR.", "en": "Yellow is on twice: from 3 s to 4 s and from 7 s to 8 s. Join the two ranges with OR." }
+    {
+      "de": "Selbst zurücksetzender Timer: T1(IN := S1 AND NOT T1.Q, PT := T#8s);",
+      "en": "Self-resetting timer: T1(IN := S1 AND NOT T1.Q, PT := T#8s);"
+    },
+    {
+      "de": "Rot leuchtet in den ersten 4 s: P_Rot := S1 AND T1.ET < T#4s;",
+      "en": "Red is on during the first 4 s: P_Rot := S1 AND T1.ET < T#4s;"
+    },
+    {
+      "de": "Gelb leuchtet zweimal: von 3 s bis 4 s und von 7 s bis 8 s. Verbinde die beiden Bereiche mit OR.",
+      "en": "Yellow is on twice: from 3 s to 4 s and from 7 s to 8 s. Join the two ranges with OR."
+    }
+  ],
+  "explanation": [
+    {
+      "de": "Ein einziger TON ist der Taktgeber. Er läuft von 0 bis 8 s. Sein Eingang ist S1 AND NOT T1.Q: Wird Q = 1, ist IN im nächsten Zyklus 0 und die Zeit springt auf 0. Danach startet er von selbst neu.",
+      "en": "One single TON is the clock. It runs from 0 to 8 s. Its input is S1 AND NOT T1.Q: when Q becomes 1, IN is 0 in the next cycle and the time jumps to 0. After that it restarts by itself."
+    },
+    {
+      "de": "Die Lampen hängen nur von der abgelaufenen Zeit T1.ET ab. Rot von 0 bis 4 s, Grün von 4 bis 7 s, Gelb von 3 bis 4 s und von 7 bis 8 s. Von 3 bis 4 s überlappen Rot und Gelb.",
+      "en": "The lamps only depend on the elapsed time T1.ET. Red from 0 to 4 s, green from 4 to 7 s, yellow from 3 to 4 s and from 7 to 8 s. From 3 to 4 s red and yellow overlap."
+    },
+    {
+      "de": "Jede Lampe ist zusätzlich mit S1 verknüpft. Ist S1 aus, sind alle Lampen aus. Der Timer steht dann auf 0, deshalb beginnt die Ampel nach dem Einschalten immer mit Rot.",
+      "en": "Each lamp is additionally combined with S1. When S1 is off, all lamps are off. The timer is then at 0, so the traffic light always starts with red after switching on."
+    },
+    {
+      "de": "Genauso richtig ist eine Schrittkette: eine Zahl für den aktuellen Schritt und ein Timer, der zum nächsten Schritt weiterschaltet. Bei größeren Abläufen ist die Schrittkette übersichtlicher.",
+      "en": "A step chain is just as correct: a number for the current step and a timer that switches to the next step. For larger sequences the step chain is easier to read."
+    }
   ],
   "station": "panel",
-  "languages": ["scl"],
+  "languages": [
+    "scl"
+  ],
   "variables": [
-    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "switch", "comment": { "de": "Ampel Ein/Aus", "en": "Traffic light on/off" } },
-    { "name": "P_Rot", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "red", "comment": { "de": "Lampe Rot", "en": "Red lamp" } },
-    { "name": "P_Gelb", "type": "BOOL", "dir": "out", "address": "%Q0.1", "ui": "lamp", "color": "yellow", "comment": { "de": "Lampe Gelb", "en": "Yellow lamp" } },
-    { "name": "P_Gruen", "type": "BOOL", "dir": "out", "address": "%Q0.2", "ui": "lamp", "color": "green", "comment": { "de": "Lampe Grün", "en": "Green lamp" } }
+    {
+      "name": "S1",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.0",
+      "ui": "switch",
+      "comment": {
+        "de": "Ampel Ein/Aus",
+        "en": "Traffic light on/off"
+      }
+    },
+    {
+      "name": "P_Rot",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.0",
+      "ui": "lamp",
+      "color": "red",
+      "comment": {
+        "de": "Lampe Rot",
+        "en": "Red lamp"
+      }
+    },
+    {
+      "name": "P_Gelb",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.1",
+      "ui": "lamp",
+      "color": "yellow",
+      "comment": {
+        "de": "Lampe Gelb",
+        "en": "Yellow lamp"
+      }
+    },
+    {
+      "name": "P_Gruen",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.2",
+      "ui": "lamp",
+      "color": "green",
+      "comment": {
+        "de": "Lampe Grün",
+        "en": "Green lamp"
+      }
+    }
   ],
   "tests": [
     {
       "id": "aus",
-      "name": { "de": "Schalter aus: alle Lampen aus", "en": "Switch off: all lamps off" },
+      "name": {
+        "de": "Schalter aus: alle Lampen aus",
+        "en": "Switch off: all lamps off"
+      },
       "steps": [
-        { "at": 500, "expect": { "P_Rot": false, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "S1 ist aus.", "en": "S1 is off." } }
+        {
+          "at": 500,
+          "expect": {
+            "P_Rot": false,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "S1 ist aus.",
+            "en": "S1 is off."
+          }
+        }
       ]
     },
     {
       "id": "ablauf",
-      "name": { "de": "Ein kompletter Durchlauf und Neustart", "en": "One complete run and restart" },
+      "name": {
+        "de": "Ein kompletter Durchlauf und Neustart",
+        "en": "One complete run and restart"
+      },
       "steps": [
-        { "at": 0, "set": { "S1": true } },
-        { "at": 500, "expect": { "P_Rot": true, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "0,5 s nach dem Einschalten: Phase Rot.", "en": "0.5 s after switching on: red phase." } },
-        { "at": 2800, "expect": { "P_Rot": true, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "2,8 s nach dem Einschalten: immer noch Phase Rot.", "en": "2.8 s after switching on: still red phase." } },
-        { "at": 3300, "expect": { "P_Rot": true, "P_Gelb": true, "P_Gruen": false }, "note": { "de": "3,3 s nach dem Einschalten: Phase Rot und Gelb.", "en": "3.3 s after switching on: red and yellow phase." } },
-        { "at": 3800, "expect": { "P_Rot": true, "P_Gelb": true, "P_Gruen": false }, "note": { "de": "3,8 s nach dem Einschalten: immer noch Rot und Gelb.", "en": "3.8 s after switching on: still red and yellow." } },
-        { "at": 4300, "expect": { "P_Rot": false, "P_Gelb": false, "P_Gruen": true }, "note": { "de": "4,3 s nach dem Einschalten: Phase Grün.", "en": "4.3 s after switching on: green phase." } },
-        { "at": 6800, "expect": { "P_Rot": false, "P_Gelb": false, "P_Gruen": true }, "note": { "de": "6,8 s nach dem Einschalten: immer noch Grün.", "en": "6.8 s after switching on: still green." } },
-        { "at": 7300, "expect": { "P_Rot": false, "P_Gelb": true, "P_Gruen": false }, "note": { "de": "7,3 s nach dem Einschalten: Phase Gelb.", "en": "7.3 s after switching on: yellow phase." } },
-        { "at": 7800, "expect": { "P_Rot": false, "P_Gelb": true, "P_Gruen": false }, "note": { "de": "7,8 s nach dem Einschalten: immer noch Gelb.", "en": "7.8 s after switching on: still yellow." } },
-        { "at": 8400, "expect": { "P_Rot": true, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "8,4 s nach dem Einschalten: Der Ablauf beginnt wieder mit Rot.", "en": "8.4 s after switching on: the sequence starts again with red." } },
-        { "at": 10700, "expect": { "P_Rot": true, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "10,7 s nach dem Einschalten: zweiter Durchlauf, Phase Rot.", "en": "10.7 s after switching on: second run, red phase." } },
-        { "at": 11400, "expect": { "P_Rot": true, "P_Gelb": true, "P_Gruen": false }, "note": { "de": "11,4 s nach dem Einschalten: zweiter Durchlauf, Rot und Gelb.", "en": "11.4 s after switching on: second run, red and yellow." } }
+        {
+          "at": 0,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 500,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "0,5 s nach dem Einschalten: Phase Rot.",
+            "en": "0.5 s after switching on: red phase."
+          }
+        },
+        {
+          "at": 2800,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "2,8 s nach dem Einschalten: immer noch Phase Rot.",
+            "en": "2.8 s after switching on: still red phase."
+          }
+        },
+        {
+          "at": 3300,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": true,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "3,3 s nach dem Einschalten: Phase Rot und Gelb.",
+            "en": "3.3 s after switching on: red and yellow phase."
+          }
+        },
+        {
+          "at": 3800,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": true,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "3,8 s nach dem Einschalten: immer noch Rot und Gelb.",
+            "en": "3.8 s after switching on: still red and yellow."
+          }
+        },
+        {
+          "at": 4300,
+          "expect": {
+            "P_Rot": false,
+            "P_Gelb": false,
+            "P_Gruen": true
+          },
+          "note": {
+            "de": "4,3 s nach dem Einschalten: Phase Grün.",
+            "en": "4.3 s after switching on: green phase."
+          }
+        },
+        {
+          "at": 6800,
+          "expect": {
+            "P_Rot": false,
+            "P_Gelb": false,
+            "P_Gruen": true
+          },
+          "note": {
+            "de": "6,8 s nach dem Einschalten: immer noch Grün.",
+            "en": "6.8 s after switching on: still green."
+          }
+        },
+        {
+          "at": 7300,
+          "expect": {
+            "P_Rot": false,
+            "P_Gelb": true,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "7,3 s nach dem Einschalten: Phase Gelb.",
+            "en": "7.3 s after switching on: yellow phase."
+          }
+        },
+        {
+          "at": 7800,
+          "expect": {
+            "P_Rot": false,
+            "P_Gelb": true,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "7,8 s nach dem Einschalten: immer noch Gelb.",
+            "en": "7.8 s after switching on: still yellow."
+          }
+        },
+        {
+          "at": 8400,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "8,4 s nach dem Einschalten: Der Ablauf beginnt wieder mit Rot.",
+            "en": "8.4 s after switching on: the sequence starts again with red."
+          }
+        },
+        {
+          "at": 10700,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "10,7 s nach dem Einschalten: zweiter Durchlauf, Phase Rot.",
+            "en": "10.7 s after switching on: second run, red phase."
+          }
+        },
+        {
+          "at": 11400,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": true,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "11,4 s nach dem Einschalten: zweiter Durchlauf, Rot und Gelb.",
+            "en": "11.4 s after switching on: second run, red and yellow."
+          }
+        }
       ]
     },
     {
       "id": "ausschalten",
-      "name": { "de": "Ausschalten und wieder einschalten", "en": "Switching off and on again" },
+      "name": {
+        "de": "Ausschalten und wieder einschalten",
+        "en": "Switching off and on again"
+      },
       "steps": [
-        { "at": 0, "set": { "S1": true } },
-        { "at": 5000, "set": { "S1": false } },
-        { "at": 5200, "expect": { "P_Rot": false, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "S1 wurde während der Grün-Phase ausgeschaltet.", "en": "S1 was switched off during the green phase." } },
-        { "at": 6000, "set": { "S1": true } },
-        { "at": 6500, "expect": { "P_Rot": true, "P_Gelb": false, "P_Gruen": false }, "note": { "de": "0,5 s nach dem Wiedereinschalten: Die Ampel muss wieder mit Rot beginnen.", "en": "0.5 s after switching on again: the traffic light must start with red again." } },
-        { "at": 9300, "expect": { "P_Rot": true, "P_Gelb": true, "P_Gruen": false }, "note": { "de": "3,3 s nach dem Wiedereinschalten: Rot und Gelb.", "en": "3.3 s after switching on again: red and yellow." } }
+        {
+          "at": 0,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 5000,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 5200,
+          "expect": {
+            "P_Rot": false,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "S1 wurde während der Grün-Phase ausgeschaltet.",
+            "en": "S1 was switched off during the green phase."
+          }
+        },
+        {
+          "at": 6000,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 6500,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": false,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "0,5 s nach dem Wiedereinschalten: Die Ampel muss wieder mit Rot beginnen.",
+            "en": "0.5 s after switching on again: the traffic light must start with red again."
+          }
+        },
+        {
+          "at": 9300,
+          "expect": {
+            "P_Rot": true,
+            "P_Gelb": true,
+            "P_Gruen": false
+          },
+          "note": {
+            "de": "3,3 s nach dem Wiedereinschalten: Rot und Gelb.",
+            "en": "3.3 s after switching on again: red and yellow."
+          }
+        }
       ]
     }
   ],
   "solutions": {
     "reference": [
-      { "lang": "scl", "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1 AND NOT T1.Q, PT := T#8s);\n\nP_Rot := S1 AND T1.ET < T#4s;\nP_Gelb := S1 AND ((T1.ET >= T#3s AND T1.ET < T#4s) OR T1.ET >= T#7s);\nP_Gruen := S1 AND T1.ET >= T#4s AND T1.ET < T#7s;" },
-      { "lang": "scl", "code": "VAR\n  Schritt : INT;\n  T1 : TON;\n  Dauer : TIME;\nEND_VAR\n\nIF NOT S1 THEN\n  Schritt := 0;\nELSIF Schritt = 0 THEN\n  Schritt := 1;\nEND_IF;\n\nCASE Schritt OF\n  1, 3: Dauer := T#3s;\n  2, 4: Dauer := T#1s;\nEND_CASE;\n\nT1(IN := Schritt > 0 AND NOT T1.Q, PT := Dauer);\nIF T1.Q THEN\n  Schritt := Schritt + 1;\n  IF Schritt > 4 THEN\n    Schritt := 1;\n  END_IF;\nEND_IF;\n\nP_Rot := Schritt = 1 OR Schritt = 2;\nP_Gelb := Schritt = 2 OR Schritt = 4;\nP_Gruen := Schritt = 3;" }
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1 AND NOT T1.Q, PT := T#8s);\n\nP_Rot := S1 AND T1.ET < T#4s;\nP_Gelb := S1 AND ((T1.ET >= T#3s AND T1.ET < T#4s) OR T1.ET >= T#7s);\nP_Gruen := S1 AND T1.ET >= T#4s AND T1.ET < T#7s;"
+      },
+      {
+        "lang": "scl",
+        "code": "VAR\n  Schritt : INT;\n  T1 : TON;\n  Dauer : TIME;\nEND_VAR\n\nIF NOT S1 THEN\n  Schritt := 0;\nELSIF Schritt = 0 THEN\n  Schritt := 1;\nEND_IF;\n\nCASE Schritt OF\n  1, 3: Dauer := T#3s;\n  2, 4: Dauer := T#1s;\nEND_CASE;\n\nT1(IN := Schritt > 0 AND NOT T1.Q, PT := Dauer);\nIF T1.Q THEN\n  Schritt := Schritt + 1;\n  IF Schritt > 4 THEN\n    Schritt := 1;\n  END_IF;\nEND_IF;\n\nP_Rot := Schritt = 1 OR Schritt = 2;\nP_Gelb := Schritt = 2 OR Schritt = 4;\nP_Gruen := Schritt = 3;"
+      }
     ],
     "wrong": [
-      { "lang": "scl", "code": "P_Rot := S1;\nP_Gelb := S1;\nP_Gruen := S1;" },
-      { "lang": "scl", "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#8s);\n\nP_Rot := S1 AND T1.ET < T#4s;\nP_Gelb := S1 AND ((T1.ET >= T#3s AND T1.ET < T#4s) OR T1.ET >= T#7s);\nP_Gruen := S1 AND T1.ET >= T#4s AND T1.ET < T#7s;" },
-      { "lang": "scl", "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1 AND NOT T1.Q, PT := T#8s);\n\nP_Rot := S1 AND T1.ET < T#3s;\nP_Gelb := S1 AND ((T1.ET >= T#3s AND T1.ET < T#4s) OR T1.ET >= T#7s);\nP_Gruen := S1 AND T1.ET >= T#4s AND T1.ET < T#7s;" }
+      {
+        "lang": "scl",
+        "code": "P_Rot := S1;\nP_Gelb := S1;\nP_Gruen := S1;"
+      },
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1, PT := T#8s);\n\nP_Rot := S1 AND T1.ET < T#4s;\nP_Gelb := S1 AND ((T1.ET >= T#3s AND T1.ET < T#4s) OR T1.ET >= T#7s);\nP_Gruen := S1 AND T1.ET >= T#4s AND T1.ET < T#7s;"
+      },
+      {
+        "lang": "scl",
+        "code": "VAR\n  T1 : TON;\nEND_VAR\n\nT1(IN := S1 AND NOT T1.Q, PT := T#8s);\n\nP_Rot := S1 AND T1.ET < T#3s;\nP_Gelb := S1 AND ((T1.ET >= T#3s AND T1.ET < T#4s) OR T1.ET >= T#7s);\nP_Gruen := S1 AND T1.ET >= T#4s AND T1.ET < T#7s;"
+      }
     ]
   }
 }

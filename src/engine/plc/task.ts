@@ -52,6 +52,8 @@ export interface Task {
   /** short explanation of the idea needed for this task */
   learn?: L10n;
   hints: L10n[];
+  /** why the reference solution is built the way it is, one point per entry */
+  explanation: L10n[];
   station: StationId;
   stationOptions?: { wrap?: boolean; startPos?: number };
   languages: ('kop' | 'scl')[];
@@ -85,6 +87,8 @@ export function validateTask(t: Task): string[] {
   l10n(t.title, 'title');
   l10n(t.description, 'description');
   t.hints?.forEach((h, i) => l10n(h, `hint ${i}`));
+  if (!t.explanation?.length) p.push('explanation of the solution missing');
+  t.explanation?.forEach((h, i) => l10n(h, `explanation ${i}`));
   if (!t.languages?.length) p.push('languages missing');
   const vars = new Map(t.variables.map((v) => [v.name, v]));
   if (vars.size !== t.variables.length) p.push('duplicate variable names');

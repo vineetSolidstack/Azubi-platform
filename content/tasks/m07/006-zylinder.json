@@ -1,10 +1,23 @@
 {
   "id": "m07-006-zylinder",
   "module": "M07",
-  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "lernfeld": {
+    "EAT": [
+      7
+    ],
+    "MECH": [
+      7
+    ],
+    "IM": [
+      13
+    ]
+  },
   "difficulty": 3,
   "status": "draft",
-  "title": { "de": "Zylinder ausfahren und einfahren", "en": "Extend and retract a cylinder" },
+  "title": {
+    "de": "Zylinder ausfahren und einfahren",
+    "en": "Extend and retract a cylinder"
+  },
   "description": {
     "de": "Ein kurzer Druck auf S1 startet einen Hub: Der Zylinder fährt ganz aus und danach von selbst wieder ein. Der Start ist nur erlaubt, wenn der Zylinder eingefahren ist (B1 = 1).\n\nDas Ventil M1 ist federrückgestellt: Der Zylinder fährt aus, solange M1 = 1 ist. Bei M1 = 0 fährt er ein. B1 meldet die eingefahrene, B2 die ausgefahrene Endlage.",
     "en": "A short press on S1 starts one stroke: the cylinder extends completely and then retracts by itself. The start is only allowed when the cylinder is retracted (B1 = 1).\n\nThe valve M1 has a spring return: the cylinder extends as long as M1 = 1. With M1 = 0 it retracts. B1 reports the retracted end position, B2 the extended end position."
@@ -14,63 +27,303 @@
     "en": "Latching helps here too: M1 must hold itself until the sensor B2 reports that the cylinder is at the front. So B2 acts like a stop button."
   },
   "hints": [
-    { "de": "Startbedingung: S1 UND B1. Dazu parallel ein Kontakt M1 für die Selbsthaltung.", "en": "Start condition: S1 AND B1. Parallel to it a contact M1 for latching." },
-    { "de": "Ein Öffner-Kontakt B2 in Reihe beendet die Selbsthaltung, wenn der Zylinder ausgefahren ist.", "en": "A normally closed contact B2 in series ends the latching when the cylinder is extended." }
+    {
+      "de": "Startbedingung: S1 UND B1. Dazu parallel ein Kontakt M1 für die Selbsthaltung.",
+      "en": "Start condition: S1 AND B1. Parallel to it a contact M1 for latching."
+    },
+    {
+      "de": "Ein Öffner-Kontakt B2 in Reihe beendet die Selbsthaltung, wenn der Zylinder ausgefahren ist.",
+      "en": "A normally closed contact B2 in series ends the latching when the cylinder is extended."
+    }
+  ],
+  "explanation": [
+    {
+      "de": "Im oberen Zweig liegen S1 und B1 in Reihe. Der Start klappt also nur, wenn der Zylinder eingefahren ist.",
+      "en": "In the upper branch S1 and B1 are in series. So the start only works when the cylinder is retracted."
+    },
+    {
+      "de": "Parallel dazu liegt der Kontakt M1 als Selbsthaltung. B1 steht nur im Start-Zweig: Kurz nach dem Losfahren wird B1 = 0. Läge B1 in Reihe zu allem, würde das Ventil sofort wieder abfallen.",
+      "en": "Parallel to it is the contact M1 for latching. B1 is only in the start branch: shortly after the cylinder starts moving, B1 becomes 0. If B1 were in series with everything, the valve would drop out again at once."
+    },
+    {
+      "de": "Der Öffner-Kontakt B2 liegt in Reihe hinter der Parallelschaltung. Ist der Zylinder vorne, wird B2 = 1 und die Selbsthaltung fällt ab. Das Ventil ist federrückgestellt, also fährt der Zylinder von selbst ein.",
+      "en": "The normally closed contact B2 is in series after the parallel circuit. When the cylinder is at the front, B2 becomes 1 and the latching drops out. The valve has a spring return, so the cylinder retracts by itself."
+    },
+    {
+      "de": "Alles steht in einem einzigen Netzwerk. Schreibst du die Spule M1 in zwei Netzwerke, zählt nur das letzte: Das erste Ergebnis wird im selben Zyklus überschrieben.",
+      "en": "Everything is in one single network. If you write the coil M1 in two networks, only the last one counts: the first result is overwritten in the same cycle."
+    }
   ],
   "station": "cylinder",
-  "languages": ["kop", "scl"],
+  "languages": [
+    "kop",
+    "scl"
+  ],
   "variables": [
-    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "color": "green", "comment": { "de": "Start-Taster (Schließer)", "en": "Start button (normally open)" } },
-    { "name": "B1", "type": "BOOL", "dir": "in", "address": "%I0.1", "role": "sensorIn", "comment": { "de": "Zylinder eingefahren", "en": "Cylinder retracted" } },
-    { "name": "B2", "type": "BOOL", "dir": "in", "address": "%I0.2", "role": "sensorOut", "comment": { "de": "Zylinder ausgefahren", "en": "Cylinder extended" } },
-    { "name": "M1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "role": "valveExtend", "comment": { "de": "Ventilspule: Zylinder ausfahren", "en": "Valve coil: extend cylinder" } }
+    {
+      "name": "S1",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.0",
+      "ui": "button",
+      "color": "green",
+      "comment": {
+        "de": "Start-Taster (Schließer)",
+        "en": "Start button (normally open)"
+      }
+    },
+    {
+      "name": "B1",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.1",
+      "role": "sensorIn",
+      "comment": {
+        "de": "Zylinder eingefahren",
+        "en": "Cylinder retracted"
+      }
+    },
+    {
+      "name": "B2",
+      "type": "BOOL",
+      "dir": "in",
+      "address": "%I0.2",
+      "role": "sensorOut",
+      "comment": {
+        "de": "Zylinder ausgefahren",
+        "en": "Cylinder extended"
+      }
+    },
+    {
+      "name": "M1",
+      "type": "BOOL",
+      "dir": "out",
+      "address": "%Q0.0",
+      "role": "valveExtend",
+      "comment": {
+        "de": "Ventilspule: Zylinder ausfahren",
+        "en": "Valve coil: extend cylinder"
+      }
+    }
   ],
   "tests": [
     {
       "id": "hub",
-      "name": { "de": "Ein Tastendruck, ein kompletter Hub", "en": "One press, one complete stroke" },
+      "name": {
+        "de": "Ein Tastendruck, ein kompletter Hub",
+        "en": "One press, one complete stroke"
+      },
       "steps": [
-        { "at": 50, "expect": { "M1": false, "B1": true }, "note": { "de": "Am Anfang steht der Zylinder hinten.", "en": "At the beginning the cylinder is at the back." } },
-        { "at": 100, "set": { "S1": true } },
-        { "at": 300, "set": { "S1": false } },
-        { "at": 600, "expect": { "M1": true }, "note": { "de": "S1 wurde losgelassen, der Zylinder ist noch unterwegs. M1 muss sich halten.", "en": "S1 was released, the cylinder is still moving. M1 must hold itself." } },
-        { "at": 1500, "expect": { "M1": false }, "note": { "de": "Der Zylinder war ganz ausgefahren (B2). Jetzt muss er einfahren.", "en": "The cylinder was fully extended (B2). Now it must retract." } },
-        { "at": 2600, "expect": { "M1": false, "B1": true }, "note": { "de": "Der Zylinder ist wieder hinten und bleibt dort.", "en": "The cylinder is at the back again and stays there." } }
+        {
+          "at": 50,
+          "expect": {
+            "M1": false,
+            "B1": true
+          },
+          "note": {
+            "de": "Am Anfang steht der Zylinder hinten.",
+            "en": "At the beginning the cylinder is at the back."
+          }
+        },
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 300,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 600,
+          "expect": {
+            "M1": true
+          },
+          "note": {
+            "de": "S1 wurde losgelassen, der Zylinder ist noch unterwegs. M1 muss sich halten.",
+            "en": "S1 was released, the cylinder is still moving. M1 must hold itself."
+          }
+        },
+        {
+          "at": 1500,
+          "expect": {
+            "M1": false
+          },
+          "note": {
+            "de": "Der Zylinder war ganz ausgefahren (B2). Jetzt muss er einfahren.",
+            "en": "The cylinder was fully extended (B2). Now it must retract."
+          }
+        },
+        {
+          "at": 2600,
+          "expect": {
+            "M1": false,
+            "B1": true
+          },
+          "note": {
+            "de": "Der Zylinder ist wieder hinten und bleibt dort.",
+            "en": "The cylinder is at the back again and stays there."
+          }
+        }
       ]
     },
     {
       "id": "zweiter-hub",
-      "name": { "de": "Ein zweiter Hub ist möglich", "en": "A second stroke is possible" },
+      "name": {
+        "de": "Ein zweiter Hub ist möglich",
+        "en": "A second stroke is possible"
+      },
       "steps": [
-        { "at": 100, "set": { "S1": true } },
-        { "at": 300, "set": { "S1": false } },
-        { "at": 3000, "set": { "S1": true } },
-        { "at": 3200, "set": { "S1": false } },
-        { "at": 3500, "expect": { "M1": true }, "note": { "de": "S1 wurde zum zweiten Mal gedrückt.", "en": "S1 was pressed a second time." } },
-        { "at": 5500, "expect": { "M1": false, "B1": true }, "note": { "de": "Auch der zweite Hub ist fertig.", "en": "The second stroke is finished too." } }
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 300,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 3000,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 3200,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 3500,
+          "expect": {
+            "M1": true
+          },
+          "note": {
+            "de": "S1 wurde zum zweiten Mal gedrückt.",
+            "en": "S1 was pressed a second time."
+          }
+        },
+        {
+          "at": 5500,
+          "expect": {
+            "M1": false,
+            "B1": true
+          },
+          "note": {
+            "de": "Auch der zweite Hub ist fertig.",
+            "en": "The second stroke is finished too."
+          }
+        }
       ]
     },
     {
       "id": "kein-start-unterwegs",
-      "name": { "de": "Kein neuer Start beim Einfahren", "en": "No new start while retracting" },
+      "name": {
+        "de": "Kein neuer Start beim Einfahren",
+        "en": "No new start while retracting"
+      },
       "steps": [
-        { "at": 100, "set": { "S1": true } },
-        { "at": 300, "set": { "S1": false } },
-        { "at": 1500, "set": { "S1": true } },
-        { "at": 1600, "expect": { "M1": false }, "note": { "de": "S1 ist gedrückt, aber der Zylinder ist noch nicht wieder eingefahren (B1 = 0).", "en": "S1 is pressed, but the cylinder is not retracted yet (B1 = 0)." } },
-        { "at": 1700, "set": { "S1": false } }
+        {
+          "at": 100,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 300,
+          "set": {
+            "S1": false
+          }
+        },
+        {
+          "at": 1500,
+          "set": {
+            "S1": true
+          }
+        },
+        {
+          "at": 1600,
+          "expect": {
+            "M1": false
+          },
+          "note": {
+            "de": "S1 ist gedrückt, aber der Zylinder ist noch nicht wieder eingefahren (B1 = 0).",
+            "en": "S1 is pressed, but the cylinder is not retracted yet (B1 = 0)."
+          }
+        },
+        {
+          "at": 1700,
+          "set": {
+            "S1": false
+          }
+        }
       ]
     }
   ],
   "solutions": {
     "reference": [
-      { "lang": "scl", "code": "M1 := ((S1 AND B1) OR M1) AND NOT B2;" },
-      { "lang": "kop", "rungs": [{ "groups": [[[{ "v": "S1" }, { "v": "B1" }], [{ "v": "M1" }]], [[{ "v": "B2", "neg": true }]]], "out": { "kind": "coil", "v": "M1" } }] }
+      {
+        "lang": "scl",
+        "code": "M1 := ((S1 AND B1) OR M1) AND NOT B2;"
+      },
+      {
+        "lang": "kop",
+        "rungs": [
+          {
+            "groups": [
+              [
+                [
+                  {
+                    "v": "S1"
+                  },
+                  {
+                    "v": "B1"
+                  }
+                ],
+                [
+                  {
+                    "v": "M1"
+                  }
+                ]
+              ],
+              [
+                [
+                  {
+                    "v": "B2",
+                    "neg": true
+                  }
+                ]
+              ]
+            ],
+            "out": {
+              "kind": "coil",
+              "v": "M1"
+            }
+          }
+        ]
+      }
     ],
     "wrong": [
-      { "lang": "scl", "code": "M1 := S1;" },
-      { "lang": "scl", "code": "M1 := (S1 OR M1) AND NOT B2;" },
-      { "lang": "scl", "code": "M1 := (S1 AND B1) OR M1;" }
+      {
+        "lang": "scl",
+        "code": "M1 := S1;"
+      },
+      {
+        "lang": "scl",
+        "code": "M1 := (S1 OR M1) AND NOT B2;"
+      },
+      {
+        "lang": "scl",
+        "code": "M1 := (S1 AND B1) OR M1;"
+      }
     ]
   }
 }
