@@ -1,0 +1,92 @@
+[
+  {
+    "id": "m03-u01-spannungsfall-pruefen",
+    "module": "M03",
+    "lernfeld": {
+      "EAT": [
+        2,
+        5
+      ],
+      "MECH": [
+        3
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Der Grenzwert 3 % folgt DIN 18015-1; die Leitfähigkeit ist als Annahme gegeben.",
+    "title": {
+      "de": "Spannungsfall einer Steckdosenleitung prüfen",
+      "en": "Checking the voltage drop of a socket circuit"
+    },
+    "situation": {
+      "de": "Eine Wechselstromleitung (230 V) ist 25 m lang und hat den Querschnitt A = 2,5 mm² Kupfer. Es fließt I = 16 A, cos φ = 1. Rechne mit der Leitfähigkeit κ = 56 m/(Ω·mm²). Zulässig sind 3 % Spannungsfall.",
+      "en": "A single-phase AC cable (230 V) is 25 m long and has the cross-section A = 2.5 mm² copper. The current is I = 16 A, cos φ = 1. Use the conductivity κ = 56 m/(Ω·mm²). A voltage drop of 3 % is permitted."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Spannungsfall ΔU?",
+          "en": "How large is the voltage drop ΔU?"
+        },
+        "unit": "V",
+        "answer": 5.71,
+        "tolerance": 0.03,
+        "formula": "ΔU = 2 · l · I / (κ · A)",
+        "calc": "ΔU = 2 · 25 m · 16 A / (56 · 2.5) = 5.71 V",
+        "why": {
+          "de": "Der Faktor 2 steht für Hin- und Rückleiter.",
+          "en": "The factor 2 stands for the outgoing and the return conductor."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel Prozent von 230 V sind das?",
+          "en": "What percentage of 230 V is that?"
+        },
+        "unit": "%",
+        "answer": 2.48,
+        "tolerance": 0.02,
+        "formula": "Δu = ΔU / U · 100 %",
+        "calc": "Δu = 5.71 V / 230 V · 100 = 2.48",
+        "why": {
+          "de": "Der Wert liegt unter 3 %. Die Leitung ist für den Spannungsfall in Ordnung.",
+          "en": "The value is below 3 %. The cable is acceptable with regard to voltage drop."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß darf ΔU bei 3 % höchstens sein?",
+          "en": "How large may ΔU be at most at 3 %?"
+        },
+        "unit": "V",
+        "answer": 6.9,
+        "tolerance": 0.01,
+        "formula": "ΔUmax = 3 / 100 · U",
+        "calc": "ΔUmax = 0.03 · 230 V = 6.9 V",
+        "why": {
+          "de": "Der Grenzwert in Prozent wird in Volt umgerechnet.",
+          "en": "The limit in percent is converted to volts."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lang dürfte die Leitung bei 16 A höchstens sein?",
+          "en": "How long could the cable be at most at 16 A?"
+        },
+        "unit": "m",
+        "answer": 30.2,
+        "tolerance": 0.1,
+        "formula": "l = ΔUmax · κ · A / (2 · I)",
+        "calc": "l = 6.9 V · 56 · 2.5 / (2 · 16 A) = 30.2",
+        "why": {
+          "de": "Die Formel wird nach der Länge umgestellt. Bei längeren Leitungen muss der Querschnitt größer werden.",
+          "en": "The formula is rearranged for the length. With longer cables the cross-section has to be larger."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Den Spannungsfall prüfst du immer zusätzlich zur Strombelastbarkeit. Beide Bedingungen müssen erfüllt sein.",
+      "en": "You always check the voltage drop in addition to the current-carrying capacity. Both conditions must be met."
+    }
+  }
+]

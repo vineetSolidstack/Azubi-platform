@@ -1,0 +1,93 @@
+[
+  {
+    "id": "m04-u01-schleifenimpedanz",
+    "module": "M04",
+    "lernfeld": {
+      "EAT": [
+        2,
+        5,
+        6
+      ],
+      "MECH": [
+        3
+      ]
+    },
+    "difficulty": 4,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Auslösebereiche nach DIN EN 60898-1; der Messwert ist eine Annahme. In der Praxis kommt ein Zuschlag für die Messabweichung dazu.",
+    "title": {
+      "de": "Schleifenimpedanz und Abschaltbedingung",
+      "en": "Loop impedance and disconnection condition"
+    },
+    "situation": {
+      "de": "An einer Steckdose im TN-System (U0 = 230 V) wird die Schleifenimpedanz Zs = 0,8 Ω gemessen. Der Stromkreis ist mit einem Leitungsschutzschalter 16 A abgesichert. Der magnetische Auslöser spricht sicher beim oberen Wert des Auslösebereichs an: Charakteristik B bei 5 · In, Charakteristik C bei 10 · In. Die Messabweichung wird in dieser Aufgabe nicht berücksichtigt.",
+      "en": "At a socket outlet in the TN system (U0 = 230 V) the loop impedance Zs = 0.8 Ω is measured. The circuit is protected by a 16 A miniature circuit breaker. The magnetic trip responds reliably at the upper value of the tripping range: characteristic B at 5 · In, characteristic C at 10 · In. The measurement error is ignored in this task."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Kurzschlussstrom Ik bei einem Körperschluss?",
+          "en": "How large is the short-circuit current Ik in case of a fault to an exposed part?"
+        },
+        "unit": "A",
+        "answer": 287.5,
+        "tolerance": 1,
+        "formula": "Ik = U0 / Zs",
+        "calc": "Ik = 230 V / 0.8 Ω = 287.5 A",
+        "why": {
+          "de": "Die Schleife besteht aus Außenleiter und Schutzleiter. Ihr Widerstand begrenzt den Fehlerstrom.",
+          "en": "The loop consists of line conductor and protective conductor. Its resistance limits the fault current."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welcher Abschaltstrom Ia ist für B16 nötig?",
+          "en": "Which disconnection current Ia is necessary for B16?"
+        },
+        "unit": "A",
+        "answer": 80,
+        "tolerance": 0,
+        "formula": "Ia = 5 · In",
+        "calc": "Ia = 5 · 16 A = 80 A",
+        "why": {
+          "de": "Ab diesem Strom löst der Schalter sicher sofort aus.",
+          "en": "From this current the breaker reliably trips at once."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welcher Abschaltstrom Ia ist für C16 nötig?",
+          "en": "Which disconnection current Ia is necessary for C16?"
+        },
+        "unit": "A",
+        "answer": 160,
+        "tolerance": 0,
+        "formula": "Ia = 10 · In",
+        "calc": "Ia = 10 · 16 A = 160 A",
+        "why": {
+          "de": "Charakteristik C braucht den doppelten Strom. Die Schleifenimpedanz muss dafür kleiner sein.",
+          "en": "Characteristic C needs twice the current. The loop impedance has to be smaller for that."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß dürfte Zs für C16 höchstens sein?",
+          "en": "How large could Zs be at most for C16?"
+        },
+        "unit": "Ω",
+        "answer": 1.44,
+        "tolerance": 0.01,
+        "formula": "Zs = U0 / Ia",
+        "calc": "Zs = 230 V / 160 A = 1.44",
+        "why": {
+          "de": "Der gemessene Wert 0,8 Ω liegt darunter. Die Abschaltbedingung ist rechnerisch für B16 und C16 erfüllt.",
+          "en": "The measured value 0.8 Ω is below that. By calculation the disconnection condition is met for B16 and C16."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Abschaltbedingung: Der Fehlerstrom muss mindestens so groß sein wie der Abschaltstrom der Schutzeinrichtung.",
+      "en": "Disconnection condition: the fault current must be at least as large as the disconnection current of the protective device."
+    }
+  }
+]

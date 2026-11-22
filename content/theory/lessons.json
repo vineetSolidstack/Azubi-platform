@@ -145,6 +145,173 @@
     ]
   },
   {
+    "module": "M03",
+    "status": "draft",
+    "source": "Eigener Text. Grenzwerte am 22.11.2026 abgeglichen mit DGUV Information 203-001 (2015), DGUV Information 203-072 (2021) und den DKE-Erläuterungen zu DIN VDE 0100-410:2018-10. Vor Veröffentlichung durch eine Elektrofachkraft prüfen lassen.",
+    "intro": {
+      "de": "Elektrischer Strom ist gefährlich, weil man ihn nicht sieht. Hier lernst du die Regeln und Schutzmaßnahmen, die dich und andere schützen. Dieser Text ersetzt keine Unterweisung im Betrieb.",
+      "en": "Electric current is dangerous because you cannot see it. Here you learn the rules and protective measures that protect you and others. This text does not replace safety instruction in your company."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Gefahren und die fünf Sicherheitsregeln",
+          "en": "Dangers and the five safety rules"
+        },
+        "body": {
+          "de": "Schon sehr kleine Ströme durch den Körper sind spürbar (etwa 0,5 mA). Bei größeren Strömen verkrampfen die Muskeln, man kann nicht mehr loslassen. Je nach Quelle wird diese Loslassschwelle mit etwa 5 bis 10 mA angegeben. Bei noch größeren Strömen und längerer Einwirkung droht Herzkammerflimmern.\n\nVor Arbeiten an elektrischen Anlagen gelten die fünf Sicherheitsregeln, immer in dieser Reihenfolge: 1. Freischalten. 2. Gegen Wiedereinschalten sichern. 3. Spannungsfreiheit feststellen. 4. Erden und kurzschließen. 5. Benachbarte, unter Spannung stehende Teile abdecken oder abschranken.",
+          "en": "Even very small currents through the body can be felt (about 0.5 mA). With larger currents the muscles cramp and you can no longer let go. Depending on the source this let-go threshold is given as about 5 to 10 mA. With even larger currents and longer exposure there is a danger of ventricular fibrillation.\n\nBefore working on electrical installations the five safety rules apply, always in this order: 1. Disconnect (Freischalten). 2. Secure against reconnection. 3. Verify the absence of voltage. 4. Earth and short-circuit. 5. Cover or fence off neighbouring live parts."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Die fünf Sicherheitsregeln gelten in genau dieser Reihenfolge. Aufgehoben werden sie in umgekehrter Reihenfolge.",
+          "en": "The five safety rules apply in exactly this order. They are lifted in the reverse order."
+        }
+      },
+      {
+        "heading": {
+          "de": "Netzsysteme",
+          "en": "Network systems"
+        },
+        "body": {
+          "de": "Die Buchstaben beschreiben die Erdung. Der erste Buchstabe steht für die Stromquelle (T = geerdet, I = isoliert), der zweite für die Körper der Geräte (N = mit dem geerdeten Punkt der Quelle verbunden, T = selbst geerdet).\n\nTN-S: Neutralleiter (N) und Schutzleiter (PE) sind im ganzen Netz getrennt. TN-C: Beide sind in einem Leiter (PEN) zusammengefasst. TN-C-S: zuerst zusammen, ab einem Punkt getrennt. TT: Die Körper sind über einen eigenen Erder geerdet. IT: Die Stromquelle ist gegen Erde isoliert oder nur über eine hohe Impedanz geerdet.",
+          "en": "The letters describe the earthing. The first letter stands for the source (T = earthed, I = isolated), the second for the exposed conductive parts of the equipment (N = connected to the earthed point of the source, T = earthed on their own).\n\nTN-S: neutral conductor (N) and protective conductor (PE) are separate throughout the network. TN-C: both are combined in one conductor (PEN). TN-C-S: first combined, separate from one point on. TT: the exposed parts are earthed via their own earth electrode. IT: the source is isolated from earth or only earthed via a high impedance."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "S = getrennt (separat), C = kombiniert.",
+          "en": "S = separate, C = combined."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schutz gegen elektrischen Schlag",
+          "en": "Protection against electric shock"
+        },
+        "body": {
+          "de": "Der Schutz hat drei Stufen. Basisschutz: Aktive Teile sind isoliert oder abgedeckt, man kann sie nicht berühren. Fehlerschutz: Bei einem Fehler, zum Beispiel einem Körperschluss, schaltet die Schutzeinrichtung schnell ab. Zusätzlicher Schutz: Eine Fehlerstrom-Schutzeinrichtung (RCD) mit höchstens 30 mA Bemessungsfehlerstrom schaltet ab, wenn Strom über einen falschen Weg abfließt. Sie ist unter anderem für Steckdosen bis 32 A vorgeschrieben, die Laien allgemein benutzen (DIN VDE 0100-410).\n\nAls dauernd zulässige Berührungsspannung gelten 50 V Wechselspannung und 120 V Gleichspannung.\n\nSchutzklassen von Geräten: Schutzklasse I hat einen Schutzleiteranschluss. Schutzklasse II hat eine doppelte oder verstärkte Isolierung. Schutzklasse III arbeitet mit Schutzkleinspannung.",
+          "en": "The protection has three levels. Basic protection: live parts are insulated or covered and cannot be touched. Fault protection: in case of a fault, for example a short to an exposed part, the protective device disconnects quickly. Additional protection: a residual current device (RCD) with a rated residual current of at most 30 mA disconnects when current flows off along a wrong path. Among other cases it is required for socket outlets up to 32 A in general use by laypersons (DIN VDE 0100-410).\n\nThe permanently permitted touch voltage is 50 V AC and 120 V DC.\n\nProtection classes of equipment: class I has a protective conductor connection. Class II has double or reinforced insulation. Class III works with safety extra-low voltage."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Ein RCD schützt Menschen vor Fehlerströmen. Er schützt nicht vor Überlast.",
+          "en": "An RCD protects people against residual currents. It does not protect against overload."
+        }
+      },
+      {
+        "heading": {
+          "de": "Überstromschutz",
+          "en": "Overcurrent protection"
+        },
+        "body": {
+          "de": "Leitungen dürfen nicht zu warm werden. Sicherungen und Leitungsschutzschalter schalten bei Überlast und bei Kurzschluss ab. Beim Leitungsschutzschalter gibt die Auslösecharakteristik an, bei welchem Vielfachen des Bemessungsstroms der magnetische Schnellauslöser anspricht: B bei 3 bis 5 mal In, C bei 5 bis 10 mal In, D bei 10 bis 20 mal In.\n\nB wird für Steckdosen und Licht verwendet. C und D lassen kurze Einschaltströme durch, zum Beispiel von Motoren und Transformatoren.",
+          "en": "Cables must not get too warm. Fuses and miniature circuit breakers disconnect on overload and on short circuit. For the miniature circuit breaker the tripping characteristic states at which multiple of the rated current the magnetic instantaneous trip responds: B at 3 to 5 times In, C at 5 to 10 times In, D at 10 to 20 times In.\n\nB is used for socket outlets and lighting. C and D let short inrush currents pass, for example from motors and transformers."
+        },
+        "formulas": [
+          "B: 3 … 5 · In",
+          "C: 5 … 10 · In",
+          "D: 10 … 20 · In"
+        ],
+        "remember": {
+          "de": "Der Leitungsschutzschalter schützt die Leitung, nicht den Menschen.",
+          "en": "The circuit breaker protects the cable, not the person."
+        }
+      },
+      {
+        "heading": {
+          "de": "Leitungen bemessen: Spannungsfall",
+          "en": "Dimensioning cables: voltage drop"
+        },
+        "body": {
+          "de": "Jede Leitung hat einen Widerstand. An ihm geht Spannung verloren, der Spannungsfall. Er wächst mit der Länge und dem Strom und sinkt mit dem Querschnitt. Zwischen Zähler und Verbrauchsmittel soll der Spannungsfall nach DIN 18015-1 höchstens 3 % betragen.\n\nFür den Querschnitt zählt außerdem die Strombelastbarkeit. Sie hängt von der Verlegeart, der Umgebungstemperatur und der Häufung von Leitungen ab und wird aus Tabellen bestimmt.",
+          "en": "Every cable has a resistance. Voltage is lost across it: the voltage drop. It grows with length and current and falls with the cross-section. Between the meter and the consuming equipment the voltage drop should be at most 3 % according to DIN 18015-1.\n\nThe current-carrying capacity also counts for the cross-section. It depends on the installation method, the ambient temperature and the grouping of cables and is determined from tables."
+        },
+        "formulas": [
+          "ΔU = 2 · l · I / (κ · A)   (Wechselstrom, cos φ = 1)",
+          "Δu = ΔU / U · 100 %"
+        ],
+        "remember": {
+          "de": "Lange Leitung oder großer Strom: größeren Querschnitt wählen.",
+          "en": "Long cable or large current: choose a larger cross-section."
+        }
+      },
+      {
+        "heading": {
+          "de": "IP-Schutzarten",
+          "en": "IP ratings"
+        },
+        "body": {
+          "de": "Der IP-Code beschreibt, wie gut ein Gehäuse schützt. Die erste Ziffer steht für den Schutz gegen Berühren und gegen feste Fremdkörper, die zweite für den Schutz gegen Wasser.\n\nBeispiele: IP44 schützt gegen Fremdkörper ab 1 mm und gegen Spritzwasser. IP54 ist staubgeschützt und gegen Spritzwasser geschützt. IP65 ist staubdicht und gegen Strahlwasser geschützt. IP67 ist staubdicht und gegen zeitweiliges Untertauchen geschützt.",
+          "en": "The IP code describes how well an enclosure protects. The first digit stands for protection against touching and against solid foreign objects, the second for protection against water.\n\nExamples: IP44 protects against foreign objects from 1 mm and against splashing water. IP54 is dust-protected and protected against splashing water. IP65 is dust-tight and protected against water jets. IP67 is dust-tight and protected against temporary immersion."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erste Ziffer: Fremdkörper. Zweite Ziffer: Wasser.",
+          "en": "First digit: foreign objects. Second digit: water."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M04",
+    "status": "draft",
+    "source": "Eigener Text. Grenzwerte am 22.11.2026 abgeglichen mit DGUV Information 203-001 (2015), DGUV Information 203-072 (2021) und den DKE-Erläuterungen zu DIN VDE 0100-410:2018-10. Vor Veröffentlichung durch eine Elektrofachkraft prüfen lassen.",
+    "intro": {
+      "de": "Eine elektrische Anlage muss geprüft werden, bevor sie in Betrieb geht, und danach regelmäßig. Hier lernst du den Ablauf der Prüfung und die wichtigsten Messungen. Prüfen dürfen nur Elektrofachkräfte.",
+      "en": "An electrical installation has to be verified before it goes into operation, and regularly afterwards. Here you learn the sequence of the verification and the most important measurements. Only qualified electricians may carry out the verification."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Besichtigen, Erproben, Messen",
+          "en": "Inspecting, testing, measuring"
+        },
+        "body": {
+          "de": "Die Erstprüfung nach DIN VDE 0100-600 besteht aus Besichtigen, Erproben und Messen. Das Besichtigen kommt zuerst und geschieht in der Regel an der spannungsfreien Anlage: Sind die Betriebsmittel richtig ausgewählt und unbeschädigt, stimmen Leiterquerschnitte, Schutzeinrichtungen und Beschriftung?\n\nBeim Erproben wird geprüft, ob Schutz- und Meldeeinrichtungen funktionieren, zum Beispiel die Prüftaste des RCD. Beim Messen werden Werte ermittelt, die man nicht sehen kann.",
+          "en": "The initial verification according to DIN VDE 0100-600 consists of inspecting, testing and measuring. Inspection comes first and is generally done on the dead installation: is the equipment selected correctly and undamaged, are conductor cross-sections, protective devices and labelling right?\n\nTesting checks whether protective and signalling devices work, for example the test button of the RCD. Measuring determines values that cannot be seen."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst schauen, dann messen. Viele Fehler findet man schon beim Besichtigen.",
+          "en": "Look first, then measure. Many faults are already found during inspection."
+        }
+      },
+      {
+        "heading": {
+          "de": "Die wichtigsten Messungen",
+          "en": "The most important measurements"
+        },
+        "body": {
+          "de": "Durchgängigkeit des Schutzleiters: Der Schutzleiter muss vom Verteiler bis zum letzten Gerät niederohmig durchverbunden sein.\n\nIsolationswiderstand: Zwischen den aktiven Leitern und dem Schutzleiter wird mit Gleichspannung gemessen. Für Stromkreise bis einschließlich 500 V gilt bei der Erstprüfung: Messspannung 500 V, Mindestwert 1 MΩ. Für SELV und PELV: Messspannung 250 V, Mindestwert 0,5 MΩ.\n\nSchleifenimpedanz: Sie zeigt, ob im Fehlerfall genug Strom fließt, damit die Schutzeinrichtung rechtzeitig abschaltet. Bei 230 V gegen Erde gelten als längste Abschaltzeiten 0,4 s im TN-System und 0,2 s im TT-System. Das gilt für Endstromkreise mit Steckdosen bis 63 A und für fest angeschlossene Verbrauchsmittel bis 32 A.\n\nRCD-Prüfung: Gemessen wird, ob der RCD beim Bemessungsfehlerstrom auslöst. Ein unverzögerter RCD darf dabei höchstens 0,3 s brauchen, beim fünffachen Fehlerstrom höchstens 0,04 s.",
+          "en": "Continuity of the protective conductor: the protective conductor must be connected through with low resistance from the distribution board to the last device.\n\nInsulation resistance: the measurement is made with DC voltage between the live conductors and the protective conductor. For circuits up to and including 500 V the initial verification requires: test voltage 500 V, minimum value 1 MΩ. For SELV and PELV: test voltage 250 V, minimum value 0.5 MΩ.\n\nLoop impedance: it shows whether enough current flows in case of a fault so that the protective device disconnects in time. At 230 V to earth the longest disconnection times are 0.4 s in the TN system and 0.2 s in the TT system. This applies to final circuits with socket outlets up to 63 A and to fixed-connected equipment up to 32 A.\n\nRCD test: the measurement checks whether the RCD trips at the rated residual current. A non-delayed RCD may take at most 0.3 s, at five times the residual current at most 0.04 s."
+        },
+        "formulas": [
+          "Ik = U0 / Zs",
+          "Abschaltbedingung: Ik ≥ Ia"
+        ],
+        "remember": {
+          "de": "Kleine Schleifenimpedanz bedeutet großen Kurzschlussstrom und schnelles Abschalten.",
+          "en": "A small loop impedance means a large short-circuit current and fast disconnection."
+        }
+      },
+      {
+        "heading": {
+          "de": "Bewerten und dokumentieren",
+          "en": "Evaluating and documenting"
+        },
+        "body": {
+          "de": "Jeder Messwert wird mit dem Grenzwert verglichen. Dabei muss die Messabweichung des Prüfgeräts berücksichtigt werden: Ein Wert knapp am Grenzwert ist kein sicheres Bestanden. Alle Ergebnisse kommen in ein Prüfprotokoll mit Datum, Prüfgerät und Unterschrift.\n\nWird ein Mangel gefunden, darf die Anlage erst in Betrieb gehen, wenn er behoben und die Prüfung wiederholt ist.",
+          "en": "Every reading is compared with the limit value. The measurement error of the test instrument has to be taken into account: a value just at the limit is not a safe pass. All results go into a test report with date, test instrument and signature.\n\nIf a defect is found, the installation may only go into operation when it has been remedied and the verification has been repeated."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Ohne Protokoll gilt eine Prüfung als nicht gemacht.",
+          "en": "Without a report a verification counts as not done."
+        }
+      }
+    ]
+  },
+  {
     "module": "M05",
     "status": "draft",
     "source": "Eigener Text.",
