@@ -1,0 +1,88 @@
+[
+  {
+    "id": "m05-q01", "module": "M05", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Grundlagen Steuerungstechnik.",
+    "question": { "de": "Was ist der Unterschied zwischen Steuern und Regeln?", "en": "What is the difference between open-loop control (Steuern) and closed-loop control (Regeln)?" },
+    "options": [
+      { "de": "Beim Regeln wird der Istwert gemessen und zurückgeführt. Beim Steuern gibt es keine Rückführung.", "en": "In closed-loop control the actual value is measured and fed back. In open-loop control there is no feedback." },
+      { "de": "Beim Steuern wird der Istwert gemessen und zurückgeführt. Beim Regeln gibt es keine Rückführung.", "en": "In open-loop control the actual value is measured and fed back. In closed-loop control there is no feedback." },
+      { "de": "Steuern geht nur mit einer SPS, Regeln nur mit Schützen.", "en": "Open-loop control only works with a PLC, closed-loop control only with contactors." },
+      { "de": "Es gibt keinen Unterschied.", "en": "There is no difference." }
+    ],
+    "correct": 0,
+    "explanation": { "de": "Regeln hat einen geschlossenen Wirkungskreis: Der Istwert wird gemessen, mit dem Sollwert verglichen und die Abweichung wird ausgeglichen. Steuern hat einen offenen Wirkungsweg. Störungen werden nicht automatisch ausgeglichen.", "en": "Closed-loop control has a closed loop: the actual value is measured, compared with the setpoint and the deviation is corrected. Open-loop control has an open path. Disturbances are not corrected automatically." }
+  },
+  {
+    "id": "m05-q02", "module": "M05", "status": "draft", "type": "text",
+    "source": "Eigene Frage. EVA-Prinzip.",
+    "question": { "de": "Das EVA-Prinzip beschreibt jede Steuerung. E steht für Eingabe, A für Ausgabe. Wofür steht das V?", "en": "The EVA principle describes every control system. E stands for Eingabe (input), A for Ausgabe (output). What does the V stand for? (German word)" },
+    "accepted": ["Verarbeitung", "Verarbeiten", "die Verarbeitung"],
+    "explanation": { "de": "EVA = Eingabe, Verarbeitung, Ausgabe. Eingabe: Taster und Sensoren. Verarbeitung: Schützschaltung oder SPS-Programm. Ausgabe: Schütze, Ventile, Lampen.", "en": "EVA = Eingabe (input), Verarbeitung (processing), Ausgabe (output). Input: buttons and sensors. Processing: contactor circuit or PLC program. Output: contactors, valves, lamps." }
+  },
+  {
+    "id": "m05-q03", "module": "M05", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Drahtbruchsicherheit.",
+    "question": { "de": "Warum ist ein Stopp-Taster als Öffner ausgeführt?", "en": "Why is a stop button built as a normally closed contact (Öffner)?" },
+    "options": [
+      { "de": "Weil Öffner billiger sind als Schließer.", "en": "Because normally closed contacts are cheaper than normally open ones." },
+      { "de": "Damit die Anlage auch bei einem Drahtbruch in der Stopp-Leitung abschaltet.", "en": "So that the plant also switches off when the wire of the stop circuit breaks." },
+      { "de": "Damit der Taster weniger Strom braucht.", "en": "So that the button needs less current." },
+      { "de": "Weil ein Öffner schneller schaltet.", "en": "Because a normally closed contact switches faster." }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Das nennt man Drahtbruchsicherheit. Bei einem Öffner fließt im Normalbetrieb Strom. Reißt der Draht oder löst sich eine Klemme, wirkt das wie ein Druck auf Stopp: Die Anlage schaltet ab. Mit einem Schließer würde man den Fehler nicht bemerken und könnte nicht mehr stoppen.", "en": "This is called wire-break safety (Drahtbruchsicherheit). With a normally closed contact, current flows in normal operation. If the wire breaks or a terminal comes loose, this acts like pressing stop: the plant switches off. With a normally open contact you would not notice the fault and could no longer stop." }
+  },
+  {
+    "id": "m05-q04", "module": "M05", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Selbsthaltung.",
+    "question": { "de": "Wie entsteht bei einer Schützschaltung die Selbsthaltung?", "en": "How is latching (Selbsthaltung) created in a contactor circuit?" },
+    "options": [
+      { "de": "Ein Öffner des Schützes liegt in Reihe zum Start-Taster.", "en": "A normally closed contact of the contactor is in series with the start button." },
+      { "de": "Ein Schließer des Schützes liegt parallel zum Start-Taster.", "en": "A normally open contact of the contactor is parallel to the start button." },
+      { "de": "Ein Schließer des Schützes liegt parallel zum Stopp-Taster.", "en": "A normally open contact of the contactor is parallel to the stop button." },
+      { "de": "Der Start-Taster wird mechanisch festgeklemmt.", "en": "The start button is mechanically jammed." }
+    ],
+    "correct": 1,
+    "explanation": { "de": "Zieht das Schütz an, schließt sein Schließer und überbrückt den Start-Taster. Die Spule bekommt weiter Strom, auch wenn der Taster losgelassen wird. Läge der Kontakt parallel zum Stopp-Taster, könnte man nicht mehr ausschalten.", "en": "When the contactor pulls in, its normally open contact closes and bridges the start button. The coil keeps getting current even when the button is released. If the contact were parallel to the stop button, you could no longer switch off." }
+  },
+  {
+    "id": "m05-q05", "module": "M05", "status": "draft", "type": "single",
+    "source": "Eigene Frage. Wendeschützschaltung.",
+    "question": { "de": "Wozu dient die Verriegelung in einer Wendeschützschaltung?", "en": "What is the interlock (Verriegelung) in a reversing contactor circuit for?" },
+    "options": [
+      { "de": "Sie verhindert, dass beide Schütze gleichzeitig anziehen und einen Kurzschluss zwischen den Außenleitern verursachen.", "en": "It prevents both contactors from pulling in at the same time and causing a short circuit between the phase conductors." },
+      { "de": "Sie macht den Motor schneller.", "en": "It makes the motor faster." },
+      { "de": "Sie schützt den Motor vor Überlast.", "en": "It protects the motor against overload." },
+      { "de": "Sie spart Strom im Steuerstromkreis.", "en": "It saves current in the control circuit." }
+    ],
+    "correct": 0,
+    "explanation": { "de": "Für die andere Drehrichtung werden zwei Außenleiter getauscht. Wären beide Schütze gleichzeitig angezogen, wären diese zwei Außenleiter direkt verbunden: Kurzschluss. Deshalb sperrt jedes Schütz mit einem Öffner das andere (Schützverriegelung), oft zusätzlich über die Taster (Tasterverriegelung). Überlastschutz ist Aufgabe des Motorschutzes.", "en": "For the other direction of rotation two phase conductors are swapped. If both contactors were pulled in at the same time, these two phase conductors would be connected directly: short circuit. So each contactor blocks the other with a normally closed contact (contactor interlock), often additionally via the buttons (push-button interlock). Overload protection is the job of the motor protection." }
+  },
+  {
+    "id": "m05-q06", "module": "M05", "status": "draft", "type": "multiple",
+    "source": "Eigene Frage. Hauptstromkreis und Steuerstromkreis.",
+    "question": { "de": "Welche Bauteile gehören bei einer Motorschaltung mit Schütz zum Steuerstromkreis? (mehrere Antworten)", "en": "Which components of a motor circuit with a contactor belong to the control circuit (Steuerstromkreis)? (several answers)" },
+    "options": [
+      { "de": "Start-Taster", "en": "Start button" },
+      { "de": "Schützspule", "en": "Contactor coil" },
+      { "de": "Hauptkontakte des Schützes", "en": "Main contacts of the contactor" },
+      { "de": "Motorwicklung", "en": "Motor winding" },
+      { "de": "Hilfskontakt für die Selbsthaltung", "en": "Auxiliary contact for latching" }
+    ],
+    "correct": [0, 1, 4],
+    "explanation": { "de": "Der Steuerstromkreis enthält alles, was die Schützspule ansteuert: Taster, Hilfskontakte und die Spule selbst. Der Hauptstromkreis führt die Energie zum Motor: Sicherungen, Hauptkontakte, Motorschutz und Motor.", "en": "The control circuit contains everything that drives the contactor coil: buttons, auxiliary contacts and the coil itself. The main circuit carries the energy to the motor: fuses, main contacts, motor protection and motor." }
+  },
+  {
+    "id": "m05-q07", "module": "M05", "status": "draft", "type": "order",
+    "source": "Eigene Frage. Systematische Fehlersuche.",
+    "question": { "de": "Bringe die Schritte einer systematischen Fehlersuche in die richtige Reihenfolge.", "en": "Put the steps of a systematic fault search in the correct order." },
+    "items": [
+      { "de": "Fehlerbild genau beschreiben: Was geht nicht?", "en": "Describe the symptom exactly: what does not work?" },
+      { "de": "Vermutung aufstellen: Wo könnte die Ursache liegen?", "en": "Form a hypothesis: where could the cause be?" },
+      { "de": "Vermutung durch Messen oder Prüfen bestätigen", "en": "Confirm the hypothesis by measuring or testing" },
+      { "de": "Ursache beheben", "en": "Fix the cause" },
+      { "de": "Funktion prüfen und Fehler dokumentieren", "en": "Check the function and document the fault" }
+    ],
+    "explanation": { "de": "Erst beobachten, dann vermuten, dann messen. Wer ohne Plan Bauteile tauscht, braucht länger und baut oft neue Fehler ein. Am Ende steht immer die Funktionsprüfung und die Dokumentation.", "en": "First observe, then form a hypothesis, then measure. Swapping parts without a plan takes longer and often adds new faults. At the end there is always the function check and the documentation." }
+  }
+]

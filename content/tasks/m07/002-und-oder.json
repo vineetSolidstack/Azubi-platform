@@ -1,0 +1,66 @@
+{
+  "id": "m07-002-und-oder",
+  "module": "M07",
+  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "difficulty": 1,
+  "status": "draft",
+  "title": { "de": "UND und ODER: Lüfter schalten", "en": "AND and OR: switching a fan" },
+  "description": {
+    "de": "Der Lüfter Q1 soll laufen, wenn der Hauptschalter S0 eingeschaltet ist UND mindestens einer der beiden Taster S1 ODER S2 gedrückt ist.",
+    "en": "The fan Q1 must run when the main switch S0 is on AND at least one of the two push-buttons S1 OR S2 is pressed."
+  },
+  "learn": {
+    "de": "Kontakte hintereinander (in Reihe) sind ein UND: Alle müssen leiten. Kontakte nebeneinander (parallel) sind ein ODER: Einer reicht.",
+    "en": "Contacts one after another (in series) are an AND: all must conduct. Contacts side by side (parallel) are an OR: one is enough."
+  },
+  "hints": [
+    { "de": "Baue zuerst die Parallelschaltung aus S1 und S2. Setze dann S0 in Reihe dazu.", "en": "First build the parallel circuit of S1 and S2. Then add S0 in series." },
+    { "de": "In SCL brauchst du Klammern: Q1 := S0 AND (S1 OR S2);", "en": "In SCL you need brackets: Q1 := S0 AND (S1 OR S2);" }
+  ],
+  "station": "panel",
+  "languages": ["kop", "scl"],
+  "variables": [
+    { "name": "S0", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "switch", "comment": { "de": "Hauptschalter", "en": "Main switch" } },
+    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.1", "ui": "button", "comment": { "de": "Taster 1 (Schließer)", "en": "Push-button 1 (normally open)" } },
+    { "name": "S2", "type": "BOOL", "dir": "in", "address": "%I0.2", "ui": "button", "comment": { "de": "Taster 2 (Schließer)", "en": "Push-button 2 (normally open)" } },
+    { "name": "Q1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "green", "comment": { "de": "Lüfter", "en": "Fan" } }
+  ],
+  "tests": [
+    {
+      "id": "aus",
+      "name": { "de": "Hauptschalter aus: Lüfter bleibt aus", "en": "Main switch off: fan stays off" },
+      "steps": [
+        { "at": 0, "set": { "S1": true } },
+        { "at": 100, "expect": { "Q1": false }, "note": { "de": "S0 ist aus, S1 ist gedrückt.", "en": "S0 is off, S1 is pressed." } },
+        { "at": 200, "set": { "S2": true } },
+        { "at": 300, "expect": { "Q1": false }, "note": { "de": "S0 ist aus, S1 und S2 sind gedrückt.", "en": "S0 is off, S1 and S2 are pressed." } }
+      ]
+    },
+    {
+      "id": "ein",
+      "name": { "de": "Hauptschalter ein: ein Taster reicht", "en": "Main switch on: one button is enough" },
+      "steps": [
+        { "at": 0, "set": { "S0": true } },
+        { "at": 100, "expect": { "Q1": false }, "note": { "de": "S0 ist ein, aber kein Taster ist gedrückt.", "en": "S0 is on, but no button is pressed." } },
+        { "at": 200, "set": { "S1": true } },
+        { "at": 300, "expect": { "Q1": true }, "note": { "de": "S0 ist ein und S1 ist gedrückt.", "en": "S0 is on and S1 is pressed." } },
+        { "at": 400, "set": { "S1": false, "S2": true } },
+        { "at": 500, "expect": { "Q1": true }, "note": { "de": "S0 ist ein und S2 ist gedrückt.", "en": "S0 is on and S2 is pressed." } },
+        { "at": 600, "set": { "S1": true } },
+        { "at": 700, "expect": { "Q1": true }, "note": { "de": "S0 ist ein, S1 und S2 sind gedrückt.", "en": "S0 is on, S1 and S2 are pressed." } },
+        { "at": 800, "set": { "S0": false } },
+        { "at": 900, "expect": { "Q1": false }, "note": { "de": "S0 wurde ausgeschaltet.", "en": "S0 was switched off." } }
+      ]
+    }
+  ],
+  "solutions": {
+    "reference": [
+      { "lang": "scl", "code": "Q1 := S0 AND (S1 OR S2);" },
+      { "lang": "kop", "rungs": [{ "groups": [[[{ "v": "S1" }], [{ "v": "S2" }]], [[{ "v": "S0" }]]], "out": { "kind": "coil", "v": "Q1" } }] }
+    ],
+    "wrong": [
+      { "lang": "scl", "code": "Q1 := S0 AND S1 AND S2;" },
+      { "lang": "scl", "code": "Q1 := S0 AND S1 OR S2;" }
+    ]
+  }
+}

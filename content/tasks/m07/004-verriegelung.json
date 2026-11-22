@@ -1,0 +1,84 @@
+{
+  "id": "m07-004-verriegelung",
+  "module": "M07",
+  "lernfeld": { "EAT": [7], "MECH": [7], "IM": [13] },
+  "difficulty": 2,
+  "status": "draft",
+  "title": { "de": "Verriegelung: zwei Pumpen", "en": "Interlock (Verriegelung): two pumps" },
+  "description": {
+    "de": "Zwei Pumpen dürfen nie gleichzeitig laufen. S1 startet Pumpe Q1, S2 startet Pumpe Q2 (jeweils mit Selbsthaltung). S0 (Öffner) stoppt beide Pumpen. Läuft eine Pumpe, darf die andere nicht starten. Zum Wechseln muss man zuerst Stopp drücken.",
+    "en": "Two pumps must never run at the same time. S1 starts pump Q1, S2 starts pump Q2 (each with latching). S0 (normally closed) stops both pumps. While one pump is running, the other must not start. To change over you have to press stop first."
+  },
+  "learn": {
+    "de": "Verriegelung heißt: Ein Ausgang sperrt den anderen. Dazu setzt du in das Netzwerk von Q1 einen Öffner-Kontakt von Q2 und umgekehrt.",
+    "en": "Verriegelung (interlock) means: one output blocks the other. You place a normally closed contact of Q2 in the network of Q1 and vice versa."
+  },
+  "hints": [
+    { "de": "Baue zuerst zwei Selbsthaltungen wie in der Aufgabe davor.", "en": "First build two latching circuits like in the task before." },
+    { "de": "Ergänze im Netzwerk von Q1 einen Öffner-Kontakt Q2 in Reihe. Im Netzwerk von Q2 einen Öffner-Kontakt Q1.", "en": "Add a normally closed contact Q2 in series in the network of Q1. In the network of Q2 a normally closed contact Q1." }
+  ],
+  "station": "panel",
+  "languages": ["kop", "scl"],
+  "variables": [
+    { "name": "S0", "type": "BOOL", "dir": "in", "address": "%I0.0", "ui": "button", "nc": true, "color": "red", "comment": { "de": "Stopp-Taster (Öffner)", "en": "Stop button (normally closed)" } },
+    { "name": "S1", "type": "BOOL", "dir": "in", "address": "%I0.1", "ui": "button", "color": "green", "comment": { "de": "Start Pumpe 1 (Schließer)", "en": "Start pump 1 (normally open)" } },
+    { "name": "S2", "type": "BOOL", "dir": "in", "address": "%I0.2", "ui": "button", "color": "green", "comment": { "de": "Start Pumpe 2 (Schließer)", "en": "Start pump 2 (normally open)" } },
+    { "name": "Q1", "type": "BOOL", "dir": "out", "address": "%Q0.0", "ui": "lamp", "color": "green", "comment": { "de": "Pumpe 1", "en": "Pump 1" } },
+    { "name": "Q2", "type": "BOOL", "dir": "out", "address": "%Q0.1", "ui": "lamp", "color": "green", "comment": { "de": "Pumpe 2", "en": "Pump 2" } }
+  ],
+  "tests": [
+    {
+      "id": "pumpe1",
+      "name": { "de": "Pumpe 1 läuft und sperrt Pumpe 2", "en": "Pump 1 runs and blocks pump 2" },
+      "never": [{ "when": { "Q1": true, "Q2": true }, "note": { "de": "Beide Pumpen laufen gleichzeitig. Das darf nie passieren.", "en": "Both pumps run at the same time. This must never happen." } }],
+      "steps": [
+        { "at": 100, "set": { "S1": true } },
+        { "at": 300, "set": { "S1": false } },
+        { "at": 500, "expect": { "Q1": true, "Q2": false }, "note": { "de": "S1 wurde kurz gedrückt.", "en": "S1 was pressed briefly." } },
+        { "at": 600, "set": { "S2": true } },
+        { "at": 800, "set": { "S2": false } },
+        { "at": 1000, "expect": { "Q1": true, "Q2": false }, "note": { "de": "S2 wurde gedrückt, während Pumpe 1 läuft. Pumpe 1 läuft weiter, Pumpe 2 bleibt aus.", "en": "S2 was pressed while pump 1 is running. Pump 1 keeps running, pump 2 stays off." } },
+        { "at": 1100, "set": { "S0": false } },
+        { "at": 1300, "set": { "S0": true } },
+        { "at": 1400, "expect": { "Q1": false, "Q2": false }, "note": { "de": "Stopp wurde gedrückt.", "en": "Stop was pressed." } }
+      ]
+    },
+    {
+      "id": "pumpe2",
+      "name": { "de": "Pumpe 2 läuft und sperrt Pumpe 1", "en": "Pump 2 runs and blocks pump 1" },
+      "never": [{ "when": { "Q1": true, "Q2": true }, "note": { "de": "Beide Pumpen laufen gleichzeitig. Das darf nie passieren.", "en": "Both pumps run at the same time. This must never happen." } }],
+      "steps": [
+        { "at": 100, "set": { "S2": true } },
+        { "at": 300, "set": { "S2": false } },
+        { "at": 500, "expect": { "Q1": false, "Q2": true }, "note": { "de": "S2 wurde kurz gedrückt.", "en": "S2 was pressed briefly." } },
+        { "at": 600, "set": { "S1": true } },
+        { "at": 800, "set": { "S1": false } },
+        { "at": 1000, "expect": { "Q1": false, "Q2": true }, "note": { "de": "S1 wurde gedrückt, während Pumpe 2 läuft. Pumpe 2 läuft weiter, Pumpe 1 bleibt aus.", "en": "S1 was pressed while pump 2 is running. Pump 2 keeps running, pump 1 stays off." } }
+      ]
+    },
+    {
+      "id": "beide",
+      "name": { "de": "Beide Start-Taster gleichzeitig", "en": "Both start buttons at the same time" },
+      "never": [{ "when": { "Q1": true, "Q2": true }, "note": { "de": "Beide Pumpen laufen gleichzeitig. Das darf nie passieren.", "en": "Both pumps run at the same time. This must never happen." } }],
+      "steps": [
+        { "at": 100, "set": { "S1": true, "S2": true } },
+        { "at": 500, "set": { "S1": false, "S2": false } },
+        { "at": 800, "set": { "S0": false } },
+        { "at": 1000, "expect": { "Q1": false, "Q2": false }, "note": { "de": "Stopp ist gedrückt.", "en": "Stop is pressed." } }
+      ]
+    }
+  ],
+  "solutions": {
+    "reference": [
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0 AND NOT Q2;\nQ2 := (S2 OR Q2) AND S0 AND NOT Q1;" },
+      { "lang": "kop", "rungs": [
+        { "groups": [[[{ "v": "S1" }], [{ "v": "Q1" }]], [[{ "v": "S0" }, { "v": "Q2", "neg": true }]]], "out": { "kind": "coil", "v": "Q1" } },
+        { "groups": [[[{ "v": "S2" }], [{ "v": "Q2" }]], [[{ "v": "S0" }, { "v": "Q1", "neg": true }]]], "out": { "kind": "coil", "v": "Q2" } }
+      ] }
+    ],
+    "wrong": [
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0;\nQ2 := (S2 OR Q2) AND S0;" },
+      { "lang": "scl", "code": "Q1 := (S1 OR Q1) AND S0 AND NOT S2;\nQ2 := (S2 OR Q2) AND S0 AND NOT S1;" }
+    ]
+  }
+}
