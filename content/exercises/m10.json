@@ -1,0 +1,327 @@
+[
+  {
+    "id": "m10-u01-synchrondrehzahl-schlupf",
+    "module": "M10",
+    "lernfeld": {
+      "EAT": [
+        8
+      ],
+      "MECH": [
+        8
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Antriebstechnik. Motordaten sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Synchrondrehzahl und Schlupf",
+      "en": "Synchronous speed and slip"
+    },
+    "situation": {
+      "de": "Ein Drehstrom-Asynchronmotor hat 2 Polpaare (4 Pole) und läuft am 50-Hz-Netz. Auf dem Leistungsschild steht die Bemessungsdrehzahl n = 1440 min⁻¹.",
+      "en": "A three-phase asynchronous motor has 2 pole pairs (4 poles) and runs on the 50 Hz mains. The rating plate shows the rated speed n = 1440 min⁻¹."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Drehzahl des Drehfelds (Synchrondrehzahl ns)?",
+          "en": "How large is the speed of the rotating field (synchronous speed ns)?"
+        },
+        "unit": "min⁻¹",
+        "answer": 1500,
+        "tolerance": 0,
+        "formula": "ns = f · 60 / p",
+        "calc": "ns = 50 Hz · 60 / 2 = 1500 min⁻¹",
+        "why": {
+          "de": "Das Drehfeld läuft mit der Netzfrequenz um. Mehr Polpaare machen es langsamer. Der Faktor 60 rechnet Sekunden in Minuten um.",
+          "en": "The rotating field turns with the mains frequency. More pole pairs make it slower. The factor 60 converts seconds to minutes."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Schlupf s in Prozent?",
+          "en": "How large is the slip s in percent?"
+        },
+        "unit": "%",
+        "answer": 4,
+        "tolerance": 0.05,
+        "formula": "s = (ns − n) / ns · 100 %",
+        "calc": "s = (1500 − 1440) / 1500 · 100 = 4",
+        "why": {
+          "de": "Der Läufer eines Asynchronmotors dreht immer etwas langsamer als das Drehfeld. Nur so wird im Läufer eine Spannung induziert.",
+          "en": "The rotor of an asynchronous motor always turns slightly more slowly than the rotating field. Only then is a voltage induced in the rotor."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "ns = f · 60 / p. Der Schlupf sagt, wie viel der Läufer hinter dem Drehfeld zurückbleibt.",
+      "en": "ns = f · 60 / p. The slip says how far the rotor lags behind the rotating field."
+    }
+  },
+  {
+    "id": "m10-u02-leistung-wirkungsgrad",
+    "module": "M10",
+    "lernfeld": {
+      "EAT": [
+        8
+      ],
+      "MECH": [
+        8
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Antriebstechnik. Motordaten sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Aufgenommene Leistung und Wirkungsgrad eines Drehstrommotors",
+      "en": "Input power and efficiency of a three-phase motor"
+    },
+    "situation": {
+      "de": "Ein Drehstrommotor hat laut Leistungsschild: U = 400 V, I = 8,5 A, cos φ = 0,85 und die abgegebene Leistung Pab = 4 kW. Rechne mit √3 = 1,732.",
+      "en": "According to its rating plate a three-phase motor has: U = 400 V, I = 8.5 A, cos φ = 0.85 and the output power Pab = 4 kW. Use √3 = 1.732."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die aufgenommene Wirkleistung Pzu?",
+          "en": "How large is the active input power Pzu?"
+        },
+        "unit": "W",
+        "answer": 5005,
+        "tolerance": 15,
+        "formula": "Pzu = √3 · U · I · cos φ",
+        "calc": "Pzu = 1.732 · 400 V · 8.5 A · 0.85 = 5005 W",
+        "why": {
+          "de": "Im Drehstromnetz rechnet man mit der Außenleiterspannung und dem Faktor √3. Der cos φ berücksichtigt, dass nur ein Teil des Stroms Wirkleistung überträgt.",
+          "en": "In a three-phase system you use the line voltage and the factor √3. The cos φ takes into account that only a part of the current transfers active power."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Wirkungsgrad η in Prozent?",
+          "en": "How large is the efficiency η in percent?"
+        },
+        "unit": "%",
+        "answer": 79.9,
+        "tolerance": 0.3,
+        "formula": "η = Pab / Pzu · 100 %",
+        "calc": "η = 4000 W / 5005 W · 100 = 79.9",
+        "why": {
+          "de": "Die Leistung auf dem Leistungsschild ist die mechanische Leistung an der Welle. Der Rest geht als Wärme verloren.",
+          "en": "The power on the rating plate is the mechanical power at the shaft. The rest is lost as heat."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Verlustleistung Pv?",
+          "en": "How large is the power loss Pv?"
+        },
+        "unit": "W",
+        "answer": 1005,
+        "tolerance": 15,
+        "formula": "Pv = Pzu − Pab",
+        "calc": "Pv = 5005 W − 4000 W = 1005 W",
+        "why": {
+          "de": "Diese Wärme muss der Motor über Gehäuse und Lüfter abgeben.",
+          "en": "The motor has to give off this heat via its housing and fan."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Die Angabe auf dem Leistungsschild ist die abgegebene Leistung. Die aufgenommene Leistung ist immer größer.",
+      "en": "The value on the rating plate is the output power. The input power is always larger."
+    }
+  },
+  {
+    "id": "m10-u03-drehmoment",
+    "module": "M10",
+    "lernfeld": {
+      "EAT": [
+        8
+      ],
+      "MECH": [
+        8
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Antriebstechnik. Motordaten sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Drehmoment an der Motorwelle",
+      "en": "Torque at the motor shaft"
+    },
+    "situation": {
+      "de": "Ein Motor gibt P = 4 kW bei n = 1440 min⁻¹ ab.",
+      "en": "A motor delivers P = 4 kW at n = 1440 min⁻¹."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Drehmoment M an der Welle?",
+          "en": "How large is the torque M at the shaft?"
+        },
+        "unit": "Nm",
+        "answer": 26.5,
+        "tolerance": 0.1,
+        "formula": "M = 9550 · P / n   (P in kW, n in min⁻¹)",
+        "calc": "M = 9550 · 4 / 1440 = 26.5",
+        "why": {
+          "de": "Leistung ist Drehmoment mal Winkelgeschwindigkeit. Die Zahl 9550 fasst die Umrechnung von kW und min⁻¹ zusammen (60 000 / 2π).",
+          "en": "Power is torque times angular velocity. The number 9550 combines the conversion of kW and min⁻¹ (60 000 / 2π)."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß wäre das Drehmoment bei gleicher Leistung und n = 720 min⁻¹?",
+          "en": "How large would the torque be at the same power and n = 720 min⁻¹?"
+        },
+        "unit": "Nm",
+        "answer": 53.1,
+        "tolerance": 0.2,
+        "formula": "M = 9550 · P / n",
+        "calc": "M = 9550 · 4 / 720 = 53.1",
+        "why": {
+          "de": "Halbe Drehzahl bei gleicher Leistung bedeutet doppeltes Drehmoment.",
+          "en": "Half the speed at the same power means twice the torque."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "M = 9550 · P / n mit P in kW und n in min⁻¹. Langsame Motoren gleicher Leistung haben mehr Drehmoment.",
+      "en": "M = 9550 · P / n with P in kW and n in min⁻¹. Slow motors of the same power have more torque."
+    }
+  },
+  {
+    "id": "m10-u04-getriebemotor",
+    "module": "M10",
+    "lernfeld": {
+      "EAT": [
+        8
+      ],
+      "MECH": [
+        8
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Antriebstechnik. Motordaten sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Getriebemotor: Drehzahl und Drehmoment am Abtrieb",
+      "en": "Geared motor: speed and torque at the output"
+    },
+    "situation": {
+      "de": "Ein Motor mit n1 = 1440 min⁻¹ und M1 = 26,5 Nm treibt ein Getriebe mit der Übersetzung i = 20 und dem Wirkungsgrad η = 0,9.",
+      "en": "A motor with n1 = 1440 min⁻¹ and M1 = 26.5 Nm drives a gearbox with the ratio i = 20 and the efficiency η = 0.9."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Abtriebsdrehzahl n2?",
+          "en": "How large is the output speed n2?"
+        },
+        "unit": "min⁻¹",
+        "answer": 72,
+        "tolerance": 0.5,
+        "formula": "n2 = n1 / i",
+        "calc": "n2 = 1440 min⁻¹ / 20 = 72 min⁻¹",
+        "why": {
+          "de": "Das Getriebe übersetzt ins Langsame.",
+          "en": "The gearbox reduces the speed."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Abtriebsdrehmoment M2?",
+          "en": "How large is the output torque M2?"
+        },
+        "unit": "Nm",
+        "answer": 477,
+        "tolerance": 2,
+        "formula": "M2 = M1 · i · η",
+        "calc": "M2 = 26.5 Nm · 20 · 0.9 = 477 Nm",
+        "why": {
+          "de": "Das Drehmoment steigt mit der Übersetzung. Die Reibung im Getriebe nimmt einen Teil davon weg, deshalb der Wirkungsgrad.",
+          "en": "The torque rises with the ratio. Friction in the gearbox takes a part of it away, hence the efficiency."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Getriebe tauschen Drehzahl gegen Drehmoment. Der Wirkungsgrad wirkt nur auf das Drehmoment, nicht auf die Drehzahl.",
+      "en": "Gearboxes trade speed for torque. The efficiency only affects the torque, not the speed."
+    }
+  },
+  {
+    "id": "m10-u05-frequenzumrichter",
+    "module": "M10",
+    "lernfeld": {
+      "EAT": [
+        8
+      ],
+      "MECH": [
+        8
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Antriebstechnik. Motordaten sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Frequenzumrichter: Drehzahl und U/f-Kennlinie",
+      "en": "Frequency converter: speed and V/f characteristic"
+    },
+    "situation": {
+      "de": "Ein Motor mit 2 Polpaaren (400 V, 50 Hz) wird an einem Frequenzumrichter mit linearer U/f-Kennlinie betrieben. Der Umrichter gibt f = 25 Hz aus.",
+      "en": "A motor with 2 pole pairs (400 V, 50 Hz) is operated on a frequency converter with a linear V/f characteristic. The converter outputs f = 25 Hz."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Synchrondrehzahl bei 25 Hz?",
+          "en": "How large is the synchronous speed at 25 Hz?"
+        },
+        "unit": "min⁻¹",
+        "answer": 750,
+        "tolerance": 0,
+        "formula": "ns = f · 60 / p",
+        "calc": "ns = 25 Hz · 60 / 2 = 750 min⁻¹",
+        "why": {
+          "de": "Die Drehzahl des Drehfelds hängt direkt von der Frequenz ab. Halbe Frequenz, halbe Drehzahl.",
+          "en": "The speed of the rotating field depends directly on the frequency. Half the frequency, half the speed."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Verhältnis U/f im Bemessungspunkt?",
+          "en": "How large is the ratio V/f at the rated point?"
+        },
+        "unit": "V/Hz",
+        "answer": 8,
+        "tolerance": 0.05,
+        "formula": "U/f = UN / fN",
+        "calc": "U/f = 400 V / 50 Hz = 8",
+        "why": {
+          "de": "Der Umrichter hält dieses Verhältnis konstant, damit der magnetische Fluss im Motor gleich bleibt.",
+          "en": "The converter keeps this ratio constant so that the magnetic flux in the motor stays the same."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Spannung gibt der Umrichter bei 25 Hz aus?",
+          "en": "Which voltage does the converter output at 25 Hz?"
+        },
+        "unit": "V",
+        "answer": 200,
+        "tolerance": 1,
+        "formula": "U = (U/f) · f",
+        "calc": "U = 8 V/Hz · 25 Hz = 200 V",
+        "why": {
+          "de": "Bei halber Frequenz wird auch die Spannung halbiert. Sonst würde der Motor magnetisch übersättigt und zu heiß.",
+          "en": "At half the frequency the voltage is halved as well. Otherwise the motor would be magnetically oversaturated and get too hot."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Der Frequenzumrichter ändert die Drehzahl über die Frequenz und führt die Spannung mit (U/f = konstant).",
+      "en": "The frequency converter changes the speed via the frequency and adjusts the voltage with it (V/f = constant)."
+    }
+  }
+]

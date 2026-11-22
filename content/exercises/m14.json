@@ -1,0 +1,461 @@
+[
+  {
+    "id": "m14-u01-riementrieb",
+    "module": "M14",
+    "lernfeld": {
+      "MECH": [
+        1,
+        2,
+        10
+      ],
+      "IM": [
+        1,
+        3,
+        7,
+        11
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Mechanische Grundlagen.",
+    "title": {
+      "de": "Übersetzung eines Riementriebs",
+      "en": "Transmission ratio of a belt drive"
+    },
+    "situation": {
+      "de": "Ein Motor treibt über einen Riemen eine Welle an. Die treibende Scheibe hat d1 = 100 mm, die getriebene Scheibe d2 = 250 mm. Der Motor dreht mit n1 = 1400 min⁻¹.",
+      "en": "A motor drives a shaft via a belt. The driving pulley has d1 = 100 mm, the driven pulley d2 = 250 mm. The motor turns at n1 = 1400 min⁻¹."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Übersetzungsverhältnis i?",
+          "en": "How large is the transmission ratio i?"
+        },
+        "unit": "",
+        "answer": 2.5,
+        "tolerance": 0.01,
+        "formula": "i = d2 / d1",
+        "calc": "i = 250 mm / 100 mm = 2.5",
+        "why": {
+          "de": "Die Übersetzung ist getriebene Scheibe durch treibende Scheibe. i größer als 1 heißt: ins Langsame.",
+          "en": "The ratio is driven pulley divided by driving pulley. i larger than 1 means: speed is reduced."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie schnell dreht die getriebene Welle (n2)?",
+          "en": "How fast does the driven shaft turn (n2)?"
+        },
+        "unit": "min⁻¹",
+        "answer": 560,
+        "tolerance": 2,
+        "formula": "n2 = n1 / i",
+        "calc": "n2 = 1400 min⁻¹ / 2.5 = 560 min⁻¹",
+        "why": {
+          "de": "Die große Scheibe dreht langsamer. Der Riemen läuft auf beiden Scheiben gleich schnell.",
+          "en": "The large pulley turns more slowly. The belt runs at the same speed on both pulleys."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "i = d2 / d1 = n1 / n2. Große getriebene Scheibe: kleinere Drehzahl, größeres Drehmoment.",
+      "en": "i = d2 / d1 = n1 / n2. Large driven pulley: lower speed, higher torque."
+    }
+  },
+  {
+    "id": "m14-u02-zahnradtrieb",
+    "module": "M14",
+    "lernfeld": {
+      "MECH": [
+        1,
+        2,
+        10
+      ],
+      "IM": [
+        1,
+        3,
+        7,
+        11
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Mechanische Grundlagen.",
+    "title": {
+      "de": "Zahnradtrieb: Drehzahl und Drehmoment",
+      "en": "Gear drive: speed and torque"
+    },
+    "situation": {
+      "de": "Ein Ritzel mit z1 = 20 Zähnen treibt ein Rad mit z2 = 60 Zähnen. Das Ritzel dreht mit n1 = 900 min⁻¹ und überträgt das Drehmoment M1 = 10 Nm. Verluste werden nicht berücksichtigt.",
+      "en": "A pinion with z1 = 20 teeth drives a gear with z2 = 60 teeth. The pinion turns at n1 = 900 min⁻¹ and transmits the torque M1 = 10 Nm. Losses are ignored."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Übersetzungsverhältnis i?",
+          "en": "How large is the transmission ratio i?"
+        },
+        "unit": "",
+        "answer": 3,
+        "tolerance": 0.01,
+        "formula": "i = z2 / z1",
+        "calc": "i = 60 / 20 = 3",
+        "why": {
+          "de": "Bei Zahnrädern rechnet man mit den Zähnezahlen: getriebenes Rad durch treibendes Rad.",
+          "en": "With gears you use the numbers of teeth: driven gear divided by driving gear."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Drehzahl n2 des Rades?",
+          "en": "How large is the speed n2 of the gear?"
+        },
+        "unit": "min⁻¹",
+        "answer": 300,
+        "tolerance": 1,
+        "formula": "n2 = n1 / i",
+        "calc": "n2 = 900 min⁻¹ / 3 = 300 min⁻¹",
+        "why": {
+          "de": "Das große Rad hat dreimal so viele Zähne und dreht deshalb dreimal so langsam.",
+          "en": "The large gear has three times as many teeth and therefore turns three times more slowly."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Drehmoment M2 am Rad?",
+          "en": "How large is the torque M2 at the gear?"
+        },
+        "unit": "Nm",
+        "answer": 30,
+        "tolerance": 0.1,
+        "formula": "M2 = M1 · i",
+        "calc": "M2 = 10 Nm · 3 = 30 Nm",
+        "why": {
+          "de": "Was an Drehzahl verloren geht, wird an Drehmoment gewonnen. Die Leistung bleibt ohne Verluste gleich.",
+          "en": "What is lost in speed is gained in torque. Without losses the power stays the same."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Ins Langsame übersetzen heißt: Drehzahl geteilt durch i, Drehmoment mal i.",
+      "en": "Reducing speed means: speed divided by i, torque times i."
+    }
+  },
+  {
+    "id": "m14-u03-passung",
+    "module": "M14",
+    "lernfeld": {
+      "MECH": [
+        1,
+        2,
+        10
+      ],
+      "IM": [
+        1,
+        3,
+        7,
+        11
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Mechanische Grundlagen.",
+    "title": {
+      "de": "Passung: Höchstspiel und Mindestspiel",
+      "en": "Fit: maximum and minimum clearance"
+    },
+    "situation": {
+      "de": "Eine Bohrung hat das Nennmaß 30 mm mit den Abmaßen +0,021 mm und 0 mm. Die Welle hat die Abmaße −0,020 mm und −0,041 mm. Die Werte stammen aus der Toleranztabelle für diese Aufgabe.",
+      "en": "A hole has the nominal size 30 mm with the deviations +0.021 mm and 0 mm. The shaft has the deviations −0.020 mm and −0.041 mm. The values come from the tolerance table for this task."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Höchstmaß der Bohrung?",
+          "en": "How large is the maximum size of the hole?"
+        },
+        "unit": "mm",
+        "answer": 30.021,
+        "tolerance": 0.0005,
+        "formula": "GoB = N + ES",
+        "calc": "GoB = 30 mm + 0.021 mm = 30.021 mm",
+        "why": {
+          "de": "Das obere Abmaß wird zum Nennmaß addiert.",
+          "en": "The upper deviation is added to the nominal size."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Mindestmaß der Welle?",
+          "en": "How large is the minimum size of the shaft?"
+        },
+        "unit": "mm",
+        "answer": 29.959,
+        "tolerance": 0.0005,
+        "formula": "GuW = N + ei",
+        "calc": "GuW = 30 mm − 0.041 mm = 29.959 mm",
+        "why": {
+          "de": "Das untere Abmaß der Welle ist negativ, die kleinste Welle ist also dünner als 30 mm.",
+          "en": "The lower deviation of the shaft is negative, so the smallest shaft is thinner than 30 mm."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Höchstspiel?",
+          "en": "How large is the maximum clearance?"
+        },
+        "unit": "mm",
+        "answer": 0.062,
+        "tolerance": 0.0005,
+        "formula": "PSH = GoB − GuW",
+        "calc": "PSH = 30.021 mm − 29.959 mm = 0.062 mm",
+        "why": {
+          "de": "Am meisten Luft ist zwischen größter Bohrung und kleinster Welle.",
+          "en": "There is the most play between the largest hole and the smallest shaft."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Mindestspiel?",
+          "en": "How large is the minimum clearance?"
+        },
+        "unit": "mm",
+        "answer": 0.02,
+        "tolerance": 0.0005,
+        "formula": "PSM = GuB − GoW",
+        "calc": "PSM = 30 mm − 29.98 mm = 0.02 mm",
+        "why": {
+          "de": "Am wenigsten Luft ist zwischen kleinster Bohrung (30,000 mm) und größter Welle (29,980 mm). Das Ergebnis ist positiv, es ist also immer Spiel vorhanden: eine Spielpassung.",
+          "en": "There is the least play between the smallest hole (30.000 mm) and the largest shaft (29.980 mm). The result is positive, so there is always clearance: a clearance fit."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Spielpassung: Auch im ungünstigsten Fall ist die Welle kleiner als die Bohrung.",
+      "en": "Clearance fit: even in the worst case the shaft is smaller than the hole."
+    }
+  },
+  {
+    "id": "m14-u04-drehmoment-schluessel",
+    "module": "M14",
+    "lernfeld": {
+      "MECH": [
+        1,
+        2,
+        10
+      ],
+      "IM": [
+        1,
+        3,
+        7,
+        11
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Mechanische Grundlagen.",
+    "title": {
+      "de": "Drehmoment am Schraubenschlüssel",
+      "en": "Torque at a spanner"
+    },
+    "situation": {
+      "de": "Eine Schraube wird mit einem Schlüssel angezogen. Die Hand greift l = 0,25 m von der Schraubenmitte entfernt und zieht mit F = 80 N im rechten Winkel zum Schlüssel.",
+      "en": "A screw is tightened with a spanner. The hand grips l = 0.25 m from the centre of the screw and pulls with F = 80 N at a right angle to the spanner."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Drehmoment M?",
+          "en": "How large is the torque M?"
+        },
+        "unit": "Nm",
+        "answer": 20,
+        "tolerance": 0.1,
+        "formula": "M = F · l",
+        "calc": "M = 80 N · 0.25 m = 20 Nm",
+        "why": {
+          "de": "Drehmoment ist Kraft mal Hebelarm. Der Hebelarm ist der Abstand im rechten Winkel zur Kraft.",
+          "en": "Torque is force times lever arm. The lever arm is the distance at a right angle to the force."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Die Schraube braucht 50 Nm. Welche Kraft F ist bei gleichem Hebelarm nötig?",
+          "en": "The screw needs 50 Nm. Which force F is necessary with the same lever arm?"
+        },
+        "unit": "N",
+        "answer": 200,
+        "tolerance": 1,
+        "formula": "F = M / l",
+        "calc": "F = 50 Nm / 0.25 m = 200 N",
+        "why": {
+          "de": "Die Formel wird nach der Kraft umgestellt.",
+          "en": "The formula is rearranged for the force."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lang müsste der Hebelarm sein, damit 100 N für 50 Nm reichen?",
+          "en": "How long would the lever arm have to be so that 100 N are enough for 50 Nm?"
+        },
+        "unit": "m",
+        "answer": 0.5,
+        "tolerance": 0.005,
+        "formula": "l = M / F",
+        "calc": "l = 50 Nm / 100 N = 0.5 m",
+        "why": {
+          "de": "Doppelter Hebelarm, halbe Kraft. Darum sind Drehmomentschlüssel für große Momente lang.",
+          "en": "Twice the lever arm, half the force. That is why torque wrenches for large torques are long."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "M = F · l. Langer Hebel, kleine Kraft.",
+      "en": "M = F · l. Long lever, small force."
+    }
+  },
+  {
+    "id": "m14-u05-druck",
+    "module": "M14",
+    "lernfeld": {
+      "MECH": [
+        1,
+        2,
+        10
+      ],
+      "IM": [
+        1,
+        3,
+        7,
+        11
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Mechanische Grundlagen.",
+    "title": {
+      "de": "Druck: Kraft pro Fläche",
+      "en": "Pressure: force per area"
+    },
+    "situation": {
+      "de": "Eine Kraft F = 5000 N wirkt gleichmäßig auf eine Fläche A = 25 cm².",
+      "en": "A force F = 5000 N acts evenly on an area A = 25 cm²."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Druck p in N/cm²?",
+          "en": "How large is the pressure p in N/cm²?"
+        },
+        "unit": "N/cm²",
+        "answer": 200,
+        "tolerance": 1,
+        "formula": "p = F / A",
+        "calc": "p = 5000 N / 25 cm² = 200 N/cm²",
+        "why": {
+          "de": "Druck ist Kraft geteilt durch die Fläche, auf die sie wirkt.",
+          "en": "Pressure is force divided by the area it acts on."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel bar sind das?",
+          "en": "How many bar is that?"
+        },
+        "unit": "bar",
+        "answer": 20,
+        "tolerance": 0.1,
+        "formula": "1 bar = 10 N/cm²",
+        "calc": "p = 200 N/cm² / 10 = 20 bar",
+        "why": {
+          "de": "In Pneumatik und Hydraulik rechnet man gern mit N/cm², weil 1 bar genau 10 N/cm² sind.",
+          "en": "In pneumatics and hydraulics N/cm² is handy because 1 bar is exactly 10 N/cm²."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "p = F / A. 1 bar = 10 N/cm² = 100 000 Pa.",
+      "en": "p = F / A. 1 bar = 10 N/cm² = 100 000 Pa."
+    }
+  },
+  {
+    "id": "m14-u06-masse-stahlplatte",
+    "module": "M14",
+    "lernfeld": {
+      "MECH": [
+        1,
+        2,
+        10
+      ],
+      "IM": [
+        1,
+        3,
+        7,
+        11
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Mechanische Grundlagen.",
+    "title": {
+      "de": "Masse einer Stahlplatte",
+      "en": "Mass of a steel plate"
+    },
+    "situation": {
+      "de": "Eine Stahlplatte ist 200 mm lang, 100 mm breit und 10 mm dick. Rechne mit der Dichte ρ = 7,85 kg/dm³ und g = 9,81 m/s².",
+      "en": "A steel plate is 200 mm long, 100 mm wide and 10 mm thick. Use the density ρ = 7.85 kg/dm³ and g = 9.81 m/s²."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Volumen V in dm³?",
+          "en": "How large is the volume V in dm³?"
+        },
+        "unit": "dm³",
+        "answer": 0.2,
+        "tolerance": 0.001,
+        "formula": "V = l · b · h",
+        "calc": "V = 2 dm · 1 dm · 0.1 dm = 0.2 dm³",
+        "why": {
+          "de": "Rechne zuerst alle Maße in Dezimeter um (100 mm = 1 dm). Dann passt das Volumen zur Einheit der Dichte.",
+          "en": "First convert all dimensions to decimetres (100 mm = 1 dm). Then the volume matches the unit of the density."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Masse m?",
+          "en": "How large is the mass m?"
+        },
+        "unit": "kg",
+        "answer": 1.57,
+        "tolerance": 0.01,
+        "formula": "m = V · ρ",
+        "calc": "m = 0.2 dm³ · 7.85 kg/dm³ = 1.57 kg",
+        "why": {
+          "de": "Die Dichte sagt, wie viel Masse ein Kubikdezimeter des Werkstoffs hat.",
+          "en": "The density says how much mass one cubic decimetre of the material has."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Gewichtskraft F?",
+          "en": "How large is the weight force F?"
+        },
+        "unit": "N",
+        "answer": 15.4,
+        "tolerance": 0.1,
+        "formula": "F = m · g",
+        "calc": "F = 1.57 kg · 9.81 m/s² = 15.4 N",
+        "why": {
+          "de": "Masse (kg) und Gewichtskraft (N) sind nicht dasselbe. Die Kraft entsteht erst durch die Erdanziehung.",
+          "en": "Mass (kg) and weight force (N) are not the same. The force only arises from gravity."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "m = V · ρ. Achte darauf, dass Volumen und Dichte die gleiche Längeneinheit haben.",
+      "en": "m = V · ρ. Make sure volume and density use the same unit of length."
+    }
+  }
+]
