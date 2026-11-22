@@ -1,6 +1,9 @@
 // Lernfelder per trade and their mapping to topic modules.
-// Lernfeld titles follow the KMK Rahmenlehrpläne. TODO(verify): check the exact wording
-// against the official PDFs before publishing (see docs/CURRICULUM.md).
+// Lernfeld titles are copied from the KMK Rahmenlehrpläne in the version of 23.02.2018
+// (kmk.org download list, read on 2026-11-22). Note: the Handwerk trade "Elektroniker/-in"
+// (2020) has different titles; do not mix the two plans.
+// MECH LF 4: the KMK PDF prints the title without "pneumatischen" although the content of the
+// Lernfeld covers pneumatics. TODO(verify): owner to confirm against the school's plan.
 
 export type L10n = { de: string; en: string };
 export type TradeId = 'EAT' | 'MECH' | 'IM';
@@ -58,7 +61,7 @@ export const lernfelder: Record<TradeId, Lernfeld[]> = {
     lf(1, 1, 'Analysieren von Funktionszusammenhängen in mechatronischen Systemen', 'M14', 'M16'),
     lf(1, 2, 'Herstellen mechanischer Teilsysteme', 'M14', 'M15'),
     lf(1, 3, 'Installieren elektrischer Betriebsmittel unter Beachtung sicherheitstechnischer Aspekte', 'M01', 'M02', 'M03', 'M04'),
-    lf(1, 4, 'Untersuchen der Energie- und Informationsflüsse in elektrischen, pneumatischen und hydraulischen Baugruppen', 'M05', 'M09'),
+    lf(1, 4, 'Untersuchen der Energie- und Informationsflüsse in elektrischen und hydraulischen Baugruppen', 'M05', 'M09'),
     lf(1, 5, 'Kommunizieren mit Hilfe von Datenverarbeitungssystemen', 'M11'),
     lf(2, 6, 'Planen und Organisieren von Arbeitsabläufen', 'M13'),
     lf(2, 7, 'Realisieren mechatronischer Teilsysteme', 'M06', 'M07', 'M08', 'M09'),

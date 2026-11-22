@@ -21,6 +21,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const nav = [
     { href: '/', label: t({ de: 'Start', en: 'Home' }), active: path === '/' },
     { href: '/sps', label: t({ de: 'SPS-Trainer', en: 'PLC trainer' }), active: path.startsWith('/sps') },
+    { href: '/uebungen', label: t({ de: 'Übungen', en: 'Exercises' }), active: path.startsWith('/uebungen') },
     { href: '/quiz', label: 'Quiz', active: path.startsWith('/quiz') },
   ];
   return (

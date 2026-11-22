@@ -1,0 +1,956 @@
+[
+  {
+    "id": "m01-u01-ohm-lampe",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Ohmsches Gesetz: Strom durch eine Lampe",
+      "en": "Ohm's law: current through a lamp"
+    },
+    "situation": {
+      "de": "Eine Meldelampe hat den Widerstand R = 48 Ω. Sie liegt an U = 12 V.",
+      "en": "A signal lamp has the resistance R = 48 Ω. It is connected to U = 12 V."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I durch die Lampe?",
+          "en": "How large is the current I through the lamp?"
+        },
+        "unit": "A",
+        "answer": 0.25,
+        "tolerance": 0.005,
+        "formula": "I = U / R",
+        "calc": "I = 12 V / 48 Ω = 0.25 A",
+        "why": {
+          "de": "Spannung und Widerstand sind gegeben, der Strom ist gesucht. Das ohmsche Gesetz U = R · I wird nach I umgestellt.",
+          "en": "Voltage and resistance are given, the current is wanted. Ohm's law U = R · I is rearranged for I."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung P nimmt die Lampe auf?",
+          "en": "Which power P does the lamp take?"
+        },
+        "unit": "W",
+        "answer": 3,
+        "tolerance": 0.05,
+        "formula": "P = U · I",
+        "calc": "P = 12 V · 0.25 A = 3 W",
+        "why": {
+          "de": "Die elektrische Leistung ist Spannung mal Strom. Den Strom kennst du aus Schritt 1.",
+          "en": "Electrical power is voltage times current. You know the current from step 1."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Das ohmsche Gesetz hat drei Formen: U = R · I, I = U / R und R = U / I. Decke im Dreieck die gesuchte Größe ab.",
+      "en": "Ohm's law has three forms: U = R · I, I = U / R and R = U / I. Cover the wanted quantity in the triangle."
+    }
+  },
+  {
+    "id": "m01-u02-widerstand-heizung",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Widerstand eines Heizelements",
+      "en": "Resistance of a heating element"
+    },
+    "situation": {
+      "de": "Ein Heizelement liegt an U = 230 V. Gemessen wird der Strom I = 4,6 A.",
+      "en": "A heating element is connected to U = 230 V. The measured current is I = 4.6 A."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Widerstand R des Heizelements?",
+          "en": "How large is the resistance R of the heating element?"
+        },
+        "unit": "Ω",
+        "answer": 50,
+        "tolerance": 0.5,
+        "formula": "R = U / I",
+        "calc": "R = 230 V / 4.6 A = 50 Ω",
+        "why": {
+          "de": "Gesucht ist der Widerstand, also wird U = R · I nach R umgestellt.",
+          "en": "The resistance is wanted, so U = R · I is rearranged for R."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung P setzt das Heizelement um?",
+          "en": "Which power P does the heating element convert?"
+        },
+        "unit": "W",
+        "answer": 1058,
+        "tolerance": 5,
+        "formula": "P = U · I",
+        "calc": "P = 230 V · 4.6 A = 1058 W",
+        "why": {
+          "de": "Fast die ganze elektrische Leistung wird im Heizelement zu Wärme.",
+          "en": "Almost all of the electrical power becomes heat in the heating element."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Aus zwei gemessenen Größen (U und I) kannst du die dritte (R) und die Leistung berechnen.",
+      "en": "From two measured quantities (U and I) you can calculate the third (R) and the power."
+    }
+  },
+  {
+    "id": "m01-u03-vorsaetze",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Vorsätze umrechnen: kΩ und mA",
+      "en": "Converting prefixes: kΩ and mA"
+    },
+    "situation": {
+      "de": "Durch einen Widerstand R = 2,2 kΩ fließt der Strom I = 5 mA.",
+      "en": "The current I = 5 mA flows through a resistor R = 2.2 kΩ."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist R in Ω?",
+          "en": "How large is R in Ω?"
+        },
+        "unit": "Ω",
+        "answer": 2200,
+        "tolerance": 0,
+        "formula": "1 kΩ = 1000 Ω",
+        "calc": "R = 2.2 · 1000 Ω = 2200 Ω",
+        "why": {
+          "de": "Kilo (k) bedeutet mal 1000. Rechne immer zuerst in die Grundeinheit um.",
+          "en": "Kilo (k) means times 1000. Always convert to the base unit first."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist I in A?",
+          "en": "How large is I in A?"
+        },
+        "unit": "A",
+        "answer": 0.005,
+        "tolerance": 0.00001,
+        "formula": "1 mA = 0.001 A",
+        "calc": "I = 5 · 0.001 A = 0.005 A",
+        "why": {
+          "de": "Milli (m) bedeutet geteilt durch 1000.",
+          "en": "Milli (m) means divided by 1000."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Spannung U liegt am Widerstand?",
+          "en": "Which voltage U is across the resistor?"
+        },
+        "unit": "V",
+        "answer": 11,
+        "tolerance": 0.1,
+        "formula": "U = R · I",
+        "calc": "U = 2200 Ω · 0.005 A = 11 V",
+        "why": {
+          "de": "Mit Grundeinheiten (Ω und A) kommt das Ergebnis direkt in Volt heraus.",
+          "en": "With base units (Ω and A) the result comes out directly in volts."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Erst in Grundeinheiten umrechnen, dann rechnen. Die meisten Fehler bei Rechenaufgaben sind Fehler mit den Vorsätzen.",
+      "en": "Convert to base units first, then calculate. Most mistakes in calculations are prefix mistakes."
+    }
+  },
+  {
+    "id": "m01-u04-reihenschaltung",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Reihenschaltung von drei Widerständen",
+      "en": "Series circuit of three resistors"
+    },
+    "situation": {
+      "de": "Drei Widerstände R1 = 100 Ω, R2 = 220 Ω und R3 = 330 Ω sind in Reihe geschaltet. Die Gesamtspannung ist U = 13 V.",
+      "en": "Three resistors R1 = 100 Ω, R2 = 220 Ω and R3 = 330 Ω are connected in series. The total voltage is U = 13 V."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Gesamtwiderstand Rges?",
+          "en": "How large is the total resistance Rges?"
+        },
+        "unit": "Ω",
+        "answer": 650,
+        "tolerance": 0,
+        "formula": "Rges = R1 + R2 + R3",
+        "calc": "Rges = 100 Ω + 220 Ω + 330 Ω = 650 Ω",
+        "why": {
+          "de": "In der Reihenschaltung muss der Strom durch alle Widerstände nacheinander. Die Widerstände addieren sich.",
+          "en": "In a series circuit the current has to pass all resistors one after another. The resistances add up."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I in mA?",
+          "en": "How large is the current I in mA?"
+        },
+        "unit": "mA",
+        "answer": 20,
+        "tolerance": 0.2,
+        "formula": "I = U / Rges",
+        "calc": "I = 13 V / 650 Ω = 0.02 A = 20 mA",
+        "why": {
+          "de": "Es gibt nur einen Stromweg. Der Strom ist deshalb überall gleich groß.",
+          "en": "There is only one current path. So the current is the same everywhere."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Spannung U2 liegt an R2?",
+          "en": "Which voltage U2 is across R2?"
+        },
+        "unit": "V",
+        "answer": 4.4,
+        "tolerance": 0.05,
+        "formula": "U2 = R2 · I",
+        "calc": "U2 = 220 Ω · 0.02 A = 4.4 V",
+        "why": {
+          "de": "Jeder Widerstand bekommt einen Teil der Gesamtspannung. Am größeren Widerstand liegt die größere Spannung.",
+          "en": "Each resistor gets a part of the total voltage. The larger resistor has the larger voltage."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Spannung U3 liegt an R3?",
+          "en": "Which voltage U3 is across R3?"
+        },
+        "unit": "V",
+        "answer": 6.6,
+        "tolerance": 0.05,
+        "formula": "U3 = R3 · I",
+        "calc": "U3 = 330 Ω · 0.02 A = 6.6 V",
+        "why": {
+          "de": "Probe: U1 + U2 + U3 = 2 V + 4,4 V + 6,6 V = 13 V. Die Teilspannungen ergeben zusammen die Gesamtspannung.",
+          "en": "Check: U1 + U2 + U3 = 2 V + 4.4 V + 6.6 V = 13 V. The partial voltages add up to the total voltage."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Reihenschaltung: gleicher Strom, Widerstände und Spannungen addieren sich.",
+      "en": "Series circuit: same current, resistances and voltages add up."
+    }
+  },
+  {
+    "id": "m01-u05-parallelschaltung",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Parallelschaltung von zwei Widerständen",
+      "en": "Parallel circuit of two resistors"
+    },
+    "situation": {
+      "de": "Zwei Widerstände R1 = 60 Ω und R2 = 40 Ω sind parallel an U = 24 V angeschlossen.",
+      "en": "Two resistors R1 = 60 Ω and R2 = 40 Ω are connected in parallel to U = 24 V."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I1 durch R1?",
+          "en": "How large is the current I1 through R1?"
+        },
+        "unit": "A",
+        "answer": 0.4,
+        "tolerance": 0.005,
+        "formula": "I1 = U / R1",
+        "calc": "I1 = 24 V / 60 Ω = 0.4 A",
+        "why": {
+          "de": "In der Parallelschaltung liegt an jedem Widerstand die volle Spannung.",
+          "en": "In a parallel circuit each resistor has the full voltage."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I2 durch R2?",
+          "en": "How large is the current I2 through R2?"
+        },
+        "unit": "A",
+        "answer": 0.6,
+        "tolerance": 0.005,
+        "formula": "I2 = U / R2",
+        "calc": "I2 = 24 V / 40 Ω = 0.6 A",
+        "why": {
+          "de": "Durch den kleineren Widerstand fließt der größere Strom.",
+          "en": "The larger current flows through the smaller resistor."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Gesamtstrom Iges?",
+          "en": "How large is the total current Iges?"
+        },
+        "unit": "A",
+        "answer": 1,
+        "tolerance": 0.01,
+        "formula": "Iges = I1 + I2",
+        "calc": "Iges = 0.4 A + 0.6 A = 1 A",
+        "why": {
+          "de": "Am Knoten teilt sich der Strom auf. Die Teilströme ergeben zusammen den Gesamtstrom (Knotenregel).",
+          "en": "The current splits at the node. The partial currents add up to the total current (Kirchhoff's current law)."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Gesamtwiderstand Rges?",
+          "en": "How large is the total resistance Rges?"
+        },
+        "unit": "Ω",
+        "answer": 24,
+        "tolerance": 0.2,
+        "formula": "Rges = U / Iges",
+        "calc": "Rges = 24 V / 1 A = 24 Ω",
+        "why": {
+          "de": "Der Gesamtwiderstand ist kleiner als der kleinste Einzelwiderstand, weil jeder weitere Weg mehr Strom durchlässt. Probe mit der Formel für zwei Widerstände: 60 · 40 / (60 + 40) = 24.",
+          "en": "The total resistance is smaller than the smallest single resistor because every additional path lets more current through. Check with the formula for two resistors: 60 · 40 / (60 + 40) = 24."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Parallelschaltung: gleiche Spannung, Ströme addieren sich, der Gesamtwiderstand ist kleiner als der kleinste Einzelwiderstand.",
+      "en": "Parallel circuit: same voltage, currents add up, the total resistance is smaller than the smallest single resistor."
+    }
+  },
+  {
+    "id": "m01-u06-gemischte-schaltung",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Gemischte Schaltung",
+      "en": "Mixed circuit"
+    },
+    "situation": {
+      "de": "R1 = 10 Ω liegt in Reihe zu einer Parallelschaltung aus R2 = 30 Ω und R3 = 60 Ω. Die Gesamtspannung ist U = 12 V.",
+      "en": "R1 = 10 Ω is in series with a parallel circuit of R2 = 30 Ω and R3 = 60 Ω. The total voltage is U = 12 V."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Ersatzwiderstand R23 der Parallelschaltung?",
+          "en": "How large is the equivalent resistance R23 of the parallel circuit?"
+        },
+        "unit": "Ω",
+        "answer": 20,
+        "tolerance": 0.2,
+        "formula": "R23 = R2 · R3 / (R2 + R3)",
+        "calc": "R23 = 30 Ω · 60 Ω / 90 Ω = 20 Ω",
+        "why": {
+          "de": "Man fasst die Schaltung von innen nach außen zusammen. Zuerst wird die Parallelschaltung zu einem Widerstand.",
+          "en": "You simplify the circuit from the inside to the outside. First the parallel circuit becomes one resistor."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Gesamtwiderstand Rges?",
+          "en": "How large is the total resistance Rges?"
+        },
+        "unit": "Ω",
+        "answer": 30,
+        "tolerance": 0.2,
+        "formula": "Rges = R1 + R23",
+        "calc": "Rges = 10 Ω + 20 Ω = 30 Ω",
+        "why": {
+          "de": "Jetzt liegt R1 in Reihe zum Ersatzwiderstand R23.",
+          "en": "Now R1 is in series with the equivalent resistance R23."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Gesamtstrom I?",
+          "en": "How large is the total current I?"
+        },
+        "unit": "A",
+        "answer": 0.4,
+        "tolerance": 0.005,
+        "formula": "I = U / Rges",
+        "calc": "I = 12 V / 30 Ω = 0.4 A",
+        "why": {
+          "de": "Der Gesamtstrom fließt durch R1 und teilt sich danach auf R2 und R3 auf.",
+          "en": "The total current flows through R1 and then splits between R2 and R3."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Spannung U23 liegt an der Parallelschaltung?",
+          "en": "Which voltage U23 is across the parallel circuit?"
+        },
+        "unit": "V",
+        "answer": 8,
+        "tolerance": 0.1,
+        "formula": "U23 = R23 · I",
+        "calc": "U23 = 20 Ω · 0.4 A = 8 V",
+        "why": {
+          "de": "An R1 fallen 10 Ω · 0,4 A = 4 V ab. Der Rest der 12 V liegt an der Parallelschaltung.",
+          "en": "10 Ω · 0.4 A = 4 V drop across R1. The rest of the 12 V is across the parallel circuit."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I2 durch R2?",
+          "en": "How large is the current I2 through R2?"
+        },
+        "unit": "A",
+        "answer": 0.267,
+        "tolerance": 0.005,
+        "formula": "I2 = U23 / R2",
+        "calc": "I2 = 8 V / 30 Ω = 0.267 A",
+        "why": {
+          "de": "An R2 liegt U23, nicht die Gesamtspannung. Probe: I3 = 8 V / 60 Ω = 0,133 A, zusammen 0,4 A.",
+          "en": "R2 has U23 across it, not the total voltage. Check: I3 = 8 V / 60 Ω = 0.133 A, together 0.4 A."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Gemischte Schaltungen löst du in zwei Richtungen: erst zum Gesamtwiderstand zusammenfassen, dann mit dem Gesamtstrom Schritt für Schritt zurückrechnen.",
+      "en": "You solve mixed circuits in two directions: first simplify to the total resistance, then work back step by step with the total current."
+    }
+  },
+  {
+    "id": "m01-u07-spannungsteiler",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Unbelasteter Spannungsteiler",
+      "en": "Unloaded voltage divider"
+    },
+    "situation": {
+      "de": "Ein Spannungsteiler aus R1 = 3 kΩ und R2 = 1 kΩ liegt an U = 24 V. Die Ausgangsspannung U2 wird an R2 abgegriffen. Es ist keine Last angeschlossen.",
+      "en": "A voltage divider made of R1 = 3 kΩ and R2 = 1 kΩ is connected to U = 24 V. The output voltage U2 is taken across R2. No load is connected."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Strom I durch den Spannungsteiler in mA?",
+          "en": "How large is the current I through the voltage divider in mA?"
+        },
+        "unit": "mA",
+        "answer": 6,
+        "tolerance": 0.06,
+        "formula": "I = U / (R1 + R2)",
+        "calc": "I = 24 V / 4000 Ω = 0.006 A = 6 mA",
+        "why": {
+          "de": "Ohne Last ist der Spannungsteiler eine einfache Reihenschaltung.",
+          "en": "Without a load the voltage divider is a simple series circuit."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Ausgangsspannung U2?",
+          "en": "How large is the output voltage U2?"
+        },
+        "unit": "V",
+        "answer": 6,
+        "tolerance": 0.06,
+        "formula": "U2 = U · R2 / (R1 + R2)",
+        "calc": "U2 = 24 V · 1000 Ω / 4000 Ω = 6 V",
+        "why": {
+          "de": "Die Spannungen verhalten sich wie die Widerstände. R2 ist ein Viertel des Gesamtwiderstands, also liegt ein Viertel der Spannung an R2.",
+          "en": "The voltages behave like the resistances. R2 is a quarter of the total resistance, so a quarter of the voltage is across R2."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Beim Spannungsteiler teilt sich die Spannung im Verhältnis der Widerstände auf.",
+      "en": "In a voltage divider the voltage is divided in the ratio of the resistances."
+    }
+  },
+  {
+    "id": "m01-u08-spannungsteiler-belastet",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 4,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Belasteter Spannungsteiler",
+      "en": "Loaded voltage divider"
+    },
+    "situation": {
+      "de": "Der Spannungsteiler aus R1 = 3 kΩ und R2 = 1 kΩ liegt an U = 24 V. Unbelastet ist U2 = 6 V. Jetzt wird parallel zu R2 eine Last RL = 1 kΩ angeschlossen.",
+      "en": "The voltage divider made of R1 = 3 kΩ and R2 = 1 kΩ is connected to U = 24 V. Unloaded, U2 = 6 V. Now a load RL = 1 kΩ is connected in parallel to R2."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Ersatzwiderstand R2L aus R2 und RL?",
+          "en": "How large is the equivalent resistance R2L of R2 and RL?"
+        },
+        "unit": "Ω",
+        "answer": 500,
+        "tolerance": 5,
+        "formula": "R2L = R2 · RL / (R2 + RL)",
+        "calc": "R2L = 1000 Ω · 1000 Ω / 2000 Ω = 500 Ω",
+        "why": {
+          "de": "Die Last liegt parallel zu R2. Zwei gleiche Widerstände parallel ergeben die Hälfte.",
+          "en": "The load is parallel to R2. Two equal resistors in parallel give half the value."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist jetzt der Gesamtwiderstand Rges?",
+          "en": "How large is the total resistance Rges now?"
+        },
+        "unit": "Ω",
+        "answer": 3500,
+        "tolerance": 10,
+        "formula": "Rges = R1 + R2L",
+        "calc": "Rges = 3000 Ω + 500 Ω = 3500 Ω",
+        "why": {
+          "de": "R1 liegt in Reihe zum Ersatzwiderstand.",
+          "en": "R1 is in series with the equivalent resistance."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Ausgangsspannung U2 mit Last?",
+          "en": "How large is the output voltage U2 with the load?"
+        },
+        "unit": "V",
+        "answer": 3.43,
+        "tolerance": 0.03,
+        "formula": "U2 = U · R2L / Rges",
+        "calc": "U2 = 24 V · 500 Ω / 3500 Ω = 3.43 V",
+        "why": {
+          "de": "Durch die Last wird der untere Widerstand kleiner. Damit sinkt sein Anteil an der Gesamtspannung von 6 V auf etwa 3,4 V.",
+          "en": "The load makes the lower resistance smaller. So its share of the total voltage drops from 6 V to about 3.4 V."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Eine Last zieht die Ausgangsspannung eines Spannungsteilers nach unten. Je kleiner der Lastwiderstand, desto stärker der Einbruch.",
+      "en": "A load pulls the output voltage of a voltage divider down. The smaller the load resistance, the larger the drop."
+    }
+  },
+  {
+    "id": "m01-u09-leiterwiderstand",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Leiterwiderstand und Spannungsfall",
+      "en": "Conductor resistance and voltage drop"
+    },
+    "situation": {
+      "de": "Ein Gerät ist über eine 50 m lange Kupferleitung (Hinleiter und Rückleiter) angeschlossen. Der Querschnitt ist A = 1,5 mm². Rechne mit dem spezifischen Widerstand ρ = 0,0178 Ω·mm²/m. Es fließt der Strom I = 10 A. Die Netzspannung ist 230 V.",
+      "en": "A device is connected via a 50 m long copper cable (outgoing and return conductor). The cross-section is A = 1.5 mm². Use the resistivity ρ = 0.0178 Ω·mm²/m. The current I = 10 A flows. The mains voltage is 230 V."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie lang ist der Leiter insgesamt, durch den der Strom fließt?",
+          "en": "How long is the conductor in total through which the current flows?"
+        },
+        "unit": "m",
+        "answer": 100,
+        "tolerance": 0,
+        "formula": "l = 2 · Leitungslänge",
+        "calc": "l = 2 · 50 m = 100 m",
+        "why": {
+          "de": "Der Strom fließt hin und zurück. Für den Widerstand zählt deshalb die doppelte Leitungslänge.",
+          "en": "The current flows there and back. So twice the cable length counts for the resistance."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Leiterwiderstand R?",
+          "en": "How large is the conductor resistance R?"
+        },
+        "unit": "Ω",
+        "answer": 1.19,
+        "tolerance": 0.01,
+        "formula": "R = ρ · l / A",
+        "calc": "R = 0.0178 Ω·mm²/m · 100 m / 1.5 mm² = 1.19 Ω",
+        "why": {
+          "de": "Ein langer Leiter hat mehr Widerstand, ein dicker Leiter weniger.",
+          "en": "A long conductor has more resistance, a thick conductor less."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Spannungsfall ΔU auf der Leitung?",
+          "en": "How large is the voltage drop ΔU on the cable?"
+        },
+        "unit": "V",
+        "answer": 11.9,
+        "tolerance": 0.1,
+        "formula": "ΔU = R · I",
+        "calc": "ΔU = 1.19 Ω · 10 A = 11.9 V",
+        "why": {
+          "de": "Auch die Leitung ist ein Widerstand in Reihe zum Gerät. An ihr geht Spannung verloren.",
+          "en": "The cable is also a resistor in series with the device. Voltage is lost across it."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel Prozent der Netzspannung sind das?",
+          "en": "What percentage of the mains voltage is that?"
+        },
+        "unit": "%",
+        "answer": 5.2,
+        "tolerance": 0.1,
+        "formula": "Δu = ΔU / U · 100 %",
+        "calc": "Δu = 11.9 V / 230 V · 100 = 5.2",
+        "why": {
+          "de": "Der Spannungsfall wird in Prozent angegeben, damit man ihn mit zulässigen Werten vergleichen kann. Am Gerät kommen nur noch etwa 218 V an.",
+          "en": "The voltage drop is given in percent so that it can be compared with permitted values. Only about 218 V arrive at the device."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Bei langen Leitungen und großen Strömen muss der Querschnitt größer gewählt werden, sonst wird der Spannungsfall zu hoch.",
+      "en": "With long cables and large currents the cross-section has to be larger, otherwise the voltage drop becomes too high."
+    }
+  },
+  {
+    "id": "m01-u10-energie-kosten",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Elektrische Arbeit und Energiekosten",
+      "en": "Electrical energy and energy cost"
+    },
+    "situation": {
+      "de": "Ein Heizlüfter mit P = 2 kW läuft jeden Tag 3 Stunden. Der Arbeitspreis beträgt in dieser Aufgabe 0,35 € pro kWh.",
+      "en": "A fan heater with P = 2 kW runs for 3 hours every day. In this task the energy price is €0.35 per kWh."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie viel Energie W braucht der Heizlüfter pro Tag?",
+          "en": "How much energy W does the fan heater need per day?"
+        },
+        "unit": "kWh",
+        "answer": 6,
+        "tolerance": 0.05,
+        "formula": "W = P · t",
+        "calc": "W = 2 kW · 3 h = 6 kWh",
+        "why": {
+          "de": "Elektrische Arbeit ist Leistung mal Zeit. Mit kW und Stunden kommt direkt kWh heraus.",
+          "en": "Electrical energy is power times time. With kW and hours the result is directly in kWh."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel Energie sind das in 30 Tagen?",
+          "en": "How much energy is that in 30 days?"
+        },
+        "unit": "kWh",
+        "answer": 180,
+        "tolerance": 1,
+        "formula": "W30 = W · 30",
+        "calc": "W30 = 6 kWh · 30 = 180 kWh",
+        "why": {
+          "de": "Die tägliche Energie wird mit der Anzahl der Tage multipliziert.",
+          "en": "The daily energy is multiplied by the number of days."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Was kostet das in 30 Tagen?",
+          "en": "What does that cost in 30 days?"
+        },
+        "unit": "€",
+        "answer": 63,
+        "tolerance": 0.5,
+        "formula": "K = W30 · Preis",
+        "calc": "K = 180 kWh · 0.35 €/kWh = 63 €",
+        "why": {
+          "de": "Bezahlt wird die Energie in kWh, nicht die Leistung.",
+          "en": "You pay for the energy in kWh, not for the power."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Leistung (kW) sagt, wie stark ein Gerät ist. Arbeit (kWh) sagt, wie viel Energie es in einer Zeit verbraucht.",
+      "en": "Power (kW) says how strong a device is. Energy (kWh) says how much energy it uses in a time."
+    }
+  },
+  {
+    "id": "m01-u11-vorwiderstand-led",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Vorwiderstand für eine LED",
+      "en": "Series resistor for an LED"
+    },
+    "situation": {
+      "de": "Eine LED soll an U = 24 V betrieben werden. Laut Datenblatt gilt: Durchlassspannung UF = 2 V bei Durchlassstrom IF = 20 mA.",
+      "en": "An LED is to be operated at U = 24 V. According to the data sheet: forward voltage UF = 2 V at forward current IF = 20 mA."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Spannung UR muss am Vorwiderstand abfallen?",
+          "en": "Which voltage UR must drop across the series resistor?"
+        },
+        "unit": "V",
+        "answer": 22,
+        "tolerance": 0.1,
+        "formula": "UR = U − UF",
+        "calc": "UR = 24 V − 2 V = 22 V",
+        "why": {
+          "de": "LED und Vorwiderstand liegen in Reihe. Was die LED nicht braucht, muss am Widerstand abfallen.",
+          "en": "LED and series resistor are in series. What the LED does not need must drop across the resistor."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß muss der Vorwiderstand R sein?",
+          "en": "How large must the series resistor R be?"
+        },
+        "unit": "Ω",
+        "answer": 1100,
+        "tolerance": 10,
+        "formula": "R = UR / IF",
+        "calc": "R = 22 V / 0.02 A = 1100 Ω",
+        "why": {
+          "de": "In der Reihenschaltung fließt durch den Widerstand derselbe Strom wie durch die LED.",
+          "en": "In the series circuit the same current flows through the resistor as through the LED."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung P wird im Vorwiderstand zu Wärme?",
+          "en": "Which power P becomes heat in the series resistor?"
+        },
+        "unit": "W",
+        "answer": 0.44,
+        "tolerance": 0.005,
+        "formula": "P = UR · IF",
+        "calc": "P = 22 V · 0.02 A = 0.44 W",
+        "why": {
+          "de": "Der Widerstand muss diese Leistung aushalten. Ein Widerstand für 0,25 W wäre hier zu klein.",
+          "en": "The resistor must withstand this power. A resistor rated for 0.25 W would be too small here."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Der Vorwiderstand begrenzt den Strom. Er wird aus der Restspannung und dem gewünschten Strom berechnet.",
+      "en": "The series resistor limits the current. It is calculated from the remaining voltage and the wanted current."
+    }
+  },
+  {
+    "id": "m01-u12-innenwiderstand",
+    "module": "M01",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        3
+      ],
+      "IM": [
+        4
+      ]
+    },
+    "difficulty": 4,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Elektrotechnische Grundlagen.",
+    "title": {
+      "de": "Spannungsquelle mit Innenwiderstand",
+      "en": "Voltage source with internal resistance"
+    },
+    "situation": {
+      "de": "Eine Batterie hat die Leerlaufspannung U0 = 12,6 V und den Innenwiderstand Ri = 0,05 Ω. Ein Verbraucher zieht den Strom I = 20 A.",
+      "en": "A battery has the open-circuit voltage U0 = 12.6 V and the internal resistance Ri = 0.05 Ω. A load draws the current I = 20 A."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Spannung Ui fällt am Innenwiderstand ab?",
+          "en": "Which voltage Ui drops across the internal resistance?"
+        },
+        "unit": "V",
+        "answer": 1,
+        "tolerance": 0.01,
+        "formula": "Ui = Ri · I",
+        "calc": "Ui = 0.05 Ω · 20 A = 1 V",
+        "why": {
+          "de": "Der Innenwiderstand liegt in Reihe zum Verbraucher. Der Laststrom fließt auch durch ihn.",
+          "en": "The internal resistance is in series with the load. The load current also flows through it."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Klemmenspannung U an der Batterie?",
+          "en": "How large is the terminal voltage U at the battery?"
+        },
+        "unit": "V",
+        "answer": 11.6,
+        "tolerance": 0.05,
+        "formula": "U = U0 − Ui",
+        "calc": "U = 12.6 V − 1 V = 11.6 V",
+        "why": {
+          "de": "An den Klemmen kommt nur an, was nicht schon in der Batterie abfällt. Je größer der Strom, desto kleiner die Klemmenspannung.",
+          "en": "Only what does not already drop inside the battery arrives at the terminals. The larger the current, the smaller the terminal voltage."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung Pi wird in der Batterie zu Wärme?",
+          "en": "Which power Pi becomes heat inside the battery?"
+        },
+        "unit": "W",
+        "answer": 20,
+        "tolerance": 0.2,
+        "formula": "Pi = Ui · I",
+        "calc": "Pi = 1 V · 20 A = 20 W",
+        "why": {
+          "de": "Diese Leistung geht verloren und erwärmt die Batterie.",
+          "en": "This power is lost and heats the battery."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Jede echte Spannungsquelle hat einen Innenwiderstand. Unter Last sinkt deshalb die Klemmenspannung.",
+      "en": "Every real voltage source has an internal resistance. That is why the terminal voltage drops under load."
+    }
+  }
+]
