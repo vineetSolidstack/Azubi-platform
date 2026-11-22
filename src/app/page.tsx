@@ -6,6 +6,7 @@ import { solids } from '@content/drawing';
 import { caliperTasks } from '@content/measure';
 import { questionsOf } from '@content/quiz';
 import { tasks } from '@content/tasks';
+import { lessonOf } from '@content/theory';
 import { Bar } from '@/components/Shell';
 import { updateProgress, useHydrated, useProgress, useT } from '@/lib/progress';
 
@@ -90,7 +91,7 @@ export default function Home() {
                   <ul className="mods">
                     {l.modules.map((m) => {
                       const s = stats(m);
-                      const live = s.ts.length + s.qs.length + s.es.length + s.ms.length + s.ds.length > 0;
+                      const live = s.ts.length + s.qs.length + s.es.length + s.ms.length + s.ds.length > 0 || !!lessonOf(m);
                       return (
                         <li key={m} className={live ? 'mod' : 'mod soon'}>
                           <span className="mod-name">{t(modules[m])}</span>
@@ -100,6 +101,13 @@ export default function Home() {
                                 <Link href="/sps" className="chip">
                                   {t({ de: 'Simulator', en: 'Simulator' })} {s.tDone}/{s.ts.length}
                                   <Bar done={s.tDone} total={s.ts.length} />
+                                </Link>
+                              )}
+                              {lessonOf(m) && (
+                                <Link href={`/theorie/${m}`} className="chip">
+                                  {p.theory[m] ? '✓ ' : ''}
+                                  {t({ de: 'Theorie', en: 'Theory' })}
+                                  <Bar done={p.theory[m] ? 1 : 0} total={1} />
                                 </Link>
                               )}
                               {s.ds.length > 0 && (

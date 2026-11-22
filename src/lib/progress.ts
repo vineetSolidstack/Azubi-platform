@@ -25,13 +25,15 @@ export interface Progress {
   measure: Record<string, boolean>;
   /** solid id -> all three views drawn correctly */
   drawing: Record<string, boolean>;
+  /** module id -> theory lesson marked as read */
+  theory: Record<string, boolean>;
 }
 export interface ProgressStore {
   load(): Progress;
   save(p: Progress): void;
 }
 
-const EMPTY: Progress = { lang: 'de', trade: null, tasks: {}, quiz: {}, exercises: {}, measure: {}, drawing: {} };
+const EMPTY: Progress = { lang: 'de', trade: null, tasks: {}, quiz: {}, exercises: {}, measure: {}, drawing: {}, theory: {} };
 const KEY = 'azubi-platform:v1';
 
 const localStore: ProgressStore = {

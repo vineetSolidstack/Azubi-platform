@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { exercisesOf } from '@content/exercises';
+import { lessonOf } from '@content/theory';
 import { checkStep, Exercise, localizeNumbers } from '@/exercises/exercise';
 import { updateProgress, useProgress, useT } from '@/lib/progress';
 import { Dots, StatusBadge } from './Shell';
@@ -34,6 +35,11 @@ export function ExerciseRunner({ exercise }: { exercise: Exercise }) {
       <p className="crumbs">
         <Link href="/uebungen">← {t({ de: 'Alle Übungen', en: 'All exercises' })}</Link>
         <span className="muted">
+          {lessonOf(exercise.module) && (
+            <>
+              <Link href={`/theorie/${exercise.module}`}>{t({ de: 'Theorie dazu', en: 'Theory for this' })}</Link> ·{' '}
+            </>
+          )}
           {t({ de: 'Übung', en: 'Exercise' })} {idx + 1} / {list.length}
         </span>
       </p>

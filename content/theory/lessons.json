@@ -1,0 +1,571 @@
+[
+  {
+    "module": "M01",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Hier lernst du die vier Grundgrößen der Elektrotechnik und wie sie zusammenhängen. Das brauchst du für jede Rechnung und jede Messung.",
+      "en": "Here you learn the four basic quantities of electrical engineering and how they are related. You need this for every calculation and every measurement."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Spannung, Strom und Widerstand",
+          "en": "Voltage, current and resistance"
+        },
+        "body": {
+          "de": "Die Spannung U ist der Antrieb für den Strom. Sie wird in Volt (V) gemessen. Der Strom I ist die Menge der Ladung, die pro Sekunde fließt, gemessen in Ampere (A). Der Widerstand R bremst den Strom, gemessen in Ohm (Ω).\n\nEin Bild dazu: In einer Wasserleitung ist die Spannung der Druck, der Strom die Wassermenge pro Sekunde und der Widerstand eine enge Stelle im Rohr.",
+          "en": "The voltage U drives the current. It is measured in volts (V). The current I is the amount of charge that flows per second, measured in amperes (A). The resistance R slows the current down, measured in ohms (Ω).\n\nA picture for this: in a water pipe the voltage is the pressure, the current is the amount of water per second and the resistance is a narrow point in the pipe."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Ohne Spannung fließt kein Strom. Strom fließt nur im geschlossenen Stromkreis.",
+          "en": "Without voltage no current flows. Current only flows in a closed circuit."
+        }
+      },
+      {
+        "heading": {
+          "de": "Das ohmsche Gesetz",
+          "en": "Ohm's law"
+        },
+        "body": {
+          "de": "Bei einem festen Widerstand steigt der Strom im gleichen Maß wie die Spannung. Doppelte Spannung bedeutet doppelten Strom. Bei fester Spannung gilt: doppelter Widerstand, halber Strom.\n\nDie Formel lässt sich nach jeder Größe umstellen. Rechne immer in den Grundeinheiten V, A und Ω.",
+          "en": "With a fixed resistance the current rises in the same proportion as the voltage. Twice the voltage means twice the current. With a fixed voltage: twice the resistance, half the current.\n\nThe formula can be rearranged for each quantity. Always calculate in the base units V, A and Ω."
+        },
+        "formulas": [
+          "U = R · I",
+          "I = U / R",
+          "R = U / I"
+        ],
+        "remember": {
+          "de": "Erst Vorsätze umrechnen (mA in A, kΩ in Ω), dann einsetzen.",
+          "en": "Convert prefixes first (mA to A, kΩ to Ω), then insert the values."
+        }
+      },
+      {
+        "heading": {
+          "de": "Reihenschaltung und Parallelschaltung",
+          "en": "Series circuit and parallel circuit"
+        },
+        "body": {
+          "de": "In der Reihenschaltung liegen die Widerstände hintereinander. Es gibt nur einen Weg, deshalb ist der Strom überall gleich. Die Spannung teilt sich auf, und die Widerstände addieren sich.\n\nIn der Parallelschaltung liegen die Widerstände nebeneinander an der gleichen Spannung. Der Strom teilt sich auf. Der Gesamtwiderstand ist kleiner als der kleinste Einzelwiderstand.",
+          "en": "In a series circuit the resistors are one after another. There is only one path, so the current is the same everywhere. The voltage is divided, and the resistances add up.\n\nIn a parallel circuit the resistors are side by side at the same voltage. The current is divided. The total resistance is smaller than the smallest single resistor."
+        },
+        "formulas": [
+          "Reihe: Rges = R1 + R2 + ...",
+          "Reihe: U = U1 + U2 + ...",
+          "Parallel: Iges = I1 + I2 + ...",
+          "Parallel (zwei Widerstände): Rges = R1 · R2 / (R1 + R2)"
+        ],
+        "remember": {
+          "de": "Reihe: gleicher Strom. Parallel: gleiche Spannung.",
+          "en": "Series: same current. Parallel: same voltage."
+        }
+      },
+      {
+        "heading": {
+          "de": "Leistung und Arbeit",
+          "en": "Power and energy"
+        },
+        "body": {
+          "de": "Die Leistung P sagt, wie viel Energie ein Gerät pro Sekunde umsetzt. Sie wird in Watt (W) gemessen. Die elektrische Arbeit W ist Leistung mal Zeit. Im Alltag wird sie in Kilowattstunden (kWh) gezählt und bezahlt.\n\nKein Gerät arbeitet ohne Verluste. Der Wirkungsgrad η ist das Verhältnis von abgegebener zu aufgenommener Leistung.",
+          "en": "The power P says how much energy a device converts per second. It is measured in watts (W). The electrical energy W is power times time. In everyday life it is counted and paid for in kilowatt-hours (kWh).\n\nNo device works without losses. The efficiency η is the ratio of output power to input power."
+        },
+        "formulas": [
+          "P = U · I",
+          "W = P · t",
+          "η = Pab / Pzu"
+        ],
+        "remember": {
+          "de": "kW ist eine Leistung, kWh ist eine Energiemenge.",
+          "en": "kW is a power, kWh is an amount of energy."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M16",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Technische Mathematik ist das Werkzeug für alle anderen Module: Formeln umstellen, Einheiten umrechnen und mit Verhältnissen rechnen.",
+      "en": "Technical mathematics is the tool for all other modules: rearranging formulas, converting units and working with ratios."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Formeln umstellen",
+          "en": "Rearranging formulas"
+        },
+        "body": {
+          "de": "Eine Formel ist eine Gleichung. Du darfst auf beiden Seiten das Gleiche tun: addieren, subtrahieren, multiplizieren oder dividieren. Ziel ist, dass die gesuchte Größe allein auf einer Seite steht.\n\nBeispiel: Aus U = R · I wird I = U / R, wenn du beide Seiten durch R teilst.",
+          "en": "A formula is an equation. You may do the same thing on both sides: add, subtract, multiply or divide. The goal is that the wanted quantity stands alone on one side.\n\nExample: U = R · I becomes I = U / R when you divide both sides by R."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Was auf einer Seite multipliziert, teilt auf der anderen Seite.",
+          "en": "What multiplies on one side divides on the other side."
+        }
+      },
+      {
+        "heading": {
+          "de": "Einheiten und Vorsätze",
+          "en": "Units and prefixes"
+        },
+        "body": {
+          "de": "Vorsätze machen große und kleine Zahlen handlich: Mega (M) = 1 000 000, Kilo (k) = 1000, Milli (m) = 0,001, Mikro (µ) = 0,000 001. Vor dem Rechnen werden alle Werte in passende Einheiten umgerechnet.\n\nLängen: 1 m = 10 dm = 100 cm = 1000 mm. Bei Flächen und Volumen ändert sich der Faktor: 1 dm³ = 1000 cm³ = 1 Liter.",
+          "en": "Prefixes make large and small numbers handy: mega (M) = 1 000 000, kilo (k) = 1000, milli (m) = 0.001, micro (µ) = 0.000 001. Before calculating, all values are converted to matching units.\n\nLengths: 1 m = 10 dm = 100 cm = 1000 mm. For areas and volumes the factor changes: 1 dm³ = 1000 cm³ = 1 litre."
+        },
+        "formulas": [
+          "1 kΩ = 1000 Ω",
+          "1 mA = 0.001 A",
+          "1 m³ = 1000 l"
+        ],
+        "remember": {
+          "de": "Schreibe die Einheit bei jedem Rechenschritt mit. So fallen Fehler sofort auf.",
+          "en": "Write the unit in every calculation step. This way mistakes show up at once."
+        }
+      },
+      {
+        "heading": {
+          "de": "Dreisatz und Prozent",
+          "en": "Rule of three and percentages"
+        },
+        "body": {
+          "de": "Beim Dreisatz rechnest du von einem bekannten Wert zuerst auf eine Einheit und dann auf den gesuchten Wert. Prüfe vorher: Wird das Ergebnis größer oder kleiner?\n\nProzent heißt: Teile von hundert. Der Grundwert ist das Ganze (100 %), der Prozentwert ist der Anteil.",
+          "en": "With the rule of three you go from a known value first to one unit and then to the wanted value. Check beforehand: will the result be larger or smaller?\n\nPercent means: parts of a hundred. The base value is the whole (100 %), the percentage value is the share."
+        },
+        "formulas": [
+          "Prozentwert = Grundwert · Prozentsatz / 100"
+        ],
+        "remember": {
+          "de": "Frage dich immer: Was sind hier 100 %?",
+          "en": "Always ask yourself: what is 100 % here?"
+        }
+      },
+      {
+        "heading": {
+          "de": "Kraft, Arbeit, Leistung",
+          "en": "Force, work, power"
+        },
+        "body": {
+          "de": "Eine Masse wird von der Erde angezogen. Daraus entsteht die Gewichtskraft in Newton (N). Arbeit wird verrichtet, wenn eine Kraft etwas über einen Weg bewegt. Leistung ist Arbeit pro Zeit.\n\nIm rechtwinkligen Dreieck hilft der Satz des Pythagoras, eine fehlende Seite zu berechnen.",
+          "en": "A mass is attracted by the earth. This results in the weight force in newtons (N). Work is done when a force moves something over a distance. Power is work per time.\n\nIn a right-angled triangle the Pythagorean theorem helps to calculate a missing side."
+        },
+        "formulas": [
+          "F = m · g",
+          "W = F · s",
+          "P = W / t",
+          "c² = a² + b²"
+        ],
+        "remember": {
+          "de": "1 kg drückt auf der Erde mit etwa 10 N.",
+          "en": "On earth 1 kg presses with about 10 N."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M14",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Eine technische Zeichnung ist die Sprache der Werkstatt. Hier lernst du, wie die Ansichten angeordnet sind, was die Linien bedeuten und wie du Maße und Passungen liest.",
+      "en": "A technical drawing is the language of the workshop. Here you learn how the views are arranged, what the lines mean and how to read dimensions and fits."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Ansichten und ihre Anordnung",
+          "en": "Views and their arrangement"
+        },
+        "body": {
+          "de": "Ein Werkstück wird aus mehreren Richtungen gezeichnet, immer genau senkrecht auf eine Fläche. Die Vorderansicht zeigt die Seite, die am meisten über die Form verrät.\n\nIn der Projektionsmethode 1 steht die Draufsicht (von oben) unter der Vorderansicht. Die Seitenansicht von links steht rechts neben der Vorderansicht. Man zeichnet nur so viele Ansichten, wie nötig sind.",
+          "en": "A workpiece is drawn from several directions, always exactly perpendicular to a face. The front view shows the side that tells the most about the shape.\n\nIn projection method 1 the top view (from above) is placed below the front view. The side view from the left is placed to the right of the front view. Only as many views are drawn as are necessary."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Vorderansicht und Draufsicht sind gleich breit. Vorderansicht und Seitenansicht sind gleich hoch.",
+          "en": "Front view and top view have the same width. Front view and side view have the same height."
+        }
+      },
+      {
+        "heading": {
+          "de": "Linienarten",
+          "en": "Types of line"
+        },
+        "body": {
+          "de": "Die breite Volllinie zeigt sichtbare Kanten und Umrisse. Die schmale Volllinie wird für Maßlinien, Maßhilfslinien und Schraffuren verwendet. Die Strichlinie zeigt verdeckte Kanten, also Kanten, die hinter Material liegen. Die schmale Strichpunktlinie zeigt Mittellinien und Symmetrieachsen, zum Beispiel bei Bohrungen und Wellen.",
+          "en": "The wide continuous line shows visible edges and outlines. The narrow continuous line is used for dimension lines, extension lines and hatching. The dashed line shows hidden edges, that is edges that lie behind material. The narrow chain line (long dash, dot) shows centre lines and axes of symmetry, for example for holes and shafts."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Eine Strichpunktlinie durch einen Kreis sagt dir: Hier ist die Mitte einer Bohrung oder Welle.",
+          "en": "A chain line through a circle tells you: this is the centre of a hole or shaft."
+        }
+      },
+      {
+        "heading": {
+          "de": "Maße lesen",
+          "en": "Reading dimensions"
+        },
+        "body": {
+          "de": "Maße stehen in Millimetern, die Einheit wird nicht dazugeschrieben. Die Maßzahl steht über der Maßlinie. Zeichen vor der Zahl geben die Form an: Ø für Durchmesser, R für Radius, M für metrisches Gewinde (M8 = 8 mm Nenndurchmesser).\n\nDer Maßstab steht im Schriftfeld. 1:2 bedeutet halb so groß gezeichnet, 2:1 doppelt so groß. Die Maßzahlen geben immer die wirkliche Größe des Werkstücks an.",
+          "en": "Dimensions are in millimetres, the unit is not written. The dimension figure stands above the dimension line. Symbols in front of the number give the shape: Ø for diameter, R for radius, M for metric thread (M8 = 8 mm nominal diameter).\n\nThe scale is in the title block. 1:2 means drawn half size, 2:1 double size. The dimension figures always give the real size of the workpiece."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Nie aus der Zeichnung herausmessen. Es gilt die Maßzahl.",
+          "en": "Never measure from the drawing. The dimension figure applies."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schnitte",
+          "en": "Sections"
+        },
+        "body": {
+          "de": "Innere Formen wie Bohrungen sieht man von außen nicht. Dafür wird das Werkstück in Gedanken aufgeschnitten und die Schnittfläche gezeichnet. Geschnittene Flächen werden mit schmalen Volllinien schraffiert, meist unter 45°.\n\nDer Schnittverlauf ist in einer anderen Ansicht mit Buchstaben markiert, zum Beispiel A–A.",
+          "en": "Inner shapes such as holes cannot be seen from outside. For this the workpiece is cut open in thought and the cut face is drawn. Cut faces are hatched with narrow continuous lines, usually at 45°.\n\nThe cutting line is marked with letters in another view, for example A–A."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Schraffiert ist nur dort, wo wirklich Material geschnitten wird. Hohlräume bleiben frei.",
+          "en": "Hatching is only where material is really cut. Cavities stay empty."
+        }
+      },
+      {
+        "heading": {
+          "de": "Toleranzen und Passungen",
+          "en": "Tolerances and fits"
+        },
+        "body": {
+          "de": "Kein Maß lässt sich exakt fertigen. Die Toleranz sagt, wie weit das Istmaß vom Nennmaß abweichen darf. Sie steht als Abmaße hinter der Maßzahl oder als Kurzzeichen wie H7. Maße ohne Angabe fallen unter die Allgemeintoleranzen, die im Schriftfeld genannt sind.\n\nEine Passung beschreibt, wie Bohrung und Welle zusammenpassen: mit Spiel (Spielpassung), mit Übermaß (Übermaßpassung) oder je nach Istmaß beides (Übergangspassung).",
+          "en": "No dimension can be manufactured exactly. The tolerance says how far the actual size may deviate from the nominal size. It is written as deviations after the dimension figure or as a code such as H7. Dimensions without an indication fall under the general tolerances named in the title block.\n\nA fit describes how hole and shaft go together: with clearance (clearance fit), with interference (interference fit) or, depending on the actual sizes, either (transition fit)."
+        },
+        "formulas": [
+          "Höchstmaß = Nennmaß + oberes Abmaß",
+          "Mindestmaß = Nennmaß + unteres Abmaß",
+          "Höchstspiel = Höchstmaß Bohrung − Mindestmaß Welle"
+        ],
+        "remember": {
+          "de": "Großbuchstaben (H7) stehen für Bohrungen, Kleinbuchstaben (f7) für Wellen.",
+          "en": "Capital letters (H7) stand for holes, small letters (f7) for shafts."
+        }
+      },
+      {
+        "heading": {
+          "de": "So liest du eine Zeichnung",
+          "en": "How to read a drawing"
+        },
+        "body": {
+          "de": "Gehe immer in der gleichen Reihenfolge vor. Erstens: Schriftfeld lesen (Benennung, Maßstab, Werkstoff). Zweitens: Ansichten zuordnen und die Grundform erkennen. Drittens: Einzelheiten wie Bohrungen, Nuten und Gewinde in allen Ansichten suchen. Viertens: Maße, Toleranzen und Oberflächenangaben lesen. Fünftens: prüfen, ob du jede Linie erklären kannst.",
+          "en": "Always proceed in the same order. First: read the title block (name, scale, material). Second: assign the views and recognise the basic shape. Third: look for details such as holes, slots and threads in all views. Fourth: read dimensions, tolerances and surface indications. Fifth: check whether you can explain every line."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Eine Kante in einer Ansicht ist in einer anderen Ansicht oft eine Fläche. Vergleiche immer mehrere Ansichten.",
+          "en": "An edge in one view is often a face in another view. Always compare several views."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M15",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Beim Zerspanen hängt alles an drei Größen: Schnittgeschwindigkeit, Drehzahl und Vorschub. Hier lernst du, wie du sie berechnest.",
+      "en": "In machining everything depends on three quantities: cutting speed, spindle speed and feed. Here you learn how to calculate them."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Schnittgeschwindigkeit und Drehzahl",
+          "en": "Cutting speed and spindle speed"
+        },
+        "body": {
+          "de": "Die Schnittgeschwindigkeit vc ist die Geschwindigkeit, mit der die Schneide durch den Werkstoff geht. Sie hängt vom Werkstoff und vom Schneidstoff ab und wird aus dem Tabellenbuch genommen.\n\nAn der Maschine stellst du aber die Drehzahl n ein. Je größer der Durchmesser, desto kleiner die Drehzahl. Beim Bohren und Fräsen zählt der Werkzeugdurchmesser, beim Drehen der Werkstückdurchmesser.",
+          "en": "The cutting speed vc is the speed at which the cutting edge moves through the material. It depends on the material and the cutting material and is taken from the table book.\n\nOn the machine, however, you set the spindle speed n. The larger the diameter, the lower the speed. For drilling and milling the tool diameter counts, for turning the workpiece diameter."
+        },
+        "formulas": [
+          "n = vc · 1000 / (π · d)   (vc in m/min, d in mm)"
+        ],
+        "remember": {
+          "de": "Großer Durchmesser, kleine Drehzahl.",
+          "en": "Large diameter, low speed."
+        }
+      },
+      {
+        "heading": {
+          "de": "Vorschub",
+          "en": "Feed"
+        },
+        "body": {
+          "de": "Der Vorschub f ist der Weg, den das Werkzeug pro Umdrehung weiterfährt. Beim Fräsen rechnet man mit dem Vorschub pro Zahn fz, weil jede Schneide einzeln schneidet. Die Vorschubgeschwindigkeit vf ist der Weg pro Minute.",
+          "en": "The feed f is the distance the tool moves per revolution. In milling the feed per tooth fz is used because each cutting edge cuts separately. The feed rate vf is the distance per minute."
+        },
+        "formulas": [
+          "vf = n · f",
+          "Fräsen: vf = n · fz · z"
+        ],
+        "remember": {
+          "de": "Kleiner Vorschub: glatte Oberfläche, lange Zeit. Großer Vorschub: raue Oberfläche, kurze Zeit.",
+          "en": "Small feed: smooth surface, long time. Large feed: rough surface, short time."
+        }
+      },
+      {
+        "heading": {
+          "de": "Hauptnutzungszeit",
+          "en": "Machining time"
+        },
+        "body": {
+          "de": "Die Hauptnutzungszeit th ist die Zeit, in der das Werkzeug wirklich schneidet. Sie ergibt sich aus dem Vorschubweg L und der Vorschubgeschwindigkeit. Zum Vorschubweg gehören auch Anlauf und Überlauf des Werkzeugs.",
+          "en": "The machining time th is the time during which the tool is really cutting. It results from the feed travel L and the feed rate. Approach and overrun of the tool are also part of the feed travel."
+        },
+        "formulas": [
+          "th = L / vf"
+        ],
+        "remember": {
+          "de": "Rechenkette: vc ergibt n, n ergibt vf, vf ergibt th.",
+          "en": "Calculation chain: vc gives n, n gives vf, vf gives th."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M09",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Pneumatik arbeitet mit Druckluft. Hier lernst du, was Druck ist, wie viel Kraft ein Zylinder hat und wie Ventile bezeichnet werden.",
+      "en": "Pneumatics works with compressed air. Here you learn what pressure is, how much force a cylinder has and how valves are named."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Druck",
+          "en": "Pressure"
+        },
+        "body": {
+          "de": "Druck ist Kraft pro Fläche. In der Pneumatik wird er in bar angegeben. Das Manometer zeigt den Überdruck pe, also den Druck über dem Luftdruck der Umgebung. Der absolute Druck ist Überdruck plus Umgebungsdruck (etwa 1 bar).",
+          "en": "Pressure is force per area. In pneumatics it is given in bar. The pressure gauge shows the gauge pressure pe, that is the pressure above the ambient air pressure. The absolute pressure is gauge pressure plus ambient pressure (about 1 bar)."
+        },
+        "formulas": [
+          "p = F / A",
+          "1 bar = 10 N/cm² = 100 000 Pa",
+          "pabs = pe + pamb"
+        ],
+        "remember": {
+          "de": "Für Kräfte rechnest du mit dem Überdruck, für Gasgesetze mit dem absoluten Druck.",
+          "en": "For forces you use gauge pressure, for gas laws absolute pressure."
+        }
+      },
+      {
+        "heading": {
+          "de": "Kolbenkraft",
+          "en": "Piston force"
+        },
+        "body": {
+          "de": "Die Druckluft drückt auf die Kolbenfläche und erzeugt die Kraft. Beim Ausfahren wirkt die ganze Kolbenfläche. Beim Einfahren fehlt die Fläche der Kolbenstange, es bleibt eine Kreisringfläche. Deshalb ist die Kraft beim Einfahren kleiner. In der Praxis geht durch Reibung noch ein Teil der Kraft verloren.",
+          "en": "The compressed air presses on the piston area and creates the force. When extending, the whole piston area acts. When retracting, the area of the piston rod is missing and an annular area remains. That is why the force when retracting is smaller. In practice a part of the force is also lost through friction."
+        },
+        "formulas": [
+          "F = pe · A",
+          "A = π · D² / 4",
+          "AR = π · (D² − d²) / 4"
+        ],
+        "remember": {
+          "de": "Doppelter Durchmesser bedeutet vierfache Fläche und vierfache Kraft.",
+          "en": "Twice the diameter means four times the area and four times the force."
+        }
+      },
+      {
+        "heading": {
+          "de": "Wegeventile benennen",
+          "en": "Naming directional valves"
+        },
+        "body": {
+          "de": "Ein Wegeventil wird mit zwei Zahlen benannt: Anzahl der Anschlüsse / Anzahl der Schaltstellungen. Ein 5/2-Wegeventil hat 5 Anschlüsse und 2 Schaltstellungen. Im Schaltzeichen steht jedes Quadrat für eine Schaltstellung.\n\nEin monostabiles Ventil geht durch eine Feder von selbst in die Grundstellung zurück. Ein bistabiles Ventil (Impulsventil) bleibt in der letzten Stellung, bis das Gegensignal kommt.",
+          "en": "A directional valve is named with two numbers: number of ports / number of switching positions. A 5/2 directional valve has 5 ports and 2 switching positions. In the symbol each square stands for one switching position.\n\nA monostable valve returns to its normal position by itself through a spring. A bistable valve (impulse valve) stays in the last position until the opposite signal arrives."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Erst die Anschlüsse, dann die Schaltstellungen: 3/2 heißt 3 Anschlüsse, 2 Stellungen.",
+          "en": "Ports first, then switching positions: 3/2 means 3 ports, 2 positions."
+        }
+      },
+      {
+        "heading": {
+          "de": "Luft verdichten",
+          "en": "Compressing air"
+        },
+        "body": {
+          "de": "Luft lässt sich zusammendrücken. Bleibt die Temperatur gleich, ist das Produkt aus absolutem Druck und Volumen konstant. Wird Luft auf den siebenfachen absoluten Druck verdichtet, braucht sie nur noch ein Siebtel des Raums.",
+          "en": "Air can be compressed. If the temperature stays the same, the product of absolute pressure and volume is constant. If air is compressed to seven times the absolute pressure, it only needs one seventh of the space."
+        },
+        "formulas": [
+          "p1 · V1 = p2 · V2"
+        ],
+        "remember": {
+          "de": "Im Gasgesetz immer absolute Drücke einsetzen.",
+          "en": "Always use absolute pressures in the gas law."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M10",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Der Drehstrom-Asynchronmotor ist der wichtigste Antrieb in der Industrie. Hier lernst du, wie seine Drehzahl entsteht und was auf dem Leistungsschild steht.",
+      "en": "The three-phase asynchronous motor is the most important drive in industry. Here you learn where its speed comes from and what is on the rating plate."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Drehfeld und Synchrondrehzahl",
+          "en": "Rotating field and synchronous speed"
+        },
+        "body": {
+          "de": "Die drei Wicklungen im Ständer erzeugen mit Drehstrom ein Magnetfeld, das sich dreht: das Drehfeld. Seine Drehzahl heißt Synchrondrehzahl. Sie hängt nur von der Frequenz und der Polpaarzahl p ab. Am 50-Hz-Netz sind das 3000, 1500, 1000 oder 750 Umdrehungen pro Minute.",
+          "en": "With three-phase current the three windings in the stator create a magnetic field that rotates: the rotating field. Its speed is called synchronous speed. It depends only on the frequency and the number of pole pairs p. On the 50 Hz mains that is 3000, 1500, 1000 or 750 revolutions per minute."
+        },
+        "formulas": [
+          "ns = f · 60 / p"
+        ],
+        "remember": {
+          "de": "Mehr Polpaare, kleinere Drehzahl.",
+          "en": "More pole pairs, lower speed."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schlupf",
+          "en": "Slip"
+        },
+        "body": {
+          "de": "Der Läufer dreht etwas langsamer als das Drehfeld. Dieser Unterschied heißt Schlupf. Er ist nötig, damit im Läufer eine Spannung induziert wird und ein Drehmoment entsteht. Unter Last wird der Schlupf größer.",
+          "en": "The rotor turns slightly more slowly than the rotating field. This difference is called slip. It is necessary so that a voltage is induced in the rotor and a torque is produced. Under load the slip becomes larger."
+        },
+        "formulas": [
+          "s = (ns − n) / ns · 100 %"
+        ],
+        "remember": {
+          "de": "Steht auf dem Leistungsschild 1440 min⁻¹, gehört dazu die Synchrondrehzahl 1500 min⁻¹.",
+          "en": "If the rating plate says 1440 min⁻¹, the matching synchronous speed is 1500 min⁻¹."
+        }
+      },
+      {
+        "heading": {
+          "de": "Leistungsschild lesen",
+          "en": "Reading the rating plate"
+        },
+        "body": {
+          "de": "Das Leistungsschild nennt Bemessungsspannung, Bemessungsstrom, Leistung, Drehzahl, Leistungsfaktor cos φ und Frequenz. Die angegebene Leistung ist die mechanische Leistung an der Welle. Die elektrisch aufgenommene Leistung ist größer, der Unterschied sind die Verluste.",
+          "en": "The rating plate gives rated voltage, rated current, power, speed, power factor cos φ and frequency. The stated power is the mechanical power at the shaft. The electrical input power is larger; the difference is the losses."
+        },
+        "formulas": [
+          "Pzu = √3 · U · I · cos φ",
+          "η = Pab / Pzu",
+          "M = 9550 · P / n   (P in kW, n in min⁻¹)"
+        ],
+        "remember": {
+          "de": "Leistung auf dem Schild = abgegebene Leistung.",
+          "en": "Power on the plate = output power."
+        }
+      },
+      {
+        "heading": {
+          "de": "Frequenzumrichter",
+          "en": "Frequency converter"
+        },
+        "body": {
+          "de": "Ein Frequenzumrichter ändert die Frequenz der Motorspannung und damit die Drehzahl des Drehfelds. So lässt sich die Drehzahl stufenlos einstellen. Damit der Motor magnetisch richtig arbeitet, wird die Spannung zusammen mit der Frequenz verändert (U/f-Kennlinie).",
+          "en": "A frequency converter changes the frequency of the motor voltage and thus the speed of the rotating field. This way the speed can be set continuously. So that the motor works correctly magnetically, the voltage is changed together with the frequency (V/f characteristic)."
+        },
+        "formulas": [
+          "U / f = konstant"
+        ],
+        "remember": {
+          "de": "Halbe Frequenz: halbe Drehzahl und halbe Spannung.",
+          "en": "Half the frequency: half the speed and half the voltage."
+        }
+      }
+    ]
+  },
+  {
+    "module": "M07",
+    "status": "draft",
+    "source": "Eigener Text.",
+    "intro": {
+      "de": "Eine SPS (speicherprogrammierbare Steuerung) liest Signale, verarbeitet sie mit einem Programm und schaltet Ausgänge. Hier lernst du die Ideen, die du im SPS-Trainer brauchst.",
+      "en": "A PLC (SPS, programmable logic controller) reads signals, processes them with a program and switches outputs. Here you learn the ideas you need in the PLC trainer."
+    },
+    "sections": [
+      {
+        "heading": {
+          "de": "Zyklus und Prozessabbild",
+          "en": "Cycle and process image"
+        },
+        "body": {
+          "de": "Die SPS arbeitet in einem Kreislauf, dem Zyklus. Zuerst liest sie alle Eingänge und speichert sie im Prozessabbild. Dann bearbeitet sie das Programm von oben nach unten. Am Ende schreibt sie die Ergebnisse an die Ausgänge. Danach beginnt der nächste Zyklus.\n\nEin Zyklus dauert nur wenige Millisekunden. Wird ein Ausgang im Programm zweimal zugewiesen, zählt die letzte Zuweisung.",
+          "en": "The PLC works in a loop, the cycle. First it reads all inputs and stores them in the process image. Then it processes the program from top to bottom. At the end it writes the results to the outputs. After that the next cycle begins.\n\nA cycle only takes a few milliseconds. If an output is assigned twice in the program, the last assignment counts."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Einlesen, verarbeiten, ausgeben: das EVA-Prinzip.",
+          "en": "Read in, process, output: the EVA principle."
+        }
+      },
+      {
+        "heading": {
+          "de": "Schließer, Öffner und Drahtbruchsicherheit",
+          "en": "Normally open, normally closed and wire-break safety"
+        },
+        "body": {
+          "de": "Ein Schließer liefert das Signal 1, wenn er betätigt wird. Ein Öffner liefert das Signal 1, solange er nicht betätigt ist. Stopp-Taster sind Öffner: Reißt die Leitung, kommt das Signal 0 an und die Anlage stoppt.\n\nIm Programm fragst du das Signal ab, nicht den Taster. Ein Stopp-Öffner wird deshalb im Programm auf 1 abgefragt.",
+          "en": "A normally open contact (Schließer) delivers the signal 1 when it is actuated. A normally closed contact (Öffner) delivers the signal 1 as long as it is not actuated. Stop buttons are normally closed: if the wire breaks, the signal 0 arrives and the plant stops.\n\nIn the program you query the signal, not the button. So a normally closed stop button is queried for 1 in the program."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "Frage dich: Welches Signal kommt im Ruhezustand am Eingang an?",
+          "en": "Ask yourself: which signal arrives at the input at rest?"
+        }
+      },
+      {
+        "heading": {
+          "de": "Selbsthaltung und Verriegelung",
+          "en": "Latching and interlock"
+        },
+        "body": {
+          "de": "Bei der Selbsthaltung hält sich ein Ausgang selbst: Ein Kontakt des Ausgangs liegt parallel zum Start-Taster. Der Stopp liegt in Reihe und hat damit Vorrang.\n\nBei der Verriegelung sperrt ein Ausgang einen anderen, damit nie beide gleichzeitig ein sind, zum Beispiel Rechtslauf und Linkslauf eines Motors.",
+          "en": "With latching (Selbsthaltung) an output holds itself: a contact of the output is parallel to the start button. The stop is in series and therefore has priority.\n\nWith an interlock (Verriegelung) one output blocks another so that both are never on at the same time, for example clockwise and anticlockwise rotation of a motor."
+        },
+        "formulas": [
+          "Q1 := (S1 OR Q1) AND S0;"
+        ],
+        "remember": {
+          "de": "Parallel = ODER, in Reihe = UND.",
+          "en": "Parallel = OR, in series = AND."
+        }
+      },
+      {
+        "heading": {
+          "de": "Zeiten und Zähler",
+          "en": "Timers and counters"
+        },
+        "body": {
+          "de": "TON verzögert das Einschalten: Der Ausgang kommt erst, wenn der Eingang die eingestellte Zeit lang 1 war. TOF verzögert das Ausschalten: Der Ausgang bleibt nach dem Abschalten noch für die Zeit 1. TP gibt einen Impuls mit fester Länge.\n\nDer Zähler CTU zählt bei jeder steigenden Flanke um 1 hoch, also beim Wechsel von 0 auf 1. Bausteine und ihre Anschlüsse sind in der Norm IEC 61131-3 festgelegt.",
+          "en": "TON delays switching on: the output only comes when the input has been 1 for the set time. TOF delays switching off: the output stays 1 for the time after switching off. TP gives a pulse of fixed length.\n\nThe counter CTU counts up by 1 on every rising edge, that is on the change from 0 to 1. The blocks and their connections are defined in the standard IEC 61131-3."
+        },
+        "formulas": [],
+        "remember": {
+          "de": "TON: Einschaltverzögerung. TOF: Ausschaltverzögerung. TP: Impuls.",
+          "en": "TON: on-delay. TOF: off-delay. TP: pulse."
+        }
+      }
+    ]
+  }
+]
