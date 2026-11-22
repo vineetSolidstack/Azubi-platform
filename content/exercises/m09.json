@@ -1,0 +1,314 @@
+[
+  {
+    "id": "m09-u01-kolbenkraft",
+    "module": "M09",
+    "lernfeld": {
+      "MECH": [
+        4,
+        7,
+        8
+      ],
+      "IM": [
+        6,
+        10,
+        13
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Pneumatik-Grundlagen.",
+    "title": {
+      "de": "Kolbenkraft beim Ausfahren und Einfahren",
+      "en": "Piston force when extending and retracting"
+    },
+    "situation": {
+      "de": "Ein doppeltwirkender Zylinder hat den Kolbendurchmesser D = 50 mm und den Kolbenstangendurchmesser d = 20 mm. Der Arbeitsdruck ist pe = 6 bar (Überdruck). Reibung wird nicht berücksichtigt. Rechne mit π = 3,1416 und 1 bar = 10 N/cm².",
+      "en": "A double-acting cylinder has the piston diameter D = 50 mm and the piston rod diameter d = 20 mm. The working pressure is pe = 6 bar (gauge pressure). Friction is ignored. Use π = 3.1416 and 1 bar = 10 N/cm²."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Kolbenfläche A in cm²?",
+          "en": "How large is the piston area A in cm²?"
+        },
+        "unit": "cm²",
+        "answer": 19.63,
+        "tolerance": 0.05,
+        "formula": "A = π · D² / 4",
+        "calc": "A = 3.1416 · 25 cm² / 4 = 19.63 cm²",
+        "why": {
+          "de": "Der Durchmesser wird in Zentimetern eingesetzt (5 cm), dann passt die Fläche zur Druckeinheit N/cm².",
+          "en": "The diameter is used in centimetres (5 cm), then the area matches the pressure unit N/cm²."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Kraft F beim Ausfahren?",
+          "en": "How large is the force F when extending?"
+        },
+        "unit": "N",
+        "answer": 1178,
+        "tolerance": 5,
+        "formula": "F = pe · A",
+        "calc": "F = 60 N/cm² · 19.63 cm² = 1178 N",
+        "why": {
+          "de": "Beim Ausfahren drückt die Luft auf die ganze Kolbenfläche.",
+          "en": "When extending, the air presses on the whole piston area."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Kreisringfläche AR auf der Stangenseite?",
+          "en": "How large is the annular area AR on the rod side?"
+        },
+        "unit": "cm²",
+        "answer": 16.49,
+        "tolerance": 0.05,
+        "formula": "AR = A − π · d² / 4",
+        "calc": "AR = 19.63 cm² − 3.14 cm² = 16.49 cm²",
+        "why": {
+          "de": "Auf der Stangenseite fehlt die Fläche der Kolbenstange. Dort kann die Luft nicht drücken.",
+          "en": "On the rod side the area of the piston rod is missing. The air cannot press there."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Kraft beim Einfahren?",
+          "en": "How large is the force when retracting?"
+        },
+        "unit": "N",
+        "answer": 989,
+        "tolerance": 5,
+        "formula": "F = pe · AR",
+        "calc": "F = 60 N/cm² · 16.49 cm² = 989 N",
+        "why": {
+          "de": "Kleinere Fläche, kleinere Kraft: Ein Zylinder zieht schwächer, als er drückt.",
+          "en": "Smaller area, smaller force: a cylinder pulls more weakly than it pushes."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "F = p · A. Beim Einfahren zählt nur die Kreisringfläche.",
+      "en": "F = p · A. When retracting only the annular area counts."
+    }
+  },
+  {
+    "id": "m09-u02-boyle",
+    "module": "M09",
+    "lernfeld": {
+      "MECH": [
+        4,
+        7,
+        8
+      ],
+      "IM": [
+        6,
+        10,
+        13
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Pneumatik-Grundlagen.",
+    "title": {
+      "de": "Luft verdichten: Druck und Volumen",
+      "en": "Compressing air: pressure and volume"
+    },
+    "situation": {
+      "de": "Ein Kompressor saugt V1 = 10 l Luft bei Umgebungsdruck p1 = 1 bar (absolut) an und verdichtet sie auf pe = 6 bar Überdruck. Die Temperatur soll gleich bleiben.",
+      "en": "A compressor draws in V1 = 10 l of air at ambient pressure p1 = 1 bar (absolute) and compresses it to pe = 6 bar gauge pressure. The temperature is assumed to stay the same."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der absolute Druck p2 nach dem Verdichten?",
+          "en": "How large is the absolute pressure p2 after compression?"
+        },
+        "unit": "bar",
+        "answer": 7,
+        "tolerance": 0,
+        "formula": "pabs = pe + pamb",
+        "calc": "p2 = 6 bar + 1 bar = 7 bar",
+        "why": {
+          "de": "Das Manometer zeigt den Überdruck. Für Gasgesetze braucht man den absoluten Druck, also Überdruck plus Umgebungsdruck.",
+          "en": "The pressure gauge shows gauge pressure. Gas laws need absolute pressure, that is gauge pressure plus ambient pressure."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Volumen V2 der verdichteten Luft?",
+          "en": "How large is the volume V2 of the compressed air?"
+        },
+        "unit": "l",
+        "answer": 1.43,
+        "tolerance": 0.01,
+        "formula": "p1 · V1 = p2 · V2",
+        "calc": "V2 = 1 bar · 10 l / 7 bar = 1.43 l",
+        "why": {
+          "de": "Bei gleicher Temperatur ist Druck mal Volumen konstant. Siebenfacher Druck, ein Siebtel des Volumens.",
+          "en": "At constant temperature pressure times volume is constant. Seven times the pressure, one seventh of the volume."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "p1 · V1 = p2 · V2, immer mit absoluten Drücken.",
+      "en": "p1 · V1 = p2 · V2, always with absolute pressures."
+    }
+  },
+  {
+    "id": "m09-u03-luftverbrauch",
+    "module": "M09",
+    "lernfeld": {
+      "MECH": [
+        4,
+        7,
+        8
+      ],
+      "IM": [
+        6,
+        10,
+        13
+      ]
+    },
+    "difficulty": 4,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Pneumatik-Grundlagen.",
+    "title": {
+      "de": "Luftverbrauch eines Zylinders",
+      "en": "Air consumption of a cylinder"
+    },
+    "situation": {
+      "de": "Ein doppeltwirkender Zylinder (Kolbenfläche A = 19,63 cm², Hub s = 200 mm) arbeitet mit pe = 6 bar und macht 10 Doppelhübe pro Minute. Die Kolbenstange wird zur Vereinfachung nicht berücksichtigt. Der Umgebungsdruck ist 1 bar.",
+      "en": "A double-acting cylinder (piston area A = 19.63 cm², stroke s = 200 mm) works with pe = 6 bar and makes 10 double strokes per minute. To simplify, the piston rod is ignored. The ambient pressure is 1 bar."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist das Hubvolumen V in Litern?",
+          "en": "How large is the stroke volume V in litres?"
+        },
+        "unit": "l",
+        "answer": 0.393,
+        "tolerance": 0.002,
+        "formula": "V = A · s",
+        "calc": "V = 19.63 cm² · 20 cm = 392.6 cm³ = 0.393 l",
+        "why": {
+          "de": "Der Hub wird in Zentimetern eingesetzt. 1000 cm³ sind ein Liter.",
+          "en": "The stroke is used in centimetres. 1000 cm³ are one litre."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel angesaugte Luft (bei 1 bar) braucht ein Hub?",
+          "en": "How much intake air (at 1 bar) does one stroke need?"
+        },
+        "unit": "l",
+        "answer": 2.75,
+        "tolerance": 0.02,
+        "formula": "V1 = V · pabs / pamb",
+        "calc": "V1 = 0.393 l · 7 bar / 1 bar = 2.75 l",
+        "why": {
+          "de": "Im Zylinder steht die Luft unter 7 bar absolut. Entspannt auf Umgebungsdruck ist das die siebenfache Menge.",
+          "en": "In the cylinder the air is at 7 bar absolute. Expanded to ambient pressure that is seven times the amount."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist der Luftverbrauch pro Minute?",
+          "en": "How large is the air consumption per minute?"
+        },
+        "unit": "l/min",
+        "answer": 55,
+        "tolerance": 0.5,
+        "formula": "Q = 2 · V1 · Doppelhübe pro Minute",
+        "calc": "Q = 2 · 2.75 l · 10 min⁻¹ = 55 l/min",
+        "why": {
+          "de": "Ein Doppelhub ist einmal ausfahren und einmal einfahren. Beide Hübe brauchen Luft, deshalb der Faktor 2.",
+          "en": "A double stroke is extending once and retracting once. Both strokes need air, hence the factor 2."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Der Luftverbrauch wird auf angesaugte Luft bei Umgebungsdruck umgerechnet. Druckluft ist teuer, deshalb lohnt sich die Rechnung.",
+      "en": "Air consumption is converted to intake air at ambient pressure. Compressed air is expensive, so the calculation is worth it."
+    }
+  },
+  {
+    "id": "m09-u04-druckeinheiten",
+    "module": "M09",
+    "lernfeld": {
+      "MECH": [
+        4,
+        7,
+        8
+      ],
+      "IM": [
+        6,
+        10,
+        13
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Pneumatik-Grundlagen.",
+    "title": {
+      "de": "Druckeinheiten umrechnen",
+      "en": "Converting pressure units"
+    },
+    "situation": {
+      "de": "Am Manometer einer Wartungseinheit werden 6 bar abgelesen.",
+      "en": "The pressure gauge of a service unit reads 6 bar."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie viel ist das in Pascal (Pa)?",
+          "en": "How much is that in pascal (Pa)?"
+        },
+        "unit": "Pa",
+        "answer": 600000,
+        "tolerance": 0,
+        "formula": "1 bar = 100 000 Pa",
+        "calc": "p = 6 · 100000 Pa = 600000 Pa",
+        "why": {
+          "de": "Pascal ist die Grundeinheit: 1 Pa = 1 N/m². Sie ist sehr klein, deshalb nutzt man bar.",
+          "en": "Pascal is the base unit: 1 Pa = 1 N/m². It is very small, which is why bar is used."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel ist das in Megapascal (MPa)?",
+          "en": "How much is that in megapascal (MPa)?"
+        },
+        "unit": "MPa",
+        "answer": 0.6,
+        "tolerance": 0.001,
+        "formula": "1 MPa = 10 bar",
+        "calc": "p = 6 bar / 10 = 0.6 MPa",
+        "why": {
+          "de": "Mega bedeutet eine Million. 1 MPa = 1 000 000 Pa = 10 bar.",
+          "en": "Mega means one million. 1 MPa = 1 000 000 Pa = 10 bar."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel ist das in N/cm²?",
+          "en": "How much is that in N/cm²?"
+        },
+        "unit": "N/cm²",
+        "answer": 60,
+        "tolerance": 0.1,
+        "formula": "1 bar = 10 N/cm²",
+        "calc": "p = 6 · 10 N/cm² = 60 N/cm²",
+        "why": {
+          "de": "Mit N/cm² rechnet man Kolbenkräfte am schnellsten aus.",
+          "en": "With N/cm² piston forces are calculated most quickly."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "1 bar = 100 000 Pa = 0,1 MPa = 10 N/cm².",
+      "en": "1 bar = 100 000 Pa = 0.1 MPa = 10 N/cm²."
+    }
+  }
+]

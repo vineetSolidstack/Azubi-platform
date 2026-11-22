@@ -1,0 +1,327 @@
+[
+  {
+    "id": "m15-u01-drehzahl-bohren",
+    "module": "M15",
+    "lernfeld": {
+      "MECH": [
+        2
+      ],
+      "IM": [
+        1,
+        2,
+        5,
+        8
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Fertigungstechnik. Schnittwerte sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Drehzahl beim Bohren",
+      "en": "Spindle speed when drilling"
+    },
+    "situation": {
+      "de": "Mit einem Bohrer d = 10 mm soll gebohrt werden. Für diese Aufgabe ist die Schnittgeschwindigkeit vc = 25 m/min vorgegeben. Rechne mit π = 3,1416.",
+      "en": "A drill with d = 10 mm is to be used. For this task the cutting speed vc = 25 m/min is given. Use π = 3.1416."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Drehzahl n muss eingestellt werden?",
+          "en": "Which spindle speed n must be set?"
+        },
+        "unit": "min⁻¹",
+        "answer": 796,
+        "tolerance": 3,
+        "formula": "n = vc · 1000 / (π · d)",
+        "calc": "n = 25 m/min · 1000 / (3.1416 · 10 mm) = 796 min⁻¹",
+        "why": {
+          "de": "Die Schnittgeschwindigkeit ist der Weg der Schneide am Umfang pro Minute. Der Faktor 1000 rechnet Meter in Millimeter um.",
+          "en": "The cutting speed is the distance the cutting edge travels on the circumference per minute. The factor 1000 converts metres to millimetres."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Drehzahl gilt für einen Bohrer mit d = 20 mm bei gleichem vc?",
+          "en": "Which speed applies to a drill with d = 20 mm at the same vc?"
+        },
+        "unit": "min⁻¹",
+        "answer": 398,
+        "tolerance": 2,
+        "formula": "n = vc · 1000 / (π · d)",
+        "calc": "n = 25 m/min · 1000 / (3.1416 · 20 mm) = 398 min⁻¹",
+        "why": {
+          "de": "Doppelter Durchmesser, halbe Drehzahl: Der Umfang ist doppelt so lang.",
+          "en": "Twice the diameter, half the speed: the circumference is twice as long."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Großes Werkzeug, kleine Drehzahl. Die Schnittgeschwindigkeit hängt von Werkstoff und Schneidstoff ab und steht im Tabellenbuch.",
+      "en": "Large tool, low speed. The cutting speed depends on the material and the cutting material and is listed in the table book."
+    }
+  },
+  {
+    "id": "m15-u02-drehen-hauptzeit",
+    "module": "M15",
+    "lernfeld": {
+      "MECH": [
+        2
+      ],
+      "IM": [
+        1,
+        2,
+        5,
+        8
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Fertigungstechnik. Schnittwerte sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Drehen: Drehzahl, Vorschub und Hauptnutzungszeit",
+      "en": "Turning: speed, feed and machining time"
+    },
+    "situation": {
+      "de": "Eine Welle mit d = 50 mm wird auf einer Länge von L = 80 mm überdreht (Anlauf und Überlauf sind in L schon enthalten). Vorgegeben sind vc = 120 m/min und der Vorschub f = 0,2 mm pro Umdrehung. Rechne mit π = 3,1416.",
+      "en": "A shaft with d = 50 mm is turned over a length of L = 80 mm (approach and overrun are already included in L). Given are vc = 120 m/min and the feed f = 0.2 mm per revolution. Use π = 3.1416."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Drehzahl n ergibt sich?",
+          "en": "Which spindle speed n results?"
+        },
+        "unit": "min⁻¹",
+        "answer": 764,
+        "tolerance": 3,
+        "formula": "n = vc · 1000 / (π · d)",
+        "calc": "n = 120 m/min · 1000 / (3.1416 · 50 mm) = 764 min⁻¹",
+        "why": {
+          "de": "Beim Drehen zählt der Durchmesser des Werkstücks, weil sich das Werkstück dreht.",
+          "en": "In turning the diameter of the workpiece counts because the workpiece rotates."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Vorschubgeschwindigkeit vf?",
+          "en": "How large is the feed rate vf?"
+        },
+        "unit": "mm/min",
+        "answer": 152.8,
+        "tolerance": 1,
+        "formula": "vf = n · f",
+        "calc": "vf = 764 min⁻¹ · 0.2 mm = 152.8 mm/min",
+        "why": {
+          "de": "Pro Umdrehung fährt das Werkzeug 0,2 mm weiter. Mal Umdrehungen pro Minute ergibt den Weg pro Minute.",
+          "en": "Per revolution the tool moves 0.2 mm. Times revolutions per minute gives the distance per minute."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lange dauert der Schnitt (Hauptnutzungszeit th)?",
+          "en": "How long does the cut take (machining time th)?"
+        },
+        "unit": "min",
+        "answer": 0.52,
+        "tolerance": 0.01,
+        "formula": "th = L / vf",
+        "calc": "th = 80 mm / 152.8 mm/min = 0.52 min",
+        "why": {
+          "de": "Zeit ist Weg durch Geschwindigkeit. 0,52 min sind etwa 31 Sekunden.",
+          "en": "Time is distance divided by speed. 0.52 min is about 31 seconds."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Kette beim Zerspanen: vc ergibt n, n mal f ergibt vf, L durch vf ergibt die Zeit.",
+      "en": "Chain in machining: vc gives n, n times f gives vf, L divided by vf gives the time."
+    }
+  },
+  {
+    "id": "m15-u03-fraesen-vorschub",
+    "module": "M15",
+    "lernfeld": {
+      "MECH": [
+        2
+      ],
+      "IM": [
+        1,
+        2,
+        5,
+        8
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Fertigungstechnik. Schnittwerte sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Fräsen: Vorschubgeschwindigkeit",
+      "en": "Milling: feed rate"
+    },
+    "situation": {
+      "de": "Ein Fräser mit z = 4 Schneiden läuft mit n = 800 min⁻¹. Der Vorschub pro Zahn ist fz = 0,05 mm. Der Fräsweg ist 240 mm lang.",
+      "en": "A milling cutter with z = 4 cutting edges runs at n = 800 min⁻¹. The feed per tooth is fz = 0.05 mm. The milling path is 240 mm long."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Vorschub pro Umdrehung f?",
+          "en": "How large is the feed per revolution f?"
+        },
+        "unit": "mm",
+        "answer": 0.2,
+        "tolerance": 0.001,
+        "formula": "f = fz · z",
+        "calc": "f = 0.05 mm · 4 = 0.2 mm",
+        "why": {
+          "de": "Bei einer Umdrehung schneidet jede der vier Schneiden einmal.",
+          "en": "In one revolution each of the four cutting edges cuts once."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist die Vorschubgeschwindigkeit vf?",
+          "en": "How large is the feed rate vf?"
+        },
+        "unit": "mm/min",
+        "answer": 160,
+        "tolerance": 1,
+        "formula": "vf = f · n",
+        "calc": "vf = 0.2 mm · 800 min⁻¹ = 160 mm/min",
+        "why": {
+          "de": "Vorschub pro Umdrehung mal Umdrehungen pro Minute.",
+          "en": "Feed per revolution times revolutions per minute."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lange dauert der Fräsweg?",
+          "en": "How long does the milling path take?"
+        },
+        "unit": "min",
+        "answer": 1.5,
+        "tolerance": 0.01,
+        "formula": "t = L / vf",
+        "calc": "t = 240 mm / 160 mm/min = 1.5 min",
+        "why": {
+          "de": "Weg durch Geschwindigkeit ergibt die Zeit.",
+          "en": "Distance divided by speed gives the time."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Beim Fräsen gilt vf = fz · z · n.",
+      "en": "In milling vf = fz · z · n."
+    }
+  },
+  {
+    "id": "m15-u04-schnittgeschwindigkeit",
+    "module": "M15",
+    "lernfeld": {
+      "MECH": [
+        2
+      ],
+      "IM": [
+        1,
+        2,
+        5,
+        8
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Fertigungstechnik. Schnittwerte sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Schnittgeschwindigkeit einer Schleifscheibe",
+      "en": "Cutting speed of a grinding wheel"
+    },
+    "situation": {
+      "de": "Eine Schleifscheibe mit d = 200 mm dreht mit n = 1500 min⁻¹. Rechne mit π = 3,1416.",
+      "en": "A grinding wheel with d = 200 mm turns at n = 1500 min⁻¹. Use π = 3.1416."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Umfangsgeschwindigkeit in m/min?",
+          "en": "How large is the circumferential speed in m/min?"
+        },
+        "unit": "m/min",
+        "answer": 942.5,
+        "tolerance": 3,
+        "formula": "v = π · d · n",
+        "calc": "v = 3.1416 · 0.2 m · 1500 min⁻¹ = 942.5 m/min",
+        "why": {
+          "de": "Der Umfang ist π · d. Bei jeder Umdrehung legt ein Punkt am Rand einmal den Umfang zurück. Der Durchmesser wird in Metern eingesetzt.",
+          "en": "The circumference is π · d. With every revolution a point on the edge travels the circumference once. The diameter is used in metres."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel ist das in m/s?",
+          "en": "How much is that in m/s?"
+        },
+        "unit": "m/s",
+        "answer": 15.7,
+        "tolerance": 0.1,
+        "formula": "v in m/s = v in m/min / 60",
+        "calc": "v = 942.5 m/min / 60 = 15.7 m/s",
+        "why": {
+          "de": "Bei Schleifscheiben wird die Geschwindigkeit in Metern pro Sekunde angegeben. Eine Minute hat 60 Sekunden.",
+          "en": "For grinding wheels the speed is given in metres per second. One minute has 60 seconds."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "v = π · d · n. Vergleiche das Ergebnis immer mit der zulässigen Höchstgeschwindigkeit, die auf der Scheibe steht.",
+      "en": "v = π · d · n. Always compare the result with the permitted maximum speed printed on the wheel."
+    }
+  },
+  {
+    "id": "m15-u05-kernloch",
+    "module": "M15",
+    "lernfeld": {
+      "MECH": [
+        2
+      ],
+      "IM": [
+        1,
+        2,
+        5,
+        8
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Fertigungstechnik. Schnittwerte sind Annahmen der Aufgabe.",
+    "title": {
+      "de": "Kernlochdurchmesser für ein Gewinde",
+      "en": "Tap drill diameter for a thread"
+    },
+    "situation": {
+      "de": "Für ein Innengewinde M8 soll das Kernloch gebohrt werden. Die Steigung ist P = 1,25 mm.",
+      "en": "The core hole for an internal thread M8 is to be drilled. The pitch is P = 1.25 mm."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist der Kernlochdurchmesser nach der Faustformel?",
+          "en": "How large is the core hole diameter according to the rule of thumb?"
+        },
+        "unit": "mm",
+        "answer": 6.75,
+        "tolerance": 0.001,
+        "formula": "dK = d − P",
+        "calc": "dK = 8 mm − 1.25 mm = 6.75 mm",
+        "why": {
+          "de": "Die Faustformel zieht die Steigung vom Nenndurchmesser ab. In der Praxis nimmt man den nächsten passenden Bohrer, hier 6,8 mm.",
+          "en": "The rule of thumb subtracts the pitch from the nominal diameter. In practice you take the next suitable drill, here 6.8 mm."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Kernloch ≈ Nenndurchmesser − Steigung. Die genauen Werte stehen im Tabellenbuch.",
+      "en": "Core hole ≈ nominal diameter − pitch. The exact values are in the table book."
+    }
+  }
+]

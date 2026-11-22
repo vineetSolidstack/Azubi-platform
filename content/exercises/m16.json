@@ -1,0 +1,434 @@
+[
+  {
+    "id": "m16-u01-dreisatz",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Technische Mathematik und Physik.",
+    "title": {
+      "de": "Dreisatz: Fördermenge von Pumpen",
+      "en": "Rule of three: delivery rate of pumps"
+    },
+    "situation": {
+      "de": "Vier gleiche Pumpen fördern zusammen 600 Liter pro Minute.",
+      "en": "Four identical pumps together deliver 600 litres per minute."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie viel fördert eine Pumpe?",
+          "en": "How much does one pump deliver?"
+        },
+        "unit": "l/min",
+        "answer": 150,
+        "tolerance": 0,
+        "formula": "Q1 = Q / Anzahl",
+        "calc": "Q1 = 600 l/min / 4 = 150 l/min",
+        "why": {
+          "de": "Beim Dreisatz rechnest du zuerst auf eine Einheit zurück, hier auf eine Pumpe.",
+          "en": "With the rule of three you first go back to one unit, here to one pump."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viel fördern sieben Pumpen?",
+          "en": "How much do seven pumps deliver?"
+        },
+        "unit": "l/min",
+        "answer": 1050,
+        "tolerance": 0,
+        "formula": "Q7 = Q1 · 7",
+        "calc": "Q7 = 150 l/min · 7 = 1050 l/min",
+        "why": {
+          "de": "Mehr Pumpen fördern mehr: Das Verhältnis ist proportional, also wird multipliziert.",
+          "en": "More pumps deliver more: the relation is proportional, so you multiply."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Dreisatz in drei Schritten: gegebener Wert, Wert für 1, gesuchter Wert.",
+      "en": "Rule of three in three steps: given value, value for 1, wanted value."
+    }
+  },
+  {
+    "id": "m16-u02-prozent-ausschuss",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 1,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Technische Mathematik und Physik.",
+    "title": {
+      "de": "Prozentrechnung: Ausschuss",
+      "en": "Percentages: rejects"
+    },
+    "situation": {
+      "de": "In einer Schicht werden 1250 Teile gefertigt. 30 Teile davon sind Ausschuss.",
+      "en": "In one shift 1250 parts are produced. 30 of them are rejects."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie viel Prozent der Teile sind Ausschuss?",
+          "en": "What percentage of the parts are rejects?"
+        },
+        "unit": "%",
+        "answer": 2.4,
+        "tolerance": 0.02,
+        "formula": "p = Anteil / Grundwert · 100",
+        "calc": "p = 30 / 1250 · 100 = 2.4",
+        "why": {
+          "de": "Prozent heißt: Anteil von hundert. Der Anteil wird durch den Grundwert geteilt.",
+          "en": "Percent means: share of a hundred. The share is divided by the base value."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viele gute Teile sind es?",
+          "en": "How many good parts are there?"
+        },
+        "unit": "Teile",
+        "answer": 1220,
+        "tolerance": 0,
+        "formula": "gut = gesamt − Ausschuss",
+        "calc": "gut = 1250 − 30 = 1220",
+        "why": {
+          "de": "Alles, was kein Ausschuss ist, ist ein gutes Teil.",
+          "en": "Everything that is not a reject is a good part."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Das Ziel sind höchstens 2 % Ausschuss. Wie viele Teile dürfen dann höchstens Ausschuss sein?",
+          "en": "The target is at most 2 % rejects. How many parts may be rejects at most?"
+        },
+        "unit": "Teile",
+        "answer": 25,
+        "tolerance": 0,
+        "formula": "Anteil = Grundwert · p / 100",
+        "calc": "Anteil = 1250 · 2 / 100 = 25",
+        "why": {
+          "de": "Jetzt ist der Prozentsatz gegeben und der Anteil gesucht. Die Formel wird umgestellt.",
+          "en": "Now the percentage is given and the share is wanted. The formula is rearranged."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Prozentwert = Grundwert · Prozentsatz / 100. Prüfe immer, was der Grundwert ist.",
+      "en": "Percentage value = base value · percentage / 100. Always check what the base value is."
+    }
+  },
+  {
+    "id": "m16-u03-pythagoras",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Technische Mathematik und Physik.",
+    "title": {
+      "de": "Pythagoras: Leitungslänge über die Diagonale",
+      "en": "Pythagoras: cable length along the diagonal"
+    },
+    "situation": {
+      "de": "Eine Leitung soll schräg über eine rechteckige Wand geführt werden. Die Wand ist 1,2 m hoch und 1,6 m breit.",
+      "en": "A cable is to be run diagonally across a rectangular wall. The wall is 1.2 m high and 1.6 m wide."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie lang ist die Diagonale c?",
+          "en": "How long is the diagonal c?"
+        },
+        "unit": "m",
+        "answer": 2,
+        "tolerance": 0.01,
+        "formula": "c = √(a² + b²)",
+        "calc": "c = √(1.44 m² + 2.56 m²) = √(4 m²) = 2 m",
+        "why": {
+          "de": "Höhe und Breite bilden einen rechten Winkel. Die Diagonale ist die längste Seite (Hypotenuse).",
+          "en": "Height and width form a right angle. The diagonal is the longest side (hypotenuse)."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Die Leitung soll 10 % Reserve bekommen. Wie lang muss sie sein?",
+          "en": "The cable is to get 10 % reserve. How long must it be?"
+        },
+        "unit": "m",
+        "answer": 2.2,
+        "tolerance": 0.01,
+        "formula": "l = c · 1.1",
+        "calc": "l = 2 m · 1.1 = 2.2 m",
+        "why": {
+          "de": "10 % mehr bedeutet mal 1,1.",
+          "en": "10 % more means times 1.1."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Im rechtwinkligen Dreieck gilt a² + b² = c². Die Seite gegenüber dem rechten Winkel ist c.",
+      "en": "In a right-angled triangle a² + b² = c². The side opposite the right angle is c."
+    }
+  },
+  {
+    "id": "m16-u04-volumen-tank",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 2,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Technische Mathematik und Physik.",
+    "title": {
+      "de": "Volumen eines zylindrischen Tanks",
+      "en": "Volume of a cylindrical tank"
+    },
+    "situation": {
+      "de": "Ein stehender zylindrischer Tank hat den Innendurchmesser d = 0,8 m und die Höhe h = 1,5 m. Rechne mit π = 3,1416.",
+      "en": "An upright cylindrical tank has the inner diameter d = 0.8 m and the height h = 1.5 m. Use π = 3.1416."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Grundfläche A?",
+          "en": "How large is the base area A?"
+        },
+        "unit": "m²",
+        "answer": 0.503,
+        "tolerance": 0.003,
+        "formula": "A = π · d² / 4",
+        "calc": "A = 3.1416 · 0.64 m² / 4 = 0.503 m²",
+        "why": {
+          "de": "Die Grundfläche ist ein Kreis. Mit dem Durchmesser rechnet man π · d² / 4.",
+          "en": "The base is a circle. With the diameter you calculate π · d² / 4."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie groß ist das Volumen V?",
+          "en": "How large is the volume V?"
+        },
+        "unit": "m³",
+        "answer": 0.754,
+        "tolerance": 0.005,
+        "formula": "V = A · h",
+        "calc": "V = 0.503 m² · 1.5 m = 0.754 m³",
+        "why": {
+          "de": "Bei allen geraden Körpern gilt: Volumen = Grundfläche mal Höhe.",
+          "en": "For all straight solids: volume = base area times height."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie viele Liter sind das?",
+          "en": "How many litres is that?"
+        },
+        "unit": "l",
+        "answer": 754,
+        "tolerance": 5,
+        "formula": "1 m³ = 1000 l",
+        "calc": "V = 0.754 · 1000 l = 754 l",
+        "why": {
+          "de": "Ein Liter ist ein Kubikdezimeter. In einen Kubikmeter passen 1000 Liter.",
+          "en": "One litre is one cubic decimetre. 1000 litres fit into one cubic metre."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Volumen = Grundfläche · Höhe. 1 m³ = 1000 l.",
+      "en": "Volume = base area · height. 1 m³ = 1000 l."
+    }
+  },
+  {
+    "id": "m16-u05-trigonometrie-rampe",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Technische Mathematik und Physik.",
+    "title": {
+      "de": "Winkelfunktionen: Rampe",
+      "en": "Trigonometry: ramp"
+    },
+    "situation": {
+      "de": "Eine Rampe ist 2 m lang (schräge Länge) und hat den Steigungswinkel α = 30°. Es gilt sin 30° = 0,5 und cos 30° = 0,866.",
+      "en": "A ramp is 2 m long (sloping length) and has the angle of inclination α = 30°. sin 30° = 0.5 and cos 30° = 0.866."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Welche Höhe h überwindet die Rampe?",
+          "en": "Which height h does the ramp cover?"
+        },
+        "unit": "m",
+        "answer": 1,
+        "tolerance": 0.01,
+        "formula": "h = c · sin α",
+        "calc": "h = 2 m · 0.5 = 1 m",
+        "why": {
+          "de": "Die Höhe liegt dem Winkel gegenüber (Gegenkathete). Gegenkathete und Hypotenuse gehören zum Sinus.",
+          "en": "The height is opposite the angle (opposite side). Opposite side and hypotenuse belong to the sine."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Wie lang ist die Rampe am Boden gemessen (Grundlinie b)?",
+          "en": "How long is the ramp measured on the floor (base b)?"
+        },
+        "unit": "m",
+        "answer": 1.732,
+        "tolerance": 0.01,
+        "formula": "b = c · cos α",
+        "calc": "b = 2 m · 0.866 = 1.732 m",
+        "why": {
+          "de": "Die Grundlinie liegt am Winkel an (Ankathete). Ankathete und Hypotenuse gehören zum Kosinus.",
+          "en": "The base is next to the angle (adjacent side). Adjacent side and hypotenuse belong to the cosine."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "Sinus = Gegenkathete / Hypotenuse, Kosinus = Ankathete / Hypotenuse, Tangens = Gegenkathete / Ankathete.",
+      "en": "Sine = opposite / hypotenuse, cosine = adjacent / hypotenuse, tangent = opposite / adjacent."
+    }
+  },
+  {
+    "id": "m16-u06-kraft-arbeit-leistung",
+    "module": "M16",
+    "lernfeld": {
+      "EAT": [
+        1
+      ],
+      "MECH": [
+        1
+      ],
+      "IM": [
+        1
+      ]
+    },
+    "difficulty": 3,
+    "status": "draft",
+    "source": "Eigene Aufgabe. Technische Mathematik und Physik.",
+    "title": {
+      "de": "Kraft, Arbeit und Leistung beim Heben",
+      "en": "Force, work and power when lifting"
+    },
+    "situation": {
+      "de": "Ein Hubwerk hebt eine Last mit der Masse m = 200 kg in t = 10 s um h = 3 m. Rechne mit g = 9,81 m/s². Das Hubwerk hat den Wirkungsgrad η = 0,8.",
+      "en": "A hoist lifts a load with the mass m = 200 kg by h = 3 m in t = 10 s. Use g = 9.81 m/s². The hoist has the efficiency η = 0.8."
+    },
+    "steps": [
+      {
+        "prompt": {
+          "de": "Wie groß ist die Gewichtskraft F der Last?",
+          "en": "How large is the weight force F of the load?"
+        },
+        "unit": "N",
+        "answer": 1962,
+        "tolerance": 5,
+        "formula": "F = m · g",
+        "calc": "F = 200 kg · 9.81 m/s² = 1962 N",
+        "why": {
+          "de": "Die Masse wird von der Erde angezogen. Ein Kilogramm drückt mit etwa 10 N.",
+          "en": "The mass is attracted by the earth. One kilogram presses with about 10 N."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Hubarbeit W wird verrichtet?",
+          "en": "Which lifting work W is done?"
+        },
+        "unit": "J",
+        "answer": 5886,
+        "tolerance": 15,
+        "formula": "W = F · h",
+        "calc": "W = 1962 N · 3 m = 5886 J",
+        "why": {
+          "de": "Arbeit ist Kraft mal Weg in Richtung der Kraft.",
+          "en": "Work is force times distance in the direction of the force."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung Pab gibt das Hubwerk ab?",
+          "en": "Which power Pab does the hoist deliver?"
+        },
+        "unit": "W",
+        "answer": 588.6,
+        "tolerance": 2,
+        "formula": "Pab = W / t",
+        "calc": "Pab = 5886 J / 10 s = 588.6 W",
+        "why": {
+          "de": "Leistung ist Arbeit pro Zeit. Wer die gleiche Arbeit schneller macht, braucht mehr Leistung.",
+          "en": "Power is work per time. Doing the same work faster needs more power."
+        }
+      },
+      {
+        "prompt": {
+          "de": "Welche Leistung Pzu muss das Hubwerk aufnehmen?",
+          "en": "Which power Pzu must the hoist take in?"
+        },
+        "unit": "W",
+        "answer": 735.8,
+        "tolerance": 2.5,
+        "formula": "Pzu = Pab / η",
+        "calc": "Pzu = 588.6 W / 0.8 = 735.8 W",
+        "why": {
+          "de": "Ein Teil der Leistung geht als Wärme verloren. Die aufgenommene Leistung ist deshalb größer als die abgegebene.",
+          "en": "A part of the power is lost as heat. So the power taken in is larger than the power delivered."
+        }
+      }
+    ],
+    "takeaway": {
+      "de": "F = m · g, W = F · s, P = W / t, η = Pab / Pzu. Diese Kette brauchst du in fast jedem Beruf.",
+      "en": "F = m · g, W = F · s, P = W / t, η = Pab / Pzu. You need this chain in almost every trade."
+    }
+  }
+]
